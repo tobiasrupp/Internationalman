@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.7'
-gem 'bootstrap-sass', '2.0.0'
+#gem 'bootstrap-sass', '2.0.0'
 # gem 'sass-rails',   '3.2.4'
 # gem 'activeadmin'
 # gem "meta_search",    '>= 1.1.0.pre'
@@ -31,5 +31,5 @@ group :test do
 end
 
 group :production do
-  # gem 'pg', '0.12.2'
+  gem 'pg', '0.12.2'
 end
