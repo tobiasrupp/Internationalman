@@ -1,4 +1,9 @@
 Intlman::Application.routes.draw do
+  root to: 'pages#home'
+  match '/main/about',   to: 'pages#about'
+  match '/main/contact', to: 'pages#contact'
+  match '/main',    to: 'pages#main'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
