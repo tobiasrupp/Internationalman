@@ -18,16 +18,48 @@
         </div>
       </div>    
       <div class="row-fluid">
-        <div class="span2">
-          <%= link_to 'Stories', '#' %><br>
-          <%= link_to 'Radio', '#' %><br>
-          <%= link_to 'TV', '#' %><br>
-          <%= link_to 'Corporate', '#' %><br>
-          <%= link_to 'Blog', '#' %><br>
-          <%= link_to 'Über mich', about_path %><br>
-          <%= link_to 'Kontakt', contact_path %><br>
+        <div class="span1.5">
+          <ul class="nav nav-list">
+            <li class="nav-header">
+            </li>
+            <li class="active">
+              <%= link_to 'Stories', '#' %>
+            </li>
+            <li>
+              <%= link_to 'Radio', '#' %>
+            </li>
+            <li>
+              <%= link_to 'TV', '#' %>
+            </li><li>
+              <%= link_to 'Corporate', '#' %>
+            </li><li>
+              <%= link_to 'Blog', '#' %>
+            </li><li>
+              <%= link_to 'Über mich', about_path %>
+            </li><li>
+              <%= link_to 'Kontakt', contact_path %>
+            </li>
+          </ul>
         </div>
-        <div class="span10">
+        <div class="span2">
+          <ul class="nav nav-list">
+            <li class="nav-header">
+            </li>
+            <li class="active">
+              <%= link_to 'Item 1', '#' %>
+            </li>
+            <li>
+              <%= link_to 'Item 2', '#' %>
+            </li>
+            <li>
+              <%= link_to 'Item 3', '#' %>
+            </li>
+            <li>
+              <%= link_to 'Item 4', '#' %>
+            </li>
+          </ul>
+        </div>
+        <div class="span8.5">
           <div class="container">
             <%= yield %>
             <%= render 'layouts/footer' %>
