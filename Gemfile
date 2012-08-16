@@ -5,9 +5,10 @@ gem 'bootstrap-sass', '2.0.0'
 # gem 'sass-rails',   '3.2.4'
 # gem 'activeadmin'
 # gem "meta_search",    '>= 1.1.0.pre'
+gem 'pg', '0.12.2'
 
 group :development, :test do
-  gem 'sqlite3', '1.3.5'
+  # gem 'sqlite3', '1.3.5'
   gem 'rspec-rails', '2.10.0'
 end
 
@@ -31,5 +32,5 @@ group :test do
 end
 
 group :production do
-  gem 'pg', '0.12.2'
+  # gem 'pg', '0.12.2'
 end
