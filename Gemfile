@@ -3,10 +3,10 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.7'
 gem 'bootstrap-sass', '2.0.0'
 gem 'sass-rails',   '3.2.4'
-gem 'activeadmin'
-gem "meta_search",    '>= 1.1.0.pre'
 gem 'country-select'
 gem 'pg', '0.12.2'
+gem 'activeadmin'
+gem "meta_search",    '>= 1.1.0.pre'
 
 group :development, :test do
   # gem 'sqlite3', '1.3.5'
