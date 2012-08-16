@@ -43,7 +43,9 @@ ActiveAdmin::Dashboards.build do
   
   section "Recent Articles" do
     table_for Article.order("published_date desc").limit(5) do
-      column :title 
+      column :title do |article|
+        link_to article.title, [:admin, article]
+      end
       column :published_date
     end
     strong { link_to "View All Articles", admin_articles_path }

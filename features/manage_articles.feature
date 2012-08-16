@@ -3,9 +3,12 @@ Feature: Manage Articles
 	As a site admin
 	I want to create, show, edit and delete articles
 
-Scenario: Create Valid Article
+Background:
 	Given an admin user exists with email: "admin@example.com" and password: "password"
-	And no article exists
+	And I log in with this user
+
+Scenario: Create Valid Article
+	Given no article exists
 	And I am on the articles page
 	When I click on "New Article"
 	And I fill in "Title" with "Neuer Artikel"
@@ -22,4 +25,10 @@ Scenario: Create Valid Article
 	And I click on "Create Article"
 	Then 1 article should exist
 	And I should see "Article was successfully created"
-	
+
+Scenario: Navigate to article by clicking link on Dashboard 
+	Given 1 article exists with title: "Ein neuer Artikel"
+	And I am on on the Dashboard
+	When I click on the link "Ein neuer Artikel"
+	Then I should see "Article Details"
+	And I should see "Ein neuer Artikel"

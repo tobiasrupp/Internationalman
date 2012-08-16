@@ -4,15 +4,19 @@ Given /^an admin user exists with email: "(.*?)" and password: "(.*?)"$/ do |arg
   create_model('admin_user', {email: arg1, password: arg2})
 end
 
+Given /^I log in with this user$/ do
+  visit('/admin/login')
+  fill_in('Email', with: "admin@example.com")
+  fill_in('Password', with: 'password')
+  click_button('Login')
+end
+
 Given /^no article exists$/ do
   Article.count == 0
 end
 
 Given /^I am on the articles page$/ do
   visit('/admin/articles')
-  fill_in('Email', with: "admin@example.com")
-  fill_in('Password', with: 'password')
-  click_button('Login')
   current_path.should == '/admin/articles'
 end
 
@@ -38,3 +42,19 @@ end
 Then /^(\d+) article should exist$/ do |arg1|
   Article.count == arg1.to_i
 end
+
+# Scenario: Navigate to article by click Dashboard link
+
+Given /^1 article exists with title: "(.*?)"$/ do |arg1|
+  create_model('article', {title: arg1})
+end
+
+Given /^I am on on the Dashboard$/ do
+  visit('/admin')
+  current_path.should == '/admin'
+end
+
+When /^I click on the link "(.*?)"$/ do |arg1|
+  click_on(arg1)
+end
+
