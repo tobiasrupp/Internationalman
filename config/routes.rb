@@ -1,4 +1,8 @@
 Intlman::Application.routes.draw do
+  ActiveAdmin.routes(self)
+
+  devise_for :admin_users, ActiveAdmin::Devise.config
+
   root to: 'pages#home'
   match '/about',   to: 'pages#about'
   match '/contact', to: 'pages#contact'
