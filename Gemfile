@@ -30,6 +30,7 @@ group :test do
   gem 'launchy', '2.1.2'
   gem 'factory_girl_rails', '1.4.0'
   gem 'pickle', '0.4.11'
+  gem 'simplecov', :require => false
 end
 
 group :production do
