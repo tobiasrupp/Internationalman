@@ -34,6 +34,9 @@ module NavigationHelpers
     when /Homepage/
       root_path
 
+    when /Main page/
+      main_path 
+
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #

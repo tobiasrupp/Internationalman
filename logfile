@@ -4,3 +4,5 @@ LOG:  database system is ready to accept connections
 ERROR:  cached plan must not change result type
 STATEMENT:  SELECT  "pages".* FROM "pages"  WHERE "pages"."id" = $1 LIMIT 1
 FATAL:  database "intlman_test" does not exist
+ERROR:  invalid input syntax for integer: "first" at character 63
+STATEMENT:  SELECT  "articles".* FROM "articles"  WHERE "articles"."id" = 'first' LIMIT 1
