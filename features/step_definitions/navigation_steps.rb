@@ -21,12 +21,13 @@ Given /^the following article_ids_category_ids records$/ do |table|
 end
 
 Then /^(\d+) article_ids_category_ids records should exist$/ do |arg1|
- 	articles = Article.find(:all)
- 	cats = []
-  articles.each do |article|
-  	if !article.categories.blank?
-  		cats = cats<<article.categories
-  	end
-  end
-  cats.count.should == arg1.to_i
+ 	ArticleCategory.count.should == arg1.to_i
+  # articles = Article.find(:all)
+ 	# cats = []
+  # articles.each do |article|
+  # 	if !article.categories.blank?
+  # 		cats = cats<<article.categories
+  # 	end
+  # end
+  # cats.count.should == arg1.to_i
 end
