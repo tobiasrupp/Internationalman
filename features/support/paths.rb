@@ -25,6 +25,15 @@ module NavigationHelpers
     when /^#{capture_model}(?:'s)? (.+?) page$/                     # eg. the forum's posts page
       path_to_pickle $1, :extra => $2                               #  or the forum's edit page
 
+    when /Contact page/
+      contact_path
+    
+    when /About page/
+      about_path
+
+    when /Homepage/
+      root_path
+
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #

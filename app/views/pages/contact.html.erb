@@ -1,13 +1,6 @@
-<% provide(:title, "Kontakt") %>
-
-<h2>Kontakt</h2>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi anim id est laborum.</p>
-<address>
-<strong>Alexander Bühler</strong><br>
-Max-Brauer-Allee 253<br>
-D-22769 Hamburg<br>
-Tel. +49 (040)-87873494<br>
-Email <a href="mailto:alexanderbühler@yahoo.de">alexanderbühler@yahoo.de</a><br>
-</address>
+<% if !@page_title.nil? %>
+	<% provide(:title, @page_title) %>
+<% end %>
+<% if !@page_body.nil? %>
+	<%= raw @page_body %>
+<% end %>

@@ -25,6 +25,30 @@ When /^I click on "(.*?)"$/ do |arg1|
 end
 
 # Scenario: Show About Me Page
+
+Given /^a page exists with title: "(.*?)", page_type: "(.*?)" and body: "(.*?)"$/ do |title, page_type, body|
+  Page.create!(title: title, page_type: page_type, body: body)
+end
+
 Given /^I am on the Main Page$/ do
   visit main_path
 end
+
+# Scenario: Edit Contact Page
+
+Given /^I am the Pages page$/ do
+  visit('/admin/pages')
+end
+
+Given /^No page exists$/ do
+  Page.count == 0
+end
+
+Then /^(\d+) page should exist$/ do |arg1|
+  Page.count == arg1
+end
+
+When /^I go to the "(.*?)"$/ do |page|
+  visit(path_to(page))
+end
+

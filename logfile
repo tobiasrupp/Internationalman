@@ -1,0 +1,6 @@
+LOG:  database system was shut down at 2012-08-17 01:35:56 BST
+LOG:  autovacuum launcher started
+LOG:  database system is ready to accept connections
+ERROR:  cached plan must not change result type
+STATEMENT:  SELECT  "pages".* FROM "pages"  WHERE "pages"."id" = $1 LIMIT 1
+FATAL:  database "intlman_test" does not exist
