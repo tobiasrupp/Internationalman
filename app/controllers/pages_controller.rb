@@ -25,7 +25,7 @@ class PagesController < ApplicationController
     # determine category
     current_category = get_category_from_story(current_article)
     @stories = current_category.articles
-
+    @selected_article = current_article
   end
 
   def contact

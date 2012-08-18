@@ -51,6 +51,6 @@ Scenario: Navigate to article
 	And I should see "Autor: Alex"
 	And I should see "Titel: Artikel7"
 	And I should see "Erschienen in: Die Zeit"
-	And I should see "Erscheinungsdatum: 1.1.2006"
+	And I should see "Erscheinungsdatum: January 01, 2006"
 	And I should see "Fotos: Eiko Weishaupt"
 	
