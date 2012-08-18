@@ -13,16 +13,16 @@ Background:
 		|Waffenhandel|
 		|Corporate|
 	And the following articles records
-		|title|language|author|published_date|
-		|Artikel1|Deutsch|Alex|20000101|
-		|Artikel2|Deutsch|Alex|20010101|
-		|Artikel3|Deutsch|Alex|20020101|
-		|Artikel4|Deutsch|Alex|20030101|
-		|Artikel5|Deutsch|Alex|20040101|
-		|Artikel6|Deutsch|Alex|20050101|
-		|Artikel7|Deutsch|Alex|20060101|
-		|Artikel8|Deutsch|Alex|20070101|
-		|Artikel9|Deutsch|Alex|20080101|
+		|title|language|author|published_date|published_in|photos_by|
+		|Artikel1|Deutsch|Alex|20000101|Testo|T. Rupp|
+		|Artikel2|Deutsch|Alex|20010101|Financial Times|Eiko Weishaupt|
+		|Artikel3|Deutsch|Alex|20020101|ZDF|T. Rupp|
+		|Artikel4|Deutsch|Alex|20030101|ARD|T. Rupp|
+		|Artikel5|Deutsch|Alex|20040101|Eine Zeitung||
+		|Artikel6|Deutsch|Alex|20050101|Der Spiegel|Eiko Weishaupt|
+		|Artikel7|Deutsch|Alex|20060101|Die Zeit|Eiko Weishaupt|
+		|Artikel8|Deutsch|Alex|20070101|BASF|Eiko Weishaupt|
+		|Artikel9|Deutsch|Alex|20080101|Shell|Eiko Weishaupt|
 	And the following article_ids_category_ids records
 		|article_title|category_name|
 		|Artikel1|Afrika|
@@ -41,3 +41,16 @@ Background:
 @focus
 Scenario: Navigate to article
 	When I go to the "Main page"
+	Then I should see "Stories"
+	And I should see "Afrika"
+	And I should see "Asien"
+	And I should see "Lateinamerika"
+	And I should see "Waffenhandel"
+	And I should see "Artikel7"
+	And I should see "Artikel5"
+	And I should see "Autor: Alex"
+	And I should see "Titel: Artikel7"
+	And I should see "Erschienen in: Die Zeit"
+	And I should see "Erscheinungsdatum: 1.1.2006"
+	And I should see "Fotos: Eiko Weishaupt"
+	

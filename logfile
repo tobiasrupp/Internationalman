@@ -6,3 +6,39 @@ STATEMENT:  SELECT  "pages".* FROM "pages"  WHERE "pages"."id" = $1 LIMIT 1
 FATAL:  database "intlman_test" does not exist
 ERROR:  invalid input syntax for integer: "first" at character 63
 STATEMENT:  SELECT  "articles".* FROM "articles"  WHERE "articles"."id" = 'first' LIMIT 1
+LOG:  database system was shut down at 2012-08-17 23:47:11 BST
+LOG:  autovacuum launcher started
+LOG:  database system is ready to accept connections
+ERROR:  syntax error at or near ":" at character 73
+STATEMENT:  SELECT "categories".* FROM "categories"  WHERE (name <> 'Corporate' and :articles <> '')
+ERROR:  syntax error at or near ":" at character 73
+STATEMENT:  SELECT "categories".* FROM "categories"  WHERE (name <> 'Corporate' and :articles <> nil)
+ERROR:  syntax error at or near ":" at character 73
+STATEMENT:  SELECT "categories".* FROM "categories"  WHERE (name <> 'Corporate' and :article_ids <> nil )
+ERROR:  syntax error at or near ":" at character 73
+STATEMENT:  SELECT "categories".* FROM "categories"  WHERE (name <> 'Corporate' and :article_ids <> nil )
+ERROR:  column "article_ids" does not exist at character 73
+STATEMENT:  SELECT "categories".* FROM "categories"  WHERE (name <> 'Corporate' and article_ids <> nil )
+ERROR:  column "articles" does not exist at character 73
+STATEMENT:  SELECT "categories".* FROM "categories"  WHERE (name <> 'Corporate' and articles <> nil )
+ERROR:  column "articles" does not exist at character 73
+STATEMENT:  SELECT "categories".* FROM "categories"  WHERE (name <> 'Corporate' and articles <> nil )
+ERROR:  column cat.article_id does not exist at character 78
+STATEMENT:  SELECT "categories".* FROM "categories" as cat inner join articles as art on cat.article_id = art.id WHERE (name <> 'Corporate' and art.title <> '')
+ERROR:  column cat.article_id does not exist at character 78
+STATEMENT:  SELECT "categories".* FROM "categories" as cat inner join articles as art on cat.article_id = art.id WHERE (name <> 'Corporate' and art.title <> '')
+ERROR:  missing FROM-clause entry for table "articles" at character 73
+STATEMENT:  SELECT "categories".* FROM "categories"  WHERE (name <> 'Corporate' and articles.empty? = false)
+ERROR:  column articles.blank does not exist at character 857
+STATEMENT:  SELECT "categories"."id" AS t0_r0, "categories"."name" AS t0_r1, "categories"."created_at" AS t0_r2, "categories"."updated_at" AS t0_r3, "articles"."id" AS t1_r0, "articles"."title" AS t1_r1, "articles"."language" AS t1_r2, "articles"."country" AS t1_r3, "articles"."longitude" AS t1_r4, "articles"."latitude" AS t1_r5, "articles"."article_type" AS t1_r6, "articles"."published_date" AS t1_r7, "articles"."published_in" AS t1_r8, "articles"."filename" AS t1_r9, "articles"."author" AS t1_r10, "articles"."photos_by" AS t1_r11, "articles"."created_at" AS t1_r12, "articles"."updated_at" AS t1_r13 FROM "categories" LEFT OUTER JOIN "article_categories" ON "article_categories"."category_id" = "categories"."id" LEFT OUTER JOIN "articles" ON "articles"."id" = "article_categories"."article_id" WHERE (name <> 'Corporate' and
+	                                  articles.blank? = TRUE)
+ERROR:  aggregates not allowed in WHERE clause at character 857
+STATEMENT:  SELECT "categories"."id" AS t0_r0, "categories"."name" AS t0_r1, "categories"."created_at" AS t0_r2, "categories"."updated_at" AS t0_r3, "articles"."id" AS t1_r0, "articles"."title" AS t1_r1, "articles"."language" AS t1_r2, "articles"."country" AS t1_r3, "articles"."longitude" AS t1_r4, "articles"."latitude" AS t1_r5, "articles"."article_type" AS t1_r6, "articles"."published_date" AS t1_r7, "articles"."published_in" AS t1_r8, "articles"."filename" AS t1_r9, "articles"."author" AS t1_r10, "articles"."photos_by" AS t1_r11, "articles"."created_at" AS t1_r12, "articles"."updated_at" AS t1_r13 FROM "categories" LEFT OUTER JOIN "article_categories" ON "article_categories"."category_id" = "categories"."id" LEFT OUTER JOIN "articles" ON "articles"."id" = "article_categories"."article_id" WHERE (name <> 'Corporate' and
+	                                  articles.count > 0)
+FATAL:  database "intlman_test" does not exist
+ERROR:  column "sequence" does not exist at character 79
+STATEMENT:  SELECT "categories".* FROM "categories"  WHERE (name <> 'Corporate') ORDER BY sequence DESC
+ERROR:  cached plan must not change result type
+STATEMENT:  SELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1
+ERROR:  syntax error at or near "display_sequence" at character 254
+STATEMENT:  SELECT "categories".*, "t0"."article_id" AS ar_association_key_name FROM "categories" INNER JOIN "article_categories" "t0" ON "categories"."id" = "t0"."category_id" WHERE "t0"."article_id" IN (9, 7, 10, 6, 5, 4, 2, 3, 8, 1) ORDER BY display_section ASC display_sequence ASC
