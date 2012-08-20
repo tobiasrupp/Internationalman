@@ -4,4 +4,8 @@ class StoriesController < ApplicationController
 
   def show
   end
+
+  def show_current_story
+
+  end
 end

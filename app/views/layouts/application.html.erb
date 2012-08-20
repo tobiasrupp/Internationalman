@@ -18,69 +18,69 @@
         </div>
       </div>    
       <div class="row">
-        <% if !@story_categories.nil? %> 
-          <div class="span1.5" id="navicol_1">
+        <div class="span1.5" id="navicol_1">
+          <ul class="nav nav-list">
+            <li class="nav-header">
+            </li>
+            <li class="active">
+              <%= link_to 'Stories', stories_path %>
+            </li>
+            <li>
+              <%= link_to 'Radio', radio_path %>
+            </li>
+            <li>
+              <%= link_to 'TV', tv_path %>
+            </li><li>
+              <%= link_to 'Corporate', corporate_path %>
+            </li><li>
+              <%= link_to 'Blog', blog_path %>
+            </li><li>
+              <%= link_to 'Über mich', about_path %>
+            </li><li>
+              <%= link_to 'Kontakt', contact_path %>
+            </li>
+          </ul>
+        </div>
+        <div class="span1.5" id="navicol_2">
+          <!-- <% if !@story_categories.nil? %> -->
             <ul class="nav nav-list">
               <li class="nav-header">
               </li>
-              <li class="active">
-                <%= link_to 'Stories', '#' %>
+            <!--   <li class="active">
+                <%= link_to 'Item 1', '#' %>
               </li>
               <li>
-                <%= link_to 'Radio', '#' %>
-              </li>
-              <li>
-                <%= link_to 'TV', '#' %>
-              </li><li>
-                <%= link_to 'Corporate', '#' %>
-              </li><li>
-                <%= link_to 'Blog', '#' %>
-              </li><li>
-                <%= link_to 'Über mich', about_path %>
-              </li><li>
-                <%= link_to 'Kontakt', contact_path %>
-              </li>
-            </ul>
-          </div>
-          <div class="span1.5" id="navicol_2">
-            <!-- <% if !@story_categories.nil? %> -->
-              <ul class="nav nav-list">
-                <li class="nav-header">
-                </li>
-              <!--   <li class="active">
-                  <%= link_to 'Item 1', '#' %>
-                </li>
+                <%= link_to 'Item 2', '#' %>
+              </li> -->
+              <% for category in @story_categories %>
                 <li>
-                  <%= link_to 'Item 2', '#' %>
-                </li> -->
-                <% for category in @story_categories %>
+                  <%= link_to category.name, '#' %>
+                </li>
+              <% end %>
+            </ul>
+          <!-- <% end %> -->
+        </div>
+        <div class="span1.5" id="navicol_3">
+            <ul class="nav nav-list">
+              <li class="nav-header">
+              </li>
+              <% if !@stories.nil? %>
+                <% for article in @stories %>
                   <li>
-                    <%= link_to category.name, '#' %>
+                    <%= link_to article.title, '#' %>
                   </li>
                 <% end %>
-              </ul>
-            <!-- <% end %> -->
-          </div>
-          <div class="span1.5" id="navicol_3">
-              <ul class="nav nav-list">
-                <li class="nav-header">
-                </li>
-                <% if !@stories.nil? %>
-                  <% for article in @stories %>
-                    <li>
-                      <%= link_to article.title, '#' %>
-                    </li>
-                  <% end %>
-                <% end %>
-              </ul>
-          </div>
-        <% end %>
+              <% end %>
+            </ul>
+        </div>
         <div class="span6.5">
           <div class="">
             <%= yield %>
-            <%= render 'layouts/footer' %>
           </div>
         </div>
+      </div>
+      <div class="row">
+        <%= render 'layouts/footer' %>
       </div>
     </div>
   </body>

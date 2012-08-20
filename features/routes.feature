@@ -26,7 +26,28 @@ Scenario: Routing to frontend pages
 	When I enter the URL "/blog"
 	Then the page should be found
 
+	When I enter the URL "/blog/2010"
+	Then the page should be found
+
+	When I enter the URL "/blog/2010/9"
+	Then the page should be found
+
+	When I enter the URL "/blog/afrika"
+	Then the page should be found
+
 	When I enter the URL "/stories"
+	Then the page should be found
+
+	When I enter the URL "/stories/asien"
+	Then the page should be found
+
+	When I enter the URL "/stories/afrika/artikel-ueber-afrika"
+	Then the page should be found
+
+	When I enter the URL "/stories/afrika/2001"
+	Then the page should be found
+
+	When I enter the URL "/stories/2001"
 	Then the page should be found
 
 

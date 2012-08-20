@@ -30,10 +30,18 @@ Intlman::Application.routes.draw do
   root to: 'pages#home'
   
   match '/stories',   to: 'stories#index'
+  match '/stories(/:category)(/:article_title)', to: 'stories#index',
+    :constraints => { :category => /[a-z]+/, :article_title => /[a-z\d-]+/ }
+   match '/stories(/:category)(/:year)', to: 'stories#index',
+     :constraints => { :category => /[a-z]+/, :year => /\d{4}/ }
+
   match '/tv',      to: 'videos#index'
   match '/radio',   to: 'radio_tracks#index'
   match '/corporate',   to: 'corporate_articles#index'
+
   match '/blog',    to: 'posts#index'
+  match '/blog(/:category)(/:year)(/:month)',    to: 'posts#index'
+
   match '/about',   to: 'pages#about'
   match '/contact', to: 'pages#contact'
   
