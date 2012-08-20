@@ -24,7 +24,6 @@ class PagesController < ApplicationController
     current_article = get_latest_story
 
     # determine category
-    puts current_article
     current_category = get_category_from_story(current_article)
     if !current_category.nil?
       @stories = current_category.articles
@@ -69,8 +68,6 @@ class PagesController < ApplicationController
     end
   end
   def get_category_from_story(story)
-puts story
-    puts story.categories
     if story.categories.nil?
       return
     end
