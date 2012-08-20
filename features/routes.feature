@@ -20,9 +20,13 @@ Scenario: Routing to frontend pages
 	When I enter the URL "/radio"
 	Then the page should be found
 
+	When I enter the URL "/corporate"
+	Then the page should be found
+
 	When I enter the URL "/blog"
 	Then the page should be found
 
-	
+	When I enter the URL "/stories"
+	Then the page should be found
 
 

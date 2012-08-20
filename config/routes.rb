@@ -1,4 +1,12 @@
 Intlman::Application.routes.draw do
+  get "stories/index"
+
+  get "stories/show"
+
+  get "corporate_articles/index"
+
+  get "corporate_articles/show"
+
   get "radio_tracks/index"
 
   get "radio_tracks/show"
@@ -21,8 +29,10 @@ Intlman::Application.routes.draw do
 
   root to: 'pages#home'
   
+  match '/stories',   to: 'stories#index'
   match '/tv',      to: 'videos#index'
   match '/radio',   to: 'radio_tracks#index'
+  match '/corporate',   to: 'corporate_articles#index'
   match '/blog',    to: 'posts#index'
   match '/about',   to: 'pages#about'
   match '/contact', to: 'pages#contact'

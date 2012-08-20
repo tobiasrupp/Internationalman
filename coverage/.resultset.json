@@ -133,13 +133,17 @@
         1,
         null,
         1,
-        9,
-        9,
-        3,
+        11,
+        11,
+        5,
         null,
         6,
         null,
         null,
+        null
+      ],
+      "/Users/tobias/dev/rails_projects/intlman/app/helpers/corporate_articles_helper.rb": [
+        1,
         null
       ],
       "/Users/tobias/dev/rails_projects/intlman/app/helpers/pages_helper.rb": [
@@ -151,6 +155,10 @@
         null
       ],
       "/Users/tobias/dev/rails_projects/intlman/app/helpers/radio_tracks_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/tobias/dev/rails_projects/intlman/app/helpers/stories_helper.rb": [
         1,
         null
       ],
@@ -242,6 +250,15 @@
         null,
         1,
         null,
+        null,
+        null,
+        1,
+        null,
+        null
+      ],
+      "/Users/tobias/dev/rails_projects/intlman/app/controllers/corporate_articles_controller.rb": [
+        1,
+        1,
         null,
         null,
         1,
@@ -359,6 +376,15 @@
         null,
         null
       ],
+      "/Users/tobias/dev/rails_projects/intlman/app/controllers/stories_controller.rb": [
+        1,
+        1,
+        null,
+        null,
+        1,
+        null,
+        null
+      ],
       "/Users/tobias/dev/rails_projects/intlman/app/controllers/videos_controller.rb": [
         1,
         1,
@@ -374,6 +400,6 @@
         null
       ]
     },
-    "timestamp": 1345468080
+    "timestamp": 1345468627
   }
 }
