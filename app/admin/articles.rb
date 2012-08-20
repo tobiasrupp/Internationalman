@@ -2,7 +2,6 @@ ActiveAdmin.register Article do
 	index do
 		# column :id
     column :title
-    column :language
     # column :country
     column :author
     # column :photos_by
@@ -15,12 +14,14 @@ ActiveAdmin.register Article do
     column :published_date
     # column :published_in
     # column :filename
+    column :url_title
 		default_actions
   end
 
   form do |f|
     f.inputs do
       f.input :title
+      f.input :url_title
       f.input :language
   		f.input :country
   		f.input :author
@@ -48,6 +49,10 @@ ActiveAdmin.register Article do
             tr do
               th { 'Title' }
               td { article.title }
+            end
+            tr do
+              th { 'Url Title' }
+              td { article.url_title }
             end
             tr do
               th { 'Language' }

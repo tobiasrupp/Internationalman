@@ -20,41 +20,67 @@
       <div class="row">
         <div class="span1.5" id="navicol_1">
           <ul class="nav nav-list">
-            <li class="nav-header">
-            </li>
-            <li class="active">
+            <% if request.params["controller"] == "stories" %>
+              <li class="active">
+            <% else %>
+              <li>
+            <% end  %>
               <%= link_to 'Stories', stories_path %>
             </li>
-            <li>
+            <% if request.params["controller"] == "radio_tracks" %>
+              <li class="active">
+            <% else %>
+              <li>
+            <% end  %>
               <%= link_to 'Radio', radio_path %>
             </li>
-            <li>
+            <% if request.params["controller"] == "videos" %>
+              <li class="active">
+            <% else %>
+              <li>
+            <% end  %>
               <%= link_to 'TV', tv_path %>
-            </li><li>
+            </li>
+            <% if request.params["controller"] == "corporate_articles" %>
+              <li class="active">
+            <% else %>
+              <li>
+            <% end  %>
               <%= link_to 'Corporate', corporate_path %>
-            </li><li>
+            </li>
+            <% if request.params["controller"] == "posts" %>
+              <li class="active">
+            <% else %>
+              <li>
+            <% end  %>
               <%= link_to 'Blog', blog_path %>
-            </li><li>
+            </li>
+            <% if request.params["action"] == "about" %>
+              <li class="active">
+            <% else %>
+              <li>
+            <% end  %>
               <%= link_to 'Über mich', about_path %>
-            </li><li>
+            </li>
+            <% if request.params["action"] == "contact" %>
+              <li class="active">
+            <% else %>
+              <li>
+            <% end  %>
               <%= link_to 'Kontakt', contact_path %>
             </li>
           </ul>
         </div>
         <div class="span1.5" id="navicol_2">
           <!-- <% if !@story_categories.nil? %> -->
-            <ul class="nav nav-list">
-              <li class="nav-header">
-              </li>
-            <!--   <li class="active">
-                <%= link_to 'Item 1', '#' %>
-              </li>
-              <li>
-                <%= link_to 'Item 2', '#' %>
-              </li> -->
+            <ul class="nav nav-list"> 
               <% for category in @story_categories %>
-                <li>
-                  <%= link_to category.name, '#' %>
+                <% if category == @selected_category %>
+                  <li class="active">
+                <% else %>
+                  <li>
+                <% end  %>
+                  <%= link_to category.name, stories_path + '/' + category.url_name %>
                 </li>
               <% end %>
             </ul>
@@ -62,12 +88,15 @@
         </div>
         <div class="span1.5" id="navicol_3">
             <ul class="nav nav-list">
-              <li class="nav-header">
-              </li>
               <% if !@stories.nil? %>
                 <% for article in @stories %>
-                  <li>
-                    <%= link_to article.title, '#' %>
+                  <% if article == @selected_article %>
+                    <li class="active">
+                  <% else %>
+                    <li>
+                  <% end  %>
+                    <%= link_to article.title, stories_path + '/' + 
+                      @selected_category.url_name + '/' + article.url_title %>
                   </li>
                 <% end %>
               <% end %>
@@ -75,6 +104,7 @@
         </div>
         <div class="span6.5">
           <div class="">
+            <%= render 'shared/message' %>
             <%= yield %>
           </div>
         </div>

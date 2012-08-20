@@ -29,9 +29,9 @@ Intlman::Application.routes.draw do
 
   root to: 'pages#home'
   
-  match '/stories',   to: 'stories#index'
-  match '/stories(/:category)(/:article_title)', to: 'stories#index',
-    :constraints => { :category => /[a-z]+/, :article_title => /[a-z\d-]+/ }
+  match '/stories',   to: 'stories#show_stories'
+  match '/stories(/:category(/:article_title))', to: 'stories#show_stories_by_category',
+    :constraints => { :category => /[a-z-]+/, :article_title => /[a-z\d-]+/ }
    match '/stories(/:category)(/:year)', to: 'stories#index',
      :constraints => { :category => /[a-z]+/, :year => /\d{4}/ }
 

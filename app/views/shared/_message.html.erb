@@ -1,0 +1,9 @@
+<% flash.each do |key, msg| %>
+	<% if key == :error %>
+		<span class="label label-important">
+	<% else %>
+		<span class="label label-info">
+	<% end %>
+  <%= msg %></span>
+  <div class="clear"></div>
+<% end %>

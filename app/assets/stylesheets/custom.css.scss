@@ -122,12 +122,28 @@ footer {
 }
 #navicol_1 {
   text-transform: uppercase;
+  .active {
+  }
 }
 #navicol_2 {
   text-transform: lowercase;
+  .active {
+  }
 }
 #navicol_3 {
   text-transform: lowercase;
+  .active {
+  }
 }
-
-
+.nav-list > .active > a {
+    background-color: transparent;
+    color: black;
+    font-weight: bold;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
+}
+.nav-list > .active > a:hover {
+      background-color: $grayMediumLight;
+      // color: #0088CC;
+      color: black;
+      text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
+}
