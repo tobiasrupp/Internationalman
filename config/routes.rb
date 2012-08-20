@@ -1,11 +1,32 @@
 Intlman::Application.routes.draw do
+  get "radio_tracks/index"
+
+  get "radio_tracks/show"
+
+  get "posts/index"
+
+  get "posts/show"
+
+  get "audio_tracks/index"
+
+  get "audio_tracks/show"
+
+  get "videos/show"
+
+  get "videos/index"
+
   ActiveAdmin.routes(self)
 
   devise_for :admin_users, ActiveAdmin::Devise.config
 
   root to: 'pages#home'
+  
+  match '/tv',      to: 'videos#index'
+  match '/radio',   to: 'radio_tracks#index'
+  match '/blog',    to: 'posts#index'
   match '/about',   to: 'pages#about'
   match '/contact', to: 'pages#contact'
+  
   match '/main',    to: 'pages#main'
 
   # The priority is based upon order of creation:
