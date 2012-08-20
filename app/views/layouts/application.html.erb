@@ -19,7 +19,7 @@
       </div>    
       <div class="row">
         <% if !@story_categories.nil? %> 
-          <div class="span1.5">
+          <div class="span1.5" id="navicol_1">
             <ul class="nav nav-list">
               <li class="nav-header">
               </li>
@@ -42,7 +42,7 @@
               </li>
             </ul>
           </div>
-          <div class="span1.5">
+          <div class="span1.5" id="navicol_2">
             <!-- <% if !@story_categories.nil? %> -->
               <ul class="nav nav-list">
                 <li class="nav-header">
@@ -61,14 +61,16 @@
               </ul>
             <!-- <% end %> -->
           </div>
-          <div class="span1.5">
+          <div class="span1.5" id="navicol_3">
               <ul class="nav nav-list">
                 <li class="nav-header">
                 </li>
-                <% for article in @stories %>
-                  <li>
-                    <%= link_to article.title, '#' %>
-                  </li>
+                <% if !@stories.nil? %>
+                  <% for article in @stories %>
+                    <li>
+                      <%= link_to article.title, '#' %>
+                    </li>
+                  <% end %>
                 <% end %>
               </ul>
           </div>

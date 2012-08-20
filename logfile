@@ -42,3 +42,11 @@ ERROR:  cached plan must not change result type
 STATEMENT:  SELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1
 ERROR:  syntax error at or near "display_sequence" at character 254
 STATEMENT:  SELECT "categories".*, "t0"."article_id" AS ar_association_key_name FROM "categories" INNER JOIN "article_categories" "t0" ON "categories"."id" = "t0"."category_id" WHERE "t0"."article_id" IN (9, 7, 10, 6, 5, 4, 2, 3, 8, 1) ORDER BY display_section ASC display_sequence ASC
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+LOG:  database system was shut down at 2012-08-18 22:57:39 BST
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+FATAL:  database "intlman_test" does not exist

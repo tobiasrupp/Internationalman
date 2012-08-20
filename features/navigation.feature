@@ -6,12 +6,12 @@ Feature: Sidebar Navigation
 
 Background:
 	Given the following categories records
-		|name|
-		|Afrika|
-		|Asien|
-		|Lateinamerika|
-		|Waffenhandel|
-		|Corporate|
+		|name|display_sequence|display_section|
+		|Afrika|2|1|
+		|Asien|1|1|
+		|Lateinamerika|3|1|
+		|Waffenhandel|1|2|
+		|Corporate|||
 	And the following articles records
 		|title|language|author|published_date|published_in|photos_by|
 		|Artikel1|Deutsch|Alex|20000101|Testo|T. Rupp|
@@ -38,7 +38,6 @@ Background:
 	And 9 articles should exist
 	And 9 article_ids_category_ids records should exist
 
-@focus
 Scenario: Navigate to article
 	When I go to the "Main page"
 	Then I should see "Stories"

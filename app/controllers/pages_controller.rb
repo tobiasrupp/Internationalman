@@ -10,27 +10,31 @@ class PagesController < ApplicationController
                                   :include => :articles,
                                   :conditions =>"name <> 'Corporate'",
                                   :order => "display_sequence DESC")
+    if story_categories.count == 0
+      @page_body = "<span class=\"label label-important\">Keine Kategorien gefunden. Pflege die Kategorien #{ view_context.link_to('hier', admin_categories_path ) } .</span>"
+      return
+    end
     for category in story_categories
       if !category.articles.empty?
         @story_categories<<category
       end
-    end
-    if @story_categories.count == 0
-      @page_body = "<p>Keine Kategorien gefunden. Pflege die Kategorien #{ view_context.link_to('hier', admin_categories_path )} .</p>"
     end
 
     # find the most recent story 
     current_article = get_latest_story
 
     # determine category
+    puts current_article
     current_category = get_category_from_story(current_article)
-    @stories = current_category.articles
+    if !current_category.nil?
+      @stories = current_category.articles
+    end
     @selected_article = current_article
   end
 
   def contact
   	if !page = Page.find_by_page_type('CONTACT')
-  		@page_body = "<p>Dies ist nur ein Beispieltext. Der richtige Text kann #{ view_context.link_to('hier', admin_pages_path )} gepflegt werden.</p>"
+  		@page_body = "<span class=\"label label-info\">Dies ist nur ein Beispieltext. Der richtige Text kann #{ view_context.link_to('hier', admin_pages_path )} gepflegt werden.</span>"
   		@page_title = 'Beispieltitel'
   	else
   		@page_body = page.body	
@@ -40,7 +44,7 @@ class PagesController < ApplicationController
 
   def about
   	if !page = Page.find_by_page_type('ABOUT')
-  		@page_body = "<p>Dies ist nur ein Beispieltext. Der richtige Text kann #{ view_context.link_to('hier', admin_pages_path ) } gepflegt werden.</p>"
+  		@page_body = "<span class=\"label label-info\">Dies ist nur ein Beispieltext. Der richtige Text kann #{ view_context.link_to('hier', admin_pages_path ) } gepflegt werden.</span>"
   		@page_title = 'Beispieltitel'
   	else
   		@page_body = page.body	
@@ -65,6 +69,11 @@ class PagesController < ApplicationController
     end
   end
   def get_category_from_story(story)
+puts story
+    puts story.categories
+    if story.categories.nil?
+      return
+    end
     if story.categories.count == 1
       return story.categories[0]
     else
