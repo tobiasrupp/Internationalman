@@ -11,7 +11,7 @@ html {
 }
 
 body {
-  padding-top: 60px;
+  // padding-top: 60px;
 }
 
 section {
@@ -61,9 +61,18 @@ p {
 
 /* header */
 
+.navbar {
+  margin-bottom: 5px;
+}
+
+.navbar-inner {
+  // background-color: transparent;
+  // background-image: -moz-linear-gradient(center top , $grayDarker 0%, $gray 100%);
+}
+
 #logo {
   float: left;
-  margin-right: 10px;
+  margin-right: 15px;
   font-size: 1.7em;
   color: white;
   text-transform: uppercase;
@@ -71,16 +80,27 @@ p {
   padding-top: 9px;
   font-weight: bold;
   line-height: 1;
+  text-decoration: none;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
   &:hover {
     color: white;
-    text-decoration: none;
+    // text-decoration: none;
   }
+}
+
+#logo_name_ab {
+  float: left;
+  padding-top: 15px;
+  line-height: 1;
+  color: white;
+  letter-spacing: 2.5px;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
 }
 
 /* footer */
 
 footer {
-  margin-top: 45px;
+  margin-top: 15px;
   padding-top: 5px;
   border-top: 1px solid $grayMediumLight;
   color: $grayLight;
@@ -103,10 +123,6 @@ footer {
   }
 }
 
-#logo_name_ab {
-  // margin-left: 15px;
-}
-
 /* navigation */ 
 
 .nav-list {
@@ -120,17 +136,17 @@ footer {
     padding-left: 2px;
     padding-right: 2px;
 }
-#navicol_1 {
+#navi_1 {
   text-transform: uppercase;
   .active {
   }
 }
-#navicol_2 {
+#navi_2 {
   text-transform: lowercase;
   .active {
   }
 }
-#navicol_3 {
+#navi_3 {
   text-transform: lowercase;
   .active {
   }
@@ -146,4 +162,46 @@ footer {
       // color: #0088CC;
       color: black;
       text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
+}
+.nav-pills > .active > a {
+    background-color: transparent;
+    color: black;
+    font-weight: bold;
+    // text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
+}
+.nav-pills > .active > a:hover {
+      background-color: $grayMediumLight;
+      // color: #0088CC;
+      color: black;
+      // text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
+}
+
+.nav-tabs {
+    background-color: #EEEEEE;
+    background-image: -moz-linear-gradient(center top , #F5F5F5 0%, #EEEEEE 100%);
+    background-repeat: repeat-x;
+    border: 1px solid #E5E5E5;
+    border-radius: 4px 4px 4px 4px;
+    height: 36px;
+    width: 100%;
+}
+
+.nav-tabs > .active > a {
+    background-color: transparent;
+    color: black;
+    font-weight: bold;
+    // text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
+}
+.nav-tabs > .active > a:hover {
+      background-color: $grayMediumLight;
+      // color: #0088CC;
+      color: black;
+      // text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
+}
+.nav-pills {
+  margin-top: -15px;
+}
+
+.article_details {
+  margin-bottom: 10px;
 }

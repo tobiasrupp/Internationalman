@@ -3,7 +3,7 @@
 	<div class="article_details">
 		<small>
 		<% if !@selected_article.title.blank? %>
-		<!-- 	Titel: <%= @selected_article.title %><br> -->
+
 		<% end %>	
 
 		<% line_string = "" %>
@@ -51,20 +51,19 @@
 
 		<% if !@selected_article.categories.nil? %>
 			<% category_string = "" %>
-			<small>Kategorien: <% @selected_article.categories.each do |category| %> 
+			Kategorien: <% @selected_article.categories.each do |category| %> 
 							<% if category_string.blank? %>
 								<% category_string = category.name %>
 							<% else %>
 								<% category_string = category_string + ", " + category.name %>
 							<% end %>
 						<% end %>
-						<%= category_string %></small>
-		<% end %>
-		</small>
-		<% if !@selected_article.embed_code.blank? %>
-			<div class="article_viewer">
-				<%= raw @selected_article.embed_code %>
-			</div>	
-		<% end %>
+						<%= category_string %>
+		<% end %></small>
 	</div>
+	<% if !@selected_article.embed_code.blank? %>
+		<div class="article_viewer">
+			<%= raw @selected_article.embed_code %>
+		</div>	
+	<% end %>
 <% end %>

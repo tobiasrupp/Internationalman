@@ -11,15 +11,15 @@
     <%= render 'layouts/header' %>
     
     <div class="container">
-      <div class="row">
+      <!-- <div class="row">
         <div id="logo_name_ab">
-          <h1>Alexander Bühler</h1>
-          <h2>Journalist</h2>
+          <h2>Alexander Bühler - Journalist</h2>
         </div>
-      </div>    
-      <div class="row">
-        <div class="span1.5" id="navicol_1">
-          <ul class="nav nav-list">
+      </div>    -->
+
+      <div class="span12">
+        <div class="row">
+          <ul class="nav nav-tabs" id="navi_1">
             <% if request.params["controller"] == "stories" %>
               <li class="active">
             <% else %>
@@ -71,9 +71,9 @@
             </li>
           </ul>
         </div>
-        <div class="span1.5" id="navicol_2">
-          <!-- <% if !@story_categories.nil? %> -->
-            <ul class="nav nav-list"> 
+        <div class="row">
+          <ul class="nav nav-pills" id="navi_2"> 
+            <% if !@story_categories.nil? %>
               <% for category in @story_categories %>
                 <% if category == @selected_category %>
                   <li class="active">
@@ -83,34 +83,32 @@
                   <%= link_to category.name, stories_path + '/' + category.url_name %>
                 </li>
               <% end %>
-            </ul>
-          <!-- <% end %> -->
+            <% end %>
+          </ul>
         </div>
-        <div class="span1.5" id="navicol_3">
-            <ul class="nav nav-list">
-              <% if !@stories.nil? %>
-                <% for article in @stories %>
-                  <% if article == @selected_article %>
-                    <li class="active">
-                  <% else %>
-                    <li>
-                  <% end  %>
-                    <%= link_to article.title, stories_path + '/' + 
-                      @selected_category.url_name + '/' + article.url_title %>
-                  </li>
-                <% end %>
+        <div class="row">
+          <ul class="nav nav-pills" id="navi_3">
+            <% if !@stories.nil? %>
+              <% for article in @stories %>
+                <% if article == @selected_article %>
+                  <li class="active">
+                <% else %>
+                  <li>
+                <% end  %>
+                  <%= link_to article.title, stories_path + '/' + 
+                    @selected_category.url_name + '/' + article.url_title %>
+                </li>
               <% end %>
-            </ul>
+            <% end %>
+          </ul>
         </div>
-        <div class="span6.5">
-          <div class="">
-            <%= render 'shared/message' %>
-            <%= yield %>
-          </div>
+        <div class="row">
+          <%= render 'shared/message' %>
+          <%= yield %>
         </div>
-      </div>
-      <div class="row">
-        <%= render 'layouts/footer' %>
+        <div class="row">
+          <%= render 'layouts/footer' %>
+        </div>
       </div>
     </div>
   </body>
