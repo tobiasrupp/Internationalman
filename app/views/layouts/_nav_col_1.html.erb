@@ -1,0 +1,53 @@
+<div class="span1.5" id="navi_1">
+  <ul class="nav nav-list">
+    <% if request.params["controller"] == "stories" %>
+      <li class="active">
+    <% else %>
+      <li>
+    <% end  %>
+      <%= link_to 'Stories', stories_path %>
+    </li>
+    <% if request.params["controller"] == "radio_tracks" %>
+      <li class="active">
+    <% else %>
+      <li>
+    <% end  %>
+      <%= link_to 'Radio', radio_path %>
+    </li>
+    <% if request.params["controller"] == "videos" %>
+      <li class="active">
+    <% else %>
+      <li>
+    <% end  %>
+      <%= link_to 'TV', tv_path %>
+    </li>
+    <% if request.params["controller"] == "corporate_articles" %>
+      <li class="active">
+    <% else %>
+      <li>
+    <% end  %>
+      <%= link_to 'Corporate', corporate_path %>
+    </li>
+    <% if request.params["controller"] == "posts" %>
+      <li class="active">
+    <% else %>
+      <li>
+    <% end  %>
+      <%= link_to 'Blog', blog_path %>
+    </li>
+    <% if request.params["action"] == "about" %>
+      <li class="active">
+    <% else %>
+      <li>
+    <% end  %>
+      <%= link_to 'Über mich', about_path %>
+    </li>
+    <% if request.params["action"] == "contact" %>
+      <li class="active">
+    <% else %>
+      <li>
+    <% end  %>
+      <%= link_to 'Kontakt', contact_path %>
+    </li>
+  </ul>
+</div>

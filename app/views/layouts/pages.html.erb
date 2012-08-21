@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= full_title(yield(:title)) %></title>
+    <%= stylesheet_link_tag    "application", media: "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+    <%= render 'layouts/shim' %>    
+  </head>
+  <body>
+    <%= render 'layouts/header' %>
+    
+    <div class="container">
+      <div class="row">
+        <%= render 'layouts/nav_col_1' %>
+        <div class="span10" id="content">
+          <div class="row">
+            <%= render 'shared/message' %>
+            <%= yield %>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span12">
+          <%= render 'layouts/footer' %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -39,6 +39,7 @@ class PagesController < ApplicationController
   		@page_body = page.body	
   		@page_title = page.title
   	end
+    render(:layout => 'pages')
   end
 
   def about
@@ -49,6 +50,7 @@ class PagesController < ApplicationController
   		@page_body = page.body	
   		@page_title = page.title
   	end
+    render(:layout => 'pages')
   end
 
   private

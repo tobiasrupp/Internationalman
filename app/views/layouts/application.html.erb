@@ -11,68 +11,10 @@
     <%= render 'layouts/header' %>
     
     <div class="container">
-      <!-- <div class="row">
-        <div id="logo_name_ab">
-          <h2>Alexander Bühler - Journalist</h2>
-        </div>
-      </div>    -->
-
-      <div class="span12">
-        <div class="row">
-          <ul class="nav nav-tabs" id="navi_1">
-            <% if request.params["controller"] == "stories" %>
-              <li class="active">
-            <% else %>
-              <li>
-            <% end  %>
-              <%= link_to 'Stories', stories_path %>
-            </li>
-            <% if request.params["controller"] == "radio_tracks" %>
-              <li class="active">
-            <% else %>
-              <li>
-            <% end  %>
-              <%= link_to 'Radio', radio_path %>
-            </li>
-            <% if request.params["controller"] == "videos" %>
-              <li class="active">
-            <% else %>
-              <li>
-            <% end  %>
-              <%= link_to 'TV', tv_path %>
-            </li>
-            <% if request.params["controller"] == "corporate_articles" %>
-              <li class="active">
-            <% else %>
-              <li>
-            <% end  %>
-              <%= link_to 'Corporate', corporate_path %>
-            </li>
-            <% if request.params["controller"] == "posts" %>
-              <li class="active">
-            <% else %>
-              <li>
-            <% end  %>
-              <%= link_to 'Blog', blog_path %>
-            </li>
-            <% if request.params["action"] == "about" %>
-              <li class="active">
-            <% else %>
-              <li>
-            <% end  %>
-              <%= link_to 'Über mich', about_path %>
-            </li>
-            <% if request.params["action"] == "contact" %>
-              <li class="active">
-            <% else %>
-              <li>
-            <% end  %>
-              <%= link_to 'Kontakt', contact_path %>
-            </li>
-          </ul>
-        </div>
-        <div class="row">
-          <ul class="nav nav-pills" id="navi_2"> 
+      <div class="row">
+        <%= render 'layouts/nav_col_1' %>
+        <div class="span1.5" id="navi_2">
+          <ul class="nav nav-list"> 
             <% if !@story_categories.nil? %>
               <% for category in @story_categories %>
                 <% if category == @selected_category %>
@@ -86,8 +28,8 @@
             <% end %>
           </ul>
         </div>
-        <div class="row">
-          <ul class="nav nav-pills" id="navi_3">
+        <div class="span2" id="navi_3">
+          <ul class="nav nav-list">
             <% if !@stories.nil? %>
               <% for article in @stories %>
                 <% if article == @selected_article %>
@@ -102,11 +44,15 @@
             <% end %>
           </ul>
         </div>
-        <div class="row">
-          <%= render 'shared/message' %>
-          <%= yield %>
+        <div class="span6.5" id="content">
+          <div class="row">
+            <%= render 'shared/message' %>
+            <%= yield %>
+          </div>
         </div>
-        <div class="row">
+      </div>
+      <div class="row">
+        <div class="span12">
           <%= render 'layouts/footer' %>
         </div>
       </div>
