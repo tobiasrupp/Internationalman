@@ -33,6 +33,7 @@ ActiveAdmin.register Article do
       f.input :published_date
       f.input :published_in
       f.input :filename
+      f.input :embed_code
     end
     f.buttons
   end
@@ -97,6 +98,10 @@ ActiveAdmin.register Article do
             tr do
               th { 'Filename' }
               td { article.filename }
+            end
+            tr do
+              th { 'Embed Code' }
+              td { article.embed_code }
             end
             tr do
               th { 'Created At' }

@@ -57,3 +57,17 @@ FATAL:  database "intlman_test" does not exist
 ERROR:  cached plan must not change result type
 STATEMENT:  SELECT  "articles".* FROM "articles"  WHERE "articles"."id" = $1 LIMIT 1
 FATAL:  database "intlman_test" does not exist
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+LOG:  database system was shut down at 2012-08-20 23:55:34 BST
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+FATAL:  database "intlman_test" does not exist
+ERROR:  value too long for type character varying(255)
+STATEMENT:  UPDATE "articles" SET "embed_code" = '<iframe class="scribd_iframe_embed" src="http://www.scribd.com/embeds/103435776/content?start_page=1&view_mode=scroll&access_key=key-jf0mo21ogytj2ognd56&secret_password=1enpze4u58m6ryc8mzdb" data-auto-height="false" data-aspect-ratio="0.737349397590361" scrolling="no" id="doc_53498" width="600" height="800" frameborder="0"></iframe>', "updated_at" = '2012-08-21 09:22:01.527182' WHERE "articles"."id" = 9
+ERROR:  column "embed_code" of relation "articles" already exists
+STATEMENT:  ALTER TABLE "articles" ADD COLUMN "embed_code" text
+ERROR:  cached plan must not change result type
+STATEMENT:  SELECT  "articles".* FROM "articles"  WHERE "articles"."id" = $1 LIMIT 1

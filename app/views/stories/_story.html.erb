@@ -1,34 +1,70 @@
 <% if !@selected_article.nil? %>
-	<% if !@selected_article.title.blank? %>
-		<p>Titel: <%= @selected_article.title %></p>
-	<% end %>	
-	<% if !@selected_article.author.blank? %>
-		<p>Autor: <%= @selected_article.author %></p>
-	<% end %>
-	<% if !@selected_article.photos_by.blank? %>
-		<p>Fotos: <%= @selected_article.photos_by %></p>
-	<% end %>
-	<% if !@selected_article.published_date.blank? %>
-		<p>Erscheinungsdatum: <%= l @selected_article.published_date, :format => :long %></p>
-	<% end %>
-	<% if !@selected_article.published_in.blank? %>
-		<p>Erschienen in: <%= @selected_article.published_in %></p>
-	<% end %>
-	<% if !@selected_article.language.blank? %>
-		<p>Sprache: <%= @selected_article.language %></p>
-	<% end %>
-	<% if !@selected_article.country.blank? %>
-		<p>Land: <%= @selected_article.country %></p>
-	<% end %>
-	<% if !@selected_article.categories.nil? %>
-		<% category_string = "" %>
-		<p>Kategorien: <% @selected_article.categories.each do |category| %> 
-						<% if category_string.blank? %>
-							<% category_string = category.name %>
-						<% else %>
-							<% category_string = category_string + ", " + category.name %>
+	<% line = "" %>
+	<div class="article_details">
+		<small>
+		<% if !@selected_article.title.blank? %>
+		<!-- 	Titel: <%= @selected_article.title %><br> -->
+		<% end %>	
+
+		<% line_string = "" %>
+		<% if !@selected_article.published_in.blank? %>
+			<% line_string = "<i>#{ @selected_article.published_in }</i>" %>
+		<% end %>
+		<% if !@selected_article.article_type.blank? %>
+			<% if !line_string.blank? %> 
+				<% line_string = line_string + ", " %>
+			<% end %>
+			<% line_string = line_string + "#{@selected_article.article_type}" %>
+		<% end %>
+		<% if !@selected_article.published_date.blank? %>
+			<% if !line_string.blank? %> 
+				<% line_string = line_string + ", " %>
+			<% end %> 
+			<% line_string = line_string + "#{l @selected_article.published_date, :format => :long}" %>
+		<% end %>
+		<% if !line_string.blank? %> 
+				<%= raw line_string %><br>
+		<% end %> 
+
+		<% line_string = "" %>
+		<% if !@selected_article.country.blank? %>
+			<% if !line_string.blank? %> 
+				<% line_string = line_string + ", " %>
+			<% end %>
+			<% line_string = line_string + "Land: #{@selected_article.country}" %>
+		<% end %>
+		<% if !@selected_article.author.blank? %>
+			<% if !line_string.blank? %> 
+				<% line_string = line_string + ", " %>
+			<% end %>
+			<% line_string = line_string + "Text: #{@selected_article.author}" %>
+		<% end %>
+		<% if !@selected_article.photos_by.blank? %>
+			<% if !line_string.blank? %> 
+				<% line_string = line_string + ", " %>
+			<% end %> 
+			<% line_string = line_string + "Fotos: #{@selected_article.photos_by}" %>
+		<% end %>
+		<% if !line_string.blank? %> 
+				<%= raw line_string %><br>
+		<% end %> 
+
+		<% if !@selected_article.categories.nil? %>
+			<% category_string = "" %>
+			<small>Kategorien: <% @selected_article.categories.each do |category| %> 
+							<% if category_string.blank? %>
+								<% category_string = category.name %>
+							<% else %>
+								<% category_string = category_string + ", " + category.name %>
+							<% end %>
 						<% end %>
-					<% end %>
-					<%= category_string %></p>
-	<% end %>
+						<%= category_string %></small>
+		<% end %>
+		</small>
+		<% if !@selected_article.embed_code.blank? %>
+			<div class="article_viewer">
+				<%= raw @selected_article.embed_code %>
+			</div>	
+		<% end %>
+	</div>
 <% end %>
