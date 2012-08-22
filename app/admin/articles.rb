@@ -21,6 +21,7 @@ ActiveAdmin.register Article do
   form do |f|
     f.inputs do
       f.input :title
+      f.input :short_title
       f.input :url_title
       f.input :language
   		f.input :country
@@ -33,6 +34,7 @@ ActiveAdmin.register Article do
       f.input :published_date
       f.input :published_in
       f.input :filename
+      f.input :viewer_url
       f.input :embed_code
     end
     f.buttons
@@ -50,6 +52,10 @@ ActiveAdmin.register Article do
             tr do
               th { 'Title' }
               td { article.title }
+            end
+            tr do
+              th { 'Short Title' }
+              td { article.short_title }
             end
             tr do
               th { 'Url Title' }
@@ -98,6 +104,10 @@ ActiveAdmin.register Article do
             tr do
               th { 'Filename' }
               td { article.filename }
+            end
+            tr do
+              th { 'Viewer URL' }
+              td { article.viewer_url }
             end
             tr do
               th { 'Embed Code' }

@@ -37,8 +37,13 @@
                 <% else %>
                   <li>
                 <% end  %>
-                  <%= link_to article.title, stories_path + '/' + 
-                    @selected_category.url_name + '/' + article.url_title %>
+                  <% if !article.short_title.blank? %>
+                    <%= link_to article.short_title, stories_path + '/' + 
+                      @selected_category.url_name + '/' + article.url_title %>
+                  <% else %>
+                    <%= link_to article.title, stories_path + '/' + 
+                      @selected_category.url_name + '/' + article.url_title %>
+                  <% end  %>
                 </li>
               <% end %>
             <% end %>

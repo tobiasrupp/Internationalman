@@ -37,15 +37,20 @@
         1,
         1,
         1,
-        null,
         1,
         null,
         1,
+        null,
+        1,
         2,
         2,
         2,
         2,
         2,
+        2,
+        4,
+        4,
+        null,
         2,
         4,
         4,
@@ -120,6 +125,7 @@
       "/Users/tobias/dev/rails_projects/intlman/app/models/article.rb": [
         1,
         1,
+        null,
         1,
         1,
         null,
@@ -312,6 +318,7 @@
         1,
         1,
         null,
+        2,
         null,
         null,
         1,
@@ -322,6 +329,7 @@
         0,
         0,
         null,
+        1,
         null,
         null,
         1,
@@ -466,6 +474,8 @@
         0,
         0,
         0,
+        0,
+        0,
         null,
         null,
         null,
@@ -557,6 +567,6 @@
         null
       ]
     },
-    "timestamp": 1345486124
+    "timestamp": 1345591239
   }
 }

@@ -71,3 +71,13 @@ ERROR:  column "embed_code" of relation "articles" already exists
 STATEMENT:  ALTER TABLE "articles" ADD COLUMN "embed_code" text
 ERROR:  cached plan must not change result type
 STATEMENT:  SELECT  "articles".* FROM "articles"  WHERE "articles"."id" = $1 LIMIT 1
+FATAL:  database "intlman_test" does not exist
+ERROR:  cached plan must not change result type
+STATEMENT:  SELECT  "articles".* FROM "articles"  WHERE "articles"."id" = $1 LIMIT 1
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+LOG:  database system was shut down at 2012-08-22 01:46:52 BST
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
