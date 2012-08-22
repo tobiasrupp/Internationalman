@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= full_title(yield(:title)) %></title>
+    <%= stylesheet_link_tag    "application", media: "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+    <%= render 'layouts/shim' %>    
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <%= link_to "International Man", root_path, id: "logo" %>
+          <div id="logo_name_ab">
+              Alexander Bühler - Journalist
+          </div>
+          <nav>
+            <ul class="nav pull-right">
+              <li>
+                <%= link_to 'Deutsch', stories_path %>
+              </li>
+              <li>
+                <%= link_to 'English', stories_path %>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <div class="container">
+      <div class="row">
+        <div class="span12" id="content">
+          <div class="row">
+            <%= render 'shared/message' %>
+            <%= yield %>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span12">
+          <%= render 'layouts/footer' %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

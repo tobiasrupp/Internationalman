@@ -4,9 +4,6 @@ class StoriesController < ApplicationController
   def index
   end
 
-  def show
-  end
-
   def show_stories
 
   	# route /stories
@@ -40,11 +37,7 @@ class StoriesController < ApplicationController
     	@selected_category = current_category
       @stories = current_category.articles
     end
-    @selected_article = current_article
-
-  	# mark relevant items as selected in nav col 1, 2 and 3;
-
-  	# store this information with the session   
+    @selected_article = current_article  
   end
 
   def show_stories_by_category
@@ -86,6 +79,10 @@ class StoriesController < ApplicationController
       			@selected_article = story
       		end	
       	end
+        if @selected_article.nil?
+          # requested story unknown
+          flash.now[:error] = "Story '#{params[:article_title]}' in Kategorie '#{params[:category]}' wurde nicht gefunden."
+        end
       else	
       	@selected_article = @stories[0]
     	end
@@ -93,11 +90,6 @@ class StoriesController < ApplicationController
     	# category unknown
     	flash.now[:error] = "Kategorie '#{params[:category]}' wurde nicht gefunden."
     end
-
-  	# mark relevant items as selected in nav col 1, 2 and 3;
-
-  	# store this information with the session
-
   	render action: "show_stories"
   end
 

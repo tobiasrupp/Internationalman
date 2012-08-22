@@ -1,51 +1,26 @@
 Intlman::Application.routes.draw do
-  get "stories/index"
-
-  get "stories/show"
-
-  get "corporate_articles/index"
-
-  get "corporate_articles/show"
-
-  get "radio_tracks/index"
-
-  get "radio_tracks/show"
-
-  get "posts/index"
-
-  get "posts/show"
-
-  get "audio_tracks/index"
-
-  get "audio_tracks/show"
-
-  get "videos/show"
-
-  get "videos/index"
 
   ActiveAdmin.routes(self)
 
   devise_for :admin_users, ActiveAdmin::Devise.config
 
-  root to: 'pages#home'
+  root to: 'stories#show_stories'
   
-  match '/stories',   to: 'stories#show_stories'
+  match '/stories',   to: 'stories#show_stories', :via => "get"
   match '/stories(/:category(/:article_title))', to: 'stories#show_stories_by_category',
-    :constraints => { :category => /[a-z-]+/, :article_title => /[a-z\d-]+/ }
-   match '/stories(/:category)(/:year)', to: 'stories#index',
-     :constraints => { :category => /[a-z]+/, :year => /\d{4}/ }
+    :constraints => { :category => /[a-z-]+/, :article_title => /[a-z\d-]+/ }, :via => "get"
+   # match '/stories(/:category)(/:year)', to: 'stories#index',
+   #   :constraints => { :category => /[a-z]+/, :year => /\d{4}/ }
 
-  match '/tv',      to: 'videos#index'
-  match '/radio',   to: 'radio_tracks#index'
-  match '/corporate',   to: 'corporate_articles#index'
+  match '/tv',      to: 'videos#index', :via => "get"
+  match '/radio',   to: 'radio_tracks#index', :via => "get"
+  match '/corporate',   to: 'corporate_articles#index', :via => "get"
 
-  match '/blog',    to: 'posts#index'
-  match '/blog(/:category)(/:year)(/:month)',    to: 'posts#index'
+  match '/blog',    to: 'posts#index', :via => "get"
+  match '/blog(/:category)(/:year)(/:month)',    to: 'posts#index', :via => "get"
 
-  match '/about',   to: 'pages#about'
-  match '/contact', to: 'pages#contact'
-  
-  match '/main',    to: 'pages#main'
+  match '/about',   to: 'pages#about', :via => "get"
+  match '/contact', to: 'pages#contact', :via => "get"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

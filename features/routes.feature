@@ -5,8 +5,8 @@ Feature: Routes
 
 Scenario: Routing to frontend pages
 	When I enter the URL "/"
-	Then I should see "| Startseite"
-	And I should be on the "Homepage"
+	Then I should see "| Stories"
+	And the page should be found
 	
 	When I enter the URL "/contact"
 	Then the page should be found
@@ -44,10 +44,10 @@ Scenario: Routing to frontend pages
 	When I enter the URL "/stories/afrika/artikel-ueber-afrika"
 	Then the page should be found
 
-	When I enter the URL "/stories/afrika/2001"
-	Then the page should be found
+	# When I enter the URL "/stories/afrika/2001"
+	# Then the page should be found
 
-	When I enter the URL "/stories/2001"
-	Then the page should be found
+	# When I enter the URL "/stories/2001"
+	# Then the page should be found
 
 

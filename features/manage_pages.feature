@@ -7,13 +7,13 @@ Background:
 	Given an admin user exists with email: "admin@example.com" and password: "password"
 	And I log in with this user
 
-Scenario: Show Homepage
-	When I go to www.internationalman.de
-	Then I shoud see "Alexander Bühler"
-	And I shoud see "Journalist"
-	And I shoud see a link "Deutsch"
-	And I shoud see a link "English"
-	And i should see the page title "International Man | Startseite"
+# Scenario: Show Homepage
+# 	When I go to www.internationalman.de
+# 	Then I shoud see "Alexander Bühler"
+# 	And I shoud see "Journalist"
+# 	And I shoud see a link "Deutsch"
+# 	And I shoud see a link "English"
+# 	And i should see the page title "International Man | Startseite"
 
 # Scenario: Show Main Page in German
 # 	Given I am on the Homepage
