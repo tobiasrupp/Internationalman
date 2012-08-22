@@ -62,14 +62,14 @@
 		<% end %></small>
 	</div>
 	<% if !@selected_article.viewer_url.blank? %>
-	<!-- 	<%= link_to "Story Anzeigen", @selected_article.viewer_url, :target => '_blank', :class => "btn" %> -->
+		<%= link_to "Story Anzeigen", @selected_article.viewer_url, :target => '_blank', :class => "" %>
 <!-- 	<a class="btn" href="<%= @selected_article.viewer_url %>"><i class="icon-eye-open"></i></a> -->
 
 	<% end %>
 <% end %>
-    <ul class="thumbnails">
+<!--     <ul class="thumbnails">
     <li class="span3">
     <a href="<%= @selected_article.viewer_url %>" class="thumbnail" target="_blank">
     <img src="" alt="">
     </a>
-    </ul>
+    </ul> -->
