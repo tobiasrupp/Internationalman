@@ -37,12 +37,30 @@
                 <% else %>
                   <li>
                 <% end  %>
-                  <% if !article.short_title.blank? %>
-                    <%= link_to article.short_title, stories_path + '/' + 
-                      @selected_category.url_name + '/' + article.url_title %>
+                  <% if request.params["controller"] == "stories" %>
+                    <% if !article.short_title.blank? %>
+                      <%= link_to article.short_title, stories_path + '/' + 
+                        @selected_category.url_name + '/' + article.url_title %>
+                    <% else %>
+                      <%= link_to article.title, stories_path + '/' + 
+                        @selected_category.url_name + '/' + article.url_title %>
+                    <% end  %>
                   <% else %>
-                    <%= link_to article.title, stories_path + '/' + 
-                      @selected_category.url_name + '/' + article.url_title %>
+                    <% case request.params["controller"] %>
+                      <% when "corporate_articles" %>
+                        <% path_string = corporate_path %>
+                      <% when "posts" %>
+                        <% path_string = blog %>
+                      <% when "videos" %>
+                        <% path_string = tv_path %>
+                      <% when "radio_tracks" %>
+                        <% path_string = radio_path %>
+                    <% end  %>
+                    <% if !article.short_title.blank? %>
+                      <%= link_to article.short_title, path_string + '/' + article.url_title %>
+                    <% else %>
+                      <%= link_to article.title, path_string + '/' + article.url_title %>
+                    <% end  %>
                   <% end  %>
                 </li>
               <% end %>

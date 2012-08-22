@@ -34,9 +34,21 @@ module NavigationHelpers
     when /Homepage/
       root_path
 
-    when /Main page/
-      main_path 
+    when /Corporate page/
+      corporate_path   
 
+    when /Stories page/
+      stories_path
+
+    when /TV page/
+      tv_path
+
+    when /Radio page/
+      radio_path
+
+    when /Blog page/
+      blog_path         
+      
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #

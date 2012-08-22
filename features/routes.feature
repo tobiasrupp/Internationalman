@@ -23,17 +23,17 @@ Scenario: Routing to frontend pages
 	When I enter the URL "/corporate"
 	Then the page should be found
 
-	When I enter the URL "/blog"
+	When I enter the URL "/blog/ein-neuer-blog-eintrag"
 	Then the page should be found
 
-	When I enter the URL "/blog/2010"
-	Then the page should be found
+	# When I enter the URL "/blog/2010"
+	# Then the page should be found
 
-	When I enter the URL "/blog/2010/9"
-	Then the page should be found
+	# When I enter the URL "/blog/2010/9"
+	# Then the page should be found
 
-	When I enter the URL "/blog/afrika"
-	Then the page should be found
+	# When I enter the URL "/blog/afrika"
+	# Then the page should be found
 
 	When I enter the URL "/stories"
 	Then the page should be found

@@ -81,3 +81,9 @@ LOG:  database system is shut down
 LOG:  database system was shut down at 2012-08-22 01:46:52 BST
 LOG:  database system is ready to accept connections
 LOG:  autovacuum launcher started
+ERROR:  column "categories" does not exist at character 45
+STATEMENT:  SELECT "articles".* FROM "articles"  WHERE (categories = 'Corporate') ORDER BY published_date DESC
+ERROR:  column "name" does not exist at character 45
+STATEMENT:  SELECT "articles".* FROM "articles"  WHERE (name = 'Corporate') ORDER BY published_date DESC
+ERROR:  column "name" does not exist at character 45
+STATEMENT:  SELECT "articles".* FROM "articles"  WHERE (name = 'Corporate') ORDER BY published_date DESC

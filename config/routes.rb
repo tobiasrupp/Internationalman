@@ -14,10 +14,12 @@ Intlman::Application.routes.draw do
 
   match '/tv',      to: 'videos#index', :via => "get"
   match '/radio',   to: 'radio_tracks#index', :via => "get"
-  match '/corporate',   to: 'corporate_articles#index', :via => "get"
+  match '/corporate(/:article_title)',   to: 'corporate_articles#show',
+    :constraints => { :article_title => /[a-z\d-]+/ }, :as => "corporate", :via => "get"
 
-  match '/blog',    to: 'posts#index', :via => "get"
-  match '/blog(/:category)(/:year)(/:month)',    to: 'posts#index', :via => "get"
+  match '/blog(/:article_title)',    to: 'posts#index',
+    :constraints => { :article_title => /[a-z\d-]+/ }, :as => "blog", :via => "get"
+  # match '/blog(/:category)(/:year)(/:month)',    to: 'posts#index', :via => "get"
 
   match '/about',   to: 'pages#about', :via => "get"
   match '/contact', to: 'pages#contact', :via => "get"
