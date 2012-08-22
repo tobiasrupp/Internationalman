@@ -33,6 +33,9 @@
             <% if !@radio_tracks.nil? %>
               <% @stories = @radio_tracks %>
             <% end  %>
+            <% if !@selected_track.nil? %>
+              <% @selected_article = @selected_track %>
+            <% end  %>
             <% if !@stories.nil? %>
               <% for article in @stories %>
                 <% if article == @selected_article %>
