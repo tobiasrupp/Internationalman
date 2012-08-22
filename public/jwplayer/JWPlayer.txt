@@ -1,0 +1,74 @@
+JW player code
+
+MP3
+
+<script type='text/javascript' src='/jwplayer/swfobject.js'></script>
+<div id='mediaspace'>This text will be replaced</div>
+<script type='text/javascript'>
+  var so = new SWFObject('/jwplayer/player.swf','ply','320','24','9','#000000');
+  so.addParam('allowfullscreen','true');
+  so.addParam('allowscriptaccess','always');
+  so.addParam('wmode','opaque');
+  so.addVariable('file','http://www.longtailvideo.com/jw/upload/bunny.mp3');
+  so.write('mediaspace');
+</script>
+
+
+MOV Test
+<script type='text/javascript' src='/jwplayer/jwplayer.js'></script>
+ 
+<div id='mediaspace2'>This text will be replaced</div>
+ 
+<script type='text/javascript'>
+  jwplayer('mediaspace2').setup({
+    'flashplayer': '/jwplayer/player.swf',
+    'file': 'http://joliclic.free.fr/html/object-tag/en/data/test.mov',
+    'controlbar': 'bottom',
+    'width': '320',
+    'height': '255'
+  });
+</script>
+
+Simple Solution:
+
+MOV Test (works also with FLV, M4V, MP4. Does not work with AVI and MPG)
+
+Prerequisite: Adobe Flash Player installed in browser
+
+MOV Test
+
+<object data="/jwplayer/player.swf" name="player1" id="player1" type="application/x-shockwave-flash" height="196" width="320"><param value="true" name="allowfullscreen"><param value="always" name="allowscriptaccess"><param name="movie" value="/jwplayer/player.swf"><param value="file=http://joliclic.free.fr/html/object-tag/en/data/test.mov" name="flashvars"></object>
+
+MP3 Test
+
+<object data="/jwplayer/player.swf" name="player2" id="player2" type="application/x-shockwave-flash" height="24" width="320"><param value="true" name="allowfullscreen"><param value="always" name="allowscriptaccess"><param name="movie" value="/jwplayer/player.swf"><param value="file=http://www.longtailvideo.com/jw/upload/bunny.mp3" name="flashvars"></object>
+
+
+
+
+
+
+
+http://developer.longtailvideo.com/contributors/nyboe/JW_API_xmpl_1-2-0-0.html
+
+
+<div id="wrapper">
+                <object data="player.swf" name="player1" id="player1" type="application/x-shockwave-flash" height="196" width="320"><param value="true" name="allowfullscreen"><param value="always" name="allowscriptaccess"><param name="movie" value="http://content.longtailvideo.com/videos/flvplayer.flv"><param value="file=http://content.longtailvideo.com/videos/flvplayer.flv" name="flashvars"></object>
+            </div>
+
+
+
+
+with wrapper
+
+MOV Test
+
+<div id="wrapper_player1">
+<object data="/jwplayer/player.swf" name="player1" id="player1" type="application/x-shockwave-flash" height="196" width="320"><param value="true" name="allowfullscreen"><param value="always" name="allowscriptaccess"><param value="file=http://joliclic.free.fr/html/object-tag/en/data/test.mov" name="flashvars"></object>
+</div>
+
+MP3 Test
+
+<div id="wrapper_player2">
+<object data="/jwplayer/player.swf" name="player2" id="player2" type="application/x-shockwave-flash" height="24" width="320"><param value="true" name="allowfullscreen"><param value="always" name="allowscriptaccess"><param value="file=http://joliclic.free.fr/html/object-tag/en/data/test.mp3" name="flashvars"></object>
+</div>

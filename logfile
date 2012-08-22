@@ -87,3 +87,21 @@ ERROR:  column "name" does not exist at character 45
 STATEMENT:  SELECT "articles".* FROM "articles"  WHERE (name = 'Corporate') ORDER BY published_date DESC
 ERROR:  column "name" does not exist at character 45
 STATEMENT:  SELECT "articles".* FROM "articles"  WHERE (name = 'Corporate') ORDER BY published_date DESC
+FATAL:  database "intlman_test" does not exist
+FATAL:  database "intlman_test" does not exist
+FATAL:  database "intlman_test" does not exist
+ERROR:  cached plan must not change result type
+STATEMENT:  SELECT  "radio_tracks".* FROM "radio_tracks"  WHERE "radio_tracks"."id" = $1 LIMIT 1
+ERROR:  null value in column "created_at" violates not-null constraint
+STATEMENT:  INSERT INTO "radio_track_categories" ("radio_track_id", "category_id") VALUES (1, 8) RETURNING "id"
+ERROR:  null value in column "created_at" violates not-null constraint
+STATEMENT:  INSERT INTO "radio_track_categories" ("radio_track_id", "category_id") VALUES (1, 8) RETURNING "id"
+ERROR:  null value in column "created_at" violates not-null constraint
+STATEMENT:  INSERT INTO "radio_track_categories" ("radio_track_id", "category_id") VALUES (1, 8) RETURNING "id"
+ERROR:  null value in column "created_at" violates not-null constraint
+STATEMENT:  INSERT INTO "radio_track_categories" ("radio_track_id", "category_id") VALUES (1, 8) RETURNING "id"
+ERROR:  syntax error at or near "DESCRIBE" at character 1
+STATEMENT:  DESCRIBE ARTICLES;
+ERROR:  syntax error at or near "DESCRIBE" at character 1
+STATEMENT:  DESCRIBE TABLE ARTICLES;
+FATAL:  database "intlman_test" does not exist

@@ -1,7 +1,7 @@
 <% if !@selected_article.nil? %>
 	<% line = "" %>
 	<div class="article_details">
-		<small>
+		<p>
 		<% if !@selected_article.title.blank? %>
 			Titel: <%= @selected_article.title %><br>
 		<% end %>	
@@ -59,7 +59,7 @@
 							<% end %>
 						<% end %>
 						<%= category_string %>
-		<% end %></small>
+		<% end %></p>
 	</div>
 	<% if !@selected_article.viewer_url.blank? %>
 		<%= link_to "Story in neuem Fenster Anzeigen", @selected_article.viewer_url, :target => '_blank', :class => "btn btn-small btn-primary" %>

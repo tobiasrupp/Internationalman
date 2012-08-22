@@ -30,6 +30,9 @@
         </div>
         <div class="span2.5" id="navi_3">
           <ul class="nav nav-list">
+            <% if !@radio_tracks.nil? %>
+              <% @stories = @radio_tracks %>
+            <% end  %>
             <% if !@stories.nil? %>
               <% for article in @stories %>
                 <% if article == @selected_article %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120821231655) do
+ActiveRecord::Schema.define(:version => 20120822201934) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -89,6 +89,33 @@ ActiveRecord::Schema.define(:version => 20120821231655) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.string   "title"
+  end
+
+  create_table "radio_track_categories", :force => true do |t|
+    t.integer "radio_track_id"
+    t.integer "category_id"
+  end
+
+  add_index "radio_track_categories", ["category_id"], :name => "index_radio_track_categories_on_category_id"
+  add_index "radio_track_categories", ["radio_track_id"], :name => "index_radio_track_categories_on_radio_track_id"
+
+  create_table "radio_tracks", :force => true do |t|
+    t.string   "title"
+    t.string   "short_title"
+    t.string   "url_title"
+    t.string   "language"
+    t.string   "country"
+    t.string   "longitude"
+    t.string   "latitude"
+    t.integer  "duration"
+    t.date     "broadcast_date"
+    t.string   "broadcaster"
+    t.string   "filename"
+    t.string   "author"
+    t.string   "source_url"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.string   "web_page"
   end
 
 end

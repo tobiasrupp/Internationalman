@@ -1,0 +1,73 @@
+<% if !@selected_track.nil? %>
+	<% line = "" %>
+	<div class="radio_track_details">
+		<p>
+			<% if !@selected_track.title.blank? %>
+				Titel: <%= @selected_track.title %><br>
+			<% end %>	
+
+			<% line_string = "" %>
+			<% if !@selected_track.broadcaster.blank? %>
+				<% line_string = "Gesendet auf #{ @selected_track.broadcaster }" %>
+			<% end %>
+			<% if !@selected_track.broadcast_date.blank? %>
+				<% if !line_string.blank? %> 
+					<% line_string = line_string + " am " %>
+				<% else %>
+					<% line_string = "Gesendet am " %>
+				<% end %> 
+				<% line_string = line_string + "#{l @selected_track.broadcast_date, :format => :long}" %>
+			<% end %>
+			<% if !@selected_track.duration.blank? %>
+				<% if !line_string.blank? %> 
+					<% line_string = line_string + ", " %>
+				<% end %> 
+				<% line_string = line_string + "Dauer: #{ @selected_track.duration } Min."  %>
+			<% end %>
+			<% if !line_string.blank? %> 
+					<%= raw line_string %><br>
+			<% end %> 
+
+			<% line_string = "" %>
+			<% if !@selected_track.country.blank? %>
+				<% if !line_string.blank? %> 
+					<% line_string = line_string + ", " %>
+				<% end %>
+				<% line_string = line_string + "Land: #{@selected_track.country}" %>
+			<% end %>
+			<% if !@selected_track.author.blank? %>
+				<% if !line_string.blank? %> 
+					<% line_string = line_string + ", " %>
+				<% end %>
+				<% line_string = line_string + "Text: #{@selected_track.author}" %>
+			<% end %>
+			<% if !line_string.blank? %> 
+					<%= raw line_string %><br>
+			<% end %> 
+
+			<% if !@selected_track.categories.nil? %>
+				<% category_string = "" %>
+					Kategorien: <% @selected_track.categories.each do |category| %> 
+												<% if category_string.blank? %>
+													<% category_string = category.name %>
+												<% else %>
+													<% category_string = category_string + ", " + category.name %>
+												<% end %>
+											<% end %>
+							<%= category_string %>
+			<% end %>
+		</p>
+	</div>
+	<% if !@selected_track.web_page.blank? %>
+		<p>
+			<%= link_to "Weitere Informationen", @selected_track.web_page, :target => '_blank', :class => "btn btn-small btn-primary" %>
+		</p>
+	<% end %>
+	
+	
+	<% if !@selected_track.source_url.blank? %>
+		<p>
+		<object data="/jwplayer/player.swf" name="player2" id="player2" type="application/x-shockwave-flash" height="24" width="320"><param value="true" name="allowfullscreen"><param value="always" name="allowscriptaccess"><param name="movie" value="/jwplayer/player.swf"><param value="file=<%= @selected_track.source_url %>" name="flashvars"></object>
+		</p>
+	<% end %>
+<% end %>
