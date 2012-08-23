@@ -10,7 +10,7 @@ class CorporateArticlesController < ApplicationController
 	              :conditions => "categories.name = 'Corporate'",
 	              :order => "published_date DESC")
     if @stories.count == 0
-      flash.now[:notice] = "Keine Corporate Artikel gefunden."
+      flash.now[:notice] = "Kein Corporate Artikel gefunden."
       return
     end
 		# display details of current corporate article in content section
