@@ -22,13 +22,13 @@ test: &test
   username: tobias
   password:
 
-production:
-  adapter: postgresql
-  encoding: unicode
-  database: intlman_production
-  pool: 5
-  username:  
-  password:
+# production:
+#   adapter: postgresql
+#   encoding: unicode
+#   database: intlman_production
+#   pool: 5
+#   username:  
+#   password:
 
 cucumber:
   <<: *test

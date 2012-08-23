@@ -14,7 +14,7 @@ class StoriesController < ApplicationController
 	                        :conditions =>"name <> 'Corporate'",
 	                        :order => "display_section ASC, display_sequence ASC")
     if story_categories.count == 0
-      flash.now[:error] = "Keine Kategorien gefunden. Pflege die Kategorien #{ view_context.link_to('hier', admin_categories_path ) } ."
+      flash.now[:notice] = "Keine Kategorien gefunden."
       return
     end
     @story_categories = []
@@ -24,7 +24,7 @@ class StoriesController < ApplicationController
       end
     end
     if @story_categories.count == 0
-      flash.now[:error] = "Keine Stories mit Kategorien gefunden. Pflege die Stories #{ view_context.link_to('hier', admin_article_path ) } ."
+      flash.now[:notice] = "Keine Stories mit Kategorien gefunden."
       return
     end
 
@@ -54,7 +54,7 @@ class StoriesController < ApplicationController
 	                        :conditions =>"name <> 'Corporate'",
 	                        :order => "display_section ASC, display_sequence ASC")
     if story_categories.count == 0
-      flash.now[:error] = "Keine Kategorien gefunden."
+      flash.now[:notice] = "Keine Kategorien gefunden."
       return
     end
     @story_categories = []
