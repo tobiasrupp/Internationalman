@@ -64,10 +64,16 @@
 		</p>
 	<% end %>
 	
-	
-	<% if !@selected_video.source_url.blank? %>
+	<% if !@selected_video.embed_code.blank? %>
+		<p><%= raw @selected_video.embed_code %></p>
+	<% elsif !@selected_video.source_url.blank? %>
 		<p>
 			<object data="/jwplayer/player.swf" name="player1" id="player1" type="application/x-shockwave-flash" height="300" width="450"><param value="true" name="allowfullscreen"><param value="always" name="allowscriptaccess"><param name="movie" value="/jwplayer/player.swf"><param value="file=<%= @selected_video.source_url %>" name="flashvars"></object>
 		</p>
+		<!-- <p>
+			<video class="sublime" width="640" height="360" data-name="<%= @selected_video.title %>" data-uid="b3115e71" preload="none">
+			  <source src="<%= @selected_video.source_url %>" />
+			</video>
+		</p> -->
 	<% end %>
 <% end %>

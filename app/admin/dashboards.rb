@@ -42,12 +42,30 @@ ActiveAdmin::Dashboards.build do
   # section "Membership Summary", :if => Proc.new { current_admin_user.account.memberships.any? }
   
   section "Recent Articles" do
-    table_for Article.order("published_date desc").limit(5) do
+    table_for Article.order("updated_at desc").limit(3) do
       column :title do |article|
         link_to article.title, [:admin, article]
       end
-      column :published_date
+      column :updated_at
     end
     strong { link_to "View All Articles", admin_articles_path }
+  end
+  section "Recent Radio Tracks" do
+    table_for RadioTrack.order("updated_at desc").limit(3) do
+      column :title do |radio_track|
+        link_to radio_track.title, [:admin, radio_track]
+      end
+      column :updated_at
+    end
+    strong { link_to "View All Radio Tracks", admin_radio_tracks_path }
+  end
+  section "Recent Videos" do
+    table_for Video.order("updated_at desc").limit(3) do
+      column :title do |video|
+        link_to video.title, [:admin, video]
+      end
+      column :updated_at
+    end
+    strong { link_to "View All Videos", admin_videos_path }
   end
 end

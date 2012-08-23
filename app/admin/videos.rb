@@ -15,16 +15,17 @@ ActiveAdmin.register Video do
       f.input :short_title
       f.input :url_title
       f.input :language
-  		f.input :country
+  		f.input :country, :priority_countries => []
   		f.input :author
   		f.input :duration
       f.input :categories
       f.input :longitude
       f.input :latitude
-      f.input :broadcast_date
+      f.input :broadcast_date, :start_year => Date.today.year - 15, :end_year => Date.today.year + 1
       f.input :broadcaster
       f.input :filename
       f.input :source_url
+      f.input :embed_code
       f.input :web_page
     end
     f.buttons
@@ -98,6 +99,10 @@ ActiveAdmin.register Video do
             tr do
               th { 'Source URL' }
               td { video.source_url }
+            end
+            tr do
+              th { 'Embed Code' }
+              td { video.embed_code }
             end
             tr do
               th { 'Created At' }

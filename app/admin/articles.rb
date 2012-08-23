@@ -24,14 +24,14 @@ ActiveAdmin.register Article do
       f.input :short_title
       f.input :url_title
       f.input :language
-  		f.input :country
+  		f.input :country, :priority_countries => []
   		f.input :author
   		f.input :photos_by
       f.input :categories
       f.input :longitude
       f.input :latitude
       f.input :article_type
-      f.input :published_date
+      f.input :published_date, :start_year => Date.today.year - 15, :end_year => Date.today.year + 1
       f.input :published_in
       f.input :filename
       f.input :viewer_url

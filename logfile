@@ -113,3 +113,10 @@ LOG:  database system was shut down at 2012-08-23 02:53:03 BST
 LOG:  autovacuum launcher started
 LOG:  database system is ready to accept connections
 FATAL:  database "intlman_test" does not exist
+ERROR:  column "published_date" does not exist at character 56
+STATEMENT:  SELECT  "radio_tracks".* FROM "radio_tracks"  ORDER BY published_date desc LIMIT 5
+ERROR:  column "updated" does not exist at character 48
+STATEMENT:  SELECT  "articles".* FROM "articles"  ORDER BY updated desc LIMIT 3
+FATAL:  database "intlman_test" does not exist
+ERROR:  cached plan must not change result type
+STATEMENT:  SELECT  "videos".* FROM "videos"  WHERE "videos"."id" = $1 LIMIT 1
