@@ -11,7 +11,6 @@ Background:
 		|Afrika|2|1|afrika|
 		|Corporate|||corporate|
 
-@focus
 Scenario: Create Radio Track
 	Given no "RadioTrack" exists
 	And I go to the "Radio Track page"
@@ -25,7 +24,7 @@ Scenario: Create Radio Track
 	And I fill in "Longitude" with "long"
 	And I fill in "Latitude" with "lat"
 	And I fill in "Duration" with "12"
-	And I fill in Broadcast date with "12 March 2010"
+	And I fill in Broadcast date of "RadioTrack" with "12 March 2010"
 	And I fill in "Broadcaster" with "NDR"
 	And I fill in "Filename" with "article1.pdf"
 	And I fill in "Author" with "Alexander Bühler"

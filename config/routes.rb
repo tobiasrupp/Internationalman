@@ -12,7 +12,8 @@ Intlman::Application.routes.draw do
    # match '/stories(/:category)(/:year)', to: 'stories#index',
    #   :constraints => { :category => /[a-z]+/, :year => /\d{4}/ }
 
-  match '/tv',      to: 'videos#show', :via => "get"
+  match '/tv(/:video_title)',      to: 'videos#show',
+    :constraints => { :video_title => /[a-z\d-]+/ }, :as => "tv", :via => "get"
   match '/radio(/:track_title)',   to: 'radio_tracks#show',
     :constraints => { :track_title => /[a-z\d-]+/ }, :as => "radio", :via => "get"
   match '/corporate(/:article_title)',   to: 'corporate_articles#show',

@@ -105,3 +105,11 @@ STATEMENT:  DESCRIBE ARTICLES;
 ERROR:  syntax error at or near "DESCRIBE" at character 1
 STATEMENT:  DESCRIBE TABLE ARTICLES;
 FATAL:  database "intlman_test" does not exist
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+LOG:  database system was shut down at 2012-08-23 02:53:03 BST
+LOG:  autovacuum launcher started
+LOG:  database system is ready to accept connections
+FATAL:  database "intlman_test" does not exist

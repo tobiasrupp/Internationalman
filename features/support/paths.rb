@@ -49,8 +49,14 @@ module NavigationHelpers
     when /Radio Track page/
       '/admin/radio_tracks'
 
+    when /Videos page/
+      '/admin/videos'
+
     when /Blog page/
       blog_path         
+      
+    when /Posts page/
+      '/admin/posts'      
       
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

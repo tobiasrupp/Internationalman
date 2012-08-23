@@ -1,0 +1,73 @@
+<% if !@selected_video.nil? %>
+	<% line = "" %>
+	<div class="video_details">
+		<p>
+			<% if !@selected_video.title.blank? %>
+				Titel: <%= @selected_video.title %><br>
+			<% end %>	
+
+			<% line_string = "" %>
+			<% if !@selected_video.broadcaster.blank? %>
+				<% line_string = "Gesendet auf #{ @selected_video.broadcaster }" %>
+			<% end %>
+			<% if !@selected_video.broadcast_date.blank? %>
+				<% if !line_string.blank? %> 
+					<% line_string = line_string + " am " %>
+				<% else %>
+					<% line_string = "Gesendet am " %>
+				<% end %> 
+				<% line_string = line_string + "#{l @selected_video.broadcast_date, :format => :long}" %>
+			<% end %>
+			<% if !@selected_video.duration.blank? %>
+				<% if !line_string.blank? %> 
+					<% line_string = line_string + ", " %>
+				<% end %> 
+				<% line_string = line_string + "Dauer: #{ @selected_video.duration } Min."  %>
+			<% end %>
+			<% if !line_string.blank? %> 
+					<%= raw line_string %><br>
+			<% end %> 
+
+			<% line_string = "" %>
+			<% if !@selected_video.country.blank? %>
+				<% if !line_string.blank? %> 
+					<% line_string = line_string + ", " %>
+				<% end %>
+				<% line_string = line_string + "Land: #{@selected_video.country}" %>
+			<% end %>
+			<% if !@selected_video.author.blank? %>
+				<% if !line_string.blank? %> 
+					<% line_string = line_string + ", " %>
+				<% end %>
+				<% line_string = line_string + "Text: #{@selected_video.author}" %>
+			<% end %>
+			<% if !line_string.blank? %> 
+					<%= raw line_string %><br>
+			<% end %> 
+
+			<% if !@selected_video.categories.nil? %>
+				<% category_string = "" %>
+					Kategorien: <% @selected_video.categories.each do |category| %> 
+												<% if category_string.blank? %>
+													<% category_string = category.name %>
+												<% else %>
+													<% category_string = category_string + ", " + category.name %>
+												<% end %>
+											<% end %>
+							<%= category_string %>
+			<% end %>
+		</p>
+	</div>
+	<% if !@selected_video.web_page.blank? %>
+		<p>
+			<%= link_to "Weitere Informationen", @selected_video.web_page, :target => '_blank', :class => "btn btn-small btn-primary" %>
+		</p>
+	<% end %>
+	
+	
+	<% if !@selected_video.source_url.blank? %>
+		<p>
+			<object data="/jwplayer/player.swf" name="player1" id="player1" type="application/x-shockwave-flash" height="300" width="450"><param value="true" name="allowfullscreen"><param value="always" name="allowscriptaccess"><param name="movie" value="/jwplayer/player.swf"><param value="file=<%= @selected_video.source_url %>" name="flashvars"></object>
+		</p>
+	<% end %>
+<% end %>

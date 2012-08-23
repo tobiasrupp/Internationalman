@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120822201934) do
+ActiveRecord::Schema.define(:version => 20120823120813) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -116,6 +116,33 @@ ActiveRecord::Schema.define(:version => 20120822201934) do
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
     t.string   "web_page"
+  end
+
+  create_table "video_categories", :force => true do |t|
+    t.integer "video_id"
+    t.integer "category_id"
+  end
+
+  add_index "video_categories", ["category_id"], :name => "index_video_categories_on_category_id"
+  add_index "video_categories", ["video_id"], :name => "index_video_categories_on_video_id"
+
+  create_table "videos", :force => true do |t|
+    t.string   "title"
+    t.string   "short_title"
+    t.string   "url_title"
+    t.string   "language"
+    t.string   "country"
+    t.string   "longitude"
+    t.string   "latitude"
+    t.integer  "duration"
+    t.date     "broadcast_date"
+    t.string   "broadcaster"
+    t.string   "filename"
+    t.string   "author"
+    t.string   "source_url"
+    t.string   "web_page"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
 end
