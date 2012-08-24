@@ -1,6 +1,6 @@
 ActiveAdmin.register Article do 
 	index do
-		# column :id
+		column :id
     column :title
     # column :country
     column :author
