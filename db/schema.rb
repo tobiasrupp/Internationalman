@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120824091222) do
+ActiveRecord::Schema.define(:version => 20120824180525) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -66,12 +66,16 @@ ActiveRecord::Schema.define(:version => 20120824091222) do
     t.string   "filename"
     t.string   "author"
     t.string   "photos_by"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
     t.string   "url_title"
     t.text     "embed_code"
     t.string   "short_title"
     t.string   "viewer_url"
+    t.string   "teaser_image_file_name"
+    t.string   "teaser_image_content_type"
+    t.integer  "teaser_image_file_size"
+    t.datetime "teaser_image_updated_at"
   end
 
   create_table "categories", :force => true do |t|

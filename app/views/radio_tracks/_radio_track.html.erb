@@ -1,11 +1,10 @@
 <% if !@selected_track.nil? %>
 	<% line = "" %>
 	<div class="radio_track_details">
-		<p>
 			<% if !@selected_track.title.blank? %>
-				Titel: <%= @selected_track.title %><br>
+				<h3><%= @selected_track.title %></h3>
 			<% end %>	
-
+			<p>
 			<% line_string = "" %>
 			<% if !@selected_track.broadcaster.blank? %>
 				<% line_string = "Gesendet auf #{ @selected_track.broadcaster }" %>

@@ -5,4 +5,7 @@ class Article < ActiveRecord::Base
   attr_accessible :category_ids, :categories
   has_and_belongs_to_many :categories, :join_table => 'article_categories',
   	:order => 'display_section ASC, display_sequence ASC'
+
+  attr_accessible :teaser_image
+  has_attached_file :teaser_image, :styles => { :medium => "500x320>", :thumb => "100x100>" }
 end

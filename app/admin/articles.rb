@@ -15,6 +15,9 @@ ActiveAdmin.register Article do
     # column :published_in
     # column :filename
     column :url_title
+    column "Teaser Image" do |article| 
+      image_tag(article.teaser_image.url(:thumb), :alt => "")
+    end
 		default_actions
   end
 
@@ -30,11 +33,13 @@ ActiveAdmin.register Article do
       f.input :categories
       f.input :longitude
       f.input :latitude
-      f.input :article_type
+      
       f.input :published_date, :start_year => Date.today.year - 15, :end_year => Date.today.year + 1
       f.input :published_in
-      f.input :filename
+      f.input :teaser_image, :hint => f.template.image_tag(f.object.teaser_image.url(:thumb))
+      f.input :article_type
       f.input :viewer_url
+      f.input :filename
       f.input :embed_code
     end
     f.buttons
@@ -112,6 +117,10 @@ ActiveAdmin.register Article do
             tr do
               th { 'Embed Code' }
               td { article.embed_code }
+            end
+            tr do
+              th { 'Teaser Image' }
+              td { article.teaser_image }
             end
             tr do
               th { 'Created At' }

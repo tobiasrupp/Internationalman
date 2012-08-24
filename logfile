@@ -137,3 +137,4 @@ STATEMENT:              SELECT a.attname, format_type(a.atttypid, a.atttypmod), 
 	
 FATAL:  database "intlman_test" does not exist
 FATAL:  database "intlman_test" does not exist
+FATAL:  database "intlman_test" does not exist

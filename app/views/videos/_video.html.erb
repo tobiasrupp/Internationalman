@@ -1,11 +1,10 @@
 <% if !@selected_video.nil? %>
 	<% line = "" %>
 	<div class="video_details">
-		<p>
 			<% if !@selected_video.title.blank? %>
-				Titel: <%= @selected_video.title %><br>
+				<h3><%= @selected_video.title %></h3>
 			<% end %>	
-
+			<p>
 			<% line_string = "" %>
 			<% if !@selected_video.broadcaster.blank? %>
 				<% line_string = "Gesendet auf #{ @selected_video.broadcaster }" %>

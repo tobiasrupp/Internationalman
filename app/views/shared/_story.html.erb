@@ -1,11 +1,11 @@
 <% if !@selected_article.nil? %>
 	<% line = "" %>
 	<div class="article_details">
-		<p>
+	
 		<% if !@selected_article.title.blank? %>
-			Titel: <%= @selected_article.title %><br>
+			<h3><%= @selected_article.title %></h3>
 		<% end %>	
-
+		<p>
 		<% line_string = "" %>
 		<% if !@selected_article.published_in.blank? %>
 			<% line_string = "Erschienen in <i>#{ @selected_article.published_in }</i>" %>
@@ -61,9 +61,16 @@
 						<%= category_string %>
 		<% end %></p>
 	</div>
-	<% if !@selected_article.viewer_url.blank? %>
-		<%= link_to "Story in neuem Fenster Anzeigen", @selected_article.viewer_url, :target => '_blank', :class => "btn btn-small btn-primary" %>
-<!-- 	<a class="btn" href="<%= @selected_article.viewer_url %>"><i class="icon-eye-open"></i></a> -->
 
+	<% if !@selected_article.viewer_url.blank? %>
+		<p>
+			<%= link_to "Story in neuem Fenster Anzeigen", @selected_article.viewer_url, :target => '_blank', :class => "btn btn-small btn-primary" %>
+<!-- 	<a class="btn" href="<%= @selected_article.viewer_url %>"><i class="icon-eye-open"></i></a> -->
+		</p>
+	<% end %>
+	<% if @selected_article.teaser_image? %>
+		<p>
+			 <img src="<%= @selected_article.teaser_image.url(:medium) %>" alt="" class="thumbnail">
+    </p>
 	<% end %>
 <% end %>
