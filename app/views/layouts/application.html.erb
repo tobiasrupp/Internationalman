@@ -86,7 +86,12 @@
             <% end %>
           </ul>
         </div>
-        <div class="span7" id="content">
+        <% if request.params["controller"] == "stories" %>
+          <% column_width = 6 %>
+        <% else %>
+          <% column_width = 7 %>
+        <% end %> 
+        <div class="span<%=column_width %>" id="content">
           <div class="row">
             <%= render 'shared/message' %>
             <%= yield %>
