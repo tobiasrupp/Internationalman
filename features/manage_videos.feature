@@ -11,7 +11,6 @@ Background:
 		|Afrika|2|1|afrika|
 		|Corporate|||corporate|
 
-@focus
 Scenario: Create Video
 	Given no "Video" exists
 	And I go to the "Videos page"

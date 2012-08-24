@@ -19,8 +19,8 @@ Intlman::Application.routes.draw do
   match '/corporate(/:article_title)',   to: 'corporate_articles#show',
     :constraints => { :article_title => /[a-z\d-]+/ }, :as => "corporate", :via => "get"
 
-  match '/blog(/:article_title)',    to: 'posts#show',
-    :constraints => { :article_title => /[a-z\d-]+/ }, :as => "blog", :via => "get"
+  match '/blog(/:post_title)',    to: 'posts#show',
+    :constraints => { :post_title => /[a-z\d-]+/ }, :as => "blog", :via => "get"
   # match '/blog(/:category)(/:year)(/:month)',    to: 'posts#index', :via => "get"
 
   match '/about',   to: 'pages#about', :via => "get"

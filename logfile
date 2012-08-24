@@ -120,3 +120,20 @@ STATEMENT:  SELECT  "articles".* FROM "articles"  ORDER BY updated desc LIMIT 3
 FATAL:  database "intlman_test" does not exist
 ERROR:  cached plan must not change result type
 STATEMENT:  SELECT  "videos".* FROM "videos"  WHERE "videos"."id" = $1 LIMIT 1
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+LOG:  database system was shut down at 2012-08-23 23:35:58 BST
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ERROR:  relation "posts" does not exist at character 245
+STATEMENT:              SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+	              FROM pg_attribute a LEFT JOIN pg_attrdef d
+	                ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+	             WHERE a.attrelid = '"posts"'::regclass
+	               AND a.attnum > 0 AND NOT a.attisdropped
+	             ORDER BY a.attnum
+	
+FATAL:  database "intlman_test" does not exist
+FATAL:  database "intlman_test" does not exist

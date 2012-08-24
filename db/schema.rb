@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120823164151) do
+ActiveRecord::Schema.define(:version => 20120824091222) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -89,6 +89,30 @@ ActiveRecord::Schema.define(:version => 20120823164151) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.string   "title"
+  end
+
+  create_table "post_categories", :force => true do |t|
+    t.integer "post_id"
+    t.integer "category_id"
+  end
+
+  add_index "post_categories", ["category_id"], :name => "index_post_categories_on_category_id"
+  add_index "post_categories", ["post_id"], :name => "index_post_categories_on_post_id"
+
+  create_table "posts", :force => true do |t|
+    t.string   "title"
+    t.string   "short_title"
+    t.string   "url_title"
+    t.string   "language"
+    t.string   "author"
+    t.text     "text"
+    t.string   "country"
+    t.string   "latitude"
+    t.string   "longitude"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+    t.string   "publication_state"
+    t.boolean  "allow_comments"
   end
 
   create_table "radio_track_categories", :force => true do |t|

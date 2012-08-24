@@ -1,0 +1,48 @@
+<% if !@selected_post.nil? %>
+	<% line = "" %>
+	<div class="post_details">
+		
+			<% if !@selected_post.title.blank? %>
+				<h3><%= @selected_post.title %></h3>
+			<% end %>	
+			<p>
+			<% line_string = "" %>
+			<% if !@selected_post.updated_at.blank? %>
+				<% if !line_string.blank? %> 
+					<% line_string = line_string + ", " %>
+				<% end %>
+				<% line_string = line_string + "#{l @selected_post.updated_at, :format => :long}" %>
+			<% end %>
+			<% if !@selected_post.country.blank? %>
+				<% if !line_string.blank? %> 
+					<% line_string = line_string + ", " %>
+				<% end %>
+				<% line_string = line_string + "Land: #{@selected_post.country}" %>
+			<% end %>
+			<% if !@selected_post.author.blank? %>
+				<% if !line_string.blank? %> 
+					<% line_string = line_string + ", " %>
+				<% end %>
+				<% line_string = line_string + "Text: #{@selected_post.author}" %>
+			<% end %>
+			<% if !line_string.blank? %> 
+					<%= raw line_string %><br>
+			<% end %> 
+
+			<% if !@selected_post.categories.nil? %>
+				<% category_string = "" %>
+					Kategorien: <% @selected_post.categories.each do |category| %> 
+												<% if category_string.blank? %>
+													<% category_string = category.name %>
+												<% else %>
+													<% category_string = category_string + ", " + category.name %>
+												<% end %>
+											<% end %>
+							<%= category_string %><br>
+			<% end %>
+		</p>
+		<% if !@selected_post.text.blank? %>
+			<p><%= raw @selected_post.text %></p>
+		<% end %>	
+	</div>
+<% end %>

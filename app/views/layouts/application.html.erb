@@ -31,6 +31,12 @@
         </div>
         <div class="span2.5" id="navi_3">
           <ul class="nav nav-list">
+            <% if !@posts.nil? %>
+              <% @stories = @posts %>
+            <% end  %>
+            <% if !@selected_post.nil? %>
+              <% @selected_article = @selected_post %>
+            <% end  %>
             <% if !@videos.nil? %>
               <% @stories = @videos %>
             <% end  %>
@@ -63,7 +69,7 @@
                       <% when "corporate_articles" %>
                         <% path_string = corporate_path %>
                       <% when "posts" %>
-                        <% path_string = blog %>
+                        <% path_string = blog_path %>
                       <% when "videos" %>
                         <% path_string = tv_path %>
                       <% when "radio_tracks" %>
@@ -80,7 +86,7 @@
             <% end %>
           </ul>
         </div>
-        <div class="span5.5" id="content">
+        <div class="span7" id="content">
           <div class="row">
             <%= render 'shared/message' %>
             <%= yield %>

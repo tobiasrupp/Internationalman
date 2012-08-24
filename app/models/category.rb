@@ -6,4 +6,5 @@ class Category < ActiveRecord::Base
   has_and_belongs_to_many :articles, :join_table => 'article_categories', :order => "published_date DESC"
   has_and_belongs_to_many :radio_tracks, :join_table => 'radio_track_categories', :order => "broadcast_date DESC"
   has_and_belongs_to_many :videos, :join_table => 'videos_categories', :order => "broadcast_date DESC"
+  has_and_belongs_to_many :posts, :join_table => 'post_categories', :order => "updated_at DESC"
 end
