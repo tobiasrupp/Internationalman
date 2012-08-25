@@ -1,4 +1,5 @@
 ActiveAdmin.register Article do 
+  scope :corporate_articles
 	index do
 		column :id
     column :title

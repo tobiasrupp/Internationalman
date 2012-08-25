@@ -138,3 +138,16 @@ STATEMENT:              SELECT a.attname, format_type(a.atttypid, a.atttypmod), 
 FATAL:  database "intlman_test" does not exist
 FATAL:  database "intlman_test" does not exist
 FATAL:  database "intlman_test" does not exist
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+LOG:  database system was shut down at 2012-08-24 23:13:51 BST
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ERROR:  column articles.categories does not exist at character 40
+STATEMENT:  SELECT COUNT(*) FROM "articles"  WHERE "articles"."categories" = 'Corporate'
+ERROR:  column articles.name does not exist at character 208
+STATEMENT:  SELECT COUNT(*) FROM "articles" INNER JOIN "article_categories" ON "article_categories"."article_id" = "articles"."id" INNER JOIN "categories" ON "categories"."id" = "article_categories"."category_id" WHERE "articles"."name" = 'Corporate'
+ERROR:  column articles.categories does not exist at character 208
+STATEMENT:  SELECT COUNT(*) FROM "articles" INNER JOIN "article_categories" ON "article_categories"."article_id" = "articles"."id" INNER JOIN "categories" ON "categories"."id" = "article_categories"."category_id" WHERE "articles"."categories" = 'Corporate'
