@@ -4,4 +4,6 @@ class Post < ActiveRecord::Base
   has_and_belongs_to_many :categories, :join_table => 'post_categories', :order => 'display_section ASC, display_sequence ASC'
   has_attached_file :image_1, :styles => { :medium => "320x320>", :small => "160x160>", :thumb => "100x100>" }
   has_attached_file :image_2, :styles => { :medium => "320x320>", :small => "160x160>", :thumb => "100x100>" }
+  validates_attachment :image_1, :content_type => { :content_type => /image/ }, :size => { :in => 1..300.kilobytes }
+  validates_attachment :image_2, :content_type => { :content_type => /image/ }, :size => { :in => 1..300.kilobytes }
 end

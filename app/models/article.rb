@@ -7,6 +7,6 @@ class Article < ActiveRecord::Base
   	:order => 'display_section ASC, display_sequence ASC'
   attr_accessible :teaser_image
   has_attached_file :teaser_image, :styles => { :medium => "500x320>", :thumb => "100x100>" }
-
+  validates_attachment :teaser_image, :content_type => { :content_type => /image/ }, :size => { :in => 1..300.kilobytes }
   scope :corporate_articles, joins(:categories).where("categories.name = 'Corporate'")
 end
