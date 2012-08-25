@@ -26,7 +26,7 @@ ActiveAdmin.register Article do
     f.inputs do
       f.input :title
       f.input :short_title
-      f.input :url_title
+      f.input :url_title, :hint => "Example: my-new-article-1"
       f.input :language
   		f.input :country, :priority_countries => []
   		f.input :author

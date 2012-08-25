@@ -152,7 +152,7 @@
         null,
         1,
         1,
-        null,
+        1,
         1,
         null
       ],
@@ -445,6 +445,8 @@
         null
       ],
       "/Users/tobias/dev/rails_projects/intlman/app/models/post.rb": [
+        1,
+        1,
         1,
         1,
         1,
@@ -1055,6 +1057,6 @@
         null
       ]
     },
-    "timestamp": 1345919501
+    "timestamp": 1345922156
   }
 }
