@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120824180525) do
+ActiveRecord::Schema.define(:version => 20120825175348) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -113,10 +113,21 @@ ActiveRecord::Schema.define(:version => 20120824180525) do
     t.string   "country"
     t.string   "latitude"
     t.string   "longitude"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
     t.string   "publication_state"
     t.boolean  "allow_comments"
+    t.string   "image_1_file_name"
+    t.string   "image_1_content_type"
+    t.integer  "image_1_file_size"
+    t.datetime "image_1_updated_at"
+    t.string   "image_1_options"
+    t.string   "image_2_file_name"
+    t.string   "image_2_content_type"
+    t.integer  "image_2_file_size"
+    t.datetime "image_2_updated_at"
+    t.string   "image_2_options"
+    t.text     "text_2"
   end
 
   create_table "radio_track_categories", :force => true do |t|

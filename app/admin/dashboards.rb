@@ -41,7 +41,7 @@ ActiveAdmin::Dashboards.build do
   # section "Membership Summary", :if => :memberships_enabled?
   # section "Membership Summary", :if => Proc.new { current_admin_user.account.memberships.any? }
   
-  section "Recent Articles" do
+  section "Recent Articles", :priority => 1 do
     table_for Article.order("updated_at desc").limit(3) do
       column :title do |article|
         link_to article.title, [:admin, article]
@@ -50,7 +50,7 @@ ActiveAdmin::Dashboards.build do
     end
     strong { link_to "View All Articles", admin_articles_path }
   end
-  section "Recent Radio Tracks" do
+  section "Recent Radio Tracks", :priority => 3 do
     table_for RadioTrack.order("updated_at desc").limit(3) do
       column :title do |radio_track|
         link_to radio_track.title, [:admin, radio_track]
@@ -59,7 +59,7 @@ ActiveAdmin::Dashboards.build do
     end
     strong { link_to "View All Radio Tracks", admin_radio_tracks_path }
   end
-  section "Recent Videos" do
+  section "Recent Videos", :priority => 4 do
     table_for Video.order("updated_at desc").limit(3) do
       column :title do |video|
         link_to video.title, [:admin, video]
@@ -67,5 +67,14 @@ ActiveAdmin::Dashboards.build do
       column :updated_at
     end
     strong { link_to "View All Videos", admin_videos_path }
+  end
+  section "Recent Blog Posts", :priority => 2 do
+    table_for Post.order("updated_at desc").limit(3) do
+      column :title do |post|
+        link_to post.title, [:admin, post]
+      end
+      column :updated_at
+    end
+    strong { link_to "View All Posts", admin_posts_path }
   end
 end

@@ -151,3 +151,23 @@ ERROR:  column articles.name does not exist at character 208
 STATEMENT:  SELECT COUNT(*) FROM "articles" INNER JOIN "article_categories" ON "article_categories"."article_id" = "articles"."id" INNER JOIN "categories" ON "categories"."id" = "article_categories"."category_id" WHERE "articles"."name" = 'Corporate'
 ERROR:  column articles.categories does not exist at character 208
 STATEMENT:  SELECT COUNT(*) FROM "articles" INNER JOIN "article_categories" ON "article_categories"."article_id" = "articles"."id" INNER JOIN "categories" ON "categories"."id" = "article_categories"."category_id" WHERE "articles"."categories" = 'Corporate'
+FATAL:  database "intlman_test" does not exist
+FATAL:  database "intlman_test" does not exist
+ERROR:  cached plan must not change result type
+STATEMENT:  SELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1
+FATAL:  database "intlman_test" does not exist
+ERROR:  cached plan must not change result type
+STATEMENT:  SELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+LOG:  database system was shut down at 2012-08-25 17:10:58 BST
+LOG:  autovacuum launcher started
+LOG:  database system is ready to accept connections
+FATAL:  database "intlman_test" does not exist
+ERROR:  cached plan must not change result type
+STATEMENT:  SELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1
+FATAL:  database "intlman_test" does not exist
+ERROR:  cached plan must not change result type
+STATEMENT:  SELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1

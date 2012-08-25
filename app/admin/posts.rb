@@ -10,6 +10,12 @@ ActiveAdmin.register Post do
     column :updated_at
     column :url_title
     column :publication_state
+    column "Image 1" do |post| 
+      image_tag(post.image_1.url(:thumb), :alt => "")
+    end
+    column "Image 2" do |post| 
+      image_tag(post.image_2.url(:thumb), :alt => "")
+    end
 		default_actions
   end
 
@@ -18,11 +24,16 @@ ActiveAdmin.register Post do
       f.input :title, :required => true
       f.input :short_title, :required => true
       f.input :url_title, :required => true, :hint => 'Beispiel: mein-neuer-blog-eintrag'
-      f.input :text
       f.input :publication_state, :as => :radio, :collection => ["Unpublished", "Published"], :required => true
       f.input :language
       f.input :author
       f.input :categories
+      f.input :text, :label => "Text section 1"
+      f.input :image_1, :hint => f.template.image_tag(f.object.image_1.url(:thumb))
+      f.input :image_1_options, :as => :select, :collection => ["Don't display", "Display in Section 1 left - Small", "Display in Section 1 left - Medium", "Display in Section 1 right - Small", "Display in Section 1 right - Medium", "Display in Section 2 left - Small", "Display in Section 2 left - Medium", "Display in Section 2 right - Small", "Display in Section 2 right - Medium"], :required => false
+      f.input :text_2, :label => "Text section 2"
+      f.input :image_2, :hint => f.template.image_tag(f.object.image_2.url(:thumb))
+      f.input :image_2_options, :as => :select, :collection => ["Don't display", "Display in Section 1 left - Small", "Display in Section 1 left - Medium", "Display in Section 1 right - Small", "Display in Section 1 right - Medium", "Display in Section 2 left - Small", "Display in Section 2 left - Medium", "Display in Section 2 right - Small", "Display in Section 2 right - Medium"], :required => false
   		f.input :country, :priority_countries => []
       f.input :longitude
       f.input :latitude
@@ -57,10 +68,6 @@ ActiveAdmin.register Post do
               td { post.publication_state }
             end
             tr do
-              th { 'Text' }
-              td { post.text }
-            end
-            tr do
               th { 'Language' }
               td { post.language }
             end
@@ -75,6 +82,30 @@ ActiveAdmin.register Post do
 						tr do
               th { 'Author' }
               td { post.author }
+            end
+            tr do
+              th { 'Text Section 1' }
+              td { post.text }
+            end
+            tr do
+              th { 'Image 1' }
+              td { post.image_1 }
+            end
+            tr do
+              th { 'Image 1 Options' }
+              td { post.image_1_options }
+            end
+            tr do
+              th { 'Text Section 2' }
+              td { post.text_2 }
+            end
+            tr do
+              th { 'Image 2' }
+              td { post.image_2 }
+            end
+            tr do
+              th { 'Image 2 Options' }
+              td { post.image_2_options }
             end
             tr do
               th { 'Longitude' }
