@@ -3,6 +3,8 @@ class RadioTracksController < ApplicationController
   end
 
   def show
+    # add_locale_to_url
+    
   	# get all radio tracks to display them in 2. level navigation list sorted by broadcast date descending
 		@radio_tracks = RadioTrack.find(:all,
 	              :include => :categories,

@@ -4,6 +4,8 @@ class CorporateArticlesController < ApplicationController
   end
 
   def show
+    # add_locale_to_url
+    
 		# get all corporate articles to display them in 2. level navigation list sorted by published date descending
 		@stories = Article.find(:all,
 	              :include => :categories,

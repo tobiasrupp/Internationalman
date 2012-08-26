@@ -4,6 +4,8 @@ class PagesController < ApplicationController
   end
 
   def contact
+    # add_locale_to_url
+    
   	if !page = Page.find_by_page_type('CONTACT')
   		@page_body = "<span class=\"alert alert-info\">Dies ist nur ein Beispieltext. Der richtige Text kann #{ view_context.link_to('hier', admin_pages_path )} gepflegt werden.</span>"
   		@page_title = 'Beispieltitel'

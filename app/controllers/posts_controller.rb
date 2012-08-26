@@ -3,6 +3,8 @@ class PostsController < ApplicationController
   end
 
   def show
+    # add_locale_to_url
+    
 		# get all published posts to display them in 2. level navigation list sorted by updated_at descending
 		@posts = Post.find(:all,
 	              :include => :categories,

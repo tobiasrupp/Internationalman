@@ -5,9 +5,10 @@ Given /^an admin user exists with email: "(.*?)" and password: "(.*?)"$/ do |arg
 end
 
 Given /^I log in with this user$/ do
-  visit('/admin/login')
+  visit('/en/admin')
   fill_in('Email', with: "admin@example.com")
   fill_in('Password', with: 'password')
+  # save_and_open_page
   click_button('Login')
 end
 
@@ -16,8 +17,8 @@ Given /^no article exists$/ do
 end
 
 Given /^I am on the articles page$/ do
-  visit('/admin/articles')
-  current_path.should == '/admin/articles'
+  visit('/en/admin/articles')
+  current_path.should == '/en/admin/articles'
 end
 
 When /^I fill in "(.*?)" with "(.*?)"$/ do |arg1, arg2|
@@ -50,8 +51,8 @@ Given /^1 article exists with title: "(.*?)"$/ do |arg1|
 end
 
 Given /^I am on on the Dashboard$/ do
-  visit('/admin')
-  current_path.should == '/admin'
+  visit('/en/admin')
+  current_path.should == '/en/admin'
 end
 
 When /^I click on the link "(.*?)"$/ do |arg1|

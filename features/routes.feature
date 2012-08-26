@@ -8,22 +8,22 @@ Scenario: Routing to frontend pages
 	Then I should see "| Stories"
 	And the page should be found
 	
-	When I enter the URL "/contact"
+	When I enter the URL "/en/contact"
 	Then the page should be found
 	
-	When I enter the URL "/about"
+	When I enter the URL "/en/about"
 	Then the page should be found
 
-	When I enter the URL "/tv"
+	When I enter the URL "/en/tv"
 	Then the page should be found
 
-	When I enter the URL "/radio"
+	When I enter the URL "/en/radio"
 	Then the page should be found
 
-	When I enter the URL "/corporate"
+	When I enter the URL "/en/corporate"
 	Then the page should be found
 
-	When I enter the URL "/blog/ein-neuer-blog-eintrag"
+	When I enter the URL "/en/blog/ein-neuer-blog-eintrag"
 	Then the page should be found
 
 	# When I enter the URL "/blog/2010"
@@ -35,13 +35,13 @@ Scenario: Routing to frontend pages
 	# When I enter the URL "/blog/afrika"
 	# Then the page should be found
 
-	When I enter the URL "/stories"
+	When I enter the URL "/en/stories"
 	Then the page should be found
 
-	When I enter the URL "/stories/asien"
+	When I enter the URL "/en/stories/asien"
 	Then the page should be found
 
-	When I enter the URL "/stories/afrika/artikel-ueber-afrika"
+	When I enter the URL "/en/stories/afrika/artikel-ueber-afrika"
 	Then the page should be found
 
 	# When I enter the URL "/stories/afrika/2001"

@@ -26,37 +26,37 @@ module NavigationHelpers
       path_to_pickle $1, :extra => $2                               #  or the forum's edit page
 
     when /Contact page/
-      contact_path
+      contact_en_path
     
     when /About page/
-      about_path
+      about_en_path
 
     when /Homepage/
       root_path
 
     when /Corporate page/
-      corporate_path   
+      corporate_en_path   
 
     when /Stories page/
-      stories_path
+      stories_en_path
 
     when /TV page/
-      tv_path
+      tv_en_path
 
     when /Radio page/
-      radio_path
+      radio_en_path
 
     when /Radio Track page/
-      '/admin/radio_tracks'
+      '/en/admin/radio_tracks'
 
     when /Videos page/
-      '/admin/videos'
+      '/en/admin/videos'
 
     when /Blog page/
-      blog_path         
+      blog_en_path         
       
     when /Posts page/
-      '/admin/posts'      
+      '/en/admin/posts'      
       
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

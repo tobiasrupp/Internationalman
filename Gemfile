@@ -7,7 +7,9 @@ gem 'country-select'
 gem 'pg', '0.12.2'
 gem 'activeadmin'
 gem "meta_search",    '>= 1.1.0.pre'
-gem "paperclip", "~> 3.0"
+gem "paperclip", '3.1.4'
+gem 'rails-translate-routes'
+gem 'globalize3'
 
 group :development, :test do
   # gem 'sqlite3', '1.3.5'

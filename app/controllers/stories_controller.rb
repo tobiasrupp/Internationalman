@@ -5,10 +5,11 @@ class StoriesController < ApplicationController
   end
 
   def show_stories
-
-  	# route /stories
-
-  	# get categories with stories (non-corporate)
+    # route /stories
+    
+    add_locale_to_url
+  	
+    # get categories with stories (non-corporate)
   	story_categories = Category.find(:all,                                  
 	                        :include => :articles,
 	                        :conditions =>"name <> 'Corporate'",

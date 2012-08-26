@@ -9,6 +9,8 @@ class Article < ActiveRecord::Base
   scope :corporate_articles, joins(:categories).where("categories.name = 'Corporate'")
   has_attached_file :teaser_image, :styles => { :medium => "500x320>", :thumb => "100x100>" }
   
+  translates :title, :short_title, :url_title, :article_type, :country, :language, :fallbacks_for_empty_translations => true
+
   validates_attachment :teaser_image, :content_type => { :content_type => /image/ }, :size => { :in => 1..300.kilobytes }
   validates :title, :presence => true, :length => {:minimum => 1, :maximum => 254}
   validates :short_title, :presence => true, :length => {:minimum => 1, :maximum => 100}

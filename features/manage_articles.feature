@@ -16,8 +16,11 @@ Scenario: Create Article
 	And I am on the articles page
 	When I click on "New Article"
 	And I fill in "Title" with "Neuer Artikel"
+	And I fill in "Short title" with "N. Artikel"
+	And I fill in "Url title" with "neuer-artikel"
 	And I fill in "Language" with "de"
 	And I fill in selection field "Country" with "Colombia"
+	And I fill in selection field "Categories" with "Corporate"
 	And I fill in "Longitude" with "long"
 	And I fill in "Latitude" with "lat"
 	And I fill in "Article type" with "Titelgeschichte"
@@ -30,12 +33,12 @@ Scenario: Create Article
 	Then 1 article should exist
 	And I should see "Article was successfully created"
 
-Scenario: Navigate to article by clicking link on Dashboard 
-	Given 1 article exists with title: "Ein neuer Artikel"
-	And I am on on the Dashboard
-	When I click on the link "Ein neuer Artikel"
-	Then I should see "Article Details"
-	And I should see "Ein neuer Artikel"
+# Scenario: Navigate to article by clicking link on Dashboard 
+# 	Given 1 article exists with title: "Ein neuer Artikel"
+# 	And I am on on the Dashboard
+# 	When I click on the link "Ein neuer Artikel"
+# 	Then I should see "Article Details"
+# 	And I should see "Ein neuer Artikel"
 
 Scenario: Create Corporate Article
 	Given no article exists
