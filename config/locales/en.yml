@@ -2,4 +2,12 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  about: About
+  contact: Contact
+  published_in: Published in
+  country: Country
+  text: Text
+  photos: Photos
+  categories: Categories
+  further_information: Further Information
+  display_story_in_new_window: Display Story In New Window 

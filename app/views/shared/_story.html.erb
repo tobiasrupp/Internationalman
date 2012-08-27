@@ -8,13 +8,13 @@
 		<p>
 		<% line_string = "" %>
 		<% if !@selected_article.published_in.blank? %>
-			<% line_string = "Erschienen in <i>#{ @selected_article.published_in }</i>" %>
+			<% line_string = t(:published_in) + ": #{ @selected_article.published_in }" %>
 		<% end %>
 		<% if !@selected_article.article_type.blank? %>
 			<% if !line_string.blank? %> 
-				<% line_string = line_string + ", " %>
+				<% line_string = line_string + " " %>
 			<% end %>
-			<% line_string = line_string + "#{@selected_article.article_type}" %>
+			<% line_string = line_string + "(#{@selected_article.article_type})" %>
 		<% end %>
 		<% if !@selected_article.published_date.blank? %>
 			<% if !line_string.blank? %> 
@@ -27,23 +27,23 @@
 		<% end %> 
 
 		<% line_string = "" %>
-		<% if !@selected_article.country.blank? %>
+		<% if !@selected_article.ctry.blank? %>
 			<% if !line_string.blank? %> 
 				<% line_string = line_string + ", " %>
 			<% end %>
-			<% line_string = line_string + "Land: #{@selected_article.country}" %>
+			<% line_string = line_string + t(:country) + ": #{@selected_article.ctry}" %>
 		<% end %>
 		<% if !@selected_article.author.blank? %>
 			<% if !line_string.blank? %> 
 				<% line_string = line_string + ", " %>
 			<% end %>
-			<% line_string = line_string + "Text: #{@selected_article.author}" %>
+			<% line_string = line_string + t(:text) + ": #{@selected_article.author}" %>
 		<% end %>
 		<% if !@selected_article.photos_by.blank? %>
 			<% if !line_string.blank? %> 
 				<% line_string = line_string + ", " %>
 			<% end %> 
-			<% line_string = line_string + "Fotos: #{@selected_article.photos_by}" %>
+			<% line_string = line_string + t(:photos) + ": #{@selected_article.photos_by}" %>
 		<% end %>
 		<% if !line_string.blank? %> 
 				<%= raw line_string %><br>
@@ -51,7 +51,8 @@
 
 		<% if !@selected_article.categories.nil? %>
 			<% category_string = "" %>
-			Kategorien: <% @selected_article.categories.each do |category| %> 
+			<%= t(:categories) %>: 
+						<% @selected_article.categories.each do |category| %> 
 							<% if category_string.blank? %>
 								<% category_string = category.name %>
 							<% else %>
@@ -61,10 +62,14 @@
 						<%= category_string %>
 		<% end %></p>
 	</div>
-
+	<% if !@selected_article.web_page.blank? %>
+		<p>
+			<%= link_to t(:further_information), @selected_article.web_page, :target => '_blank', :class => "btn btn-small btn-primary" %>
+		</p>
+	<% end %>
 	<% if !@selected_article.viewer_url.blank? %>
 		<p>
-			<%= link_to "Story in neuem Fenster Anzeigen", @selected_article.viewer_url, :target => '_blank', :class => "btn btn-small btn-primary" %>
+			<%= link_to t(:display_story_in_new_window), @selected_article.viewer_url, :target => '_blank', :class => "btn btn-small btn-primary" %>
 <!-- 	<a class="btn" href="<%= @selected_article.viewer_url %>"><i class="icon-eye-open"></i></a> -->
 		</p>
 	<% end %>

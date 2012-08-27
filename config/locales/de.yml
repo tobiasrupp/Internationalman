@@ -1,4 +1,14 @@
 de:
+  about: Über mich
+  contact: Kontakt
+  published_in: Erschienen in
+  country: Land
+  text: Text
+  photos: Fotos
+  categories: Kategorien
+  further_information: Weitere Informationen
+  display_story_in_new_window: Story in neuem Fenster Anzeigen 
+
   date:
     abbr_day_names:
     - So

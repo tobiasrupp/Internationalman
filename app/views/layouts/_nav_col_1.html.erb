@@ -40,14 +40,14 @@
     <% else %>
       <li>
     <% end  %>
-      <%= link_to 'Über mich', about_path %>
+      <%= link_to t(:about), about_path %>
     </li>
     <% if request.params["action"] == "contact" %>
       <li class="active">
     <% else %>
       <li>
     <% end  %>
-      <%= link_to 'Kontakt', contact_path %>
+      <%= link_to t(:contact), contact_path %>
     </li>
   </ul>
 </div>

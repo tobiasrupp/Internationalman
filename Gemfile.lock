@@ -225,15 +225,15 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activeadmin
+  activeadmin (= 0.4.4)
   bootstrap-sass (= 2.0.0)
   capybara (= 1.1.2)
   coffee-rails (= 3.2.2)
-  country-select
+  country-select (= 1.1.1)
   cucumber-rails (= 1.2.1)
   database_cleaner (= 0.7.0)
   factory_girl_rails (= 1.4.0)
-  globalize3
+  globalize3 (= 0.2.0)
   jquery-rails (= 2.0.2)
   launchy (= 2.1.2)
   meta_search (>= 1.1.0.pre)
@@ -241,7 +241,7 @@ DEPENDENCIES
   pg (= 0.12.2)
   pickle (= 0.4.11)
   rails (= 3.2.7)
-  rails-translate-routes
+  rails-translate-routes (= 0.1.3)
   rspec-rails (= 2.10.0)
   sass-rails (= 3.2.4)
   simplecov

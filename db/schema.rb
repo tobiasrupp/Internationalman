@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120825175348) do
+ActiveRecord::Schema.define(:version => 20120827114033) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -54,16 +54,30 @@ ActiveRecord::Schema.define(:version => 20120825175348) do
   add_index "article_categories", ["article_id"], :name => "index_article_categories_on_article_id"
   add_index "article_categories", ["category_id"], :name => "index_article_categories_on_category_id"
 
+  create_table "article_translations", :force => true do |t|
+    t.integer  "article_id"
+    t.string   "locale"
+    t.string   "title"
+    t.string   "short_title"
+    t.string   "url_title"
+    t.string   "article_type"
+    t.string   "ctry"
+    t.string   "language"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "article_translations", ["article_id"], :name => "index_article_translations_on_article_id"
+  add_index "article_translations", ["locale"], :name => "index_article_translations_on_locale"
+
   create_table "articles", :force => true do |t|
     t.string   "title"
     t.string   "language"
-    t.string   "country"
     t.string   "longitude"
     t.string   "latitude"
     t.string   "article_type"
     t.date     "published_date"
     t.string   "published_in"
-    t.string   "filename"
     t.string   "author"
     t.string   "photos_by"
     t.datetime "created_at",                :null => false
@@ -76,6 +90,8 @@ ActiveRecord::Schema.define(:version => 20120825175348) do
     t.string   "teaser_image_content_type"
     t.integer  "teaser_image_file_size"
     t.datetime "teaser_image_updated_at"
+    t.string   "ctry"
+    t.string   "web_page"
   end
 
   create_table "categories", :force => true do |t|

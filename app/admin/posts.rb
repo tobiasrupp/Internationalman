@@ -21,17 +21,17 @@ ActiveAdmin.register Post do
 
   form do |f|
     f.inputs do
-      f.input :title, :required => true
-      f.input :short_title, :required => true
-      f.input :url_title, :required => true, :hint => 'Beispiel: mein-neuer-blog-eintrag'
+      f.input :title, :required => true, :input_html => { :size => 255 }
+      f.input :short_title, :required => true, :input_html => { :size => 80 }
+      f.input :url_title, :required => true, :hint => 'Beispiel: mein-neuer-blog-eintrag', :input_html => { :size => 80 }
       f.input :publication_state, :as => :radio, :collection => ["Unpublished", "Published"], :required => true
-      f.input :language
+      f.input :language, :input_html => { :disabled => true }
       f.input :author
       f.input :categories
-      f.input :text, :label => "Text section 1"
+      f.input :text, :label => "Text section 1", :input_html => { :class => 'autogrow', :rows => 10, :cols => 20 }
       f.input :image_1, :hint => f.template.image_tag(f.object.image_1.url(:thumb))
       f.input :image_1_options, :as => :select, :collection => ["Don't display", "Display in Section 1 left - Small", "Display in Section 1 left - Medium", "Display in Section 1 right - Small", "Display in Section 1 right - Medium", "Display in Section 2 left - Small", "Display in Section 2 left - Medium", "Display in Section 2 right - Small", "Display in Section 2 right - Medium"], :required => false
-      f.input :text_2, :label => "Text section 2"
+      f.input :text_2, :label => "Text section 2", :input_html => { :class => 'autogrow', :rows => 10, :cols => 20 }
       f.input :image_2, :hint => f.template.image_tag(f.object.image_2.url(:thumb))
       f.input :image_2_options, :as => :select, :collection => ["Don't display", "Display in Section 1 left - Small", "Display in Section 1 left - Medium", "Display in Section 1 right - Small", "Display in Section 1 right - Medium", "Display in Section 2 left - Small", "Display in Section 2 left - Medium", "Display in Section 2 right - Small", "Display in Section 2 right - Medium"], :required => false
   		f.input :country, :priority_countries => []

@@ -51,11 +51,14 @@
             <% end  %>
             <% if !@stories.nil? %>
               <% for article in @stories %>
-                <% if article == @selected_article %>
-                  <li class="active">
+                <% if article.title.blank? || article.url_title.blank? %>
+                  Kein Text gefunden (<%= I18n.locale %>)
                 <% else %>
-                  <li>
-                <% end  %>
+                  <% if article == @selected_article %>
+                    <li class="active">
+                  <% else %>
+                    <li>
+                  <% end  %>
                   <% if request.params["controller"] == "stories" %>
                     <% if !article.short_title.blank? %>
                       <%= link_to article.short_title, stories_path + '/' + 
@@ -81,6 +84,7 @@
                       <%= link_to article.title, path_string + '/' + article.url_title %>
                     <% end  %>
                   <% end  %>
+                <% end  %>
                 </li>
               <% end %>
             <% end %>

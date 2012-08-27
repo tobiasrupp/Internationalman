@@ -11,7 +11,6 @@ Background:
 		|Afrika|2|1|afrika|
 		|Corporate|||corporate|
 
-@focus
 Scenario: Create Post
 	Given no "Post" exists
 	And I go to the "Posts page"
