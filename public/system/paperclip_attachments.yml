@@ -1,0 +1,15 @@
+---
+:Article:
+  :teaser_image:
+  - :medium
+  - :thumb
+:Post:
+  :image_1:
+  - :medium
+  - :small
+  - :thumb
+  :image_2:
+  - :medium
+  - :small
+  - :thumb
+  
