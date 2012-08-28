@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120828190239) do
+ActiveRecord::Schema.define(:version => 20120828192843) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -61,11 +61,10 @@ ActiveRecord::Schema.define(:version => 20120828190239) do
     t.string   "short_title"
     t.string   "url_title"
     t.string   "article_type"
-    t.string   "country"
+    t.string   "ctry"
     t.string   "language"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
-    t.string   "ctry"
   end
 
   add_index "article_translations", ["article_id"], :name => "index_article_translations_on_article_id"
@@ -93,8 +92,8 @@ ActiveRecord::Schema.define(:version => 20120828190239) do
     t.datetime "teaser_image_updated_at"
     t.string   "country"
     t.string   "filename"
-    t.string   "web_page"
     t.string   "ctry"
+    t.string   "web_page"
   end
 
   create_table "categories", :force => true do |t|

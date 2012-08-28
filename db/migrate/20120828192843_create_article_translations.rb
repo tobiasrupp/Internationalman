@@ -5,7 +5,7 @@ class CreateArticleTranslations < ActiveRecord::Migration
       short_title: :string,
       url_title: :string,
       article_type: :string,
-      country: :string,
+      ctry: :string,
       language: :string 
     }, {
       migrate_data: true

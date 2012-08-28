@@ -1,5 +1,5 @@
 class Article < ActiveRecord::Base
-  attr_accessible :article_type, :author, :ctry, :filename, :language, :country
+  attr_accessible :article_type, :author, :ctry, :filename, :language
   attr_accessible :latitude, :longitude, :photos_by, :published_date, :published_in, :web_page
   attr_accessible :title, :url_title, :embed_code, :short_title, :viewer_url
   attr_accessible :category_ids, :categories
@@ -9,7 +9,7 @@ class Article < ActiveRecord::Base
   scope :corporate_articles, joins(:categories).where("categories.name = 'Corporate'")
   has_attached_file :teaser_image, :styles => { :medium => "500x320>", :thumb => "100x100>" }
   
-  translates :title, :short_title, :url_title, :article_type, :ctry, :country, :language, :fallbacks_for_empty_translations => true
+  translates :title, :short_title, :url_title, :article_type, :ctry, :language, :fallbacks_for_empty_translations => true
   class Translation
     attr_accessible :locale
   end
