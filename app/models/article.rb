@@ -9,7 +9,7 @@ class Article < ActiveRecord::Base
   scope :corporate_articles, joins(:categories).where("categories.name = 'Corporate'")
   has_attached_file :teaser_image, :styles => { :medium => "500x320>", :thumb => "100x100>" }
   
-  translates :title, :short_title, :url_title, :article_type, :ctry, :language, :fallbacks_for_empty_translations => true
+  translates :title, :short_title, :url_title, :article_type, :ctry, :country, :language, :fallbacks_for_empty_translations => true
   class Translation
     attr_accessible :locale
   end
