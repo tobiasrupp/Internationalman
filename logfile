@@ -177,3 +177,10 @@ LOG:  autovacuum launcher started
 FATAL:  database "intlman_test" does not exist
 ERROR:  cached plan must not change result type
 STATEMENT:  SELECT  "articles".* FROM "articles"  WHERE "articles"."id" = $1 LIMIT 1
+LOG:  autovacuum launcher shutting down
+LOG:  received smart shutdown request
+LOG:  shutting down
+LOG:  database system is shut down
+LOG:  database system was shut down at 2012-08-28 01:33:44 EEST
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
