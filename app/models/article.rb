@@ -1,5 +1,5 @@
 class Article < ActiveRecord::Base
-  attr_accessible :article_type, :author, :ctry, :filename, :language
+  attr_accessible :article_type, :author, :ctry, :filename, :language, :country
   attr_accessible :latitude, :longitude, :photos_by, :published_date, :published_in, :web_page
   attr_accessible :title, :url_title, :embed_code, :short_title, :viewer_url
   attr_accessible :category_ids, :categories
