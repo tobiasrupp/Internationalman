@@ -9,7 +9,7 @@ class Article < ActiveRecord::Base
   scope :corporate_articles, joins(:categories).where("categories.name = 'Corporate'")
   has_attached_file :teaser_image, :styles => { :medium => "500x320>", :thumb => "100x100>" },
     :storage => :s3,
-    :path => ":attachment/:id/:style.:extension",
+    :path => "articles/:attachment/:id/:style.:extension",
     :s3_credentials => {
       :bucket            => 'intlman',
       :access_key_id     => 'AKIAIYCIDADPFHX4LBAQ',

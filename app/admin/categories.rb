@@ -2,6 +2,7 @@ ActiveAdmin.register Category do
   	index do
 		column :id
     column :name
+    column :url_name
     column :display_section
    	column :display_sequence
    	column :language
