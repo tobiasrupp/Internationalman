@@ -197,3 +197,12 @@ ERROR:  cached plan must not change result type
 STATEMENT:  SELECT  "radio_tracks".* FROM "radio_tracks"  WHERE "radio_tracks"."id" = $1 LIMIT 1
 FATAL:  database "intlman_test" does not exist
 FATAL:  database "intlman_test" does not exist
+ERROR:  relation "post_translations" does not exist at character 245
+STATEMENT:              SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+	              FROM pg_attribute a LEFT JOIN pg_attrdef d
+	                ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+	             WHERE a.attrelid = '"post_translations"'::regclass
+	               AND a.attnum > 0 AND NOT a.attisdropped
+	             ORDER BY a.attnum
+	
+FATAL:  database "intlman_test" does not exist

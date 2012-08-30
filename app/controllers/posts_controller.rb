@@ -5,11 +5,11 @@ class PostsController < ApplicationController
   def show
     # add_locale_to_url
     
-		# get all published posts to display them in 2. level navigation list sorted by updated_at descending
+		# get all published posts to display them in 2. level navigation list sorted by created_at descending
 		@posts = Post.find(:all,
 	              :include => :categories,
 	              :conditions => "publication_state = 'Published'",
-	              :order => "updated_at DESC")
+	              :order => "created_at DESC")
     if @posts.count == 0
       flash.now[:notice] = "Kein Blogeintrag gefunden."
       return

@@ -1,14 +1,10 @@
 ActiveAdmin.register Post do
   index do
     column :title
+    column :short_title
     column "Categories" do |post|
   		post.categories.map { |p| p.name }.join('<br />').html_safe
 		end
-		# column :country
-    # column :long
-    # column :lat	
-    column :updated_at
-    column :url_title
     column :publication_state
     column "Image 1" do |post| 
       image_tag(post.image_1.url(:thumb), :alt => "")
@@ -16,17 +12,51 @@ ActiveAdmin.register Post do
     column "Image 2" do |post| 
       image_tag(post.image_2.url(:thumb), :alt => "")
     end
+    column :language
 		default_actions
+  end
+
+  # language switch - edit page
+  action_item :only => :edit do
+    link_to "Switch To German", edit_admin_post_de_path
+  end
+  action_item :only => :edit do
+    link_to "Switch To English", edit_admin_post_en_path
+  end
+
+  # language switch - new page
+  action_item :only => :new do
+    link_to "Switch To German", new_admin_post_de_path
+  end
+  action_item :only => :new do
+    link_to "Switch To English", new_admin_post_en_path
+  end
+
+# language switch - index page
+  action_item :only => :index do
+    link_to "Switch To German", admin_posts_de_path
+  end
+  action_item :only => :index do
+    link_to "Switch To English", admin_posts_en_path
+  end
+
+  # language switch - show page
+  action_item :only => :show do
+    link_to "Switch To German", admin_post_de_path
+  end
+  action_item :only => :show do
+    link_to "Switch To English", admin_post_en_path
   end
 
   form do |f|
     f.inputs do
-      f.input :title, :required => true, :input_html => { :size => 255 }
+        f.input :language, :input_html => { :readonly => true, :value => I18n.locale}, :hint => "Read-only"
+       f.input :title, :required => true, :input_html => { :size => 255 }
       f.input :short_title, :required => true, :input_html => { :size => 80 }
       f.input :url_title, :required => true, :hint => 'Beispiel: mein-neuer-blog-eintrag', :input_html => { :size => 80 }
-      f.input :publication_state, :as => :radio, :collection => ["Unpublished", "Published"], :required => true
-      f.input :language, :input_html => { :disabled => true }
+      f.input :publication_state, :as => :radio, :collection => ["Unpublished", "Published"]
       f.input :author
+      f.input :ctry, :label => "Country"
       f.input :categories
       f.input :text, :label => "Text section 1", :input_html => { :class => 'autogrow', :rows => 10, :cols => 20 }
       f.input :image_1, :hint => f.template.image_tag(f.object.image_1.url(:thumb))
@@ -34,7 +64,6 @@ ActiveAdmin.register Post do
       f.input :text_2, :label => "Text section 2", :input_html => { :class => 'autogrow', :rows => 10, :cols => 20 }
       f.input :image_2, :hint => f.template.image_tag(f.object.image_2.url(:thumb))
       f.input :image_2_options, :as => :select, :collection => ["Don't display", "Display in Section 1 left - Small", "Display in Section 1 left - Medium", "Display in Section 1 right - Small", "Display in Section 1 right - Medium", "Display in Section 2 left - Small", "Display in Section 2 left - Medium", "Display in Section 2 right - Small", "Display in Section 2 right - Medium"], :required => false
-  		f.input :country, :priority_countries => []
       f.input :longitude
       f.input :latitude
       # f.input :allow_comments, :label => "Allow commenting on this post"
@@ -50,6 +79,10 @@ ActiveAdmin.register Post do
           	tr do
               th { 'ID' }
               td { post.id }
+            end
+            tr do
+              th { 'Language' }
+              td { post.language }
             end
             tr do
               th { 'Title' }
@@ -68,16 +101,12 @@ ActiveAdmin.register Post do
               td { post.publication_state }
             end
             tr do
-              th { 'Language' }
-              td { post.language }
-            end
-            tr do
               th { 'Categories' }
               td { post.categories.map { |p| p.name }.join(', ') }
             end
             tr do
               th { 'Country' }
-              td { post.country }
+              td { post.ctry }
             end
 						tr do
               th { 'Author' }
