@@ -9,10 +9,26 @@ class Article < ActiveRecord::Base
   scope :corporate_articles, joins(:categories).where("categories.name = 'Corporate'")
   has_attached_file :teaser_image, :styles => { :medium => "500x320>", :thumb => "100x100>" },
     :storage => :s3,
-    :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
     :path => ":attachment/:id/:style.:extension",
-    :bucket => 'yourbucket'
-  
+    :s3_credentials => {
+      :bucket            => 'intlman',
+      :access_key_id     => 'AKIAIYCIDADPFHX4LBAQ',
+      :secret_access_key => 'Jjlc7qOjvxYQf1XkBFlyL/8AYPRuqyGlzV5K90OT'
+    }
+
+
+  # ,
+  #   :storage => :s3,
+  #   :s3_credentials => "#{Rails.root}/config/s3.yml",
+  #   :path => ":attachment/:id/:style.:extension",
+  #   :bucket => 'intlman'
+  # ,
+  #   :storage => :s3,
+  #   :s3_credentials => {
+  #     :bucket            => ENV['S3_BUCKET_NAME'],
+  #     :access_key_id     => ENV['AWS_ACCESS_KEY_ID'],
+  #     :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+  #   }
   translates :title, :short_title, :url_title, :article_type, :ctry, :language, :fallbacks_for_empty_translations => true
   class Translation
     attr_accessible :locale

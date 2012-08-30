@@ -1,3 +1,16 @@
-access_key_id: AKIAIYCIDADPFHX4LBAQ
-secret_access_key: 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
-bucket:
+
+# development:
+# 	access_key_id: 'AKIAIYCIDADPFHX4LBAQ'
+# 	secret_access_key: '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'
+# 	bucket: 'intlman'
+
+development: 
+	access_key_id: AKIAIYCIDADPFHX4LBAQ
+	secret_access_key: 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
+	bucket: intlman
+
+
+# test:
+#   bucket: bucketname
+#   access_key_id: #
+#   secret_access_key: #

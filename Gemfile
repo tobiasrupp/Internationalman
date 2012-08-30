@@ -10,7 +10,8 @@ gem "meta_search",    '>= 1.1.0.pre'
 gem "paperclip", '3.1.4'
 gem 'rails-translate-routes', '0.1.3'
 gem 'globalize3', '0.2.0'
-gem 'aws-s3'
+# gem 'aws-s3', '0.6.3'
+gem 'aws-sdk', '~> 1.3.4'
 
 group :development, :test do
   # gem 'sqlite3', '1.3.5'
