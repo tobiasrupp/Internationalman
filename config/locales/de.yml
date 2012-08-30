@@ -8,6 +8,12 @@ de:
   categories: Kategorien
   further_information: Weitere Informationen
   display_story_in_new_window: Story in neuem Fenster Anzeigen 
+  
+  alexander_buehler: Alexander Bühler
+
+  broadcast_on: Gesendet auf
+  broadcast_on_day: Gesendet am 
+  duration: Dauer
 
   date:
     abbr_day_names:

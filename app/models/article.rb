@@ -7,7 +7,11 @@ class Article < ActiveRecord::Base
   has_and_belongs_to_many :categories, :join_table => 'article_categories', :order => 'display_section ASC, display_sequence ASC'
   attr_accessible :teaser_image
   scope :corporate_articles, joins(:categories).where("categories.name = 'Corporate'")
-  has_attached_file :teaser_image, :styles => { :medium => "500x320>", :thumb => "100x100>" }
+  has_attached_file :teaser_image, :styles => { :medium => "500x320>", :thumb => "100x100>" },
+    :storage => :s3,
+    :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
+    :path => ":attachment/:id/:style.:extension",
+    :bucket => 'yourbucket'
   
   translates :title, :short_title, :url_title, :article_type, :ctry, :language, :fallbacks_for_empty_translations => true
   class Translation

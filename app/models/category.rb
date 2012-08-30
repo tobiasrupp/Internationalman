@@ -1,5 +1,5 @@
 class Category < ActiveRecord::Base
-  attr_accessible :name, :display_sequence, :display_section, :url_name
+  attr_accessible :name, :display_sequence, :display_section, :url_name, :language
   attr_accessible :article_ids, :articles
   attr_accessible :radio_track_ids, :radio_tracks
   attr_accessible :videos
@@ -10,4 +10,10 @@ class Category < ActiveRecord::Base
   validates :name, :presence => true, :length => {:minimum => 1, :maximum => 100}, :uniqueness => { :case_sensitive => false }
   validates :url_name, :presence => true, :length => {:minimum => 1, :maximum => 100}, :uniqueness => { :case_sensitive => false }, :format => { :with => /\A[a-z-]+\z/, 
     :message => "Use only lowercase letters and dashes" }
+  validates :language, :presence => true, :length => {:minimum => 2, :maximum => 40}
+
+  translates :name, :url_name, :language, :fallbacks_for_empty_translations => true
+  class Translation
+    attr_accessible :locale
+  end
 end

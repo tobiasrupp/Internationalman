@@ -52,7 +52,7 @@
             <% if !@stories.nil? %>
               <% for article in @stories %>
                 <% if article.title.blank? || article.url_title.blank? %>
-                  Kein Text gefunden (<%= I18n.locale %>)
+                  Kein Text gefunden (<%= I18n.locale %>)<br>
                 <% else %>
                   <% if article == @selected_article %>
                     <li class="active">

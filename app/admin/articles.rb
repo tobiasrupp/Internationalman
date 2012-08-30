@@ -42,13 +42,13 @@ ActiveAdmin.register Article do
     link_to "Switch To English", new_admin_article_en_path
   end
 
+  # language switch - index page
   action_item :only => :index do
     link_to "Switch To German", admin_articles_de_path
   end
   action_item :only => :index do
     link_to "Switch To English", admin_articles_en_path
   end
-
 
   # language switch - show page
   action_item :only => :show do

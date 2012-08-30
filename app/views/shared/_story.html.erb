@@ -8,7 +8,7 @@
 		<p>
 		<% line_string = "" %>
 		<% if !@selected_article.published_in.blank? %>
-			<% line_string = t(:published_in) + ": #{ @selected_article.published_in }" %>
+			<% line_string = t(:published_in) + " #{ @selected_article.published_in }" %>
 		<% end %>
 		<% if !@selected_article.article_type.blank? %>
 			<% if !line_string.blank? %> 
