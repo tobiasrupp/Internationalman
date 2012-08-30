@@ -1,5 +1,5 @@
 ActiveAdmin.register Category do
-  	index do
+  index do
 		column :id
     column :name
     column :url_name

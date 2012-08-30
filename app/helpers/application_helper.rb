@@ -2,8 +2,8 @@ module ApplicationHelper
 	
 	# Returns the full title on a per-page basis.
   def full_title(page_title)
-    # base_title = 'International Man'
-    base_title = "#{I18n.locale} - #{I18n.default_locale}"
+    base_title = 'International Man'
+    # base_title = "#{I18n.locale} - #{I18n.default_locale}"
 
     if page_title.empty?
       base_title

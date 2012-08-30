@@ -189,3 +189,4 @@ HINT:  Is another postmaster (PID 1080) running in data directory "/usr/local/va
 LOG:  database system was shut down at 2012-08-30 00:13:24 EEST
 LOG:  database system is ready to accept connections
 LOG:  autovacuum launcher started
+FATAL:  database "intlman_test" does not exist
