@@ -12,11 +12,11 @@
 				<% end %>
 				<% line_string = line_string + "#{l @selected_post.updated_at, :format => :long}" %>
 			<% end %>
-			<% if !@selected_post.country.blank? %>
+			<% if !@selected_post.ctry.blank? %>
 				<% if !line_string.blank? %> 
 					<% line_string = line_string + ", " %>
 				<% end %>
-				<% line_string = line_string + t(:country) + ": #{@selected_post.country}" %>
+				<% line_string = line_string + t(:country) + ": #{@selected_post.ctry}" %>
 			<% end %>
 			<% if !@selected_post.author.blank? %>
 				<% if !line_string.blank? %> 

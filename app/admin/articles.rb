@@ -16,6 +16,7 @@ ActiveAdmin.register Article do
     column "Teaser Image" do |article| 
       image_tag(article.teaser_image.url(:thumb), :alt => "")
     end
+    column :language
 		default_actions
   end
   # filter :title

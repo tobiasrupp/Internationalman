@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120830122827) do
+ActiveRecord::Schema.define(:version => 20120830141109) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -175,6 +175,7 @@ ActiveRecord::Schema.define(:version => 20120830122827) do
     t.datetime "image_2_updated_at"
     t.string   "image_2_options"
     t.text     "text_2"
+    t.string   "ctry"
   end
 
   create_table "radio_track_categories", :force => true do |t|
@@ -184,6 +185,21 @@ ActiveRecord::Schema.define(:version => 20120830122827) do
 
   add_index "radio_track_categories", ["category_id"], :name => "index_radio_track_categories_on_category_id"
   add_index "radio_track_categories", ["radio_track_id"], :name => "index_radio_track_categories_on_radio_track_id"
+
+  create_table "radio_track_translations", :force => true do |t|
+    t.integer  "radio_track_id"
+    t.string   "locale"
+    t.string   "title"
+    t.string   "short_title"
+    t.string   "url_title"
+    t.string   "ctry"
+    t.string   "language"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  add_index "radio_track_translations", ["locale"], :name => "index_radio_track_translations_on_locale"
+  add_index "radio_track_translations", ["radio_track_id"], :name => "index_radio_track_translations_on_radio_track_id"
 
   create_table "radio_tracks", :force => true do |t|
     t.string   "title"
@@ -202,6 +218,7 @@ ActiveRecord::Schema.define(:version => 20120830122827) do
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
     t.string   "web_page"
+    t.string   "ctry"
   end
 
   create_table "video_categories", :force => true do |t|
@@ -211,6 +228,21 @@ ActiveRecord::Schema.define(:version => 20120830122827) do
 
   add_index "video_categories", ["category_id"], :name => "index_video_categories_on_category_id"
   add_index "video_categories", ["video_id"], :name => "index_video_categories_on_video_id"
+
+  create_table "video_translations", :force => true do |t|
+    t.integer  "video_id"
+    t.string   "locale"
+    t.string   "title"
+    t.string   "short_title"
+    t.string   "url_title"
+    t.string   "ctry"
+    t.string   "language"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "video_translations", ["locale"], :name => "index_video_translations_on_locale"
+  add_index "video_translations", ["video_id"], :name => "index_video_translations_on_video_id"
 
   create_table "videos", :force => true do |t|
     t.string   "title"
@@ -231,6 +263,7 @@ ActiveRecord::Schema.define(:version => 20120830122827) do
     t.datetime "updated_at",     :null => false
     t.text     "embed_code"
     t.string   "camera_by"
+    t.string   "ctry"
   end
 
 end

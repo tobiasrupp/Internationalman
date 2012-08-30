@@ -190,3 +190,10 @@ LOG:  database system was shut down at 2012-08-30 00:13:24 EEST
 LOG:  database system is ready to accept connections
 LOG:  autovacuum launcher started
 FATAL:  database "intlman_test" does not exist
+FATAL:  database "intlman_test" does not exist
+ERROR:  cached plan must not change result type
+STATEMENT:  SELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1
+ERROR:  cached plan must not change result type
+STATEMENT:  SELECT  "radio_tracks".* FROM "radio_tracks"  WHERE "radio_tracks"."id" = $1 LIMIT 1
+FATAL:  database "intlman_test" does not exist
+FATAL:  database "intlman_test" does not exist
