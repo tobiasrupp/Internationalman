@@ -19,3 +19,36 @@ en:
   on: on 
   broadcast_on_day: Broadcast  
   duration: Duration 
+
+
+  # activerecord:
+  #   models:
+  #     article: Dude
+  #   attributes:
+  #     article:
+  #       title: "Handle"
+
+# activerecord:
+#     attributes:
+#       article:
+#         id: ID
+#     models:
+#       admin_user:
+#       article:
+#         one: Article
+#         other: Articles
+#       # category:
+#       #   one: Kategorie
+#       #   other: Kategorien
+#       # page:
+#       #   one: Normale Seite
+#       #   other: Normale Seiten
+#       # post:
+#       #   one: Blogeintrag
+#       #   other: Blogeinträge
+#       # radio_track:
+#       #   one: Radiobeitrag
+#       #   other: Radiobeiträge
+#       # video:
+#       #   one: Video
+#       #   other: Videos  
