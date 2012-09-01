@@ -5,19 +5,13 @@ class Post < ActiveRecord::Base
   has_attached_file :image_1, :styles => { :medium => "320x320>", :small => "160x160>", :thumb => "100x100>" },
     :storage => :s3,
     :path => "posts/:attachment/:id/:style.:extension",
-    :s3_credentials => {
-      :bucket            => 'intlman',
-      :access_key_id     => 'AKIAIYCIDADPFHX4LBAQ',
-      :secret_access_key => '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'
-    }
+    :s3_credentials => "#{Rails.root}/config/aws.yml"
+
   has_attached_file :image_2, :styles => { :medium => "320x320>", :small => "160x160>", :thumb => "100x100>" },
     :storage => :s3,
     :path => "posts/:attachment/:id/:style.:extension",
-    :s3_credentials => {
-      :bucket            => 'intlman',
-      :access_key_id     => 'AKIAIYCIDADPFHX4LBAQ',
-      :secret_access_key => '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'
-    }
+    :s3_credentials => "#{Rails.root}/config/aws.yml"
+
   validates_attachment :image_1, :content_type => { :content_type => /image/ }, :size => { :in => 1..300.kilobytes }
   validates_attachment :image_2, :content_type => { :content_type => /image/ }, :size => { :in => 1..300.kilobytes }
 
