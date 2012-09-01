@@ -7,9 +7,9 @@ Background:
 	Given an admin user exists with email: "admin@example.com" and password: "password"
 	And I log in with this user
 	And the following categories records
-		|name|display_sequence|display_section|url_name|
-		|Afrika|2|1|afrika|
-		|Corporate|||corporate|
+	|name|display_sequence|display_section|url_name|language|
+		|Afrika|2|1|afrika|de|
+		|Corporate|||corporate|de|
 
 Scenario: Create Post
 	Given no "Post" exists
@@ -20,7 +20,7 @@ Scenario: Create Post
 	And I fill in "Url title" with "neuer-testo-blogeintrag"
 	And I fill in selection field "Categories" with "Afrika"
 	And I fill in "Language" with "de"
-	And I fill in selection field "Country" with "Uganda"
+	And I fill in "Country" with "Uganda"
 	And I fill in "Longitude" with "long"
 	And I fill in "Latitude" with "lat"
 	And I choose radio button "Publication state" with "Published"

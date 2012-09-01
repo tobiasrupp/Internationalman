@@ -7,9 +7,9 @@ Background:
 	Given an admin user exists with email: "admin@example.com" and password: "password"
 	And I log in with this user
 	And the following categories records
-		|name|display_sequence|display_section|url_name|
-		|Afrika|2|1|afrika|
-		|Corporate|||corporate|
+	|name|display_sequence|display_section|url_name|language|
+		|Afrika|2|1|afrika|de|
+		|Corporate|||corporate|de|
 
 Scenario: Create Video
 	Given no "Video" exists
@@ -20,16 +20,15 @@ Scenario: Create Video
 	And I fill in "Url title" with "neues-testvideo"
 	And I fill in selection field "Categories" with "Afrika"
 	And I fill in "Language" with "de"
-	And I fill in selection field "Country" with "Colombia"
+	And I fill in "Country" with "Colombia"
 	And I fill in "Longitude" with "long"
 	And I fill in "Latitude" with "lat"
 	And I fill in "Duration" with "15"
 	And I fill in Broadcast date of "Video" with "12 March 2007"
 	And I fill in "Broadcaster" with "WDR"
-	And I fill in "Filename" with "neuesvideo.mp4"
 	And I fill in "Author" with "Alexander Bühler"
-	And I fill in "Source url" with "..."
-	And I fill in "Web page" with "..."
+	And I fill in "Source url" with "http://www.example.com"
+	And I fill in "Source url" with "http://www.example.com"
 	And I click on "Create Video"
 	Then 1 "Video" should exist
 	And I should see "Video was successfully created"

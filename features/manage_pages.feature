@@ -48,19 +48,18 @@ Background:
 # 	And I shoud see "Email"
 # 	And I shoud see "Tel"
 
-Scenario: Create Contact Page
-	Given I am the Pages page
-	And No page exists
-	When I click on "New Page"
-	And I fill in "Page type" with "CONTACT"
-	And I fill in "Body" with "<h1>Example body text</h1>"
-	And I fill in "Title" with "Contact test title"
-	And I click on "Create Page"
-	Then I should see "Page was successfully created"
-	And 1 page should exist
-	When I go to the "Contact page"
-	Then I should see "Example body text"
-	And I should see "Contact test title"
+# Scenario: Create Contact Page
+# 	Given I am the Pages page
+# 	And No page exists
+# 	When I click on "erstellen"
+# 	And I click on radio button "CONTACT"
+# 	And I fill in "Text" with "<h1>Example body text</h1>"
+# 	And I fill in "Title" with "Contact test title"
+# 	And I click on "Create"
+# 	Then 1 page should exist
+# 	When I go to the "Contact page"
+# 	Then I should see "Example body text"
+# 	And I should see "Contact test title"
 
 
 

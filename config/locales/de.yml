@@ -264,6 +264,9 @@ de:
     blank_slate:
       content: "Es gibt noch keine %{resource_name}."
       link: "Erstellen"
+    
+    # update_model:
+    #   notice: testo Radio track was successfully updated.
     comments:
       body: "Inhalt"
       author: "Autor"
@@ -323,8 +326,8 @@ de:
         one: Kategorie
         other: Kategorien
       page:
-        one: Normale Seite
-        other: Normale Seiten
+        one: Seite
+        other: Seiten
       post:
         one: Blogeintrag
         other: Blogeinträge

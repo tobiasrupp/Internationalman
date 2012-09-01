@@ -10,13 +10,8 @@ class Article < ActiveRecord::Base
   has_attached_file :teaser_image, :styles => { :medium => "500x320>", :thumb => "100x100>" },
     :storage => :s3,
     :path => "articles/:attachment/:id/:style.:extension",
-    :s3_credentials => {
-      :bucket            => 'intlman',
-      :access_key_id     => 'AKIAIYCIDADPFHX4LBAQ',
-      :secret_access_key => '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'
-    }
-
-
+    :s3_credentials => "#{Rails.root}/config/aws.yml"
+    
   # ,
   #   :storage => :s3,
   #   :s3_credentials => "#{Rails.root}/config/s3.yml",

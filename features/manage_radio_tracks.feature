@@ -7,9 +7,9 @@ Background:
 	Given an admin user exists with email: "admin@example.com" and password: "password"
 	And I log in with this user
 	And the following categories records
-		|name|display_sequence|display_section|url_name|
-		|Afrika|2|1|afrika|
-		|Corporate|||corporate|
+	|name|display_sequence|display_section|url_name|language|
+		|Afrika|2|1|afrika|de|
+		|Corporate|||corporate|de|
 
 Scenario: Create Radio Track
 	Given no "RadioTrack" exists
@@ -20,15 +20,14 @@ Scenario: Create Radio Track
 	And I fill in "Url title" with "neuer-radiobeitrag"
 	And I fill in selection field "Categories" with "Afrika"
 	And I fill in "Language" with "de"
-	And I fill in selection field "Country" with "Colombia"
+	And I fill in "Country" with "Colombia"
 	And I fill in "Longitude" with "long"
 	And I fill in "Latitude" with "lat"
 	And I fill in "Duration" with "12"
 	And I fill in Broadcast date of "RadioTrack" with "12 March 2010"
 	And I fill in "Broadcaster" with "NDR"
-	And I fill in "Filename" with "article1.pdf"
 	And I fill in "Author" with "Alexander Bühler"
-	And I fill in "Source url" with "..."
+	And I fill in "Source url" with "http://www.example.com"
 	And I click on "Create Radio track"
 	Then 1 "RadioTrack" should exist
 	And I should see "Radio track was successfully created"

@@ -52,3 +52,6 @@ When /^I go to the "(.*?)"$/ do |page|
   visit(path_to(page))
 end
 
+When /^I click on radio button "(.*?)"$/ do |arg1|
+  choose(arg1)
+end
