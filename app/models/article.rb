@@ -29,8 +29,7 @@ class Article < ActiveRecord::Base
     attr_accessible :locale
   end
 
-  validates_attachment :teaser_image, :content_type => { :content_type => /image/ }
-  # , :size => { :in => 1..300.kilobytes }
+  validates_attachment :teaser_image, :content_type => { :content_type => /image/ }, :size => { :in => 1..300.kilobytes }
   validates :title, :presence => true, :length => {:minimum => 1, :maximum => 254}
   validates :short_title, :presence => true, :length => {:minimum => 1, :maximum => 100}
   validates :url_title, :presence => true, :length => {:minimum => 1, :maximum => 100}, :uniqueness => { :case_sensitive => false }, :format => { :with => /\A[a-z\d-]+\z/, 
