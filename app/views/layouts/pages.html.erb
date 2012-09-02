@@ -11,18 +11,25 @@
     <%= render 'layouts/header' %>
     
     <div class="container">
-      <div class="row">
-        <%= render 'layouts/nav_col_1' %>
-        <div class="span8 offset1">
-          <div class="row">
-            <%= render 'shared/message' %>
-            <%= yield %>
-          </div>
+      <div class="container_inner">  
+        <div class="row">
+          <%= render 'shared/language_switch' %>
         </div>
-      </div>
-      <div class="row">
-        <div class="span12">
-          <%= render 'layouts/footer' %>
+        <div class="row">
+          <%= render 'shared/alexander_buehler' %>
+        </div>
+        <div class="row">
+          <%= render 'layouts/nav_col_1' %>
+          <div class="span7 offset1">
+            <div class="row">
+              <%= render 'shared/message' %>
+              <%= yield %>
+            </div>
+          </div>
+          <%= render 'shared/sidebar_right' %>
+        </div>
+        <div class="row">
+            <%= render 'layouts/footer' %>
         </div>
       </div>
     </div>
