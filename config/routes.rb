@@ -22,6 +22,8 @@ Intlman::Application.routes.draw do
   match '/about',   to: 'pages#about', :via => "get"
   match '/contact', to: 'pages#contact', :via => "get"
 
+  match '/feed' => 'stories#feed', :as => :feed, :defaults => { :format => 'atom' }
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

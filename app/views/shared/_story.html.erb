@@ -71,12 +71,14 @@
 		<p>
 			<%= link_to t(:display_story_in_new_window), @selected_article.viewer_url, :target => '_blank', :class => "btn btn-small" %>
 		</p>
+		<%= render 'shared/like_button' %>
 		<% if @selected_article.teaser_image? %>
 		<p>
 			<%= link_to(image_tag(@selected_article.teaser_image.url(:medium), :alt => @selected_article.teaser_image.url, :title => t(:display_story_in_new_window), :class => "thumbnail"), @selected_article.viewer_url, :target => '_blank') %>
     </p>
 		<% end %>
 	<% else %>	
+		<%= render 'shared/like_button' %>
 		<%= image_tag(@selected_article.teaser_image.url(:medium), :alt => @selected_article.teaser_image.url, :title => "", :class => "thumbnail") %>
 	<% end %>
 <% end %>

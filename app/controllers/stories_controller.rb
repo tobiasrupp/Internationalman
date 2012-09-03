@@ -1,8 +1,4 @@
 class StoriesController < ApplicationController
-  
-
-  def index
-  end
 
   def show_stories
     # route /stories
@@ -94,27 +90,27 @@ class StoriesController < ApplicationController
   	render action: "show_stories"
   end
 
-  def show_story_by_category_and_title
+  def feed
+    # this will be the name of the feed displayed on the feed reader
+    @title = t(:alexander_buehler) + " - Journalist"
 
-  	# route /stories/category/title-of-story
+    # the news items
+    @articles = Article.find(:all,
+                :include => :categories,
+                :order => "published_date DESC")
 
-  	# get categories with stories (non-corporate)
+    # this will be our Feed's update timestamp
+    @updated = @articles.first.published_date unless @articles.empty?
 
-  	# get all stories of requested category sorted by published_date
+    respond_to do |format|
+      format.atom { render :layout => false }
 
-  	# get requested story details and display details in content section
-
-  	# display found categories in nav col 2
-
-  	# display found stories in nav col 3
-
-  	# mark relevant items as selected in nav col 1, 2 and 3;
-
-  	# store this information with the session
+      # we want the RSS feed to redirect permanently to the ATOM feed
+      format.rss { redirect_to feed_path(:format => :atom), :status => :moved_permanently }
+    end
   end
 
-
-  private
+private
 
   def get_latest_story
     articles = Article.find(:all,
