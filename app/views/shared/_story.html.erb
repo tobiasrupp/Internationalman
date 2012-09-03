@@ -1,5 +1,6 @@
 <% if !@selected_article.nil? %>
 	<% line = "" %>
+	<% @fb_description = "" %>
 	<div class="article_details">
 	
 		<% if !@selected_article.title.blank? %>
@@ -24,6 +25,7 @@
 		<% end %>
 		<% if !line_string.blank? %> 
 				<%= raw line_string %><br>
+				<% @fb_description = @fb_description + raw(line_string) %>
 		<% end %> 
 
 		<% line_string = "" %>
@@ -47,6 +49,7 @@
 		<% end %>
 		<% if !line_string.blank? %> 
 				<%= raw line_string %><br>
+				<% @fb_description = @fb_description + ", " + raw(line_string) %>
 		<% end %> 
 
 		<% if !@selected_article.categories.nil? %>
@@ -60,6 +63,7 @@
 							<% end %>
 						<% end %>
 						<%= category_string %>
+						<% @fb_description = @fb_description + ", " + t(:categories) + ': ' + category_string %>
 		<% end %></p>
 	</div>
 	<% if !@selected_article.web_page.blank? %>

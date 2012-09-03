@@ -1,2 +1,36 @@
+<% fb_properties = "" %>
+<% fb_site_admin_id = '100004335090083' %>
+<% if !@selected_article.nil? %>
+	<% fb_properties = "<meta property=\"og:title\" content=\"#{@selected_article.title}\"/>" + "\n<meta property=\"og:type\" content=\"article\"/>" + "\n<meta property=\"og:url\" content=\"#{request.protocol + request.host_with_port + request.fullpath}\"/>" + "\n<meta property=\"og:image\" content=\"#{@selected_article.teaser_image.url(:thumb)}\"/>" + "\n<meta property=\"og:site_name\" content=\"International Man - #{t(:alexander_buehler) + ', Journalist'}\"/>" + "\n<meta property=\"fb:admins\" content=\"#{fb_site_admin_id}\"/>" + "\n<meta property=\"og:description\" content=\"#{@fb_description}\"/>" %>
+		<% provide(:fb_properties, raw(fb_properties)) %>
+<% elsif !@selected_video.nil? %>
+
+<% elsif !@selected_track.nil? %>
+
+<% elsif !@selected_post.nil? %>
+
+<% end %>
+<!-- <meta property="og:title" content="Alexander B&#xfc;hler - Journalist" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://calm-refuge-6789.herokuapp.com" />
+<meta property="og:image" content="" />
+<meta property="og:site_name" content="Alexander B&#xfc;hler - Journalist" />
+<meta property="fb:admins" content="100004335090083" />
+ -->
 
 <iframe src="//www.facebook.com/plugins/like.php?href=<%= request.protocol + request.host_with_port + request.fullpath %>&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=true&amp;action=recommend&amp;colorscheme=light&amp;font=arial&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:21px;" allowTransparency="true"></iframe>
+
+
+
+<!-- 
+    <meta property="og:title" content="The Rock"/>
+    <meta property="og:type" content="movie"/>
+    <meta property="og:url" content="http://www.imdb.com/title/tt0117500/"/>
+    <meta property="og:image" content="http://ia.media-imdb.com/rock.jpg"/>
+    <meta property="og:site_name" content="IMDb"/>
+    <meta property="fb:admins" content="USER_ID"/>
+    <meta property="og:description"
+          content="A group of U.S. Marines, under command of
+                   a renegade general, take over Alcatraz and
+                   threaten San Francisco Bay with biological
+                   weapons."/> -->
