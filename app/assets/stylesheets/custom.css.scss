@@ -103,7 +103,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* header */
 .navbar-inner {
-    background-color: #666;
+    background-color: $gray_1;
     background-image: -moz-linear-gradient(center top , $gray_1 90%, $gray_2 100%);
     background-repeat: repeat-x;
     border-radius: 4px 4px 4px 4px;
@@ -171,7 +171,7 @@ h3 {
 
 p {
   // font-family: "Times New Roman";
-  // font-size: 1.0em;
+  font-size: 12px;
   line-height: 18px;
 }
 b {

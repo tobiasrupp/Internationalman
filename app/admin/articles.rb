@@ -16,6 +16,9 @@ ActiveAdmin.register Article do
     column "Teaser Image" do |article| 
       image_tag(article.teaser_image.url(:thumb), :alt => "")
     end
+    column "Source File" do |article| 
+      article.source_file_file_name
+    end
     column :language
 		default_actions
   end
@@ -81,6 +84,7 @@ ActiveAdmin.register Article do
       f.input :published_date, :start_year => Date.today.year - 15, :end_year => Date.today.year + 1
       # , :as => :datepicker
       f.input :article_type
+      f.input :source_file, :hint => f.object.source_file_file_name
       f.input :teaser_image, :hint => f.template.image_tag(f.object.teaser_image.url(:thumb))
       f.input :longitude
       f.input :latitude
@@ -143,6 +147,10 @@ ActiveAdmin.register Article do
             tr do
               th { 'Article Type' }
               td { article.article_type }
+            end
+            tr do
+              th { 'Source File' }
+              td { article.source_file }
             end
             tr do
               th { 'Teaser Image' }
