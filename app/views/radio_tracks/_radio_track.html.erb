@@ -67,7 +67,7 @@
 			<%= link_to t(:further_information), @selected_track.web_page, :target => '_blank', :class => "btn btn-small" %>
 		</p>
 	<% end %>
-	<%= render 'shared/like_button' %>
+	
 	<% if !@selected_track.source_url.blank? %>
 		<p>
 		<object data="/jwplayer/player.swf" name="player2" id="player2" type="application/x-shockwave-flash" height="24" width="320"><param value="true" name="allowfullscreen"><param value="always" name="allowscriptaccess"><param name="movie" value="/jwplayer/player.swf"><param value="file=<%= @selected_track.source_url %>" name="flashvars"></object>

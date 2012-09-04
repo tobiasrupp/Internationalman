@@ -69,7 +69,7 @@
 			<%= link_to t(:further_information), @selected_video.web_page, :target => '_blank', :class => "btn btn-small" %>
 		</p>
 	<% end %>
-	<%= render 'shared/like_button' %>
+
 	<% if !@selected_video.embed_code.blank? %>
 		<p><%= raw @selected_video.embed_code %></p>
 	<% elsif !@selected_video.source_url.blank? %>
