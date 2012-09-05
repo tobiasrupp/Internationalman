@@ -25,7 +25,7 @@ class Article < ActiveRecord::Base
   validates_attachment :teaser_image, :content_type => { :content_type => /image/ }, :size => { :in => 1..300.kilobytes }
   validates_attachment :source_file, :content_type => { :content_type => /pdf/ }, :size => { :in => 1..5000.kilobytes }
   validates :title, :presence => true, :length => {:minimum => 1, :maximum => 254}
-  validates :short_title, :presence => true, :length => {:minimum => 1, :maximum => 100}
+  validates :short_title, :presence => true, :length => {:minimum => 1, :maximum => 35}
   validates :url_title, :presence => true, :length => {:minimum => 1, :maximum => 100}, :uniqueness => { :case_sensitive => false }, :format => { :with => /\A[a-z\d-]+\z/, 
     :message => "Use only lowercase letters, dashes or numbers." }
   validates :language, :presence => true, :length => {:minimum => 2, :maximum => 40}

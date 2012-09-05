@@ -240,3 +240,7 @@ LOG:  database system is ready to accept connections
 FATAL:  lock file "postmaster.pid" already exists
 HINT:  Is another postmaster (PID 880) running in data directory "/usr/local/var/postgres"?
 FATAL:  database "intlman_test" does not exist
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
