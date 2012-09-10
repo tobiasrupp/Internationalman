@@ -91,22 +91,14 @@ class StoriesController < ApplicationController
   end
 
   def feed
-    # this will be the name of the feed displayed on the feed reader
     @title = t(:alexander_buehler) + " - Journalist"
-
-    # the news items
     @articles = Article.find(:all,
-                :include => :categories,
-                :order => "published_date DESC")
-
-    # this will be our Feed's update timestamp
+                  :include => :categories,
+                  :order => "published_date DESC")
     @updated = @articles.first.published_date unless @articles.empty?
 
     respond_to do |format|
-      format.atom { render :layout => false }
-
-      # we want the RSS feed to redirect permanently to the ATOM feed
-      format.rss { redirect_to feed_path(:format => :atom), :status => :moved_permanently }
+      format.atom
     end
   end
 

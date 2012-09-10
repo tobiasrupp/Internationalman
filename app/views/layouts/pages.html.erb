@@ -15,10 +15,19 @@
       <div class="container">
         <div class="container_inner">  
           <div class="row">
-            <div class="span6">
+            <div class="span5">
               <%= render 'shared/alexander_buehler' %>
             </div>
             <div class="span5">
+              <div class="status_message">
+                <% if !@status_message.nil? %>
+                  <% if I18n.locale == :de %>
+                    <small><span class="double_quote">&bdquo;</span><%= raw @status_message.text %><span class="double_quote">&ldquo;</span></small>
+                  <% else %>
+                    <small><span class="double_quote">&ldquo;</span><%= raw @status_message.text %><span class="double_quote">&rdquo;</span></small>
+                  <% end %>
+                <% end %>
+              </div>
             </div>
           </div>
           <div class="row">

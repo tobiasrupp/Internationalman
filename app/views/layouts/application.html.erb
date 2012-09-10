@@ -5,8 +5,9 @@
     <%= stylesheet_link_tag    "application", media: "all" %>
     <%= javascript_include_tag "application" %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <%= auto_discovery_link_tag :atom, "/feed" %>
-    <%= auto_discovery_link_tag :rss, "/feed.rss" %>
+   <!--  <%= auto_discovery_link_tag :atom, "/feed" %>
+    <%= auto_discovery_link_tag :rss, "/feed.rss" %> -->
+    <%= auto_discovery_link_tag :atom, feed_path %>
     <%= yield(:fb_properties) %>
     <%= csrf_meta_tags %>
     <%= yield(:video_player_script) %>
@@ -32,12 +33,10 @@
                   <% else %>
                     <small><span class="double_quote">&ldquo;</span><%= raw @status_message.text %><span class="double_quote">&rdquo;</span></small>
                   <% end %>
-                  
                 <% end %>
               </div>
             </div>
           </div>
-        
           <div class="row">
             <div class="span line_box">
               <%= render 'layouts/nav_col_1' %>
