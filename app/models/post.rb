@@ -2,12 +2,12 @@ class Post < ActiveRecord::Base
   attr_accessible :author, :country, :language, :latitude, :longitude, :short_title, :text, :title, :url_title, :publication_state, :allow_comments, :image_1, :image_1_options, :image_2, :image_2_options, :text_2, :ctry 
   attr_accessible :categories, :category_ids
   has_and_belongs_to_many :categories, :join_table => 'post_categories', :order => 'display_section ASC, display_sequence ASC'
-  has_attached_file :image_1, :styles => { :medium => "320x320>", :small => "160x160>", :thumb => "100x100>" },
+  has_attached_file :image_1, :styles => { :medium => "320x320>", :small => "160x160>", :thumb => "100x100>" }, :convert_options => { :medium => "-quality 90", :small => "-quality 90", :thumb => "-quality 90"},
     :storage => :s3,
     :path => "posts/:attachment/:id/:style.:extension",
     :s3_credentials => "#{Rails.root}/config/aws.yml"
 
-  has_attached_file :image_2, :styles => { :medium => "320x320>", :small => "160x160>", :thumb => "100x100>" },
+  has_attached_file :image_2, :styles => { :medium => "320x320>", :small => "160x160>", :thumb => "100x100>" }, :convert_options => { :medium => "-quality 90", :small => "-quality 90", :thumb => "-quality 90"},
     :storage => :s3,
     :path => "posts/:attachment/:id/:style.:extension",
     :s3_credentials => "#{Rails.root}/config/aws.yml"
