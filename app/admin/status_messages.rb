@@ -1,5 +1,6 @@
 ActiveAdmin.register StatusMessage do
    index do
+    column :id
     column :text
     column :updated_at
     column :language

@@ -1,5 +1,6 @@
 ActiveAdmin.register Post do
   index do
+    column :id
     column :title
     column :short_title
     column "Categories" do |post|

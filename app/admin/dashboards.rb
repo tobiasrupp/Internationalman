@@ -77,4 +77,13 @@ ActiveAdmin::Dashboards.build do
     end
     strong { link_to "View All Posts", admin_posts_path }
   end
+  section "Recent Status Messages", :priority => 5 do
+    table_for StatusMessage.order("updated_at desc").limit(3) do
+      column :text do |status_message|
+        link_to status_message.text, [:admin, status_message]
+      end
+      column :updated_at
+    end
+    strong { link_to "View All Status Messages", admin_status_messages_path }
+  end
 end

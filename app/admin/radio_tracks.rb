@@ -1,5 +1,6 @@
 ActiveAdmin.register RadioTrack do
   index do
+    column :id
     column :title
     column :short_title
     # column :url_title
