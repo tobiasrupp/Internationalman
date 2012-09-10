@@ -85,7 +85,7 @@ ActiveAdmin.register Article do
       # , :as => :datepicker
       f.input :article_type
       f.input :source_file, :hint => f.object.source_file_file_name
-      f.input :copyright_cleared
+      f.input :copyright_cleared, :as => :radio
       f.input :teaser_image, :hint => f.template.image_tag(f.object.teaser_image.url(:thumb))
       f.input :longitude
       f.input :latitude
