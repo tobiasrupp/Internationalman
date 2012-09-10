@@ -2,6 +2,7 @@
 
 <% if !@selected_video.nil? %>
 	<% line = "" %>
+	<% @fb_description = "" %>
 	<div class="video_details">
 			<% if !@selected_video.title.blank? %>
 				<h3><%= @selected_video.title %></h3>
@@ -31,6 +32,7 @@
 			<% end %>
 			<% if !line_string.blank? %> 
 					<%= raw line_string %><br>
+					<% @fb_description = @fb_description + raw(line_string) %>
 			<% end %> 
 
 			<% line_string = "" %>
@@ -48,6 +50,7 @@
 			<% end %>
 			<% if !line_string.blank? %> 
 					<%= raw line_string %><br>
+					<% @fb_description = @fb_description + ", " + raw(line_string) %>
 			<% end %> 
 
 			<% if !@selected_video.categories.nil? %>
@@ -60,14 +63,16 @@
 						<% category_string = category_string + ", " + category.name %>
 					<% end %>
 				<% end %>
-				<%= category_string %>
+				<%= category_string %><br>
+				<% @fb_description = @fb_description + ", " + t(:categories) + ': ' + category_string %>
 			<% end %>
 		</p>
+		<%= render 'shared/like_button' %>
 	</div>
 	<% if !@selected_video.web_page.blank? %>
-		<p>
+		<div class="button">
 			<%= link_to t(:further_information), @selected_video.web_page, :target => '_blank', :class => "btn btn-small" %>
-		</p>
+		</div>
 	<% end %>
 
 	<% if !@selected_video.embed_code.blank? %>

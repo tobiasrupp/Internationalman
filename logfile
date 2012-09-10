@@ -247,3 +247,6 @@ LOG:  database system is shut down
 LOG:  database system was shut down at 2012-09-04 23:19:47 BST
 LOG:  database system is ready to accept connections
 LOG:  autovacuum launcher started
+LOG:  database system was shut down at 2012-09-10 02:32:17 BST
+LOG:  autovacuum launcher started
+LOG:  database system is ready to accept connections

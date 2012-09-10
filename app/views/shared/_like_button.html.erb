@@ -2,13 +2,16 @@
 <% fb_site_admin_id = '100004335090083' %>
 <% if !@selected_article.nil? %>
 	<% fb_properties = "<meta property=\"og:title\" content=\"#{@selected_article.title}\"/>" + "\n<meta property=\"og:type\" content=\"article\"/>" + "\n<meta property=\"og:url\" content=\"#{request.protocol + request.host_with_port + request.fullpath}\"/>" + "\n<meta property=\"og:image\" content=\"#{@selected_article.teaser_image.url(:medium)}\"/>" + "\n<meta property=\"og:site_name\" content=\"International Man - #{t(:alexander_buehler) + ', Journalist'}\"/>" + "\n<meta property=\"fb:admins\" content=\"#{fb_site_admin_id}\"/>" + "\n<meta property=\"og:description\" content=\"#{@fb_description}\"/>" %>
-		<% provide(:fb_properties, raw(fb_properties)) %>
+	<% provide(:fb_properties, raw(fb_properties)) %>
 <% elsif !@selected_video.nil? %>
-
+	<% fb_properties = "<meta property=\"og:title\" content=\"#{@selected_video.title}\"/>" + "\n<meta property=\"og:type\" content=\"article\"/>" + "\n<meta property=\"og:url\" content=\"#{request.protocol + request.host_with_port + request.fullpath}\"/>" + "\n<meta property=\"og:site_name\" content=\"International Man - #{t(:alexander_buehler) + ', Journalist'}\"/>" + "\n<meta property=\"fb:admins\" content=\"#{fb_site_admin_id}\"/>" + "\n<meta property=\"og:description\" content=\"#{@fb_description}\"/>" %>
+	<% provide(:fb_properties, raw(fb_properties)) %>
 <% elsif !@selected_track.nil? %>
-
+	<% fb_properties = "<meta property=\"og:title\" content=\"#{@selected_track.title}\"/>" + "\n<meta property=\"og:type\" content=\"article\"/>" + "\n<meta property=\"og:url\" content=\"#{request.protocol + request.host_with_port + request.fullpath}\"/>" + "\n<meta property=\"og:site_name\" content=\"International Man - #{t(:alexander_buehler) + ', Journalist'}\"/>" + "\n<meta property=\"fb:admins\" content=\"#{fb_site_admin_id}\"/>" + "\n<meta property=\"og:description\" content=\"#{@fb_description}\"/>" %>
+	<% provide(:fb_properties, raw(fb_properties)) %>
 <% elsif !@selected_post.nil? %>
-
+	<% fb_properties = "<meta property=\"og:title\" content=\"#{@selected_post.title}\"/>" + "\n<meta property=\"og:type\" content=\"article\"/>" + "\n<meta property=\"og:url\" content=\"#{request.protocol + request.host_with_port + request.fullpath}\"/>" + "\n<meta property=\"og:image\" content=\"#{@selected_post.image_1.url(:medium)}\"/>" + "\n<meta property=\"og:site_name\" content=\"International Man - #{t(:alexander_buehler) + ', Journalist'}\"/>" + "\n<meta property=\"fb:admins\" content=\"#{fb_site_admin_id}\"/>" + "\n<meta property=\"og:description\" content=\"#{@fb_description}\"/>" %>
+	<% provide(:fb_properties, raw(fb_properties)) %>
 <% end %>
 
 <% provide(:like_button_script, "<div id=\"fb-root\"></div>
@@ -19,6 +22,6 @@
   js.src = \"//connect.facebook.net/en_GB/all.js#xfbml=1\";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>".html_safe) %>
-
-<div class="fb-like" data-href="<%= request.protocol + request.host_with_port + request.fullpath %>" data-send="false" data-width="600" data-show-faces="false" data-layout="button_count" data-font="arial"></div>
-
+<div class="share_section">
+	<div class="fb-like" data-href="<%= request.protocol + request.host_with_port + request.fullpath %>" data-send="false" data-width="250" data-show-faces="false" data-layout="button_count"  ></div>
+</div>

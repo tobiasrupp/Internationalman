@@ -1,5 +1,6 @@
 <% if !@selected_track.nil? %>
 	<% line = "" %>
+	<% @fb_description = "" %>
 	<div class="radio_track_details">
 			<% if !@selected_track.title.blank? %>
 				<h3><%= @selected_track.title %></h3>
@@ -29,6 +30,7 @@
 			<% end %>
 			<% if !line_string.blank? %> 
 					<%= raw line_string %><br>
+					<% @fb_description = @fb_description + raw(line_string) %>
 			<% end %> 
 
 			<% line_string = "" %>
@@ -46,6 +48,7 @@
 			<% end %>
 			<% if !line_string.blank? %> 
 					<%= raw line_string %><br>
+					<% @fb_description = @fb_description + ", " + raw(line_string) %>
 			<% end %> 
 
 			<% if !@selected_track.categories.nil? %>
@@ -59,13 +62,15 @@
 												<% end %>
 											<% end %>
 							<%= category_string %>
+							<% @fb_description = @fb_description + ", " + t(:categories) + ': ' + category_string %>
 			<% end %>
 		</p>
+		<%= render 'shared/like_button' %>
 	</div>
 	<% if !@selected_track.web_page.blank? %>
-		<p>
+		<div class="button">
 			<%= link_to t(:further_information), @selected_track.web_page, :target => '_blank', :class => "btn btn-small" %>
-		</p>
+		</div>
 	<% end %>
 	
 	<% if !@selected_track.source_url.blank? %>
