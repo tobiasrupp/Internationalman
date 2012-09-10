@@ -10,8 +10,10 @@ atom_feed :language => 'en-US' do |feed|
         entry.content('Testocontent', :type => 'html')
         puts article.title
         puts entry.url
-        entry.author do |author|
-        author.name(article.author)
+        if !article.author.nil?
+          entry.author do |author|
+            author.name(article.author)
+          end
         end
       end
   end
