@@ -6,6 +6,7 @@
 		<% if !@selected_article.title.blank? %>
 			<h3><%= @selected_article.title %></h3>
 		<% end %>	
+		<%= render 'shared/like_button' %>
 		<p>
 		<% line_string = "" %>
 		<% if !@selected_article.published_in.blank? %>
@@ -75,14 +76,12 @@
 		<p>
 			<%= link_to t(:display_story_in_new_window), "https://docs.google.com/viewer?url=" + @selected_article.source_file.url, :target => '_blank', :class => "btn btn-small" %>
 		</p>
-		<%= render 'shared/like_button' %>
 		<% if @selected_article.teaser_image? %>
 		<p>
 			<%= link_to(image_tag(@selected_article.teaser_image.url(:medium), :alt => @selected_article.teaser_image.url, :title => t(:display_story_in_new_window), :class => "thumbnail"), "https://docs.google.com/viewer?url=" + @selected_article.source_file.url, :target => '_blank') %>
     </p>
 		<% end %>
 	<% else %>	
-		<%= render 'shared/like_button' %>
 		<%= image_tag(@selected_article.teaser_image.url(:medium), :alt => @selected_article.teaser_image.url, :title => "", :class => "thumbnail") %>
 	<% end %>
 <% end %>

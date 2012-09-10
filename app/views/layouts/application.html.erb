@@ -14,110 +14,122 @@
   </head>
   <body>
     <%= yield(:like_button_script) %>
-    <%= render 'layouts/header' %>
-    <div class="container">
-      <div class="container_inner">  
-        <div class="row">
-          <%= render 'shared/language_switch' %>
-        </div>
-        <div class="row">
-          <%= render 'shared/alexander_buehler' %>
-        </div>
-        <div class="row">
-          <%= render 'layouts/nav_col_1' %>
-          <div class="span1.5" id="navi_2">
-            <ul class="nav nav-list"> 
-              <% if !@story_categories.nil? %>
-                <% for category in @story_categories %>
-                  <% if category == @selected_category %>
-                    <li class="active">
-                  <% else %>
-                    <li>
-                  <% end  %>
-                    <%= link_to category.name, stories_path + '/' + category.url_name %>
-                  </li>
-                <% end %>
-              <% end %>
-            </ul>
-          </div>
-          <div class="span2.5" id="navi_3">
-            <ul class="nav nav-list">
-              <% if !@posts.nil? %>
-                <% @stories = @posts %>
-              <% end  %>
-              <% if !@selected_post.nil? %>
-                <% @selected_article = @selected_post %>
-              <% end  %>
-              <% if !@videos.nil? %>
-                <% @stories = @videos %>
-              <% end  %>
-              <% if !@selected_video.nil? %>
-                <% @selected_article = @selected_video %>
-              <% end  %>
-              <% if !@radio_tracks.nil? %>
-                <% @stories = @radio_tracks %>
-              <% end  %>
-              <% if !@selected_track.nil? %>
-                <% @selected_article = @selected_track %>
-              <% end  %>
-              <% if !@stories.nil? %>
-                <% for article in @stories %>
-                  <% if article.title.blank? || article.url_title.blank? %>
-                     <%= t(:no_text_found)%> (<%=I18n.locale %>)<br>
-                  <% else %>
-                    <% if article == @selected_article %>
-                      <li class="active">
-                    <% else %>
-                      <li>
-                    <% end  %>
-                    <% if request.params["controller"] == "stories" %>
-                      <% if !article.short_title.blank? %>
-                        <%= link_to article.short_title, stories_path + '/' + 
-                          @selected_category.url_name + '/' + article.url_title %>
-                      <% else %>
-                        <%= link_to article.title, stories_path + '/' + 
-                          @selected_category.url_name + '/' + article.url_title %>
-                      <% end  %>
-                    <% else %>
-                      <% case request.params["controller"] %>
-                        <% when "corporate_articles" %>
-                          <% path_string = corporate_path %>
-                        <% when "posts" %>
-                          <% path_string = blog_path %>
-                        <% when "videos" %>
-                          <% path_string = tv_path %>
-                        <% when "radio_tracks" %>
-                          <% path_string = radio_path %>
-                      <% end  %>
-                      <% if !article.short_title.blank? %>
-                        <%= link_to article.short_title, path_string + '/' + article.url_title %>
-                      <% else %>
-                        <%= link_to article.title, path_string + '/' + article.url_title %>
-                      <% end  %>
-                    <% end  %>
-                  <% end  %>
-                  </li>
-                <% end %>
-              <% end %>
-            </ul>
-          </div>
-          <% if request.params["controller"] == "stories" or request.params["controller"] == "radio_tracks" %>
-            <% column_width = 5 %>
-          <% else %>
-            <% column_width = 6 %>
-          <% end %> 
-          <div class="span<%=column_width %>" id="content_section">
-            <div class="row">
-              <%= render 'shared/message' %>
-              <%= yield %>
+    <div class="container_shadow">
+      <div class="container" id="header_section">
+          <%= render 'layouts/header' %> 
+      </div>
+      <div class="container">
+        <div class="container_inner">
+          <div class="row">
+            <div class="span6">
+              <%= render 'shared/alexander_buehler' %>
+            </div>
+            <div class="span5">
             </div>
           </div>
-          <%= render 'shared/sidebar_right' %>
-        </div>
-        <div class="row">
-          <%= render 'layouts/footer' %>
-        </div>
-      </div>
-    </div>
+        
+          <div class="row">
+            <div class="span line_box">
+              <%= render 'layouts/nav_col_1' %>
+              <div class="span2.5" id="navi_2">
+                <ul class="nav nav-list"> 
+                  <% if !@story_categories.nil? %>
+                    <% for category in @story_categories %>
+                      <% if category == @selected_category %>
+                        <li class="active">
+                      <% else %>
+                        <li>
+                      <% end  %>
+                        <%= link_to category.name, stories_path + '/' + category.url_name %>
+                      </li>
+                    <% end %>
+                  <% end %>
+                </ul>
+              </div>
+              <div class="span1.5" id="navi_3">
+                <ul class="nav nav-list">
+                  <% if !@posts.nil? %>
+                    <% @stories = @posts %>
+                  <% end  %>
+                  <% if !@selected_post.nil? %>
+                    <% @selected_article = @selected_post %>
+                  <% end  %>
+                  <% if !@videos.nil? %>
+                    <% @stories = @videos %>
+                  <% end  %>
+                  <% if !@selected_video.nil? %>
+                    <% @selected_article = @selected_video %>
+                  <% end  %>
+                  <% if !@radio_tracks.nil? %>
+                    <% @stories = @radio_tracks %>
+                  <% end  %>
+                  <% if !@selected_track.nil? %>
+                    <% @selected_article = @selected_track %>
+                  <% end  %>
+                  <% if !@stories.nil? %>
+                    <% for article in @stories %>
+                      <% if article.title.blank? || article.url_title.blank? %>
+                         <%= t(:no_text_found)%> (<%=I18n.locale %>)<br>
+                      <% else %>
+                        <% if article == @selected_article %>
+                          <li class="active">
+                        <% else %>
+                          <li>
+                        <% end  %>
+                        <% if request.params["controller"] == "stories" %>
+                          <% if !article.short_title.blank? %>
+                            <%= link_to article.short_title, stories_path + '/' + 
+                              @selected_category.url_name + '/' + article.url_title %>
+                          <% else %>
+                            <%= link_to article.title, stories_path + '/' + 
+                              @selected_category.url_name + '/' + article.url_title %>
+                          <% end  %>
+                        <% else %>
+                          <% case request.params["controller"] %>
+                            <% when "corporate_articles" %>
+                              <% path_string = corporate_path %>
+                            <% when "posts" %>
+                              <% path_string = blog_path %>
+                            <% when "videos" %>
+                              <% path_string = tv_path %>
+                            <% when "radio_tracks" %>
+                              <% path_string = radio_path %>
+                          <% end  %>
+                          <% if !article.short_title.blank? %>
+                            <%= link_to article.short_title, path_string + '/' + article.url_title %>
+                          <% else %>
+                            <%= link_to article.title, path_string + '/' + article.url_title %>
+                          <% end  %>
+                        <% end  %>
+                      <% end  %>
+                      </li>
+                    <% end %>
+                  <% end %>
+                </ul>
+              </div>
+            </div>
+            <% if request.params["controller"] == "stories" or request.params["controller"] == "radio_tracks" %>
+              <% column_width = 5 %>
+            <% else %>
+              <% column_width = 6 %>
+            <% end %> 
+            <div class="span line_box">
+              <div class="span<%= column_width %>" id="content_section">
+                <!-- <div class="row"> -->
+                  <%= render 'shared/message' %>
+                  <%= yield %>
+                <!-- </div> -->
+              </div>
+              <div class="span1.5 pull-right" id="sidebar_right">
+                <%= render 'shared/sidebar_right' %>  
+              </div>    
+              </div>
+            </div> 
+          <div class="row">
+            <%= render 'layouts/footer' %>
+          </div>
+        </div>  <!-- container inner -->
+      </div>  <!-- container -->
+    </div>  <!-- container shadow -->
   </body>
 </html>
