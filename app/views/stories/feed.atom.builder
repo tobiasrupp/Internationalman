@@ -11,7 +11,7 @@ atom_feed :language => 'en-US' do |feed|
         else
           entry.title(t(:no_text_found))
         end
-        # entry.content('', :type => 'html')
+        entry.content(get_story_summary(article), :type => 'html')
         if !article.author.nil?
           entry.author do |author|
             author.name(article.author)
