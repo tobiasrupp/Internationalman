@@ -75,22 +75,16 @@ h1, h2, h3, h4, h5, h6 {
 #logo {
   float: left;
   margin-right: 15px;
-  margin-left: 20px;
+  margin-left: 45px;
   color: white;
   font-family: "Times New Roman";
-  // font-size: 1.25em;
-  font-size: 19px;
-  letter-spacing: 1.5px;
+  font-size: 16px;
+  letter-spacing: 1.3px;
   text-transform: uppercase;
-  // padding-top: 7px;
-  // padding-bottom: 6px;
   font-weight: normal;
-  // line-height: -10px;
   text-decoration: none;
-  // text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
   &:hover {
     color: white;
-    // text-decoration: none;
   }
   img {
     width: 15px;
@@ -104,15 +98,7 @@ h1, h2, h3, h4, h5, h6 {
 #header_section {
   background-color: $gray_4;
   background-image: none;
-  // background: $gray_4 url('http://designrfix.com/wp-content/themes/designrfix/images/topnav-l.png') no-repeat;
   margin-top: 30px;
-  // border-top: 1px solid #404040;
-  // border-left: 1px solid $gray_2;
-  // padding-top: 5px;
-  // padding-left: 20px;
-  // padding-right: 20px;
-  // padding-bottom: 5px;
-  // padding: 0 0 0 0;
 }
 #topnav-l {
     background: url("http://designrfix.com/wp-content/themes/designrfix/images/topnav-l.png") no-repeat scroll 0 0 transparent;
@@ -152,30 +138,39 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+.status_message {
+  // margin-top: 43px;
+  margin-top: 41px;
+  .double_quote {
+    // font-size: 200%;
+  }
+  small {
+    font-size: 11px;
+  }
+}
 
 h1 {
-  // font-size: 2em;
-  font-size: 40px;
+  font-size: 31px;
+  // font-size: 34px;
   font-family: "Georgia";
-  font-family: "Times New Roman";
+  // font-family: "Times New Roman";
   letter-spacing: 1px;
   margin-bottom: 0px;
   margin-top: 28px;
   font-weight: normal;
-  margin-left: 0px;
+  margin-left: 18px;
   font-style: italic;
 }
 
 h2 {
-  // font-size: 1.25em;
   font-size: 13px;
   font-family: "Verdana";
   letter-spacing: 0.3px;
   margin-bottom: 36px;
-  // text-align: center;
+  // font-style: italic;
   font-weight: normal;
   color: $gray_2;
-  margin-left: 0px;
+  margin-left: 18px;
 }
 
 h3 {
@@ -368,6 +363,8 @@ a:hover {
 
 .share_section {
   height: 15px;
+  margin-bottom: 16px;
+  margin-top: -29px;
 }
 .fb-like {
   // float: right;

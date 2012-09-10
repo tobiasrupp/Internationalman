@@ -1,6 +1,7 @@
 <% provide(:video_player_script, '<script type="text/javascript" src="http://cdn.sublimevideo.net/js/nv8041sd.js"></script>'.html_safe) %>
 
 <% if !@selected_video.nil? %>
+	<%= render 'shared/like_button' %>
 	<% line = "" %>
 	<% @fb_description = "" %>
 	<div class="video_details">
@@ -67,7 +68,7 @@
 				<% @fb_description = @fb_description + ", " + t(:categories) + ': ' + category_string %>
 			<% end %>
 		</p>
-		<%= render 'shared/like_button' %>
+		
 	</div>
 	<% if !@selected_video.web_page.blank? %>
 		<div class="button">

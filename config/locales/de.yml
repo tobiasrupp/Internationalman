@@ -336,7 +336,10 @@ de:
         other: Radiobeiträge
       video:
         one: Video
-        other: Videos  
+        other: Videos
+      status_message:
+        one: Statusmeldung
+        other: Statusmeldungen 
   devise:
     failure:
       admin_user:

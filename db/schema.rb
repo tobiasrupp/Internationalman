@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120904195650) do
+ActiveRecord::Schema.define(:version => 20120910114719) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -238,6 +238,25 @@ ActiveRecord::Schema.define(:version => 20120904195650) do
     t.datetime "updated_at",     :null => false
     t.string   "web_page"
     t.string   "ctry"
+  end
+
+  create_table "status_message_translations", :force => true do |t|
+    t.integer  "status_message_id"
+    t.string   "locale"
+    t.string   "text"
+    t.string   "language"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
+
+  add_index "status_message_translations", ["locale"], :name => "index_status_message_translations_on_locale"
+  add_index "status_message_translations", ["status_message_id"], :name => "index_7294d366b6a9642970246bf3caa310a84f7ed68e"
+
+  create_table "status_messages", :force => true do |t|
+    t.string   "text"
+    t.string   "language"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "video_categories", :force => true do |t|

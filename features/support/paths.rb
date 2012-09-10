@@ -58,6 +58,8 @@ module NavigationHelpers
     when /Posts page/
       '/en/admin/posts'      
       
+    when /Status Messages page/
+      '/en/admin/status_messages' 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #
