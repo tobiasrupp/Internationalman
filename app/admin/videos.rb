@@ -7,6 +7,7 @@ ActiveAdmin.register Video do
   		video.categories.map { |p| p.name }.join('<br />').html_safe
 		end
     column :broadcast_date
+    column :copyright_cleared
     column :language
 		default_actions
   end
@@ -58,6 +59,7 @@ ActiveAdmin.register Video do
       # f.input :filename
       f.input :embed_code, :input_html => { :class => 'autogrow', :rows => 10, :cols => 20 }
       f.input :source_url
+      f.input :copyright_cleared
       f.input :web_page
       f.input :longitude
       f.input :latitude
@@ -129,6 +131,10 @@ ActiveAdmin.register Video do
             tr do
               th { 'Source URL' }
               td { video.source_url }
+            end
+            tr do
+              th { 'Copyright Cleared' }
+              td { video.copyright_cleared }
             end
             tr do
               th { 'Longitude' }

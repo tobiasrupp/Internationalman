@@ -251,3 +251,4 @@ LOG:  database system was shut down at 2012-09-10 02:32:17 BST
 LOG:  autovacuum launcher started
 LOG:  database system is ready to accept connections
 FATAL:  database "intlman_test" does not exist
+FATAL:  database "intlman_test" does not exist

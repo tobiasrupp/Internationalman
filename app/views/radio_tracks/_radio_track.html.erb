@@ -70,11 +70,11 @@
 	</div>
 	<% if !@selected_track.web_page.blank? %>
 		<div class="button">
-			<%= link_to t(:further_information), @selected_track.web_page, :target => '_blank', :class => "btn btn-small" %>
+			<%= link_to t(:online_version), @selected_track.web_page, :target => '_blank', :class => "btn btn-small" %>
 		</div>
 	<% end %>
 	
-	<% if !@selected_track.source_url.blank? %>
+	<% if !@selected_track.source_url.blank? and @selected_track.copyright_cleared == true %>
 		<p>
 		<object data="/jwplayer/player.swf" name="player2" id="player2" type="application/x-shockwave-flash" height="24" width="320"><param value="true" name="allowfullscreen"><param value="always" name="allowscriptaccess"><param name="movie" value="/jwplayer/player.swf"><param value="file=<%= @selected_track.source_url %>" name="flashvars"></object>
 		</p>

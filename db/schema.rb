@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120910114719) do
+ActiveRecord::Schema.define(:version => 20120910191751) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -98,6 +98,7 @@ ActiveRecord::Schema.define(:version => 20120910114719) do
     t.string   "source_file_content_type"
     t.integer  "source_file_file_size"
     t.datetime "source_file_updated_at"
+    t.boolean  "copyright_cleared"
   end
 
   create_table "categories", :force => true do |t|
@@ -234,10 +235,11 @@ ActiveRecord::Schema.define(:version => 20120910114719) do
     t.string   "filename"
     t.string   "author"
     t.string   "source_url"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
     t.string   "web_page"
     t.string   "ctry"
+    t.boolean  "copyright_cleared"
   end
 
   create_table "status_message_translations", :force => true do |t|
@@ -297,11 +299,12 @@ ActiveRecord::Schema.define(:version => 20120910114719) do
     t.string   "author"
     t.string   "source_url"
     t.string   "web_page"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
     t.text     "embed_code"
     t.string   "camera_by"
     t.string   "ctry"
+    t.boolean  "copyright_cleared"
   end
 
 end

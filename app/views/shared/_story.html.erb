@@ -68,13 +68,13 @@
 		<% end %></p>
 		
 	</div>
-	<% if !@selected_article.source_file.url.blank? %>
+	<% if !@selected_article.source_file.url.blank? and @selected_article.copyright_cleared == true %>
 		<div class="button">
 			<%= link_to t(:display_story_in_new_window), "https://docs.google.com/viewer?url=" + @selected_article.source_file.url, :target => '_blank', :class => "btn btn-small" %>
 		</div>
 		<% if !@selected_article.web_page.blank? %>
 			<div class="button">
-				<%= link_to t(:further_information), @selected_article.web_page, :target => '_blank', :class => "btn btn-small" %>
+				<%= link_to t(:online_version), @selected_article.web_page, :target => '_blank', :class => "btn btn-small" %>
 			</div>
 		<% end %>
 		<% if @selected_article.teaser_image? %>
@@ -85,7 +85,7 @@
 	<% else %>
 		<% if !@selected_article.web_page.blank? %>
 		<div class="button">
-			<%= link_to t(:further_information), @selected_article.web_page, :target => '_blank', :class => "btn btn-small" %>
+			<%= link_to t(:online_version), @selected_article.web_page, :target => '_blank', :class => "btn btn-small" %>
 		</div>
 		<% end %>	
 		<%= image_tag(@selected_article.teaser_image.url(:medium), :alt => @selected_article.teaser_image.url, :title => "", :class => "thumbnail") %>

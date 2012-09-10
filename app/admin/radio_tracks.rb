@@ -8,6 +8,7 @@ ActiveAdmin.register RadioTrack do
   		radio_track.categories.map { |p| p.name }.join('<br />').html_safe
 		end
     column :broadcast_date
+    column :copyright_cleared
     column :language
 		default_actions
   end
@@ -56,8 +57,8 @@ ActiveAdmin.register RadioTrack do
       f.input :categories
       f.input :broadcast_date, :start_year => Date.today.year - 15, :end_year => Date.today.year + 1
       f.input :broadcaster
-      # f.input :filename
       f.input :source_url
+      f.input :copyright_cleared
       f.input :web_page
       f.input :longitude
       f.input :latitude
@@ -125,6 +126,10 @@ ActiveAdmin.register RadioTrack do
             tr do
               th { 'Source URL' }
               td { radio_track.source_url }
+            end
+            tr do
+              th { 'Copyright Cleared' }
+              td { radio_track.copyright_cleared }
             end
             tr do
               th { 'Longitude' }

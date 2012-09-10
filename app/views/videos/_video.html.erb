@@ -76,9 +76,9 @@
 		</div>
 	<% end %>
 
-	<% if !@selected_video.embed_code.blank? %>
+	<% if !@selected_video.embed_code.blank? and @selected_video.copyright_cleared == true %>
 		<p><%= raw @selected_video.embed_code %></p>
-	<% elsif !@selected_video.source_url.blank? %>
+	<% elsif !@selected_video.source_url.blank? and @selected_video.copyright_cleared == true %>
 		<p>
 			<object data="/jwplayer/player.swf" name="player1" id="player1" type="application/x-shockwave-flash" height="300" width="450"><param value="true" name="allowfullscreen"><param value="always" name="allowscriptaccess"><param name="movie" value="/jwplayer/player.swf"><param value="file=<%= @selected_video.source_url %>" name="flashvars"></object>
 		</p>

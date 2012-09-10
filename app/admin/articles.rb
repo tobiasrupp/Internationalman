@@ -12,13 +12,13 @@ ActiveAdmin.register Article do
   		article.categories.map { |p| p.name }.join('<br />').html_safe
 		end
     column :published_date
-    # column :published_in
     column "Teaser Image" do |article| 
       image_tag(article.teaser_image.url(:thumb), :alt => "")
     end
     column "Source File" do |article| 
       article.source_file_file_name
     end
+    column :copyright_cleared
     column :language
 		default_actions
   end
@@ -85,6 +85,7 @@ ActiveAdmin.register Article do
       # , :as => :datepicker
       f.input :article_type
       f.input :source_file, :hint => f.object.source_file_file_name
+      f.input :copyright_cleared
       f.input :teaser_image, :hint => f.template.image_tag(f.object.teaser_image.url(:thumb))
       f.input :longitude
       f.input :latitude
@@ -151,6 +152,10 @@ ActiveAdmin.register Article do
             tr do
               th { 'Source File' }
               td { article.source_file }
+            end
+            tr do
+              th { 'Copyright Cleared' }
+              td { article.copyright_cleared }
             end
             tr do
               th { 'Teaser Image' }
