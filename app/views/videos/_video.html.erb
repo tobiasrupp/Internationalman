@@ -9,7 +9,7 @@
 			<p>
 			<% line_string = "" %>
 			<% if !@selected_video.broadcaster.blank? %>
-				<% line_string = t(:broadcast_on) + " #{ @selected_video.broadcaster }" %>
+				<% line_string = t(:broadcast_on) + " <em>#{ @selected_video.broadcaster }</em>" %>
 			<% end %>
 			<% if !@selected_video.broadcast_date.blank? %>
 				<% if !line_string.blank? %> 

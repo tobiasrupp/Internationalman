@@ -391,8 +391,19 @@ li {
 
 .fb-like {
   // float: right;
-  margin-bottom: 7px;
+  margin-bottom: 0px;
   // padding-top: -20px;
+}
+
+.button {
+  float: left;
+  // margin-top: 5px;
+  margin-bottom: 5px;
+  margin-right: 5px;
+}
+
+.thumbnail {
+  float: left;
 }
 
 #sidebar_right {

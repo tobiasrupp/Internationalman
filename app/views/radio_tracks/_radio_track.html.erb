@@ -7,7 +7,7 @@
 			<p>
 			<% line_string = "" %>
 			<% if !@selected_track.broadcaster.blank? %>
-				<% line_string = t(:broadcast_on) + " #{ @selected_track.broadcaster }" %>
+				<% line_string = t(:broadcast_on) + " <em>#{ @selected_track.broadcaster }</em>" %>
 			<% end %>
 			<% if !@selected_track.broadcast_date.blank? %>
 				<% if !line_string.blank? %> 
