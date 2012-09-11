@@ -72,18 +72,17 @@ ActiveAdmin.register Article do
     f.inputs do
       f.input :language, :input_html => { :readonly => true, :value => I18n.locale}, :hint => "Read-only"
       # , :as => :radio, :collection => ["Deutsch", "English"]
-      f.input :title
-      # , :hint => "#{request.path_info}"
-      f.input :short_title
-      f.input :url_title, :hint => "Example: my-new-article-1"
-      f.input :ctry, :label => "Country"
+      f.input :title, :hint => t(:translation_field)
+      f.input :short_title, :hint => t(:translation_field)
+      f.input :url_title, :hint => "#{t(:translation_field)}; Example: my-new-article-1"
+      f.input :ctry, :label => "Country", :hint => t(:translation_field)
   		f.input :author
   		f.input :photos_by
       f.input :categories
       f.input :published_in   
       f.input :published_date, :start_year => Date.today.year - 15, :end_year => Date.today.year + 1
       # , :as => :datepicker
-      f.input :article_type
+      f.input :article_type, :hint => t(:translation_field)
       f.input :source_file, :hint => f.object.source_file_file_name
       f.input :copyright_cleared, :as => :radio
       f.input :teaser_image, :hint => f.template.image_tag(f.object.teaser_image.url(:thumb))

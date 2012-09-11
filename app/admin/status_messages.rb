@@ -42,7 +42,7 @@ ActiveAdmin.register StatusMessage do
   form do |f|
     f.inputs do
     	f.input :language, :input_html => { :readonly => true, :value => I18n.locale}, :hint => "Read-only"
-      f.input :text, :required => true, :input_html => { :size => 255 }
+      f.input :text, :required => true, :input_html => { :size => 255 }, :hint => t(:translation_field)
     end
     f.buttons
   end

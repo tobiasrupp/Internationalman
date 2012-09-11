@@ -44,8 +44,8 @@ ActiveAdmin.register Page do
     f.inputs do
       f.input :language, :input_html => { :readonly => true, :value => I18n.locale}, :hint => "Read-only"
       f.input :page_type, :as => :radio, :collection => ["CONTACT", "ABOUT"]
-      f.input :title
-      f.input :body, :label => "Text", :hint => "Use HTML formatting e.g. <p>...</p>", :input_html => { :class => 'autogrow', :rows => 10, :cols => 20 }
+      f.input :title, :hint => t(:translation_field)
+      f.input :body, :label => "Text", :hint => "#{t(:translation_field)}; Use HTML formatting e.g. <p>...</p>", :input_html => { :class => 'autogrow', :rows => 10, :cols => 20 }
     end
     f.buttons
   end

@@ -20,7 +20,6 @@ atom_feed :language => 'en-US' do |feed|
     end
   end
   @posts.each do |post|
-    # category = post.categories.first
     feed.entry(post, :url => blog_path + '/' + post.url_title, :published => post.created_at, :updated => post.updated_at) do |entry|
       if !post.title.nil?
         entry.title(post.title)

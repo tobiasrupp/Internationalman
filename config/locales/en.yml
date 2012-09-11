@@ -21,6 +21,7 @@ en:
   duration: Duration 
   show_on_map: Show On Map
 
+  translation_field: Translation Field
   # activerecord:
   #   models:
   #     article: Dude

@@ -20,6 +20,8 @@ de:
   duration: Dauer
   show_on_map: Auf Karte anzeigen
 
+  translation_field: Translation Field
+  
   date:
     abbr_day_names:
     - So

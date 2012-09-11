@@ -44,10 +44,8 @@ ActiveAdmin.register Category do
   form do |f|
     f.inputs do
       f.input :language, :input_html => { :readonly => true, :value => I18n.locale}, :hint => "Read-only"
-      # , :as => :radio, :collection => ["Deutsch", "English"]
-      f.input :name
-      # , :hint => "#{request.path_info}"
-      f.input :url_name, :hint => "Example: my-new-category"
+      f.input :name, :hint => t(:translation_field)
+      f.input :url_name, :hint => "#{t(:translation_field)}; Example: my-new-category"
       f.input :display_section
     	f.input :display_sequence
     end

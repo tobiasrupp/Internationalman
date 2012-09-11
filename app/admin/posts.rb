@@ -52,12 +52,12 @@ ActiveAdmin.register Post do
   form do |f|
     f.inputs do
         f.input :language, :input_html => { :readonly => true, :value => I18n.locale}, :hint => "Read-only"
-       f.input :title, :required => true, :input_html => { :size => 255 }
-      f.input :short_title, :required => true, :input_html => { :size => 80 }
-      f.input :url_title, :required => true, :hint => 'Beispiel: mein-neuer-blog-eintrag', :input_html => { :size => 80 }
+       f.input :title, :required => true, :input_html => { :size => 255 }, :hint => t(:translation_field)
+      f.input :short_title, :required => true, :input_html => { :size => 80 }, :hint => t(:translation_field)
+      f.input :url_title, :required => true, :hint => 'Beispiel: mein-neuer-blog-eintrag', :input_html => { :size => 80 }, :hint => t(:translation_field)
       f.input :publication_state, :as => :radio, :collection => ["Unpublished", "Published"]
       f.input :author
-      f.input :ctry, :label => "Country"
+      f.input :ctry, :label => "Country", :hint => t(:translation_field)
       f.input :categories
       f.input :text, :label => "Text section 1", :input_html => { :class => 'autogrow', :rows => 10, :cols => 20 }
       f.input :image_1, :hint => f.template.image_tag(f.object.image_1.url(:thumb))

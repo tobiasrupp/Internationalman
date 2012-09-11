@@ -47,10 +47,10 @@ ActiveAdmin.register Video do
   form do |f|
     f.inputs do
       f.input :language, :input_html => { :readonly => true, :value => I18n.locale}, :hint => "Read-only"
-       f.input :title, :required => true, :input_html => { :size => 255 }
-      f.input :short_title, :required => true, :input_html => { :size => 80 }
-      f.input :url_title, :required => true, :hint => 'Beispiel: mein-neuer-blog-eintrag', :input_html => { :size => 80 }
-      f.input :ctry, :label => "Country"
+       f.input :title, :required => true, :input_html => { :size => 255 }, :hint => t(:translation_field)
+      f.input :short_title, :required => true, :input_html => { :size => 80 }, :hint => t(:translation_field)
+      f.input :url_title, :required => true, :hint => "#{t(:translation_field)}; Beispiel: mein-neuer-blog-eintrag", :input_html => { :size => 80 }
+      f.input :ctry, :label => "Country", :hint => t(:translation_field)
       f.input :author
       f.input :duration
       f.input :categories
