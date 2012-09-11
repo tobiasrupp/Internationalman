@@ -19,7 +19,7 @@ en:
   on: on 
   broadcast_on_day: Broadcast  
   duration: Duration 
-
+  show_on_map: Show On Map
 
   # activerecord:
   #   models:

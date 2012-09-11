@@ -252,3 +252,5 @@ LOG:  autovacuum launcher started
 LOG:  database system is ready to accept connections
 FATAL:  database "intlman_test" does not exist
 FATAL:  database "intlman_test" does not exist
+FATAL:  lock file "postmaster.pid" already exists
+HINT:  Is another postmaster (PID 716) running in data directory "/usr/local/var/postgres"?

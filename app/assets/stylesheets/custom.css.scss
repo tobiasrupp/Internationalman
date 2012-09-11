@@ -139,13 +139,21 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .status_message {
-  // margin-top: 43px;
-  margin-top: 41px;
+  
+  margin-top: 33px;
   .double_quote {
     // font-size: 200%;
   }
   small {
     font-size: 11px;
+    // color: $gray_2
+  }
+  img {
+    float: left;
+    margin-left: -40px;
+    // margin-right: 6px;
+    margin-top: -5px;
+    width: 55px;
   }
 }
 
@@ -268,8 +276,8 @@ a:hover {
 // #globe_medium {
 //   img {
 //     // margin-top: 10px;
-//     margin-left: -15px;
-//     width: 100px;
+//     // margin-left: -15px;
+//     // width: 100px;
 //   }
 // }
 
@@ -348,6 +356,9 @@ a:hover {
   background: transparent url('line_3.png') repeat-y;
   .thumbnail {
     clear: left;
+  }
+  .globe_btn {
+    width: 25px;
   }
 }
 .article_details {

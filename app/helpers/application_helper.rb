@@ -12,6 +12,15 @@ module ApplicationHelper
     end
   end
 
+  def get_map_url(lon, lat)
+    case I18n.locale
+    when :de
+      url = "http://maps.google.de/?q=" + lon + "," + lat
+    else  
+      url = "http://maps.google.com/?q=" + lon + "," + lat
+    end
+    return url
+  end
   # def get_request_url_with_changed_locale(locale)            
   #   new_url = request.fullpath    
   #   new_locale_url = new_us_url = new_jp_url = new_url           
