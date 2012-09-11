@@ -96,7 +96,16 @@ class StoriesController < ApplicationController
                   :include => :categories,
                   :order => "published_date DESC")
     @updated = @articles.first.published_date unless @articles.empty?
-
+    @radio_tracks = RadioTrack.find(:all,
+                  :include => :categories,
+                  :order => "broadcast_date DESC")
+    @videos = Video.find(:all,
+                  :include => :categories,
+                  :order => "broadcast_date DESC")
+    @posts = Post.find(:all,
+                :include => :categories,
+                :conditions => "publication_state = 'Published'",
+                :order => "created_at DESC")
     respond_to do |format|
       format.atom
     end
