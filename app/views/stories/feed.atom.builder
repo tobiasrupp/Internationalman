@@ -11,12 +11,13 @@ atom_feed :language => 'en-US' do |feed|
       else
         entry.title(t(:no_text_found))
       end
-      entry.content(get_story_summary(article), :type => 'html')
+      entry.content(render :partial => '/stories/story_details.html.erb', :layout => false, :locals => {:selected_article => article}, :type => 'html')
       if !article.author.nil?
         entry.author do |author|
           author.name(article.author)
         end
       end
+      puts entry.url
     end
   end
   @posts.each do |post|
@@ -25,10 +26,8 @@ atom_feed :language => 'en-US' do |feed|
         entry.title(post.title)
       else
         entry.title(t(:no_text_found))
-      end
-      if !post.text.nil? and !post.text_2.nil?
-        entry.content(post.text + post.text_2, :type => 'html')
-      end
+      end     
+      entry.content('test', :type => 'html')
       if !post.author.blank?
         entry.author do |author|
           author.name(post.author)
