@@ -11,6 +11,7 @@ glob5.gif: glob5-cd983a51522ee5aeb0b63999ca7cada0.gif
 glob6.gif: glob6-cd983a51522ee5aeb0b63999ca7cada0.gif
 glob_grey.gif: glob_grey-3616f1f695a24e3751215b892048af6c.gif
 globe_btn.png: globe_btn-a66a9a704d885173d667ddf0539448f7.png
+globe_logo_1.png: globe_logo_1-6a00b077a118a46452b1a27c551782a1.png
 line_3.png: line_3-160742e7756df1bcd411dd3f209f8c98.png
 line_4.png: line_4-9c39f9a7311c9dff7ad271a941b84c61.png
 line_5.png: line_5-fc94fe298819e3dc088d4cf04cc51306.png
@@ -22,7 +23,7 @@ twitter.png: twitter-bc9adde532f42081fbc6e93fb74d175d.png
 active_admin.js: active_admin-621e60e25e5266efa19ff931d960dc73.js
 application.js: application-7755e90d31839415b97ed35b83f9898a.js
 active_admin.css: active_admin-1055494fb5f6d49e87abdc46d72eae33.css
-application.css: application-dea47731db25a59b95319e6072fcc8ab.css
+application.css: application-95ce4e603a9e24e853e99515868b2daf.css
 active_admin/admin_notes_icon.png: active_admin/admin_notes_icon-04bd616ed9d1ff51d7a53422d4caf510.png
 active_admin/datepicker/datepicker-header-bg.png: active_admin/datepicker/datepicker-header-bg-5f452fde9ca93c1fe7e9d47f0a3ece6a.png
 active_admin/datepicker/datepicker-input-icon.png: active_admin/datepicker/datepicker-input-icon-876ae70b38bc880f91ce2315ed552260.png
