@@ -265,6 +265,7 @@ a:hover {
     font-weight: normal;
   }
   .nav-list > .active > a:hover {
+    background-color: $gray_4;
     color: $gray_2;
   }
   .nav-list > li > a:hover {
@@ -360,6 +361,12 @@ a:hover {
   .globe_btn {
     width: 25px;
   }
+  .embedded_video_viewer {
+    float: left;
+    // margin-top: 5px;
+  }
+  .jwplayer_viewer {
+  }
 }
 .article_details {
   margin-bottom: 10px;
@@ -370,6 +377,13 @@ a:hover {
 
 .video_details {
   margin-bottom: 10px;
+}
+
+.post_details {
+  margin-bottom: 10px;
+  .post_body {
+    float: left;
+  }
 }
 
 .share_section {

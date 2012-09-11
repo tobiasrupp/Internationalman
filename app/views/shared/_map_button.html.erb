@@ -1,0 +1,23 @@
+<% if !@selected_article.nil? and !@selected_article.longitude.blank? and !@selected_article.latitude.blank? %>
+	<% lat = @selected_article.latitude %>
+	<% lon = @selected_article.longitude %>
+<% elsif !@selected_track.nil? and !@selected_track.longitude.blank? and !@selected_track.latitude.blank? %>
+	<% lat = @selected_track.latitude %>
+	<% lon = @selected_track.longitude %>
+<% elsif !@selected_video.nil? and !@selected_video.longitude.blank? and !@selected_video.latitude.blank? %>
+	<% lat = @selected_video.latitude %>
+	<% lon = @selected_video.longitude %>
+<% elsif !@selected_post.nil? and !@selected_post.longitude.blank? and !@selected_post.latitude.blank? %>
+	<% lat = @selected_post.latitude %>
+	<% lon = @selected_post.longitude %>
+<% else %>
+	<% return %>
+<% end %>	
+<div class="button">
+	<%= link_to(image_tag("globe_btn.png", :alt => "globe_btn.png", :title => t(:show_on_map), :class => "globe_btn"), get_map_url(lon, lat), :target => '_blank') %>
+</div>
+
+	<!-- <div class="button">
+		<%= link_to t(:show_on_map), get_map_url(lon, lat), :target => '_blank', :class => "btn btn-small" %>
+	</div>
+ -->

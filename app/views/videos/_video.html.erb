@@ -75,17 +75,12 @@
 			<%= link_to t(:further_information), @selected_video.web_page, :target => '_blank', :class => "btn btn-small" %>
 		</div>
 	<% end %>
-
+	<%= render 'shared/map_button' %>
 	<% if !@selected_video.embed_code.blank? and @selected_video.copyright_cleared == true %>
-		<p><%= raw @selected_video.embed_code %></p>
+		<div class="embedded_video_viewer"><%= raw @selected_video.embed_code %></div>
 	<% elsif !@selected_video.source_url.blank? and @selected_video.copyright_cleared == true %>
-		<p>
+		<div class="jwplayer_viewer">
 			<object data="/jwplayer/player.swf" name="player1" id="player1" type="application/x-shockwave-flash" height="300" width="450"><param value="true" name="allowfullscreen"><param value="always" name="allowscriptaccess"><param name="movie" value="/jwplayer/player.swf"><param value="file=<%= @selected_video.source_url %>" name="flashvars"></object>
-		</p>
-		<!-- <p>
-			<video class="sublime" width="640" height="360" data-name="<%= @selected_video.title %>" data-uid="b3115e71" preload="none">
-			  <source src="<%= @selected_video.source_url %>" />
-			</video>
-		</p> -->
+		</div>
 	<% end %>
 <% end %>

@@ -1,0 +1,10 @@
+<div class="status_message">
+   <%= image_tag("clock1.png", :alt => "", :title => "") %>
+  <% if !@status_message.nil? %>
+    <% if I18n.locale == :de %>
+      <small><span class="double_quote">&bdquo;</span><%= raw @status_message.text %><span class="double_quote">&ldquo;</span></small>
+    <% else %>
+      <small><span class="double_quote">&ldquo;</span><%= raw @status_message.text %><span class="double_quote">&rdquo;</span></small>
+    <% end %>
+  <% end %>
+</div>

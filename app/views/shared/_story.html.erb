@@ -76,11 +76,7 @@
 			<div class="button">
 				<%= link_to t(:online_version), @selected_article.web_page, :target => '_blank', :class => "btn btn-small" %>
 			</div>
-			<% if !@selected_article.longitude.blank? and !@selected_article.latitude.blank? %>
-				<div class="button">
-				<%= link_to(image_tag("globe_btn.png", :alt => "globe_btn.png", :title => t(:show_on_map), :class => "globe_btn"), get_map_url(@selected_article.longitude, @selected_article.latitude), :target => '_blank') %>
-				</div>
-			<% end %>
+			<%= render 'shared/map_button' %>
 		<% end %>
 		<% if @selected_article.teaser_image? %>
 		<p>
@@ -93,11 +89,7 @@
 				<%= link_to t(:online_version), @selected_article.web_page, :target => '_blank', :class => "btn btn-small" %>
 			</div>
 		<% end %>	
-		<% if !@selected_article.longitude.blank? and !@selected_article.latitude.blank? %>
-			<div class="button">
-				<%= link_to(image_tag("globe_btn.png", :alt => "globe_btn.png", :title => t(:show_on_map), :class => "globe_btn"), get_map_url(@selected_article.longitude, @selected_article.latitude), :target => '_blank') %>
-			</div>
-		<% end %>	
+		<%= render 'shared/map_button' %>
 		<%= image_tag(@selected_article.teaser_image.url(:medium), :alt => @selected_article.teaser_image.url, :title => "", :class => "thumbnail") %>
 	<% end %>
 <% end %>
