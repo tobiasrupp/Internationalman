@@ -23,3 +23,4 @@ doc/
 .idea
 /public/system/articles
 /public/system/posts
+config/aws.yml
