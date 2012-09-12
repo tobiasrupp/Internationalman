@@ -1,6 +1,6 @@
 <% fb_properties = "" %>
 <% fb_site_admin_id = '100004335090083' %>
-<% default_image_url = "http://www.international-man.net/assets/clock2.png" %>
+<% default_image_url = "http://www.international-man.net/assets/globe_map.jpg" %>
 <% if !@selected_article.nil? %>
 	<% fb_properties = "<meta property=\"og:title\" content=\"#{@selected_article.title}\"/>" + "\n<meta property=\"og:type\" content=\"article\"/>" + "\n<meta property=\"og:url\" content=\"#{request.protocol + request.host_with_port + request.fullpath}\"/>" + "\n<meta property=\"og:image\" content=\"#{@selected_article.teaser_image.url(:medium)}\"/>" + "\n<meta property=\"og:site_name\" content=\"International Man - #{t(:alexander_buehler) + ', Journalist'}\"/>" + "\n<meta property=\"fb:admins\" content=\"#{fb_site_admin_id}\"/>" + "\n<meta property=\"og:description\" content=\"#{@fb_description}\"/>" %>
 	<% provide(:fb_properties, raw(fb_properties)) %>
