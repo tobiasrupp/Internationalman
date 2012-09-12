@@ -11,14 +11,14 @@ atom_feed :language => 'en-US' do |feed|
       else
         entry.title(t(:no_text_found))
       end
-      entry.content('...', :type => 'html')
-      # entry.content(render :partial => '/stories/story_details.html.erb', :layout => false, :locals => {:selected_article => article}, :type => 'html')
+      # entry.content('...', :type => 'html')
+      entry.content((render :partial => '/stories/story_details.html.erb', :layout => false, :locals => {:selected_article => article}).html_safe, :type => 'html')
       if !article.author.nil?
         entry.author do |author|
           author.name(article.author)
         end
       end
-      # puts entry.url
+      puts entry.url
     end
   end
   @posts.each do |post|
