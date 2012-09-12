@@ -88,7 +88,7 @@ h1, h2, h3, h4, h5, h6 {
   }
   img {
     float: left;
-    margin-right: 0px;
+    margin-right: 1px;
     margin-left: -1px;
     width: 19px;
     position: relative;
@@ -104,7 +104,7 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 30px;
 }
 #topnav-l {
-    background: url("http://designrfix.com/wp-content/themes/designrfix/images/topnav-l.png") no-repeat scroll 0 0 transparent;
+    background: url("topnav-l.png") no-repeat scroll 0 0 transparent;
     float: left;
     height: 30px;
     width: 3px;
@@ -120,7 +120,7 @@ h1, h2, h3, h4, h5, h6 {
 
   }
 #topnav-r {
-    background: url("http://designrfix.com/wp-content/themes/designrfix/images/topnav-r.png") no-repeat scroll 0 0 transparent;
+    background: url("topnav-r.png") no-repeat scroll 0 0 transparent;
     float: left;
     height: 30px;
     width: 3px;
@@ -363,6 +363,7 @@ a:hover {
   }
   .globe_btn {
     width: 25px;
+    position: relative; top: 1px;
   }
   .embedded_video_viewer {
     float: left;

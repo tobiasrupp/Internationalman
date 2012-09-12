@@ -11,13 +11,14 @@ atom_feed :language => 'en-US' do |feed|
       else
         entry.title(t(:no_text_found))
       end
-      entry.content(render :partial => '/stories/story_details.html.erb', :layout => false, :locals => {:selected_article => article}, :type => 'html')
+      entry.content(stories_path + '/' + category.url_name + '/' + article.url_title)
+      # entry.content(render :partial => '/stories/story_details.html.erb', :layout => false, :locals => {:selected_article => article}, :type => 'html')
       if !article.author.nil?
         entry.author do |author|
           author.name(article.author)
         end
       end
-      puts entry.url
+      # puts entry.url
     end
   end
   @posts.each do |post|
@@ -27,7 +28,7 @@ atom_feed :language => 'en-US' do |feed|
       else
         entry.title(t(:no_text_found))
       end     
-      entry.content('test', :type => 'html')
+      entry.content(blog_path + '/' + post.url_title, :type => 'html')
       if !post.author.blank?
         entry.author do |author|
           author.name(post.author)
@@ -47,7 +48,7 @@ atom_feed :language => 'en-US' do |feed|
       else
         entry.title(t(:no_text_found))
       end
-      entry.content('...', :type => 'html')
+      entry.content(radio_path + '/' + radio_track.url_title, :type => 'html')
       if !radio_track.author.blank?
         entry.author do |author|
           author.name(radio_track.author)
@@ -67,7 +68,7 @@ atom_feed :language => 'en-US' do |feed|
       else
         entry.title(t(:no_text_found))
       end
-      entry.content('...', :type => 'html')
+      entry.content(tv_path + '/' + video.url_title, :type => 'html')
       if !video.author.blank?
         entry.author do |author|
           author.name(video.author)
