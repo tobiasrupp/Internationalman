@@ -23,27 +23,27 @@
       <img src="./assets/0.5.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2012-09-11T17:57:58+01:00">2012-09-11T17:57:58+01:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2012-09-12T17:38:34+01:00">2012-09-12T17:38:34+01:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="red">71.36%</span></span>
+    (<span class="covered_percent"><span class="red">74.16%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.78
+         1.79
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>35</b> files in total.
-    <b>988</b> relevant lines. 
-    <span class="green"><b>705</b> lines covered</span> and
-    <span class="red"><b>283</b> lines missed </span>
+    <b>952</b> relevant lines. 
+    <span class="green"><b>706</b> lines covered</span> and
+    <span class="red"><b>246</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -252,9 +252,9 @@
       <tr>
         <td class="strong"><a href="#35fab650c254c52204001debcb71cf789ec4cec9" class="src_link" title="app/helpers/posts_helper.rb">app/helpers/posts_helper.rb</a></td>
         <td class="green strong">100.0 %</td>
+        <td>121</td>
         <td>2</td>
-        <td>1</td>
-        <td>1</td>
+        <td>2</td>
         <td>0</td>
         <td>1.0</td>
       </tr>
@@ -271,12 +271,12 @@
       
       <tr>
         <td class="strong"><a href="#cf269214e62b90e64d62d95ccf8124f886454ee2" class="src_link" title="app/helpers/stories_helper.rb">app/helpers/stories_helper.rb</a></td>
-        <td class="red strong">4.76 %</td>
-        <td>66</td>
-        <td>42</td>
+        <td class="red strong">40.0 %</td>
+        <td>71</td>
+        <td>5</td>
         <td>2</td>
-        <td>40</td>
-        <td>0.0</td>
+        <td>3</td>
+        <td>0.4</td>
       </tr>
       
       <tr>
@@ -719,20 +719,20 @@
           <div class="file_list_container" id="Helpers">
   <h2>
     <span class="group_name">Helpers</span>
-    (<span class="covered_percent"><span class="red">29.31%</span></span>
+    (<span class="covered_percent"><span class="yellow">81.82%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         2.0
+         2.06
        </span>
     </span> hits/line)
   </h2>
   <a name="Helpers"></a>
   <div>
     <b>7</b> files in total.
-    <b>58</b> relevant lines. 
-    <span class="green"><b>17</b> lines covered</span> and
-    <span class="red"><b>41</b> lines missed </span>
+    <b>22</b> relevant lines. 
+    <span class="green"><b>18</b> lines covered</span> and
+    <span class="red"><b>4</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -781,9 +781,9 @@
       <tr>
         <td class="strong"><a href="#35fab650c254c52204001debcb71cf789ec4cec9" class="src_link" title="app/helpers/posts_helper.rb">app/helpers/posts_helper.rb</a></td>
         <td class="green strong">100.0 %</td>
+        <td>121</td>
         <td>2</td>
-        <td>1</td>
-        <td>1</td>
+        <td>2</td>
         <td>0</td>
         <td>1.0</td>
       </tr>
@@ -800,12 +800,12 @@
       
       <tr>
         <td class="strong"><a href="#cf269214e62b90e64d62d95ccf8124f886454ee2" class="src_link" title="app/helpers/stories_helper.rb">app/helpers/stories_helper.rb</a></td>
-        <td class="red strong">4.76 %</td>
-        <td>66</td>
-        <td>42</td>
+        <td class="red strong">40.0 %</td>
+        <td>71</td>
+        <td>5</td>
         <td>2</td>
-        <td>40</td>
-        <td>0.0</td>
+        <td>3</td>
+        <td>0.4</td>
       </tr>
       
       <tr>
@@ -9847,8 +9847,8 @@
     <h3>app/helpers/posts_helper.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>1</b> relevant lines. 
-      <span class="green"><b>1</b> lines covered</span> and
+      <b>2</b> relevant lines. 
+      <span class="green"><b>2</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -9863,6 +9863,720 @@
         </li>
       
         <li class="never" data-hits="" data-linenumber="2">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="3">
+          <span class="hits">1</span>
+          
+          <code class="ruby">	def get_post_summary(post)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="4">
+          
+          
+          <code class="ruby">	# 	if post.nil?</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="5">
+          
+          
+          <code class="ruby">	# 		return</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="6">
+          
+          
+          <code class="ruby">	# 	end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="7">
+          
+          
+          <code class="ruby">	# 	summary = &quot;&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="8">
+          
+          
+          <code class="ruby">	# 	if !post.title.blank?</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="9">
+          
+          
+          <code class="ruby">	# 		summary = &lt;h3&gt; post.title&lt;/h3&gt;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="10">
+          
+          
+          <code class="ruby">	# 	end	</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="11">
+          
+          
+          <code class="ruby">	# 	line_string = &quot;&lt;p&gt;&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="12">
+          
+          
+          <code class="ruby">	# 	if !post.updated_at.blank?</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="13">
+          
+          
+          <code class="ruby">	# 		if !line_string.blank? </code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="14">
+          
+          
+          <code class="ruby">	# 			line_string = line_string + &quot;, &quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="15">
+          
+          
+          <code class="ruby">	# 		end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="16">
+          
+          
+          <code class="ruby">	# 		line_string = line_string + &quot;#{l post.updated_at, :format =&gt; :long}&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="17">
+          
+          
+          <code class="ruby">	# 	end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="18">
+          
+          
+          <code class="ruby">	# 	if !post.ctry.blank?</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="19">
+          
+          
+          <code class="ruby">	# 		if !line_string.blank? </code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="20">
+          
+          
+          <code class="ruby">	# 			line_string = line_string + &quot;, &quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="21">
+          
+          
+          <code class="ruby">	# 		end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="22">
+          
+          
+          <code class="ruby">	# 		line_string = line_string + t(:country) + &quot;: #{post.ctry}&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="23">
+          
+          
+          <code class="ruby">	# 	end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="24">
+          
+          
+          <code class="ruby">	# 	if !post.author.blank?</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="25">
+          
+          
+          <code class="ruby">	# 		if !line_string.blank? </code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="26">
+          
+          
+          <code class="ruby">	# 			line_string = line_string + &quot;, &quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="27">
+          
+          
+          <code class="ruby">	# 		end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="28">
+          
+          
+          <code class="ruby">	# 		line_string = line_string + t(:text) + &quot;: #{post.author}&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="29">
+          
+          
+          <code class="ruby">	# 	end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="30">
+          
+          
+          <code class="ruby">	# 	if !line_string.blank? </code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="31">
+          
+          
+          <code class="ruby">	# 			raw line_string&lt;br&gt;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="32">
+          
+          
+          <code class="ruby">	# 			@fb_description = @fb_description + raw(line_string)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="33">
+          
+          
+          <code class="ruby">	# 	end </code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="34">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="35">
+          
+          
+          <code class="ruby">	# 	if !post.categories.nil?</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="36">
+          
+          
+          <code class="ruby">	# 		category_string = &quot;&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="37">
+          
+          
+          <code class="ruby">	# 			t(:categories): </code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="38">
+          
+          
+          <code class="ruby">	# 			post.categories.each do |category| </code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="39">
+          
+          
+          <code class="ruby">	# 			if category_string.blank?</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="40">
+          
+          
+          <code class="ruby">	# 				category_string = category.name</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="41">
+          
+          
+          <code class="ruby">	# 			else</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="42">
+          
+          
+          <code class="ruby">	# 				category_string = category_string + &quot;, &quot; + category.name</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="43">
+          
+          
+          <code class="ruby">	# 			end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="44">
+          
+          
+          <code class="ruby">	# 		end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="45">
+          
+          
+          <code class="ruby">	# 		category_string&lt;br&gt;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="46">
+          
+          
+          <code class="ruby">	# 		@fb_description = @fb_description + &quot;, &quot; + t(:categories) + ': ' + category_string</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="47">
+          
+          
+          <code class="ruby">	# 	end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="48">
+          
+          
+          <code class="ruby">	# &lt;/p&gt;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="49">
+          
+          
+          <code class="ruby">	# render 'shared/map_button'</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="50">
+          
+          
+          <code class="ruby">	# &lt;div class=&quot;post_body&quot;&gt;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="51">
+          
+          
+          <code class="ruby">	# 	if post.image_1?</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="52">
+          
+          
+          <code class="ruby">	# 		if post.image_1_options?</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="53">
+          
+          
+          <code class="ruby">	# 			split_arr = post.image_1_options.split(' - ')</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="54">
+          
+          
+          <code class="ruby">	# 			display_option = split_arr[0]	</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="55">
+          
+          
+          <code class="ruby">	# 			if display_option != &quot;Don't display&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="56">
+          
+          
+          <code class="ruby">	# 				image_size = split_arr[1].parameterize</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="57">
+          
+          
+          <code class="ruby">	# 				case display_option</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="58">
+          
+          
+          <code class="ruby">	# 					when &quot;Display in Section 1 left&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="59">
+          
+          
+          <code class="ruby">	# 						&lt;img src=&quot;post.image_1.url(image_size)&quot; alt=&quot;&quot; class=&quot;thumbnail pull-left&quot; style=&quot;margin-right: 0.8em; margin-bottom: 0.3em&quot;&gt;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="60">
+          
+          
+          <code class="ruby">	# 					when &quot;Display in Section 1 right&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="61">
+          
+          
+          <code class="ruby">	# 						&lt;img src=&quot;post.image_1.url(image_size)&quot; alt=&quot;&quot; class=&quot;thumbnail pull-right&quot; style=&quot;margin-left: 0.8em; margin-bottom: 0.3em&quot;&gt;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="62">
+          
+          
+          <code class="ruby">	# 				end		</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="63">
+          
+          
+          <code class="ruby">	# 			end	</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="64">
+          
+          
+          <code class="ruby">	# 		end				</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="65">
+          
+          
+          <code class="ruby">	# 	end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="66">
+          
+          
+          <code class="ruby">	# 	if post.image_2?</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="67">
+          
+          
+          <code class="ruby">	# 		if post.image_2_options?</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="68">
+          
+          
+          <code class="ruby">	# 			split_arr = post.image_2_options.split(' - ')</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="69">
+          
+          
+          <code class="ruby">	# 			display_option = split_arr[0]	</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="70">
+          
+          
+          <code class="ruby">	# 			if display_option != &quot;Don't display&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="71">
+          
+          
+          <code class="ruby">	# 				image_size = split_arr[1].parameterize</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="72">
+          
+          
+          <code class="ruby">	# 				case display_option</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="73">
+          
+          
+          <code class="ruby">	# 					when &quot;Display in Section 1 left&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="74">
+          
+          
+          <code class="ruby">	# 						&lt;img src=&quot;post.image_2.url(image_size)&quot; alt=&quot;&quot; class=&quot;thumbnail pull-left&quot; style=&quot;margin-right: 0.8em; margin-bottom: 0.3em&quot;&gt;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="75">
+          
+          
+          <code class="ruby">	# 					when &quot;Display in Section 1 right&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="76">
+          
+          
+          <code class="ruby">	# 						&lt;img src=&quot;post.image_2.url(image_size)&quot; alt=&quot;&quot; class=&quot;thumbnail pull-right&quot; style=&quot;margin-left: 0.8em; margin-bottom: 0.3em&quot;&gt;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="77">
+          
+          
+          <code class="ruby">	# 				end		</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="78">
+          
+          
+          <code class="ruby">	# 			end	</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="79">
+          
+          
+          <code class="ruby">	# 		end				</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="80">
+          
+          
+          <code class="ruby">	# 	end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="81">
+          
+          
+          <code class="ruby">	# 	if !post.text.blank?</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="82">
+          
+          
+          <code class="ruby">	# 		&lt;p&gt;raw post.text&lt;/p&gt;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="83">
+          
+          
+          <code class="ruby">	# 		@fb_description = @fb_description + &quot;, &quot; + raw(post.text)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="84">
+          
+          
+          <code class="ruby">	# 	end	</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="85">
+          
+          
+          <code class="ruby">	# 	if post.image_1?</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="86">
+          
+          
+          <code class="ruby">	# 		if post.image_1_options?</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="87">
+          
+          
+          <code class="ruby">	# 			split_arr = post.image_1_options.split(' - ')</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="88">
+          
+          
+          <code class="ruby">	# 			display_option = split_arr[0]	</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="89">
+          
+          
+          <code class="ruby">	# 			if display_option != &quot;Don't display&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="90">
+          
+          
+          <code class="ruby">	# 				image_size = split_arr[1].parameterize</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="91">
+          
+          
+          <code class="ruby">	# 				case display_option</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="92">
+          
+          
+          <code class="ruby">	# 					when &quot;Display in Section 2 left&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="93">
+          
+          
+          <code class="ruby">	# 						&lt;img src=&quot;post.image_1.url(image_size)&quot; alt=&quot;&quot; class=&quot;thumbnail pull-left&quot; style=&quot;margin-right: 0.8em; margin-bottom: 0.3em&quot;&gt;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="94">
+          
+          
+          <code class="ruby">	# 					when &quot;Display in Section 2 right&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="95">
+          
+          
+          <code class="ruby">	# 						&lt;img src=&quot;post.image_1.url(image_size)&quot; alt=&quot;&quot; class=&quot;thumbnail pull-right&quot; style=&quot;margin-left: 0.8em; margin-bottom: 0.3em&quot;&gt;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="96">
+          
+          
+          <code class="ruby">	# 				end		</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="97">
+          
+          
+          <code class="ruby">	# 			end		</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="98">
+          
+          
+          <code class="ruby">	# 		end	</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="99">
+          
+          
+          <code class="ruby">	# 	end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="100">
+          
+          
+          <code class="ruby">	# 	if post.image_2?</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="101">
+          
+          
+          <code class="ruby">	# 		if post.image_2_options?</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="102">
+          
+          
+          <code class="ruby">	# 			split_arr = post.image_2_options.split(' - ')</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="103">
+          
+          
+          <code class="ruby">	# 			display_option = split_arr[0]	</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="104">
+          
+          
+          <code class="ruby">	# 			if display_option != &quot;Don't display&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="105">
+          
+          
+          <code class="ruby">	# 				image_size = split_arr[1].parameterize</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="106">
+          
+          
+          <code class="ruby">	# 				case display_option</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="107">
+          
+          
+          <code class="ruby">	# 					when &quot;Display in Section 2 left&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="108">
+          
+          
+          <code class="ruby">	# 						&lt;img src=&quot;post.image_2.url(image_size)&quot; alt=&quot;&quot; class=&quot;thumbnail pull-left&quot; style=&quot;margin-right: 0.8em; margin-bottom: 0.3em&quot;&gt;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="109">
+          
+          
+          <code class="ruby">	# 					when &quot;Display in Section 2 right&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="110">
+          
+          
+          <code class="ruby">	# 						&lt;img src=&quot;post.image_2.url(image_size)&quot; alt=&quot;&quot; class=&quot;thumbnail pull-right&quot; style=&quot;margin-left: 0.8em; margin-bottom: 0.3em&quot;&gt;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="111">
+          
+          
+          <code class="ruby">	# 				end	</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="112">
+          
+          
+          <code class="ruby">	# 			end			</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="113">
+          
+          
+          <code class="ruby">	# 		end		</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="114">
+          
+          
+          <code class="ruby">	# 	end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="115">
+          
+          
+          <code class="ruby">	# 	if !post.text_2.blank?</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="116">
+          
+          
+          <code class="ruby">	# 		&lt;p&gt;raw post.text_2&lt;/p&gt;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="117">
+          
+          
+          <code class="ruby">	# 		@fb_description = @fb_description + raw(post.text_2)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="118">
+          
+          
+          <code class="ruby">	# 	end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="119">
+          
+          
+          <code class="ruby">	# &lt;/div&gt;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="120">
+          
+          
+          <code class="ruby">	end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="121">
           
           
           <code class="ruby">end</code>
@@ -9905,11 +10619,11 @@
         <div class="source_table" id="cf269214e62b90e64d62d95ccf8124f886454ee2">
   <div class="header">
     <h3>app/helpers/stories_helper.rb</h3>
-    <h4><span class="red">4.76 %</span> covered</h4>
+    <h4><span class="red">40.0 %</span> covered</h4>
     <div>
-      <b>42</b> relevant lines. 
+      <b>5</b> relevant lines. 
       <span class="green"><b>2</b> lines covered</span> and
-      <span class="red"><b>40</b> lines missed.</span>
+      <span class="red"><b>3</b> lines missed.</span>
     </div>
   </div>
   
@@ -9943,370 +10657,400 @@
         <li class="missed" data-hits="0" data-linenumber="5">
           
           
-          <code class="ruby">		summary = &quot;&quot;</code>
+          <code class="ruby">		if article.nil?</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="6">
           
           
-          <code class="ruby">		if !article.title.blank?</code>
+          <code class="ruby">			return</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="7">
-          
-          
-          <code class="ruby">			summary = &quot;&lt;h3&gt;#{article.title}&lt;/h3&gt;&quot;</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="8">
+        <li class="never" data-hits="" data-linenumber="7">
           
           
           <code class="ruby">		end</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="9">
+        <li class="missed" data-hits="0" data-linenumber="8">
           
           
-          <code class="ruby">		line_string = &quot;&lt;p&gt;&quot;</code>
+          <code class="ruby">		summary = render_to_string(:partial =&gt; 'mstory_details', :layout =&gt; false, :locals =&gt; {:selected_article =&gt; article})</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="10">
+        <li class="never" data-hits="" data-linenumber="9">
           
           
-          <code class="ruby">		if !article.published_in.blank?</code>
+          <code class="ruby"></code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="11">
+        <li class="never" data-hits="" data-linenumber="10">
           
           
-          <code class="ruby">			line_string = line_string + t(:published_in) + &quot; &lt;em&gt;#{ article.published_in }&lt;/em&gt;&quot;</code>
+          <code class="ruby">		# summary = &quot;&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="11">
+          
+          
+          <code class="ruby">		# if !article.title.blank?</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="12">
           
           
-          <code class="ruby">		end</code>
+          <code class="ruby">		# 	summary = &quot;&lt;h3&gt;#{article.title}&lt;/h3&gt;&quot;</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="13">
+        <li class="never" data-hits="" data-linenumber="13">
           
           
-          <code class="ruby">		if !article.article_type.blank?</code>
+          <code class="ruby">		# end</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="14">
+        <li class="never" data-hits="" data-linenumber="14">
           
           
-          <code class="ruby">			if !line_string.blank?</code>
+          <code class="ruby">		# line_string = &quot;&lt;p&gt;&quot;</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="15">
+        <li class="never" data-hits="" data-linenumber="15">
           
           
-          <code class="ruby">				line_string = line_string + &quot; &quot;</code>
+          <code class="ruby">		# if !article.published_in.blank?</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="16">
           
           
-          <code class="ruby">			end</code>
+          <code class="ruby">		# 	line_string = line_string + t(:published_in) + &quot; &lt;em&gt;#{ article.published_in }&lt;/em&gt;&quot;</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="17">
+        <li class="never" data-hits="" data-linenumber="17">
           
           
-          <code class="ruby">			line_string = line_string + &quot;(#{article.article_type})&quot;</code>
+          <code class="ruby">		# end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="18">
           
           
-          <code class="ruby">		end</code>
+          <code class="ruby">		# if !article.article_type.blank?</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="19">
+        <li class="never" data-hits="" data-linenumber="19">
           
           
-          <code class="ruby">		if !article.published_date.blank?</code>
+          <code class="ruby">		# 	if !line_string.blank?</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="20">
+        <li class="never" data-hits="" data-linenumber="20">
           
           
-          <code class="ruby">			if !line_string.blank?</code>
+          <code class="ruby">		# 		line_string = line_string + &quot; &quot;</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="21">
+        <li class="never" data-hits="" data-linenumber="21">
           
           
-          <code class="ruby">				line_string = line_string + &quot;, &quot;</code>
+          <code class="ruby">		# 	end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="22">
           
           
-          <code class="ruby">			end</code>
+          <code class="ruby">		# 	line_string = line_string + &quot;(#{article.article_type})&quot;</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="23">
+        <li class="never" data-hits="" data-linenumber="23">
           
           
-          <code class="ruby">			line_string = line_string + &quot;#{l article.published_date, :format =&gt; :long}&quot;</code>
+          <code class="ruby">		# end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="24">
           
           
-          <code class="ruby">		end</code>
+          <code class="ruby">		# if !article.published_date.blank?</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="25">
+        <li class="never" data-hits="" data-linenumber="25">
           
           
-          <code class="ruby">		if !line_string.blank? </code>
+          <code class="ruby">		# 	if !line_string.blank?</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="26">
+        <li class="never" data-hits="" data-linenumber="26">
           
           
-          <code class="ruby">			summary = summary + raw(line_string)</code>
+          <code class="ruby">		# 		line_string = line_string + &quot;, &quot;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="27">
           
           
-          <code class="ruby">		end</code>
+          <code class="ruby">		# 	end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="28">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">		# 	line_string = line_string + &quot;#{l article.published_date, :format =&gt; :long}&quot;</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="29">
+        <li class="never" data-hits="" data-linenumber="29">
           
           
-          <code class="ruby">		line_string = &quot;&quot;</code>
+          <code class="ruby">		# end</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="30">
+        <li class="never" data-hits="" data-linenumber="30">
           
           
-          <code class="ruby">		if !article.ctry.blank?</code>
+          <code class="ruby">		# if !line_string.blank? </code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="31">
+        <li class="never" data-hits="" data-linenumber="31">
           
           
-          <code class="ruby">			if !line_string.blank? </code>
+          <code class="ruby">		# 	summary = summary + raw(line_string)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="32">
+        <li class="never" data-hits="" data-linenumber="32">
           
           
-          <code class="ruby">				line_string = line_string + &quot;, &quot;</code>
+          <code class="ruby">		# end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="33">
           
           
-          <code class="ruby">			end</code>
+          <code class="ruby"></code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="34">
+        <li class="never" data-hits="" data-linenumber="34">
           
           
-          <code class="ruby">			line_string = line_string + t(:country) + &quot;: #{article.ctry}&quot;</code>
+          <code class="ruby">		# line_string = &quot;&quot;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="35">
           
           
-          <code class="ruby">		end</code>
+          <code class="ruby">		# if !article.ctry.blank?</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="36">
+        <li class="never" data-hits="" data-linenumber="36">
           
           
-          <code class="ruby">		if !article.author.blank?</code>
+          <code class="ruby">		# 	if !line_string.blank? </code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="37">
+        <li class="never" data-hits="" data-linenumber="37">
           
           
-          <code class="ruby">			if !line_string.blank? </code>
+          <code class="ruby">		# 		line_string = line_string + &quot;, &quot;</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="38">
+        <li class="never" data-hits="" data-linenumber="38">
           
           
-          <code class="ruby">				line_string = line_string + &quot;, &quot;</code>
+          <code class="ruby">		# 	end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="39">
           
           
-          <code class="ruby">			end</code>
+          <code class="ruby">		# 	line_string = line_string + t(:country) + &quot;: #{article.ctry}&quot;</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="40">
+        <li class="never" data-hits="" data-linenumber="40">
           
           
-          <code class="ruby">			line_string = line_string + t(:text) + &quot;: #{article.author}&quot;</code>
+          <code class="ruby">		# end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="41">
           
           
-          <code class="ruby">		end</code>
+          <code class="ruby">		# if !article.author.blank?</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="42">
+        <li class="never" data-hits="" data-linenumber="42">
           
           
-          <code class="ruby">		if !article.photos_by.blank?</code>
+          <code class="ruby">		# 	if !line_string.blank? </code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="43">
+        <li class="never" data-hits="" data-linenumber="43">
           
           
-          <code class="ruby">			if !line_string.blank?</code>
+          <code class="ruby">		# 		line_string = line_string + &quot;, &quot;</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="44">
+        <li class="never" data-hits="" data-linenumber="44">
           
           
-          <code class="ruby">				line_string = line_string + &quot;, &quot;</code>
+          <code class="ruby">		# 	end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="45">
           
           
-          <code class="ruby">			end</code>
+          <code class="ruby">		# 	line_string = line_string + t(:text) + &quot;: #{article.author}&quot;</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="46">
+        <li class="never" data-hits="" data-linenumber="46">
           
           
-          <code class="ruby">			line_string = line_string + t(:photos) + &quot;: #{article.photos_by}&quot;</code>
+          <code class="ruby">		# end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="47">
           
           
-          <code class="ruby">		end</code>
+          <code class="ruby">		# if !article.photos_by.blank?</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="48">
+        <li class="never" data-hits="" data-linenumber="48">
           
           
-          <code class="ruby">		if !line_string.blank?</code>
+          <code class="ruby">		# 	if !line_string.blank?</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="49">
+        <li class="never" data-hits="" data-linenumber="49">
           
           
-          <code class="ruby">				summary = summary + &quot;, &quot; + raw(line_string)</code>
+          <code class="ruby">		# 		line_string = line_string + &quot;, &quot;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="50">
           
           
-          <code class="ruby">		end</code>
+          <code class="ruby">		# 	end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="51">
           
           
+          <code class="ruby">		# 	line_string = line_string + t(:photos) + &quot;: #{article.photos_by}&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="52">
+          
+          
+          <code class="ruby">		# end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="53">
+          
+          
+          <code class="ruby">		# if !line_string.blank?</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="54">
+          
+          
+          <code class="ruby">		# 		summary = summary + &quot;, &quot; + raw(line_string)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="55">
+          
+          
+          <code class="ruby">		# end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="56">
+          
+          
           <code class="ruby"></code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="52">
-          
-          
-          <code class="ruby">		if !article.categories.nil?</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="53">
-          
-          
-          <code class="ruby">			category_string = &quot;&quot;</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="54">
-          
-          
-          <code class="ruby">						article.categories.each do |category|</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="55">
-          
-          
-          <code class="ruby">							if category_string.blank?</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="56">
-          
-          
-          <code class="ruby">								category_string = category.name</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="57">
           
           
-          <code class="ruby">							else</code>
+          <code class="ruby">		# if !article.categories.nil?</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="58">
+        <li class="never" data-hits="" data-linenumber="58">
           
           
-          <code class="ruby">								category_string = category_string + &quot;, &quot; + category.name</code>
+          <code class="ruby">		# 	category_string = &quot;&quot;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="59">
           
           
-          <code class="ruby">							end</code>
+          <code class="ruby">		# 				article.categories.each do |category|</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="60">
           
           
-          <code class="ruby">						end</code>
+          <code class="ruby">		# 					if category_string.blank?</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="61">
+        <li class="never" data-hits="" data-linenumber="61">
           
           
-          <code class="ruby">						summary = summary + &quot;, &quot; + t(:categories) + ': ' + category_string</code>
+          <code class="ruby">		# 						category_string = category.name</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="62">
           
           
-          <code class="ruby">		end</code>
+          <code class="ruby">		# 					else</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="63">
+        <li class="never" data-hits="" data-linenumber="63">
           
           
-          <code class="ruby">		summary = summary + &quot;&lt;/p&gt;&quot;</code>
+          <code class="ruby">		# 						category_string = category_string + &quot;, &quot; + category.name</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="64">
+        <li class="never" data-hits="" data-linenumber="64">
           
           
-          <code class="ruby">		return summary</code>
+          <code class="ruby">		# 					end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="65">
           
           
-          <code class="ruby">	end</code>
+          <code class="ruby">		# 				end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="66">
+          
+          
+          <code class="ruby">		# 				summary = summary + &quot;, &quot; + t(:categories) + ': ' + category_string</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="67">
+          
+          
+          <code class="ruby">		# end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="68">
+          
+          
+          <code class="ruby">		# summary = summary + &quot;&lt;/p&gt;&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="69">
+          
+          
+          <code class="ruby">		# return summary</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="70">
+          
+          
+          <code class="ruby">	end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="71">
           
           
           <code class="ruby">end</code>
@@ -11041,7 +11785,7 @@
         <li class="covered" data-hits="1" data-linenumber="19">
           <span class="hits">1</span>
           
-          <code class="ruby">  validates :short_title, :presence =&gt; true, :length =&gt; {:minimum =&gt; 1, :maximum =&gt; 100}</code>
+          <code class="ruby">  validates :short_title, :presence =&gt; true, :length =&gt; {:minimum =&gt; 1, :maximum =&gt; 35}</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="20">
@@ -11221,7 +11965,7 @@
         <li class="covered" data-hits="1" data-linenumber="10">
           <span class="hits">1</span>
           
-          <code class="ruby">  validates :short_title, :presence =&gt; true, :length =&gt; {:minimum =&gt; 1, :maximum =&gt; 100}</code>
+          <code class="ruby">  validates :short_title, :presence =&gt; true, :length =&gt; {:minimum =&gt; 1, :maximum =&gt; 35}</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="11">
@@ -11473,7 +12217,7 @@
         <li class="covered" data-hits="1" data-linenumber="7">
           <span class="hits">1</span>
           
-          <code class="ruby">  validates :short_title, :presence =&gt; true, :length =&gt; {:minimum =&gt; 1, :maximum =&gt; 100}</code>
+          <code class="ruby">  validates :short_title, :presence =&gt; true, :length =&gt; {:minimum =&gt; 1, :maximum =&gt; 35}</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="8">

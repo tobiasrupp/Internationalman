@@ -1,27 +1,24 @@
-<% if selected_article.nil? %>
-	<% return "testo" %>
-<% end %>
 <% @fb_description = "" %>
 <div class="article_details">
-	<% if !selected_article.title.blank? %>
-		<h3><%= selected_article.title %></h3>
+	<% if !@selected_article.title.blank? %>
+		<h3><%= @selected_article.title %></h3>
 	<% end %>	
 	<p>
 	<% line_string = "" %>
-	<% if !selected_article.published_in.blank? %>
-		<% line_string = t(:published_in) + " <em>#{ selected_article.published_in }</em>" %>
+	<% if !@selected_article.published_in.blank? %>
+		<% line_string = t(:published_in) + " <em>#{ @selected_article.published_in }</em>" %>
 	<% end %>
-	<% if !selected_article.article_type.blank? %>
+	<% if !@selected_article.article_type.blank? %>
 		<% if !line_string.blank? %> 
 			<% line_string = line_string + " " %>
 		<% end %>
-		<% line_string = line_string + "(#{selected_article.article_type})" %>
+		<% line_string = line_string + "(#{@selected_article.article_type})" %>
 	<% end %>
-	<% if !selected_article.published_date.blank? %>
+	<% if !@selected_article.published_date.blank? %>
 		<% if !line_string.blank? %> 
 			<% line_string = line_string + ", " %>
 		<% end %> 
-		<% line_string = line_string + "#{l selected_article.published_date, :format => :long}" %>
+		<% line_string = line_string + "#{l @selected_article.published_date, :format => :long}" %>
 	<% end %>
 	<% if !line_string.blank? %> 
 			<%= raw line_string %><br>
@@ -29,33 +26,33 @@
 	<% end %> 
 
 	<% line_string = "" %>
-	<% if !selected_article.ctry.blank? %>
+	<% if !@selected_article.ctry.blank? %>
 		<% if !line_string.blank? %> 
 			<% line_string = line_string + ", " %>
 		<% end %>
-		<% line_string = line_string + t(:country) + ": #{selected_article.ctry}" %>
+		<% line_string = line_string + t(:country) + ": #{@selected_article.ctry}" %>
 	<% end %>
-	<% if !selected_article.author.blank? %>
+	<% if !@selected_article.author.blank? %>
 		<% if !line_string.blank? %> 
 			<% line_string = line_string + ", " %>
 		<% end %>
-		<% line_string = line_string + t(:text) + ": #{selected_article.author}" %>
+		<% line_string = line_string + t(:text) + ": #{@selected_article.author}" %>
 	<% end %>
-	<% if !selected_article.photos_by.blank? %>
+	<% if !@selected_article.photos_by.blank? %>
 		<% if !line_string.blank? %> 
 			<% line_string = line_string + ", " %>
 		<% end %> 
-		<% line_string = line_string + t(:photos) + ": #{selected_article.photos_by}" %>
+		<% line_string = line_string + t(:photos) + ": #{@selected_article.photos_by}" %>
 	<% end %>
 	<% if !line_string.blank? %> 
 			<%= raw line_string %><br>
 			<% @fb_description = @fb_description + ", " + raw(line_string) %>
 	<% end %> 
 
-	<% if !selected_article.categories.nil? %>
+	<% if !@selected_article.categories.nil? %>
 		<% category_string = "" %>
 		<%= t(:categories) %>: 
-					<% selected_article.categories.each do |category| %> 
+					<% @selected_article.categories.each do |category| %> 
 						<% if category_string.blank? %>
 							<% category_string = category.name %>
 						<% else %>
@@ -67,27 +64,28 @@
 	<% end %></p>
 	
 </div>
-<% if !selected_article.source_file.url.blank? and selected_article.copyright_cleared == true %>
+<% if !@selected_article.source_file.url.blank? and @selected_article.copyright_cleared == true %>
 	<div class="button">
-		<%= link_to t(:display_story_in_new_window), "https://docs.google.com/viewer?url=" + selected_article.source_file.url, :target => '_blank', :class => "btn btn-small" %>
+		<%= link_to t(:display_story_in_new_window), "https://docs.google.com/viewer?url=" + @selected_article.source_file.url, :target => '_blank', :class => "btn btn-small" %>
 	</div>
-	<% if !selected_article.web_page.blank? %>
+	<% if !@selected_article.web_page.blank? %>
 		<div class="button">
-			<%= link_to t(:online_version), selected_article.web_page, :target => '_blank', :class => "btn btn-small" %>
+			<%= link_to t(:online_version), @selected_article.web_page, :target => '_blank', :class => "btn btn-small" %>
 		</div>
-		<%= render :partial => 'shared/map_button.html.erb' %>
+
+		<%= render :partial => 'shared/map_button', :formats=>[:html], :handlers=>[:erb] %>
 	<% end %>
-	<% if selected_article.teaser_image? %>
+	<% if @selected_article.teaser_image? %>
 	<p>
-		<%= link_to(image_tag(selected_article.teaser_image.url(:medium), :alt => selected_article.teaser_image.url, :title => t(:display_story_in_new_window), :class => "thumbnail"), "https://docs.google.com/viewer?url=" + selected_article.source_file.url, :target => '_blank') %>
+		<%= link_to(image_tag(@selected_article.teaser_image.url(:medium), :alt => @selected_article.teaser_image.url, :title => t(:display_story_in_new_window), :class => "thumbnail"), "https://docs.google.com/viewer?url=" + @selected_article.source_file.url, :target => '_blank') %>
   </p>
 	<% end %>
 <% else %>
-	<% if !selected_article.web_page.blank? %>
+	<% if !@selected_article.web_page.blank? %>
 		<div class="button">
-			<%= link_to t(:online_version), selected_article.web_page, :target => '_blank', :class => "btn btn-small" %>
+			<%= link_to t(:online_version), @selected_article.web_page, :target => '_blank', :class => "btn btn-small" %>
 		</div>
 	<% end %>	
-	<%= render :partial => 'shared/map_button.html.erb' %>
-	<%= image_tag(selected_article.teaser_image.url(:medium), :alt => selected_article.teaser_image.url, :title => "", :class => "thumbnail") %>
+	<%= render :partial => 'shared/map_button', :formats=>[:html], :handlers=>[:erb] %>
+	<%= image_tag(@selected_article.teaser_image.url(:medium), :alt => @selected_article.teaser_image.url, :title => "", :class => "thumbnail") %>
 <% end %>

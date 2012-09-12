@@ -1,86 +1,88 @@
 <% provide(:video_player_script, '<script type="text/javascript" src="http://cdn.sublimevideo.net/js/nv8041sd.js"></script>'.html_safe) %>
 
-<% if !@selected_video.nil? %>
-	<%= render 'shared/like_button' %>
-	<% line = "" %>
-	<% @fb_description = "" %>
-	<div class="video_details">
-			<% if !@selected_video.title.blank? %>
-				<h3><%= @selected_video.title %></h3>
-			<% end %>	
-			<p>
-			<% line_string = "" %>
-			<% if !@selected_video.broadcaster.blank? %>
-				<% line_string = t(:broadcast_on) + " <em>#{ @selected_video.broadcaster }</em>" %>
-			<% end %>
-			<% if !@selected_video.broadcast_date.blank? %>
-				<% if !line_string.blank? %> 
-					<% if I18n.locale == :de %>
-						<% line_string = line_string + " am " %>
-					<% else %>
-						<% line_string = line_string + ", " %>			
-					<% end %>
-				<% else %>
-					<% line_string = t(:broadcast_on_day) + " " %>
-				<% end %> 
-				<% line_string = line_string + "#{l @selected_video.broadcast_date, :format => :long}" %>
-			<% end %>
-			<% if !@selected_video.duration.blank? %>
-				<% if !line_string.blank? %> 
-					<% line_string = line_string + ", " %>
-				<% end %> 
-				<% line_string = line_string + t(:duration) + " #{ @selected_video.duration } Min."  %>
-			<% end %>
-			<% if !line_string.blank? %> 
-					<%= raw line_string %><br>
-					<% @fb_description = @fb_description + raw(line_string) %>
-			<% end %> 
-
-			<% line_string = "" %>
-			<% if !@selected_video.ctry.blank? %>
-				<% if !line_string.blank? %> 
-					<% line_string = line_string + ", " %>
-				<% end %>
-				<% line_string = line_string + t(:country) + ": #{@selected_video.ctry}" %>
-			<% end %>
-			<% if !@selected_video.author.blank? %>
-				<% if !line_string.blank? %> 
-					<% line_string = line_string + ", " %>
-				<% end %>
-				<% line_string = line_string + t(:text) + ": #{@selected_video.author}" %>
-			<% end %>
-			<% if !line_string.blank? %> 
-					<%= raw line_string %><br>
-					<% @fb_description = @fb_description + ", " + raw(line_string) %>
-			<% end %> 
-
-			<% if !@selected_video.categories.nil? %>
-				<% category_string = "" %>
-				<%= t(:categories) %>: 
-				<% @selected_video.categories.each do |category| %> 
-					<% if category_string.blank? %>
-						<% category_string = category.name %>
-					<% else %>
-						<% category_string = category_string + ", " + category.name %>
-					<% end %>
-				<% end %>
-				<%= category_string %><br>
-				<% @fb_description = @fb_description + ", " + t(:categories) + ': ' + category_string %>
-			<% end %>
-		</p>
-		
-	</div>
-	<% if !@selected_video.web_page.blank? %>
-		<div class="button">
-			<%= link_to t(:further_information), @selected_video.web_page, :target => '_blank', :class => "btn btn-small" %>
-		</div>
-	<% end %>
-	<%= render 'shared/map_button' %>
-	<% if !@selected_video.embed_code.blank? and @selected_video.copyright_cleared == true %>
-		<div class="embedded_video_viewer"><%= raw @selected_video.embed_code %></div>
-	<% elsif !@selected_video.source_url.blank? and @selected_video.copyright_cleared == true %>
-		<div class="jwplayer_viewer">
-			<object data="/jwplayer/player.swf" name="player1" id="player1" type="application/x-shockwave-flash" height="300" width="450"><param value="true" name="allowfullscreen"><param value="always" name="allowscriptaccess"><param name="movie" value="/jwplayer/player.swf"><param value="file=<%= @selected_video.source_url %>" name="flashvars"></object>
-		</div>
-	<% end %>
+<% if @selected_video.nil? %>
+	<% return %>
 <% end %>
+<%= render 'shared/like_button' %>
+<% line = "" %>
+<% @fb_description = "" %>
+<div class="video_details">
+		<% if !@selected_video.title.blank? %>
+			<h3><%= @selected_video.title %></h3>
+		<% end %>	
+		<p>
+		<% line_string = "" %>
+		<% if !@selected_video.broadcaster.blank? %>
+			<% line_string = t(:broadcast_on) + " <em>#{ @selected_video.broadcaster }</em>" %>
+		<% end %>
+		<% if !@selected_video.broadcast_date.blank? %>
+			<% if !line_string.blank? %> 
+				<% if I18n.locale == :de %>
+					<% line_string = line_string + " am " %>
+				<% else %>
+					<% line_string = line_string + ", " %>			
+				<% end %>
+			<% else %>
+				<% line_string = t(:broadcast_on_day) + " " %>
+			<% end %> 
+			<% line_string = line_string + "#{l @selected_video.broadcast_date, :format => :long}" %>
+		<% end %>
+		<% if !@selected_video.duration.blank? %>
+			<% if !line_string.blank? %> 
+				<% line_string = line_string + ", " %>
+			<% end %> 
+			<% line_string = line_string + t(:duration) + " #{ @selected_video.duration } Min."  %>
+		<% end %>
+		<% if !line_string.blank? %> 
+				<%= raw line_string %><br>
+				<% @fb_description = @fb_description + raw(line_string) %>
+		<% end %> 
+
+		<% line_string = "" %>
+		<% if !@selected_video.ctry.blank? %>
+			<% if !line_string.blank? %> 
+				<% line_string = line_string + ", " %>
+			<% end %>
+			<% line_string = line_string + t(:country) + ": #{@selected_video.ctry}" %>
+		<% end %>
+		<% if !@selected_video.author.blank? %>
+			<% if !line_string.blank? %> 
+				<% line_string = line_string + ", " %>
+			<% end %>
+			<% line_string = line_string + t(:text) + ": #{@selected_video.author}" %>
+		<% end %>
+		<% if !line_string.blank? %> 
+				<%= raw line_string %><br>
+				<% @fb_description = @fb_description + ", " + raw(line_string) %>
+		<% end %> 
+
+		<% if !@selected_video.categories.nil? %>
+			<% category_string = "" %>
+			<%= t(:categories) %>: 
+			<% @selected_video.categories.each do |category| %> 
+				<% if category_string.blank? %>
+					<% category_string = category.name %>
+				<% else %>
+					<% category_string = category_string + ", " + category.name %>
+				<% end %>
+			<% end %>
+			<%= category_string %><br>
+			<% @fb_description = @fb_description + ", " + t(:categories) + ': ' + category_string %>
+		<% end %>
+	</p>
+	
+</div>
+<% if !@selected_video.web_page.blank? %>
+	<div class="button">
+		<%= link_to t(:further_information), @selected_video.web_page, :target => '_blank', :class => "btn btn-small" %>
+	</div>
+<% end %>
+<%= render :partial => 'shared/map_button' %>
+<% if !@selected_video.embed_code.blank? and @selected_video.copyright_cleared == true %>
+	<div class="embedded_video_viewer"><%= raw @selected_video.embed_code %></div>
+<% elsif !@selected_video.source_url.blank? and @selected_video.copyright_cleared == true %>
+	<div class="jwplayer_viewer">
+		<object data="/jwplayer/player.swf" name="player1" id="player1" type="application/x-shockwave-flash" height="300" width="450"><param value="true" name="allowfullscreen"><param value="always" name="allowscriptaccess"><param name="movie" value="/jwplayer/player.swf"><param value="file=<%= @selected_video.source_url %>" name="flashvars"></object>
+	</div>
+<% end %>
+<%= render 'shared/like_button_meta_tags' %>
