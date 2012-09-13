@@ -21,6 +21,8 @@ atom_feed :language => 'en-US' do |feed|
       # puts entry.url
     end
   end
+  @selected_article = nil
+
   @posts.each do |post|
     feed.entry(post, :url => blog_path + '/' + post.url_title, :published => post.created_at, :updated => post.updated_at) do |entry|
       if !post.title.nil?
@@ -42,6 +44,8 @@ atom_feed :language => 'en-US' do |feed|
       # puts entry.url
     end
   end
+  @selected_post = nil
+
   @radio_tracks.each do |radio_track|
     feed.entry(radio_track, :url => radio_path + '/' + radio_track.url_title, :published => radio_track.broadcast_date, :updated => radio_track.updated_at) do |entry|
       if !radio_track.title.nil?
@@ -63,6 +67,8 @@ atom_feed :language => 'en-US' do |feed|
       # puts entry.url
     end
   end
+  @selected_track = nil
+
   @videos.each do |video|
     feed.entry(video, :url => tv_path + '/' + video.url_title, :published => video.broadcast_date, :updated => video.updated_at) do |entry|
       if !video.title.nil?
@@ -84,4 +90,5 @@ atom_feed :language => 'en-US' do |feed|
       # puts entry.url
     end
   end
+  @selected_video = nil
 end
