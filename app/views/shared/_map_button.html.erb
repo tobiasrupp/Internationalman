@@ -13,7 +13,7 @@
 <% else %>
 	<% return %>
 <% end %>	
-<% if !@feed.nil? and @feed == true %>
+<% if @feed == true %>
 	<div class="button">
 		<%= link_to t(:show_on_map), get_map_url(lon, lat), :target => '_blank', :class => "btn btn-small" %>
 	</div>

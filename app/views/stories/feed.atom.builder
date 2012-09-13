@@ -1,4 +1,4 @@
-
+@feed = true 
 atom_feed :language => 'en-US' do |feed|
   feed.title @title
   feed.updated @updated
@@ -12,14 +12,13 @@ atom_feed :language => 'en-US' do |feed|
         entry.title(t(:no_text_found))
       end
       @selected_article = article
-      @feed = true 
       entry.content((render :partial => 'story_details', :formats=>[:html], :handlers=>[:erb]).html_safe, :type => 'html')
       if !article.author.nil?
         entry.author do |author|
           author.name(article.author)
         end
       end
-      puts entry.url
+      # puts entry.url
     end
   end
   @posts.each do |post|
@@ -29,7 +28,8 @@ atom_feed :language => 'en-US' do |feed|
       else
         entry.title(t(:no_text_found))
       end     
-      entry.content('...', :type => 'html')
+      @selected_post = post
+      entry.content((render :partial => 'posts/post_details', :formats=>[:html], :handlers=>[:erb]).html_safe, :type => 'html')
       if !post.author.blank?
         entry.author do |author|
           author.name(post.author)
@@ -39,7 +39,7 @@ atom_feed :language => 'en-US' do |feed|
           author.name(t(:alexander_buehler))
         end
       end
-      # puts entry.url
+      puts entry.url
     end
   end
   @radio_tracks.each do |radio_track|
