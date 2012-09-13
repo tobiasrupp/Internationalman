@@ -76,6 +76,10 @@
 				<div class="button">
 					<%= link_to t(:display_story_in_new_window), "https://docs.google.com/viewer?url=" + @selected_article.source_file_en.url, :target => '_blank', :class => "btn btn-small" %>
 				</div>	
+			<% elsif @selected_article.source_file? %>
+				<div class="button">
+					<%= link_to t(:display_story_in_new_window), "https://docs.google.com/viewer?url=" + @selected_article.source_file.url, :target => '_blank', :class => "btn btn-small" %>
+				</div>	
 			<% end %>
 	<% end %>
 	<% if !@selected_article.web_page.blank? %>
@@ -92,6 +96,12 @@
 		<% when :en %>
 			<% if @selected_article.source_file_en? and @selected_article.teaser_image_en? %>
 				<%= link_to(image_tag(@selected_article.teaser_image_en.url(:medium), :alt => @selected_article.teaser_image_en.url, :title => t(:display_story_in_new_window), :class => "thumbnail"), "https://docs.google.com/viewer?url=" + @selected_article.source_file_en.url, :target => '_blank') %>
+			<% elsif @selected_article.source_file_en? and @selected_article.teaser_image? %>
+				<%= link_to(image_tag(@selected_article.teaser_image.url(:medium), :alt => @selected_article.teaser_image.url, :title => t(:display_story_in_new_window), :class => "thumbnail"), "https://docs.google.com/viewer?url=" + @selected_article.source_file_en.url, :target => '_blank') %>
+			<% elsif @selected_article.source_file? and @selected_article.teaser_image? %>
+				<%= link_to(image_tag(@selected_article.teaser_image.url(:medium), :alt => @selected_article.teaser_image.url, :title => t(:display_story_in_new_window), :class => "thumbnail"), "https://docs.google.com/viewer?url=" + @selected_article.source_file.url, :target => '_blank') %>
+			<% elsif @selected_article.teaser_image? %>
+				<%= image_tag(@selected_article.teaser_image.url(:medium), :alt => @selected_article.teaser_image.url, :title => "", :class => "thumbnail") %>
 			<% end %>
 	<% end %>
 <% else %>
@@ -109,6 +119,8 @@
 		<% when :en %>
 			<% if @selected_article.teaser_image_en? %>
 				<%= image_tag(@selected_article.teaser_image_en.url(:medium), :alt => @selected_article.teaser_image_en.url, :title => "", :class => "thumbnail") %>
+			<% elsif @selected_article.teaser_image? %>
+				<%= image_tag(@selected_article.teaser_image.url(:medium), :alt => @selected_article.teaser_image.url, :title => "", :class => "thumbnail") %>
 			<% end %>
 	<% end %>
 <% end %>
