@@ -81,6 +81,27 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1;
 }
 
+p {
+  // font-family: "Times New Roman";
+  font-size: 12px;
+  line-height: 18px;
+}
+b {
+  line-height: 18px;
+}
+
+a:link {
+    text-decoration: none;
+    color: $gray_2;
+}
+a:visited {
+    text-decoration: none;
+    color: $gray_2;
+}
+a:hover {
+    text-decoration: none;
+    color: $gray_4;
+}
 
 #logo {
   float: left;
@@ -152,7 +173,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .status_message {
-  
   margin-top: 33px;
   .double_quote {
     // font-size: 200%;
@@ -167,6 +187,14 @@ h1, h2, h3, h4, h5, h6 {
     // margin-right: 6px;
     margin-top: -5px;
     width: 55px;
+  }
+  a {
+  text-decoration: none;
+  color: $gray_4;
+  font-weight: bold;
+  }
+  a:hover {
+  color: $gray_2;
   }
 }
 
@@ -202,38 +230,6 @@ h3 {
   color: $gray_4;
   font-family: "Helvetica Neue";
 }
-
-p {
-  // font-family: "Times New Roman";
-  font-size: 12px;
-  line-height: 18px;
-}
-b {
-  line-height: 18px;
-}
-
-a:link {
-    text-decoration: none;
-    color: $gray_2;
-}
-a:visited {
-    text-decoration: none;
-    color: $gray_2;
-}
-a:hover {
-    text-decoration: none;
-    color: $gray_4;
-}
-
-// .horizontal_line {
-//     border-top: 1px solid $gray_1;
-//     float: left;
-    
-//     // padding-right: 5px;
-//     width: 50%;
-//     // margin-top: 5px;
-//     margin-bottom: 15px;
-// }
 
 .line_box {
   border-top: 1px solid $gray_1;
@@ -397,6 +393,13 @@ a:hover {
   margin-bottom: 10px;
   .post_body {
     float: left;
+    a {
+    color: $gray_4;
+    text-decoration: underline;
+    }
+    a:hover {
+    color: $gray_2;
+    }
   }
 }
 
