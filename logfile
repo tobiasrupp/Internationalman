@@ -275,3 +275,13 @@ LOG:  database system is shut down
 LOG:  database system was shut down at 2012-09-12 23:34:31 BST
 LOG:  database system is ready to accept connections
 LOG:  autovacuum launcher started
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+LOG:  database system was shut down at 2012-09-13 17:29:51 BST
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ERROR:  cached plan must not change result type
+STATEMENT:  SELECT  "articles".* FROM "articles"  WHERE "articles"."id" = $1 LIMIT 1
+FATAL:  database "intlman_test" does not exist

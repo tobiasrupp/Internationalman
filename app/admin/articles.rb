@@ -4,31 +4,32 @@ ActiveAdmin.register Article do
 		column :id
     column :title
     column :short_title
-    # column :url_title
-    # column :ctry
-    # column :author
-    # column :photos_by
     column "Categories" do |article|
   		article.categories.map { |p| p.name }.join('<br />').html_safe
 		end
     column :published_date
-    column "Teaser Image" do |article| 
-      image_tag(article.teaser_image.url(:thumb), :alt => "")
+    if I18n.locale == :de
+      column "Teaser Image" do |article| 
+        image_tag(article.teaser_image.url(:thumb), :alt => "")
+      end
+    else
+      column "Teaser Image EN" do |article| 
+        image_tag(article.teaser_image_en.url(:thumb), :alt => "")
+      end
     end
-    column "Source File" do |article| 
-      article.source_file_file_name
+    if I18n.locale == :de
+      column "Source File" do |article| 
+        article.source_file_file_name
+      end
+    else
+      column "Source File EN" do |article| 
+        article.source_file_en_file_name
+      end
     end
     column :copyright_cleared
     column :language
 		default_actions
   end
-  # filter :title
-  # sidebar :switch_language, :priority => 1 do
-  #   ul do
-  #     li strong { link_to "Deutsch", admin_articles_de_path }
-  #     li strong { link_to "English", admin_articles_en_path }  
-  #   end
-  # end
 
   # language switch - edit page
   action_item :only => :edit do
@@ -84,13 +85,15 @@ ActiveAdmin.register Article do
       # , :as => :datepicker
       f.input :article_type, :hint => t(:translation_field)
       f.input :source_file, :hint => f.object.source_file_file_name
+      f.input :source_file_en, :hint => f.object.source_file_en_file_name
       f.input :copyright_cleared, :as => :radio
       f.input :teaser_image, :hint => f.template.image_tag(f.object.teaser_image.url(:thumb))
+      f.input :teaser_image_en, :hint => f.template.image_tag(f.object.teaser_image_en.url(:thumb))
       f.input :longitude
       f.input :latitude
-      f.input :viewer_url
-      f.input :web_page
-      f.input :embed_code, :input_html => { :class => 'autogrow', :rows => 4, :cols => 20 }
+      f.input :viewer_url, :hint => t(:translation_field)
+      f.input :web_page, :hint => t(:translation_field)
+      f.input :embed_code, :input_html => { :class => 'autogrow', :rows => 4, :cols => 20 }, :hint => t(:translation_field)
     end
     f.buttons
   end
@@ -153,12 +156,20 @@ ActiveAdmin.register Article do
               td { article.source_file }
             end
             tr do
+              th { 'Source File EN' }
+              td { article.source_file_en }
+            end
+            tr do
               th { 'Copyright Cleared' }
               td { article.copyright_cleared }
             end
             tr do
               th { 'Teaser Image' }
               td { article.teaser_image }
+            end
+            tr do
+              th { 'Teaser Image EN' }
+              td { article.teaser_image_en }
             end
             tr do
               th { 'Longitude' }

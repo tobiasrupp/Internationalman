@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120910191751) do
+ActiveRecord::Schema.define(:version => 20120913165754) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -65,6 +65,9 @@ ActiveRecord::Schema.define(:version => 20120910191751) do
     t.string   "language"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+    t.string   "web_page"
+    t.string   "viewer_url"
+    t.text     "embed_code"
   end
 
   add_index "article_translations", ["article_id"], :name => "index_article_translations_on_article_id"
@@ -80,8 +83,8 @@ ActiveRecord::Schema.define(:version => 20120910191751) do
     t.string   "published_in"
     t.string   "author"
     t.string   "photos_by"
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
     t.string   "url_title"
     t.text     "embed_code"
     t.string   "short_title"
@@ -99,6 +102,14 @@ ActiveRecord::Schema.define(:version => 20120910191751) do
     t.integer  "source_file_file_size"
     t.datetime "source_file_updated_at"
     t.boolean  "copyright_cleared"
+    t.string   "teaser_image_en_file_name"
+    t.string   "teaser_image_en_content_type"
+    t.integer  "teaser_image_en_file_size"
+    t.datetime "teaser_image_en_updated_at"
+    t.string   "source_file_en_file_name"
+    t.string   "source_file_en_content_type"
+    t.integer  "source_file_en_file_size"
+    t.datetime "source_file_en_updated_at"
   end
 
   create_table "categories", :force => true do |t|
