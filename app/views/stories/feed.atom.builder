@@ -39,7 +39,7 @@ atom_feed :language => 'en-US' do |feed|
           author.name(t(:alexander_buehler))
         end
       end
-      puts entry.url
+      # puts entry.url
     end
   end
   @radio_tracks.each do |radio_track|
@@ -49,7 +49,8 @@ atom_feed :language => 'en-US' do |feed|
       else
         entry.title(t(:no_text_found))
       end
-      entry.content('...', :type => 'html')
+      @selected_track = radio_track
+      entry.content((render :partial => 'radio_tracks/radio_track_details', :formats=>[:html], :handlers=>[:erb]).html_safe, :type => 'html')
       if !radio_track.author.blank?
         entry.author do |author|
           author.name(radio_track.author)
@@ -69,7 +70,8 @@ atom_feed :language => 'en-US' do |feed|
       else
         entry.title(t(:no_text_found))
       end
-      entry.content('...', :type => 'html')
+      @selected_video = video
+      entry.content((render :partial => 'videos/video_details', :formats=>[:html], :handlers=>[:erb]).html_safe, :type => 'html')
       if !video.author.blank?
         entry.author do |author|
           author.name(video.author)

@@ -1,0 +1,73 @@
+<% @fb_description = "" %>
+<div class="radio_track_details">
+		<% if !@selected_track.title.blank? %>
+			<h3><%= @selected_track.title %></h3>
+		<% end %>	
+		<p>
+		<% line_string = "" %>
+		<% if !@selected_track.broadcaster.blank? %>
+			<% line_string = t(:broadcast_on) + " <em>#{ @selected_track.broadcaster }</em>" %>
+		<% end %>
+		<% if !@selected_track.broadcast_date.blank? %>
+			<% if !line_string.blank? %> 
+				<% if I18n.locale == :de %>
+					<% line_string = line_string + " am " %>
+				<% else %>
+					<% line_string = line_string + ", " %>			
+				<% end %>
+			<% else %>
+				<% line_string = t(:broadcast_on_day) + " " %>
+			<% end %> 
+			<% line_string = line_string + "#{l @selected_track.broadcast_date, :format => :long}" %>
+		<% end %>
+		<% if !@selected_track.duration.blank? %>
+			<% if !line_string.blank? %> 
+				<% line_string = line_string + ", " %>
+			<% end %> 
+			<% line_string = line_string + t(:duration) + " #{ @selected_track.duration } Min."  %>
+		<% end %>
+		<% if !line_string.blank? %> 
+				<%= raw line_string %><br>
+				<% @fb_description = @fb_description + raw(line_string) %>
+		<% end %> 
+
+		<% line_string = "" %>
+		<% if !@selected_track.ctry.blank? %>
+			<% if !line_string.blank? %> 
+				<% line_string = line_string + ", " %>
+			<% end %>
+			<% line_string = line_string + t(:country) + ": #{@selected_track.ctry}" %>
+		<% end %>
+		<% if !@selected_track.author.blank? %>
+			<% if !line_string.blank? %> 
+				<% line_string = line_string + ", " %>
+			<% end %>
+			<% line_string = line_string + t(:text) + ": #{@selected_track.author}" %>
+		<% end %>
+		<% if !line_string.blank? %> 
+				<%= raw line_string %><br>
+				<% @fb_description = @fb_description + ", " + raw(line_string) %>
+		<% end %> 
+
+		<% if !@selected_track.categories.nil? %>
+			<% category_string = "" %>
+				<%= t(:categories) %>: 
+							<% @selected_track.categories.each do |category| %> 
+											<% if category_string.blank? %>
+												<% category_string = category.name %>
+											<% else %>
+												<% category_string = category_string + ", " + category.name %>
+											<% end %>
+										<% end %>
+						<%= category_string %>
+						<% @fb_description = @fb_description + ", " + t(:categories) + ': ' + category_string %>
+		<% end %>
+	</p>
+
+</div>
+<% if !@selected_track.web_page.blank? %>
+	<div class="button">
+		<%= link_to t(:online_version), @selected_track.web_page, :target => '_blank', :class => "btn btn-small" %>
+	</div>
+<% end %>
+<%= render :partial => 'shared/map_button', :formats=>[:html], :handlers=>[:erb] %>
