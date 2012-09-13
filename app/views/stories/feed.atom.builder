@@ -1,4 +1,4 @@
-@feed = false 
+@feed = true 
 atom_feed :language => 'en-US' do |feed|
   feed.title @title
   feed.updated @updated
@@ -81,7 +81,7 @@ atom_feed :language => 'en-US' do |feed|
           author.name(t(:alexander_buehler))
         end
       end
-      puts entry.url
+      # puts entry.url
     end
   end
 end
