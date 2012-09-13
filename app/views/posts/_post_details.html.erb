@@ -52,9 +52,9 @@
 					<% image_size = split_arr[1].parameterize %>
 					<% case display_option %>
 						<% when "Display in Section 1 left" %>
-							<img src="<%= @selected_post.image_1.url(image_size) %>" alt="" class="thumbnail pull-left" style="margin-right: 0.8em; margin-bottom: 0.3em">
+							<img src="<%= @selected_post.image_1.url(image_size) %>" alt="" class="thumbnail" style="float: left; margin-right: 0.8em; margin-bottom: 0.3em">
 						<% when "Display in Section 1 right" %>
-							<img src="<%= @selected_post.image_1.url(image_size) %>" alt="" class="thumbnail pull-right" style="margin-left: 0.8em; margin-bottom: 0.3em">
+							<img src="<%= @selected_post.image_1.url(image_size) %>" alt="" class="thumbnail" style="float: right; margin-left: 0.8em; margin-bottom: 0.3em">
 					<% end %>		
 				<% end %>	
 			<% end %>				
@@ -67,15 +67,15 @@
 					<% image_size = split_arr[1].parameterize %>
 					<% case display_option %>
 						<% when "Display in Section 1 left" %>
-							<img src="<%= @selected_post.image_2.url(image_size) %>" alt="" class="thumbnail pull-left" style="margin-right: 0.8em; margin-bottom: 0.3em">
+							<img src="<%= @selected_post.image_2.url(image_size) %>" alt="" class="thumbnail" style="float: left; margin-right: 0.8em; margin-bottom: 0.3em">
 						<% when "Display in Section 1 right" %>
-							<img src="<%= @selected_post.image_2.url(image_size) %>" alt="" class="thumbnail pull-right" style="margin-left: 0.8em; margin-bottom: 0.3em">
+							<img src="<%= @selected_post.image_2.url(image_size) %>" alt="" class="thumbnail" style="float: right; margin-left: 0.8em; margin-bottom: 0.3em">
 					<% end %>		
 				<% end %>	
 			<% end %>				
 		<% end %>
 		<% if !@selected_post.text.blank? %>
-			<p><%= raw @selected_post.text %></p>
+			<%= raw @selected_post.text %>
 			<% @fb_description = @fb_description + ", " + truncate(strip_tags(@selected_post.text), :length => 200, :omission => ' ...') %>
 		<% end %>	
 		<% if @selected_post.image_1? %>
@@ -86,9 +86,9 @@
 					<% image_size = split_arr[1].parameterize %>
 					<% case display_option %>
 						<% when "Display in Section 2 left" %>
-							<img src="<%= @selected_post.image_1.url(image_size) %>" alt="" class="thumbnail pull-left" style="margin-right: 0.8em; margin-bottom: 0.3em">
+							<img src="<%= @selected_post.image_1.url(image_size) %>" alt="" class="thumbnail" style="float: left; margin-right: 0.8em; margin-bottom: 0.3em">
 						<% when "Display in Section 2 right" %>
-							<img src="<%= @selected_post.image_1.url(image_size) %>" alt="" class="thumbnail pull-right" style="margin-left: 0.8em; margin-bottom: 0.3em">
+							<img src="<%= @selected_post.image_1.url(image_size) %>" alt="" class="thumbnail" style="float: right; margin-left: 0.8em; margin-bottom: 0.3em">
 					<% end %>		
 				<% end %>		
 			<% end %>	
@@ -101,15 +101,15 @@
 					<% image_size = split_arr[1].parameterize %>
 					<% case display_option %>
 						<% when "Display in Section 2 left" %>
-							<img src="<%= @selected_post.image_2.url(image_size) %>" alt="" class="thumbnail pull-left" style="margin-right: 0.8em; margin-bottom: 0.3em">
+							<img src="<%= @selected_post.image_2.url(image_size) %>" alt="" class="thumbnail" style="float: left; margin-right: 0.8em; margin-bottom: 0.3em">
 						<% when "Display in Section 2 right" %>
-							<img src="<%= @selected_post.image_2.url(image_size) %>" alt="" class="thumbnail pull-right" style="margin-left: 0.8em; margin-bottom: 0.3em">
+							<img src="<%= @selected_post.image_2.url(image_size) %>" alt="" class="thumbnail" style="float: right; margin-left: 0.8em; margin-bottom: 0.3em">
 					<% end %>	
 				<% end %>			
 			<% end %>		
 		<% end %>
 		<% if !@selected_post.text_2.blank? %>
-			<p><%= raw @selected_post.text_2 %></p>
+			<%= raw @selected_post.text_2 %>
 		<% end %>
 	</div>
 </div>
