@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120913165754) do
+ActiveRecord::Schema.define(:version => 20120914105829) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -176,6 +176,8 @@ ActiveRecord::Schema.define(:version => 20120913165754) do
     t.string   "language"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.text     "text"
+    t.text     "text_2"
   end
 
   add_index "post_translations", ["locale"], :name => "index_post_translations_on_locale"
@@ -227,6 +229,8 @@ ActiveRecord::Schema.define(:version => 20120913165754) do
     t.string   "language"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
+    t.string   "web_page"
+    t.string   "source_url"
   end
 
   add_index "radio_track_translations", ["locale"], :name => "index_radio_track_translations_on_locale"
@@ -290,6 +294,9 @@ ActiveRecord::Schema.define(:version => 20120913165754) do
     t.string   "language"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.text     "embed_code"
+    t.string   "web_page"
+    t.string   "source_url"
   end
 
   add_index "video_translations", ["locale"], :name => "index_video_translations_on_locale"

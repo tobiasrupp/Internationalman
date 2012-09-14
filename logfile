@@ -285,3 +285,44 @@ LOG:  autovacuum launcher started
 ERROR:  cached plan must not change result type
 STATEMENT:  SELECT  "articles".* FROM "articles"  WHERE "articles"."id" = $1 LIMIT 1
 FATAL:  database "intlman_test" does not exist
+LOG:  database system was shut down at 2012-09-14 00:45:21 BST
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+FATAL:  database "intlman_test" does not exist
+ERROR:  column "text" of relation "post_translations" does not exist
+STATEMENT:  ALTER TABLE "post_translations" DROP "text"
+ERROR:  column "text" of relation "post_translations" does not exist
+STATEMENT:  ALTER TABLE "post_translations" DROP "text"
+ERROR:  column "text" of relation "post_translations" does not exist
+STATEMENT:  ALTER TABLE "post_translations" DROP "text"
+ERROR:  column "text" of relation "post_translations" does not exist
+STATEMENT:  ALTER TABLE "post_translations" DROP "text"
+ERROR:  column "text" of relation "post_translations" does not exist
+STATEMENT:  ALTER TABLE "post_translations" DROP "text"
+ERROR:  column "text" of relation "post_translations" does not exist
+STATEMENT:  ALTER TABLE "post_translations" DROP "text"
+ERROR:  column "text" of relation "post_translations" does not exist
+STATEMENT:  ALTER TABLE "post_translations" DROP "text"
+ERROR:  column "text" of relation "post_translations" does not exist
+STATEMENT:  ALTER TABLE "post_translations" DROP "text"
+ERROR:  column "text" of relation "post_translations" does not exist
+STATEMENT:  ALTER TABLE "post_translations" DROP "text"
+ERROR:  syntax error at or near "ALTER" at character 45
+STATEMENT:  ALTER TABLE "post_translations" DROP "text"
+	ALTER TABLE post_translations DROP text
+	ALTER TABLE "post_translations" DROP "text";
+ERROR:  column "text" of relation "post_translations" does not exist
+STATEMENT:  ALTER TABLE "post_translations" DROP "text"
+ERROR:  column "text" of relation "post_translations" does not exist
+STATEMENT:  ALTER TABLE "post_translations" DROP "text"
+LOG:  autovacuum launcher shutting down
+LOG:  received smart shutdown request
+LOG:  shutting down
+LOG:  database system is shut down
+LOG:  database system was shut down at 2012-09-14 13:30:00 BST
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ERROR:  column "text" of relation "post_translations" does not exist
+STATEMENT:  ALTER TABLE "post_translations" DROP "text"
+ERROR:  column "text" of relation "post_translations" does not exist
+STATEMENT:  ALTER TABLE "post_translations" DROP "text"

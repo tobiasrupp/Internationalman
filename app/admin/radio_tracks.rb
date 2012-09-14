@@ -57,9 +57,9 @@ ActiveAdmin.register RadioTrack do
       f.input :categories
       f.input :broadcast_date, :start_year => Date.today.year - 15, :end_year => Date.today.year + 1
       f.input :broadcaster
-      f.input :source_url
+      f.input :source_url, :hint => t(:translation_field)
       f.input :copyright_cleared, :as => :radio
-      f.input :web_page
+      f.input :web_page, :hint => t(:translation_field)
       f.input :longitude
       f.input :latitude
     end

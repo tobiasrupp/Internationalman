@@ -372,10 +372,14 @@ h3 {
     position: relative; top: 1px;
   }
   .embedded_video_viewer {
-    float: left;
+    clear: left;
     // margin-top: 5px;
   }
   .jwplayer_viewer {
+    clear: left;
+  }
+  .audio_player {
+    clear: left;
   }
 }
 .article_details {

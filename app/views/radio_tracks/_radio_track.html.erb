@@ -4,8 +4,8 @@
 <%= render 'shared/like_button' %>
 <%= render :partial => 'radio_track_details', :formats=>[:html], :handlers=>[:erb] %>
 <% if !@selected_track.source_url.blank? and @selected_track.copyright_cleared == true %>
-	<p>
+	<div class="audio_player">
 	<object data="/jwplayer/player.swf" name="player2" id="player2" type="application/x-shockwave-flash" height="24" width="320"><param value="true" name="allowfullscreen"><param value="always" name="allowscriptaccess"><param name="movie" value="/jwplayer/player.swf"><param value="file=<%= @selected_track.source_url %>" name="flashvars"></object>
-	</p>
+	</div>
 <% end %>
 <%= render 'shared/like_button_meta_tags' %>

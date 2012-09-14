@@ -24,3 +24,4 @@ doc/
 /public/system/articles
 /public/system/posts
 config/aws.yml
+intlman_development.psql

@@ -13,7 +13,7 @@ class Video < ActiveRecord::Base
   validates :broadcast_date, :presence => true
   # validates :categories, :presence => true
 
-	translates :title, :short_title, :url_title, :ctry, :language, :fallbacks_for_empty_translations => true
+	translates :title, :short_title, :url_title, :ctry, :language, :embed_code, :web_page, :source_url, :fallbacks_for_empty_translations => true
   class Translation
     attr_accessible :locale
   end
