@@ -356,3 +356,7 @@ ERROR:  column "embed_code" of relation "video_translations" already exists
 STATEMENT:  ALTER TABLE "video_translations" ADD COLUMN "embed_code" text
 ERROR:  column "text" of relation "post_translations" already exists
 STATEMENT:  ALTER TABLE "post_translations" ADD COLUMN "text" text
+LOG:  autovacuum launcher shutting down
+LOG:  received smart shutdown request
+LOG:  shutting down
+LOG:  database system is shut down

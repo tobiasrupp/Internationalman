@@ -23,7 +23,7 @@ class Post < ActiveRecord::Base
   validates :publication_state, :presence => true
   validates :categories, :presence => true
 
-  translates :title, :short_title, :url_title, :ctry, :language, :text, :text_2, :fallbacks_for_empty_translations => true
+  translates :title, :short_title, :url_title, :ctry, :language, :fallbacks_for_empty_translations => true
   class Translation
     attr_accessible :locale
   end
