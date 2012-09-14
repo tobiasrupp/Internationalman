@@ -25,3 +25,4 @@ doc/
 /public/system/posts
 config/aws.yml
 intlman_development.psql
+intlman_production.psql

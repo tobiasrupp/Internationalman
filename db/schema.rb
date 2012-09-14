@@ -63,11 +63,11 @@ ActiveRecord::Schema.define(:version => 20120914105829) do
     t.string   "article_type"
     t.string   "ctry"
     t.string   "language"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
     t.string   "web_page"
     t.string   "viewer_url"
     t.text     "embed_code"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   add_index "article_translations", ["article_id"], :name => "index_article_translations_on_article_id"
@@ -76,11 +76,13 @@ ActiveRecord::Schema.define(:version => 20120914105829) do
   create_table "articles", :force => true do |t|
     t.string   "title"
     t.string   "language"
+    t.string   "country"
     t.string   "longitude"
     t.string   "latitude"
     t.string   "article_type"
     t.date     "published_date"
     t.string   "published_in"
+    t.string   "filename"
     t.string   "author"
     t.string   "photos_by"
     t.datetime "created_at",                   :null => false
@@ -93,8 +95,6 @@ ActiveRecord::Schema.define(:version => 20120914105829) do
     t.string   "teaser_image_content_type"
     t.integer  "teaser_image_file_size"
     t.datetime "teaser_image_updated_at"
-    t.string   "country"
-    t.string   "filename"
     t.string   "ctry"
     t.string   "web_page"
     t.string   "source_file_file_name"
@@ -119,7 +119,6 @@ ActiveRecord::Schema.define(:version => 20120914105829) do
     t.integer  "display_sequence"
     t.integer  "display_section"
     t.string   "url_name"
-    t.string   "url_title"
     t.string   "language"
   end
 
@@ -174,10 +173,10 @@ ActiveRecord::Schema.define(:version => 20120914105829) do
     t.string   "url_title"
     t.string   "ctry"
     t.string   "language"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
     t.text     "text"
     t.text     "text_2"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   add_index "post_translations", ["locale"], :name => "index_post_translations_on_locale"
@@ -227,10 +226,10 @@ ActiveRecord::Schema.define(:version => 20120914105829) do
     t.string   "url_title"
     t.string   "ctry"
     t.string   "language"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
     t.string   "web_page"
     t.string   "source_url"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   add_index "radio_track_translations", ["locale"], :name => "index_radio_track_translations_on_locale"
@@ -292,11 +291,11 @@ ActiveRecord::Schema.define(:version => 20120914105829) do
     t.string   "url_title"
     t.string   "ctry"
     t.string   "language"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
     t.text     "embed_code"
     t.string   "web_page"
     t.string   "source_url"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   add_index "video_translations", ["locale"], :name => "index_video_translations_on_locale"

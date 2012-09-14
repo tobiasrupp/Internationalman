@@ -326,3 +326,33 @@ ERROR:  column "text" of relation "post_translations" does not exist
 STATEMENT:  ALTER TABLE "post_translations" DROP "text"
 ERROR:  column "text" of relation "post_translations" does not exist
 STATEMENT:  ALTER TABLE "post_translations" DROP "text"
+FATAL:  database "intlman_production" does not exist
+ERROR:  syntax error at or near "create" at character 36
+STATEMENT:  create database intlman_production
+	create database intlman_production
+	help
+	-help
+	CREATE DATABASE intlman_production;
+FATAL:  database "intlman_production" does not exist
+ERROR:  relation "status_messages" does not exist at character 245
+STATEMENT:              SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+	              FROM pg_attribute a LEFT JOIN pg_attrdef d
+	                ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+	             WHERE a.attrelid = '"status_messages"'::regclass
+	               AND a.attnum > 0 AND NOT a.attisdropped
+	             ORDER BY a.attnum
+	
+ERROR:  column "web_page" of relation "article_translations" already exists
+STATEMENT:  ALTER TABLE "article_translations" ADD COLUMN "web_page" character varying(255)
+ERROR:  column "viewer_url" of relation "article_translations" already exists
+STATEMENT:  ALTER TABLE "article_translations" ADD COLUMN "viewer_url" character varying(255)
+ERROR:  column "embed_code" of relation "article_translations" already exists
+STATEMENT:  ALTER TABLE "article_translations" ADD COLUMN "embed_code" text
+ERROR:  column "web_page" of relation "radio_track_translations" already exists
+STATEMENT:  ALTER TABLE "radio_track_translations" ADD COLUMN "web_page" character varying(255)
+ERROR:  column "source_url" of relation "radio_track_translations" already exists
+STATEMENT:  ALTER TABLE "radio_track_translations" ADD COLUMN "source_url" character varying(255)
+ERROR:  column "embed_code" of relation "video_translations" already exists
+STATEMENT:  ALTER TABLE "video_translations" ADD COLUMN "embed_code" text
+ERROR:  column "text" of relation "post_translations" already exists
+STATEMENT:  ALTER TABLE "post_translations" ADD COLUMN "text" text
