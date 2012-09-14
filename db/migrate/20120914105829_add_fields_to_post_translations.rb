@@ -13,10 +13,10 @@ class AddFieldsToPostTranslations < ActiveRecord::Migration
 		I18n.locale = :de
 		Post.all.each do |post|
 			if post.text
-		  execute "UPDATE post_translations SET text='#{post.text}' WHERE post_ID='#{post.id}'"
+		  execute "UPDATE post_translations SET text=\"#{post.text}\" WHERE post_ID='#{post.id}'"
 			end
 			if post.text_2
-		  execute "UPDATE post_translations SET text_2='#{post.text_2}' WHERE post_ID='#{post.id}'"
+		  execute "UPDATE post_translations SET text_2=\"#{post.text_2}\" WHERE post_ID='#{post.id}'"
 			end
 		end
   end
