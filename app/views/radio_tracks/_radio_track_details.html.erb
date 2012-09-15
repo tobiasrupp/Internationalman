@@ -68,7 +68,7 @@
 </div>
 <% if !@selected_track.web_page.blank? %>
 	<div class="button">
-		<%= link_to t(:online_version), @selected_track.web_page, :target => '_blank', :class => "btn btn-small" %>
+		<%= link_to t(:online_listen), @selected_track.web_page, :target => '_blank', :class => "btn btn-small" %>
 	</div>
 <% end %>
 <%= render :partial => 'shared/map_button', :formats=>[:html], :handlers=>[:erb] %>

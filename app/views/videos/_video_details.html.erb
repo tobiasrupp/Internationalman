@@ -68,7 +68,7 @@
 </div>
 <% if !@selected_video.web_page.blank? %>
 	<div class="button">
-		<%= link_to t(:further_information), @selected_video.web_page, :target => '_blank', :class => "btn btn-small" %>
+		<%= link_to t(:online_watch), @selected_video.web_page, :target => '_blank', :class => "btn btn-small" %>
 	</div>
 <% end %>
 <%= render :partial => 'shared/map_button', :formats=>[:html], :handlers=>[:erb] %>

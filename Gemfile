@@ -11,7 +11,7 @@ gem "paperclip", '3.1.4'
 gem 'rails-translate-routes', '0.1.3'
 gem 'globalize3', '0.2.0'
 gem 'aws-sdk', '~> 1.3.4'
-gem 'gmaps4rails'
+gem 'gmaps4rails', '1.5.5'
 
 group :development, :test do
   # gem 'sqlite3', '1.3.5'

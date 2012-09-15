@@ -9,6 +9,7 @@ class PagesController < ApplicationController
       @auto_adjust = false
     else
       @auto_adjust = true
+      @zoom = 0
     end  
     
     @gmap_string = 'http://maps.googleapis.com/maps/api/staticmap?sensor=false&size=140x100&maptype=hybrid'
