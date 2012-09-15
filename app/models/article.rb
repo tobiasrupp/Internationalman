@@ -51,4 +51,17 @@ class Article < ActiveRecord::Base
   validates :categories, :presence => true
 
   acts_as_gmappable :lat => 'lat', :lng => 'lon', :address => "address", :validation => false, :msg => ""
+
+  def gmaps4rails_marker_picture
+  {
+   "picture" => "/assets/contract.png",
+   "width" => 32,
+   "height" => 37,
+   # "marker_anchor" => [ 5, 10],
+   "shadow_picture" => "http://maps.google.com/intl/en_us/mapfiles/ms/micons/msmarker.shadow.png" ,
+   "shadow_width" => "110",
+   "shadow_height" => "110",
+   "shadow_anchor" => [15, 33],
+  }
+  end
 end

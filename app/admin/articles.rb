@@ -17,15 +17,6 @@ ActiveAdmin.register Article do
         image_tag(article.teaser_image_en.url(:thumb), :alt => "")
       end
     end
-    if I18n.locale == :de
-      column "Source File" do |article| 
-        article.source_file_file_name
-      end
-    else
-      column "Source File EN" do |article| 
-        article.source_file_en_file_name
-      end
-    end
     column :copyright_cleared
     column :language
 		default_actions

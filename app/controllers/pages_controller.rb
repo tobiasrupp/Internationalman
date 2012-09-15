@@ -8,38 +8,40 @@ class PagesController < ApplicationController
       @zoom = 5
       @auto_adjust = false
     else
+      @lon = ''
+      @lat = ''
       @auto_adjust = true
-      @zoom = 0
+      @zoom = 1
     end  
     
-    @gmap_string = 'http://maps.googleapis.com/maps/api/staticmap?sensor=false&size=140x100&maptype=hybrid'
+    # @gmap_string = 'http://maps.googleapis.com/maps/api/staticmap?sensor=false&size=140x100&maptype=hybrid'
 
     # http://maps.googleapis.com/maps/api/staticmap?center=0,0&zoom=2&format=png&sensor=false&size=640x480&maptype=roadmap&style=invert_lightness:true|visibility:on
     # add markers
     @articles = Article.all
-    @articles.each do |article|
-      if !article.longitude.blank? and !article.latitude.blank?
-        @gmap_string = @gmap_string + '&markers=size:small|color:orange|' + article.longitude + ',' + article.latitude
-      end
-    end
-    @radio_tracks = RadioTrack.all
-    @radio_tracks.each do |radio_track|
-      if !radio_track.longitude.blank? and !radio_track.latitude.blank?
-        @gmap_string = @gmap_string + '&markers=size:small|color:red|' + radio_track.longitude + ',' + radio_track.latitude
-      end
-    end
-    @videos = Video.all
-    @videos.each do |video|
-      if !video.longitude.blank? and !video.latitude.blank?
-        @gmap_string = @gmap_string + '&markers=size:small|color:blue|' + video.longitude + ',' + video.latitude
-      end
-    end
-    @posts = Post.all
-    @posts.each do |post|
-      if !post.longitude.blank? and !post.latitude.blank?
-        @gmap_string = @gmap_string + '&markers=size:small|color:green|' + post.longitude + ',' + post.latitude
-      end
-    end
+    # @articles.each do |article|
+    #   if !article.longitude.blank? and !article.latitude.blank?
+    #     @gmap_string = @gmap_string + '&markers=size:small|color:orange|' + article.longitude + ',' + article.latitude
+    #   end
+    # end
+    # @radio_tracks = RadioTrack.all
+    # @radio_tracks.each do |radio_track|
+    #   if !radio_track.longitude.blank? and !radio_track.latitude.blank?
+    #     @gmap_string = @gmap_string + '&markers=size:small|color:red|' + radio_track.longitude + ',' + radio_track.latitude
+    #   end
+    # end
+    # @videos = Video.all
+    # @videos.each do |video|
+    #   if !video.longitude.blank? and !video.latitude.blank?
+    #     @gmap_string = @gmap_string + '&markers=size:small|color:blue|' + video.longitude + ',' + video.latitude
+    #   end
+    # end
+    # @posts = Post.all
+    # @posts.each do |post|
+    #   if !post.longitude.blank? and !post.latitude.blank?
+    #     @gmap_string = @gmap_string + '&markers=size:small|color:green|' + post.longitude + ',' + post.latitude
+    #   end
+    # end
     @format_for_map = true
     @json = @articles.to_gmaps4rails do |article, marker|
       @selected_article = article

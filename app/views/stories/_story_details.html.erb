@@ -27,7 +27,7 @@
 		<% if !line_string.blank? %> 
 			<% line_string = line_string + ", " %>
 		<% end %> 
-		<% line_string = line_string + "#{l @selected_article.published_date, :format => :long}" %>
+		<% line_string = line_string + "<span>#{l @selected_article.published_date, :format => :long}</span>" %>
 	<% end %>
 	<% if !line_string.blank? %> 
 			<%= raw line_string %><br>
