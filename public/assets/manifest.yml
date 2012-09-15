@@ -1,9 +1,12 @@
 ---
+audio.png: audio-ab3a36dfc3011387ed4370431ef507b6.png
 black_body_bg.png: black_body_bg-fffb93f0db4a081c01ce9ee7507b20cd.png
 border.png: border-43924d3f55311a4bb179f57bd62fa369.png
+cinema.png: cinema-ca4755220c66aa7a2b4afccc8ac4d2ca.png
 clock1.png: clock1-3dd5e078a039d03170453b96fea92f63.png
 clock2.png: clock2-59736894090f4a2935e4ca4b928c986f.png
 clock3.png: clock3-86a7ad3f8547b1429fa999eb085a3937.png
+contract.png: contract-c133953202d5c0dc1f4f232a86926b04.png
 facebook.png: facebook-476d0da306aae12640ba5136d1d50772.png
 flickr.png: flickr-3999b66c94b3ca005b4cecbdd070482a.png
 flickr2.png: flickr2-f276c748490932f5e7d904f05f5d3cd6.png
@@ -23,15 +26,18 @@ line_3.png: line_3-160742e7756df1bcd411dd3f209f8c98.png
 line_4.png: line_4-9c39f9a7311c9dff7ad271a941b84c61.png
 line_5.png: line_5-fc94fe298819e3dc088d4cf04cc51306.png
 linkd.png: linkd-d907344c532bc69c3e03ce7057d14661.png
+photo.png: photo-79eefe3811fffb5d882cada591e528c2.png
 pin.png: pin-6ea84f2a5a4685a280fe74d617eca43d.png
 rss.png: rss-ad8b6b27d5a4131c6eef057c99facab0.png
 shadow-border.png: shadow-border-78bb7a08e0ce78021fde085a56fcd878.png
 shadow_h.png: shadow_h-e59dc65a6169497d60171747a6618762.png
 shadow_v.png: shadow_v-34f644bfbdd11c02361ff0294ca7babf.png
 shadows3.png: shadows3-0e72e8bbc8f9eeb47bd3e9b4b6817faf.png
+text.png: text-a217bcea62a22391c2593531ffe514e1.png
 topnav-l.png: topnav-l-2dd33d230189fe314ee2e560648a227d.png
 topnav-r.png: topnav-r-247a7190c712f5b4700ce58b17418e04.png
 twitter.png: twitter-bc9adde532f42081fbc6e93fb74d175d.png
+video.png: video-db29976442e62112d303a75c06cb05fc.png
 active_admin.js: active_admin-621e60e25e5266efa19ff931d960dc73.js
 application.js: application-ab8bc21d2d3da896424954aab2d8a192.js
 active_admin.css: active_admin-1055494fb5f6d49e87abdc46d72eae33.css
