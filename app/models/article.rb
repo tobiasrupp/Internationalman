@@ -50,5 +50,5 @@ class Article < ActiveRecord::Base
   validates :published_date, :presence => true
   validates :categories, :presence => true
 
-  acts_as_gmappable :lat => 'lat', :lng => 'lon', :address => "address", :validation => false, :msg => "Geocoding not found for address"
+  acts_as_gmappable :lat => 'lat', :lng => 'lon', :address => "address", :validation => false, :msg => ""
 end

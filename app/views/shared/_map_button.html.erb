@@ -12,6 +12,7 @@
 			</span>
 		</div>
 	<% end %>	
+	<% exit = true %>
 <% elsif !@selected_track.nil? and !@selected_track.longitude.blank? and !@selected_track.latitude.blank? %>
 	<% lat = @selected_track.latitude %>
 	<% lon = @selected_track.longitude %>
@@ -24,14 +25,16 @@
 <% else %>
 	<% return %>
 <% end %>	
-<% if @feed == true %>
-	<div class="button">
-		<%= link_to t(:show_on_map), get_map_url(lon, lat), :target => '_blank', :class => "btn btn-small" %>
-	</div>
-<% else %>
-	<div class="button">
-		<span class="globe_btn">
-			<%= link_to '', get_map_url(lon, lat), :title => t(:show_on_map), :target => '_blank' %>
-		</span>
-	</div>
-<% end %>	
+<% if exit != true %>
+	<% if @feed == true %>
+		<div class="button">
+			<%= link_to t(:show_on_map), get_map_url(lon, lat), :target => '_blank', :class => "btn btn-small" %>
+		</div>
+	<% else %>
+		<div class="button">
+			<span class="globe_btn">
+				<%= link_to '', get_map_url(lon, lat), :title => t(:show_on_map), :target => '_blank' %>
+			</span>
+		</div>
+	<% end %>
+<% end %>
