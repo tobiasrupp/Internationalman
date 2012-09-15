@@ -23,27 +23,27 @@
       <img src="./assets/0.5.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2012-09-13T19:31:00+01:00">2012-09-13T19:31:00+01:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2012-09-15T01:08:13+01:00">2012-09-15T01:08:13+01:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="red">74.22%</span></span>
+    (<span class="covered_percent"><span class="red">72.94%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.78
+         1.76
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>35</b> files in total.
-    <b>966</b> relevant lines. 
+    <b>983</b> relevant lines. 
     <span class="green"><b>717</b> lines covered</span> and
-    <span class="red"><b>249</b> lines missed </span>
+    <span class="red"><b>266</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -171,12 +171,12 @@
       
       <tr>
         <td class="strong"><a href="#9f89aecb5b1d8d1742fa73ced3bc13d341ff5e8f" class="src_link" title="app/controllers/pages_controller.rb">app/controllers/pages_controller.rb</a></td>
-        <td class="red strong">70.59 %</td>
-        <td>29</td>
-        <td>17</td>
+        <td class="red strong">35.29 %</td>
+        <td>58</td>
+        <td>34</td>
         <td>12</td>
-        <td>5</td>
-        <td>1.2</td>
+        <td>22</td>
+        <td>0.6</td>
       </tr>
       
       <tr>
@@ -418,20 +418,20 @@
           <div class="file_list_container" id="Controllers">
   <h2>
     <span class="group_name">Controllers</span>
-    (<span class="covered_percent"><span class="red">49.07%</span></span>
+    (<span class="covered_percent"><span class="red">44.38%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         3.27
+         3.19
        </span>
     </span> hits/line)
   </h2>
   <a name="Controllers"></a>
   <div>
     <b>7</b> files in total.
-    <b>161</b> relevant lines. 
+    <b>178</b> relevant lines. 
     <span class="green"><b>79</b> lines covered</span> and
-    <span class="red"><b>82</b> lines missed </span>
+    <span class="red"><b>99</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -469,12 +469,12 @@
       
       <tr>
         <td class="strong"><a href="#9f89aecb5b1d8d1742fa73ced3bc13d341ff5e8f" class="src_link" title="app/controllers/pages_controller.rb">app/controllers/pages_controller.rb</a></td>
-        <td class="red strong">70.59 %</td>
-        <td>29</td>
-        <td>17</td>
+        <td class="red strong">35.29 %</td>
+        <td>58</td>
+        <td>34</td>
         <td>12</td>
-        <td>5</td>
-        <td>1.2</td>
+        <td>22</td>
+        <td>0.6</td>
       </tr>
       
       <tr>
@@ -5431,7 +5431,7 @@
         <li class="covered" data-hits="1" data-linenumber="60">
           <span class="hits">1</span>
           
-          <code class="ruby">      f.input :source_url</code>
+          <code class="ruby">      f.input :source_url, :hint =&gt; t(:translation_field)</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="61">
@@ -5443,7 +5443,7 @@
         <li class="covered" data-hits="1" data-linenumber="62">
           <span class="hits">1</span>
           
-          <code class="ruby">      f.input :web_page</code>
+          <code class="ruby">      f.input :web_page, :hint =&gt; t(:translation_field)</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="63">
@@ -6877,13 +6877,13 @@
         <li class="covered" data-hits="1" data-linenumber="60">
           <span class="hits">1</span>
           
-          <code class="ruby">      f.input :embed_code, :input_html =&gt; { :class =&gt; 'autogrow', :rows =&gt; 10, :cols =&gt; 20 }</code>
+          <code class="ruby">      f.input :embed_code, :input_html =&gt; { :class =&gt; 'autogrow', :rows =&gt; 10, :cols =&gt; 20 }, :hint =&gt; t(:translation_field)</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="61">
           <span class="hits">1</span>
           
-          <code class="ruby">      f.input :source_url</code>
+          <code class="ruby">      f.input :source_url, :hint =&gt; t(:translation_field)</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="62">
@@ -6895,7 +6895,7 @@
         <li class="covered" data-hits="1" data-linenumber="63">
           <span class="hits">1</span>
           
-          <code class="ruby">      f.input :web_page</code>
+          <code class="ruby">      f.input :web_page, :hint =&gt; t(:translation_field)</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="64">
@@ -7889,11 +7889,11 @@
         <div class="source_table" id="9f89aecb5b1d8d1742fa73ced3bc13d341ff5e8f">
   <div class="header">
     <h3>app/controllers/pages_controller.rb</h3>
-    <h4><span class="red">70.59 %</span> covered</h4>
+    <h4><span class="red">35.29 %</span> covered</h4>
     <div>
-      <b>17</b> relevant lines. 
+      <b>34</b> relevant lines. 
       <span class="green"><b>12</b> lines covered</span> and
-      <span class="red"><b>5</b> lines missed.</span>
+      <span class="red"><b>22</b> lines missed.</span>
     </div>
   </div>
   
@@ -7906,22 +7906,22 @@
           <code class="ruby">class PagesController &lt; ApplicationController</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="2">
+        <li class="never" data-hits="" data-linenumber="2">
+          
+          
+          <code class="ruby">  </code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="3">
           <span class="hits">1</span>
           
           <code class="ruby">  def home</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="3">
+        <li class="missed" data-hits="0" data-linenumber="4">
           
           
-          <code class="ruby">    render(:layout =&gt; 'intro')</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="4">
-          
-          
-          <code class="ruby">  end</code>
+          <code class="ruby">    @gmap_string = 'http://maps.googleapis.com/maps/api/staticmap?sensor=false&amp;size=640x400&amp;maptype=hybrid'</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="5">
@@ -7930,145 +7930,319 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="6">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="6">
           
-          <code class="ruby">  def contact</code>
+          
+          <code class="ruby">    # http://maps.googleapis.com/maps/api/staticmap?center=0,0&amp;zoom=2&amp;format=png&amp;sensor=false&amp;size=640x480&amp;maptype=roadmap&amp;style=invert_lightness:true|visibility:on</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="7">
           
           
-          <code class="ruby">    # add_locale_to_url</code>
+          <code class="ruby">    # add markers</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="8">
+        <li class="missed" data-hits="0" data-linenumber="8">
           
           
-          <code class="ruby">    </code>
+          <code class="ruby">    @articles = Article.all</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="9">
-          <span class="hits">2</span>
+        <li class="missed" data-hits="0" data-linenumber="9">
           
-          <code class="ruby">  	if !page = Page.find_by_page_type('CONTACT')</code>
+          
+          <code class="ruby">    @articles.each do |article|</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="10">
-          <span class="hits">2</span>
+        <li class="missed" data-hits="0" data-linenumber="10">
           
-          <code class="ruby">  		@page_body = &quot;&lt;span class=\&quot;alert alert-info\&quot;&gt;Dies ist nur ein Beispieltext. Der richtige Text kann #{ view_context.link_to('hier', admin_pages_path )} gepflegt werden.&lt;/span&gt;&quot;</code>
+          
+          <code class="ruby">      if !article.longitude.blank? and !article.latitude.blank?</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="11">
-          <span class="hits">2</span>
+        <li class="missed" data-hits="0" data-linenumber="11">
           
-          <code class="ruby">  		@page_title = 'Beispieltitel'</code>
+          
+          <code class="ruby">        @gmap_string = @gmap_string + '&amp;markers=size:small|color:orange|' + article.longitude + ',' + article.latitude</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="12">
           
           
-          <code class="ruby">  	else</code>
+          <code class="ruby">      end</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="13">
+        <li class="never" data-hits="" data-linenumber="13">
           
           
-          <code class="ruby">  		@page_body = page.body	</code>
+          <code class="ruby">    end</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="14">
           
           
-          <code class="ruby">  		@page_title = page.title</code>
+          <code class="ruby">    @radio_tracks = RadioTrack.all</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="15">
+        <li class="missed" data-hits="0" data-linenumber="15">
           
           
-          <code class="ruby">  	end</code>
+          <code class="ruby">    @radio_tracks.each do |radio_track|</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="16">
-          <span class="hits">2</span>
+        <li class="missed" data-hits="0" data-linenumber="16">
           
-          <code class="ruby">    render(:layout =&gt; 'pages')</code>
+          
+          <code class="ruby">      if !radio_track.longitude.blank? and !radio_track.latitude.blank?</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="17">
+        <li class="missed" data-hits="0" data-linenumber="17">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby">        @gmap_string = @gmap_string + '&amp;markers=size:small|color:red|' + radio_track.longitude + ',' + radio_track.latitude</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="18">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">      end</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="19">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="19">
           
-          <code class="ruby">  def about</code>
+          
+          <code class="ruby">    end</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="20">
-          <span class="hits">2</span>
+        <li class="missed" data-hits="0" data-linenumber="20">
           
-          <code class="ruby">  	if !page = Page.find_by_page_type('ABOUT')</code>
+          
+          <code class="ruby">    @videos = Video.all</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="21">
-          <span class="hits">2</span>
+        <li class="missed" data-hits="0" data-linenumber="21">
           
-          <code class="ruby">  		@page_body = &quot;&lt;span class=\&quot;alert alert-info\&quot;&gt;Dies ist nur ein Beispieltext. Der richtige Text kann #{ view_context.link_to('hier', admin_pages_path ) } gepflegt werden.&lt;/span&gt;&quot;</code>
+          
+          <code class="ruby">    @videos.each do |video|</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="22">
-          <span class="hits">2</span>
+        <li class="missed" data-hits="0" data-linenumber="22">
           
-          <code class="ruby">  		@page_title = 'Beispieltitel'</code>
+          
+          <code class="ruby">      if !video.longitude.blank? and !video.latitude.blank?</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="23">
+        <li class="missed" data-hits="0" data-linenumber="23">
           
           
-          <code class="ruby">  	else</code>
+          <code class="ruby">        @gmap_string = @gmap_string + '&amp;markers=size:small|color:blue|' + video.longitude + ',' + video.latitude</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="24">
+        <li class="never" data-hits="" data-linenumber="24">
           
           
-          <code class="ruby">  		@page_body = page.body	</code>
+          <code class="ruby">      end</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="25">
+        <li class="never" data-hits="" data-linenumber="25">
           
           
-          <code class="ruby">  		@page_title = page.title</code>
+          <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="26">
+        <li class="missed" data-hits="0" data-linenumber="26">
           
           
-          <code class="ruby">  	end</code>
+          <code class="ruby">    @posts = Post.all</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="27">
-          <span class="hits">2</span>
+        <li class="missed" data-hits="0" data-linenumber="27">
           
-          <code class="ruby">    render(:layout =&gt; 'pages')</code>
+          
+          <code class="ruby">    @posts.each do |post|</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="28">
+        <li class="missed" data-hits="0" data-linenumber="28">
+          
+          
+          <code class="ruby">      if !post.longitude.blank? and !post.latitude.blank?</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="29">
+          
+          
+          <code class="ruby">        @gmap_string = @gmap_string + '&amp;markers=size:small|color:green|' + post.longitude + ',' + post.latitude</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="30">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="31">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="32">
+          
+          
+          <code class="ruby">    render(:layout =&gt; 'home')</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="33">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="29">
+        <li class="never" data-hits="" data-linenumber="34">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="35">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def contact</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="36">
+          
+          
+          <code class="ruby">    # add_locale_to_url</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="37">
+          
+          
+          <code class="ruby">    </code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="38">
+          <span class="hits">2</span>
+          
+          <code class="ruby">  	if !page = Page.find_by_page_type('CONTACT')</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="39">
+          <span class="hits">2</span>
+          
+          <code class="ruby">  		@page_body = &quot;&lt;span class=\&quot;alert alert-info\&quot;&gt;Dies ist nur ein Beispieltext. Der richtige Text kann #{ view_context.link_to('hier', admin_pages_path )} gepflegt werden.&lt;/span&gt;&quot;</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="40">
+          <span class="hits">2</span>
+          
+          <code class="ruby">  		@page_title = 'Beispieltitel'</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="41">
+          
+          
+          <code class="ruby">  	else</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="42">
+          
+          
+          <code class="ruby">  		@page_body = page.body	</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="43">
+          
+          
+          <code class="ruby">  		@page_title = page.title</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="44">
+          
+          
+          <code class="ruby">  	end</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="45">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    render(:layout =&gt; 'pages')</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="46">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="47">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="48">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def about</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="49">
+          <span class="hits">2</span>
+          
+          <code class="ruby">  	if !page = Page.find_by_page_type('ABOUT')</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="50">
+          <span class="hits">2</span>
+          
+          <code class="ruby">  		@page_body = &quot;&lt;span class=\&quot;alert alert-info\&quot;&gt;Dies ist nur ein Beispieltext. Der richtige Text kann #{ view_context.link_to('hier', admin_pages_path ) } gepflegt werden.&lt;/span&gt;&quot;</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="51">
+          <span class="hits">2</span>
+          
+          <code class="ruby">  		@page_title = 'Beispieltitel'</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="52">
+          
+          
+          <code class="ruby">  	else</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="53">
+          
+          
+          <code class="ruby">  		@page_body = page.body	</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="54">
+          
+          
+          <code class="ruby">  		@page_title = page.title</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="55">
+          
+          
+          <code class="ruby">  	end</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="56">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    render(:layout =&gt; 'pages')</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="57">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="58">
           
           
           <code class="ruby">end</code>
@@ -11581,7 +11755,7 @@
         <li class="covered" data-hits="1" data-linenumber="26">
           <span class="hits">1</span>
           
-          <code class="ruby">  translates :title, :short_title, :url_title, :ctry, :language, :fallbacks_for_empty_translations =&gt; true</code>
+          <code class="ruby">  translates :title, :short_title, :url_title, :ctry, :language, :text, :text_2, :fallbacks_for_empty_translations =&gt; true</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="27">
@@ -11773,7 +11947,7 @@
         <li class="covered" data-hits="1" data-linenumber="19">
           <span class="hits">1</span>
           
-          <code class="ruby">	translates :title, :short_title, :url_title, :ctry, :language, :fallbacks_for_empty_translations =&gt; true</code>
+          <code class="ruby">	translates :title, :short_title, :url_title, :ctry, :language, :web_page, :source_url, :fallbacks_for_empty_translations =&gt; true</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="20">
@@ -12025,7 +12199,7 @@
         <li class="covered" data-hits="1" data-linenumber="16">
           <span class="hits">1</span>
           
-          <code class="ruby">	translates :title, :short_title, :url_title, :ctry, :language, :fallbacks_for_empty_translations =&gt; true</code>
+          <code class="ruby">	translates :title, :short_title, :url_title, :ctry, :language, :embed_code, :web_page, :source_url, :fallbacks_for_empty_translations =&gt; true</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="17">

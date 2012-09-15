@@ -12,9 +12,9 @@ class AddFieldsToVideoTranslations < ActiveRecord::Migration
 		Video.reset_column_information
 		I18n.locale = :de
 		Video.all.each do |video|
-			if !video.embed_code.blank?
-		  execute "UPDATE video_translations SET embed_code='#{video.embed_code}' WHERE VIDEO_ID='#{video.id}'"
-			end
+			# if !video.embed_code.blank?
+		 #  execute "UPDATE video_translations SET embed_code=\"#{video.embed_code}\" WHERE VIDEO_ID='#{video.id}'"
+			# end
 			if !video.web_page.blank?
 		  execute "UPDATE video_translations SET web_page='#{video.web_page}' WHERE VIDEO_ID='#{video.id}'"
 			end

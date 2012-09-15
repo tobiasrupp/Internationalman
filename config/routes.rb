@@ -2,6 +2,8 @@ Intlman::Application.routes.draw do
 
   root to: 'stories#show_stories'
   
+  match '/home', to: 'pages#home', :via => "get"
+
   match '/stories',   to: 'stories#show_stories', :via => "get"
   match '/stories(/:category(/:article_title))', to: 'stories#show_stories_by_category',
     :constraints => { :category => /[a-z-]+/, :article_title => /[a-z\d-]+/ }, :via => "get"

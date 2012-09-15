@@ -360,3 +360,7 @@ LOG:  autovacuum launcher shutting down
 LOG:  received smart shutdown request
 LOG:  shutting down
 LOG:  database system is shut down
+LOG:  database system was shut down at 2012-09-14 14:51:35 BST
+LOG:  autovacuum launcher started
+LOG:  database system is ready to accept connections
+FATAL:  database "intlman_test" does not exist
