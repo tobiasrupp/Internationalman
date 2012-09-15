@@ -32,6 +32,7 @@
 		<% end %> 
 
 		<% line_string = "" %>
+		<span class="greyed_out">
 		<% if !@selected_track.ctry.blank? %>
 			<% if !line_string.blank? %> 
 				<% line_string = line_string + ", " %>
@@ -59,7 +60,7 @@
 												<% category_string = category_string + ", " + category.name %>
 											<% end %>
 										<% end %>
-						<%= category_string %>
+						<%= category_string %></span>
 						<% @fb_description = @fb_description + ", " + t(:categories) + ': ' + category_string %>
 		<% end %>
 	</p>

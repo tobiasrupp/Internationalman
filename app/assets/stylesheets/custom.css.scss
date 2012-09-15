@@ -5,7 +5,7 @@
 
  // #eaeaea;
 
-$gray_1: #cccccc;
+$gray_1: #a8a8a8;
 $gray_2: #999999;
 $gray_3: #666666;
 $gray_4: #333333;
@@ -50,18 +50,10 @@ textarea {
 }
 
 .container {
-  // width: 850px;
-  // padding-top: 7px;
-  // padding-left: 20px;
-  // padding-right: 19px;
-  // padding-bottom: 12px;
   padding: 0 0 0 0;
   margin-bottom: 0px;
-  // border: none;
   background-color: white;
   background: white url('border.png') repeat-y;
-//   background-attachment:fixed;
-// background-position: 50px 50px;
 }
 
 .container_inner {
@@ -179,14 +171,13 @@ a:hover {
   }
   small {
     font-size: 11px;
-    // color: $gray_2
   }
   img {
     float: left;
-    margin-left: -40px;
-    // margin-right: 6px;
-    margin-top: -5px;
-    width: 55px;
+    margin-left: -32px;
+    margin-right: 8px;
+    // margin-top: -5px;
+    width: 34px;
   }
   a {
   text-decoration: none;
@@ -199,16 +190,14 @@ a:hover {
 }
 
 h1 {
+  font-family: "Helvetica";
   font-size: 31px;
-  // font-size: 34px;
-  font-family: "Georgia";
-  // font-family: "Times New Roman";
-  letter-spacing: 1px;
-  margin-bottom: 0px;
-  margin-top: 28px;
-  font-weight: normal;
-  margin-left: 18px;
   font-style: italic;
+  font-weight: normal;
+  letter-spacing: 1px;
+  margin-bottom: -1px;
+  margin-left: 18px;
+  margin-top: 28px;
 }
 
 h2 {
@@ -233,9 +222,9 @@ h3 {
 
 .line_box {
   border-top: 1px solid $gray_1;
-  // border-bottom: 1px solid $gray_1;
   padding-top: 40px;
-  // padding-bottom: 40px;
+  min-height: 400px;
+  height: auto;
 }
 
 /* navigation */ 
@@ -283,14 +272,6 @@ h3 {
   }
 }
 
-// #globe_medium {
-//   img {
-//     // margin-top: 10px;
-//     // margin-left: -15px;
-//     // width: 100px;
-//   }
-// }
-
 #navi_2 {
   text-transform: none;
   // margin-right: 18px;
@@ -324,7 +305,7 @@ h3 {
   padding-left: 15px;
   background: transparent url('line_3.png') repeat-y;
   .nav-list > li > a {
-    color: $gray_2;
+    color: $gray_1;
   }
   .nav-list > .active > a {
     background-color: transparent;
@@ -337,11 +318,11 @@ h3 {
     font-weight: normal;
   }
   .nav-list > .active > a:hover {
-    color: $gray_4;
+    color: $gray_2;
   }
   .nav-list > li > a:hover {
     background-color: transparent;
-    color: $gray_4;
+    color: $gray_2;
   }
 }
 
@@ -361,15 +342,30 @@ h3 {
 #content_section {
   margin-left: -7px;
   margin-top: 0px;
-  // padding-top: 4px;
   padding-left: 15px;
   background: transparent url('line_3.png') repeat-y;
   .thumbnail {
     clear: left;
   }
   .globe_btn {
-    width: 25px;
-    position: relative; top: 1px;
+    a {
+      display: block;
+      width: 21px;
+      height: 21px;
+      position: relative; top: 3px;
+      background: url(globe_map_1.jpg);
+      background-color: white;
+      background-size: 21px 21px;
+      background-repeat: no-repeat;
+    }
+    a:hover {
+      background: url(globe_map_2.png);
+      background-color: white;
+      background-size: 21px 21px;
+    }
+  }
+  .greyed_out {
+    color: $gray_1;
   }
   .embedded_video_viewer {
     clear: left;
@@ -383,18 +379,18 @@ h3 {
   }
 }
 .article_details {
-  margin-bottom: 10px;
+  // margin-bottom: 10px;
 }
 .radio_track_details {
-  margin-bottom: 10px;
+  // margin-bottom: 10px;
 }
 
 .video_details {
-  margin-bottom: 10px;
+  // margin-bottom: 10px;
 }
 
 .post_details {
-  margin-bottom: 10px;
+  // margin-bottom: 10px;
   .post_body {
     float: left;
     a {
@@ -406,6 +402,15 @@ h3 {
     }
   }
 }
+.page_body {
+  a {
+    color: $gray_4;
+    text-decoration: underline;
+    }
+    a:hover {
+    color: $gray_2;
+    }
+}
 
 .share_section {
   height: 15px;
@@ -416,19 +421,13 @@ h3 {
   // float: right;
   // margin-bottom: 0px;
   // padding-top: -20px;
-
 }
-// .pluginCountButton {
-//     // margin-right: 6px;
-//   padding: 1px 1px;  
-// }
-
 
 .button {
   float: left;
   // margin-top: 5px;
-  margin-bottom: 5px;
-  margin-right: 5px;
+  margin-bottom: 10px;
+  margin-right: 8px;
 }
 
 .thumbnail {
@@ -475,9 +474,32 @@ footer {
     }
   }
 }
-
-
-.ui-datepicker-title {
-  color: $gray_4;
+#map {
+  a:link {
+    text-decoration: underline;
+    // color: $gray_2;
 }
+}
+#map img { 
+  max-width: none;
+}
+#map label { 
+  width: auto; display:inline; 
+} 
+
+.map_info_window_link {
+//   a:link {
+//     text-decoration: underline;
+//     color: $gray_2;
+// }
+}
+.yellow { border: 1px solid black; margin-top: 8px; background: white; padding: 5px; }
+
+// .my-marker {
+//   background-color: red;
+//   width: 30px;
+//   height: 50px;
+//   padding: 5px;
+//   font: 10% "Lucida Grande", "Trebuchet MS", Verdana, sans-serif; 
+// }
 

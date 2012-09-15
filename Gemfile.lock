@@ -103,6 +103,7 @@ GEM
       activemodel (>= 3.0.0)
       activerecord (>= 3.0.0)
       paper_trail (~> 2)
+    gmaps4rails (1.5.5)
     has_scope (0.5.1)
     hike (1.2.1)
     httparty (0.8.3)
@@ -245,6 +246,7 @@ DEPENDENCIES
   database_cleaner (= 0.7.0)
   factory_girl_rails (= 1.4.0)
   globalize3 (= 0.2.0)
+  gmaps4rails
   jquery-rails (= 2.0.2)
   launchy (= 2.1.2)
   meta_search (>= 1.1.0.pre)

@@ -1,6 +1,17 @@
-<% if !@selected_article.nil? and !@selected_article.longitude.blank? and !@selected_article.latitude.blank? %>
-	<% lat = @selected_article.latitude %>
-	<% lon = @selected_article.longitude %>
+<% if !@selected_article.nil? and !@selected_article.lon.blank? and !@selected_article.lat.blank? %>
+	<% lat = @selected_article.lat.to_s %>
+	<% lon = @selected_article.lon.to_s %>
+	<% if @feed == true %>
+		<div class="button">
+			<%= link_to t(:show_on_map), map_path + '?lon=' + lon + '&lat=' + lat, :class => "btn btn-small" %>
+		</div>
+	<% else %>
+		<div class="button">
+			<span class="globe_btn">
+				<%= link_to '', map_path + '?lon=' + lon + '&lat=' + lat, :title => t(:show_on_map) %>
+			</span>
+		</div>
+	<% end %>	
 <% elsif !@selected_track.nil? and !@selected_track.longitude.blank? and !@selected_track.latitude.blank? %>
 	<% lat = @selected_track.latitude %>
 	<% lon = @selected_track.longitude %>
@@ -19,6 +30,8 @@
 	</div>
 <% else %>
 	<div class="button">
-		<%= link_to(image_tag("globe_map.jpg", :alt => t(:show_on_map), :title => t(:show_on_map), :class => "globe_btn"), get_map_url(lon, lat), :target => '_blank') %>
+		<span class="globe_btn">
+			<%= link_to '', get_map_url(lon, lat), :title => t(:show_on_map), :target => '_blank' %>
+		</span>
 	</div>
 <% end %>	

@@ -2,5 +2,7 @@
 	<% provide(:title, @page_title) %>
 <% end %>
 <% if !@page_body.nil? %>
-	<%= raw @page_body %>
+	<div class="page_body">
+		<%= raw @page_body %>
+	</div>
 <% end %>

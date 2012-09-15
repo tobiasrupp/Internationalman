@@ -1,7 +1,17 @@
 class PagesController < ApplicationController
   
-  def home
-    @gmap_string = 'http://maps.googleapis.com/maps/api/staticmap?sensor=false&size=640x400&maptype=hybrid'
+  def map
+    # centre map with coordinates 
+    if params[:lon] and params[:lat]
+      @lon = params[:lon]
+      @lat = params[:lat]
+      @zoom = 5
+      @auto_adjust = false
+    else
+      @auto_adjust = true
+    end  
+    
+    @gmap_string = 'http://maps.googleapis.com/maps/api/staticmap?sensor=false&size=140x100&maptype=hybrid'
 
     # http://maps.googleapis.com/maps/api/staticmap?center=0,0&zoom=2&format=png&sensor=false&size=640x480&maptype=roadmap&style=invert_lightness:true|visibility:on
     # add markers
@@ -29,8 +39,24 @@ class PagesController < ApplicationController
         @gmap_string = @gmap_string + '&markers=size:small|color:green|' + post.longitude + ',' + post.latitude
       end
     end
-    render(:layout => 'home')
+    @format_for_map = true
+    @json = @articles.to_gmaps4rails do |article, marker|
+      @selected_article = article
+      marker.infowindow render_to_string(:partial => "/stories/story_details")
+      # marker.picture({
+      #                 :picture => "http://www.blankdots.com/img/github-32x32.png",
+      #                 :width   => 32,
+      #                 :height  => 32
+      #                })
+      marker.title   article.title
+      # marker.sidebar "i'm the sidebar"
+      marker.json({ :id => article.id })
+    end
+    @selected_article = nil
+    @format_for_map = false
+    render(:layout => 'map')
   end
+
 
   def contact
     # add_locale_to_url

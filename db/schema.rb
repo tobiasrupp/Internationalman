@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120914105829) do
+ActiveRecord::Schema.define(:version => 20120915012440) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -110,6 +110,10 @@ ActiveRecord::Schema.define(:version => 20120914105829) do
     t.string   "source_file_en_content_type"
     t.integer  "source_file_en_file_size"
     t.datetime "source_file_en_updated_at"
+    t.float    "lat"
+    t.float    "lon"
+    t.boolean  "gmaps"
+    t.string   "address"
   end
 
   create_table "categories", :force => true do |t|

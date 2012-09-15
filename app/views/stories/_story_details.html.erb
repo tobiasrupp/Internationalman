@@ -1,7 +1,16 @@
 <% @fb_description = "" %>
+<% if @format_for_map == true %>
+	<% image_size = :thumb %>
+<% else %>
+	<% image_size = :medium %>
+<% end %>	
 <div class="article_details">
 	<% if !@selected_article.title.blank? %>
-		<h3><%= @selected_article.title %></h3>
+		<% if @format_for_map != true %>
+			<h3><%= @selected_article.title %></h3>
+		<% else %>
+			<span class="map_info_window_link"><%= link_to @selected_article.title, stories_path + '/' + @selected_article.categories[0].url_name + '/' + @selected_article.url_title %></span>
+		<% end %>	
 	<% end %>	
 	<p>
 	<% line_string = "" %>
@@ -24,31 +33,32 @@
 			<%= raw line_string %><br>
 			<% @fb_description = @fb_description + raw(line_string) %>
 	<% end %> 
-
-	<% line_string = "" %>
-	<% if !@selected_article.ctry.blank? %>
-		<% if !line_string.blank? %> 
-			<% line_string = line_string + ", " %>
+	<% if @format_for_map != true %>
+		<% line_string = "" %>
+		<span class="greyed_out">
+		<% if !@selected_article.ctry.blank? %>
+			<% if !line_string.blank? %> 
+				<% line_string = line_string + ", " %>
+			<% end %>
+			<% line_string = line_string + t(:country) + ": #{@selected_article.ctry}" %>
 		<% end %>
-		<% line_string = line_string + t(:country) + ": #{@selected_article.ctry}" %>
-	<% end %>
-	<% if !@selected_article.author.blank? %>
-		<% if !line_string.blank? %> 
-			<% line_string = line_string + ", " %>
+		<% if !@selected_article.author.blank? %>
+			<% if !line_string.blank? %> 
+				<% line_string = line_string + ", " %>
+			<% end %>
+			<% line_string = line_string + t(:text) + ": #{@selected_article.author}" %>
 		<% end %>
-		<% line_string = line_string + t(:text) + ": #{@selected_article.author}" %>
-	<% end %>
-	<% if !@selected_article.photos_by.blank? %>
+		<% if !@selected_article.photos_by.blank? %>
+			<% if !line_string.blank? %> 
+				<% line_string = line_string + ", " %>
+			<% end %> 
+			<% line_string = line_string + t(:photos) + ": #{@selected_article.photos_by}" %>
+		<% end %>
 		<% if !line_string.blank? %> 
-			<% line_string = line_string + ", " %>
+				<%= raw line_string %><br>
+				<% @fb_description = @fb_description + ", " + raw(line_string) %>
 		<% end %> 
-		<% line_string = line_string + t(:photos) + ": #{@selected_article.photos_by}" %>
 	<% end %>
-	<% if !line_string.blank? %> 
-			<%= raw line_string %><br>
-			<% @fb_description = @fb_description + ", " + raw(line_string) %>
-	<% end %> 
-
 	<% if !@selected_article.categories.nil? %>
 		<% category_string = "" %>
 		<%= t(:categories) %>: 
@@ -59,68 +69,70 @@
 							<% category_string = category_string + ", " + category.name %>
 						<% end %>
 					<% end %>
-					<%= category_string %>
+					<%= category_string %></span>
 					<% @fb_description = @fb_description + ", " + t(:categories) + ': ' + category_string %>
 	<% end %></p>
 </div>
-<% if @selected_article.copyright_cleared == true %>
-	<% case I18n.locale %>
-		<% when :de %>
-			<% if @selected_article.source_file? %>
-				<div class="button">
-					<%= link_to t(:display_story_in_new_window), "https://docs.google.com/viewer?url=" + @selected_article.source_file.url, :target => '_blank', :class => "btn btn-small" %>
-				</div>
-			<% end %>
-		<% when :en %>
-			<% if @selected_article.source_file_en? %>
-				<div class="button">
-					<%= link_to t(:display_story_in_new_window), "https://docs.google.com/viewer?url=" + @selected_article.source_file_en.url, :target => '_blank', :class => "btn btn-small" %>
-				</div>	
-			<% elsif @selected_article.source_file? %>
-				<div class="button">
-					<%= link_to t(:display_story_in_new_window), "https://docs.google.com/viewer?url=" + @selected_article.source_file.url, :target => '_blank', :class => "btn btn-small" %>
-				</div>	
-			<% end %>
-	<% end %>
-	<% if !@selected_article.web_page.blank? %>
-		<div class="button">
-			<%= link_to t(:online_version), @selected_article.web_page, :target => '_blank', :class => "btn btn-small" %>
-		</div>
-	<% end %>
-	<%= render :partial => 'shared/map_button', :formats=>[:html], :handlers=>[:erb] %>
-	<% case I18n.locale %>
-		<% when :de %>
-			<% if @selected_article.source_file? and @selected_article.teaser_image? %>
-				<%= link_to(image_tag(@selected_article.teaser_image.url(:medium), :alt => @selected_article.teaser_image.url, :title => t(:display_story_in_new_window), :class => "thumbnail"), "https://docs.google.com/viewer?url=" + @selected_article.source_file.url, :target => '_blank') %>
-			<% end %>
-		<% when :en %>
-			<% if @selected_article.source_file_en? and @selected_article.teaser_image_en? %>
-				<%= link_to(image_tag(@selected_article.teaser_image_en.url(:medium), :alt => @selected_article.teaser_image_en.url, :title => t(:display_story_in_new_window), :class => "thumbnail"), "https://docs.google.com/viewer?url=" + @selected_article.source_file_en.url, :target => '_blank') %>
-			<% elsif @selected_article.source_file_en? and @selected_article.teaser_image? %>
-				<%= link_to(image_tag(@selected_article.teaser_image.url(:medium), :alt => @selected_article.teaser_image.url, :title => t(:display_story_in_new_window), :class => "thumbnail"), "https://docs.google.com/viewer?url=" + @selected_article.source_file_en.url, :target => '_blank') %>
-			<% elsif @selected_article.source_file? and @selected_article.teaser_image? %>
-				<%= link_to(image_tag(@selected_article.teaser_image.url(:medium), :alt => @selected_article.teaser_image.url, :title => t(:display_story_in_new_window), :class => "thumbnail"), "https://docs.google.com/viewer?url=" + @selected_article.source_file.url, :target => '_blank') %>
-			<% elsif @selected_article.teaser_image? %>
-				<%= image_tag(@selected_article.teaser_image.url(:medium), :alt => @selected_article.teaser_image.url, :title => "", :class => "thumbnail") %>
-			<% end %>
-	<% end %>
-<% else %>
-	<% if !@selected_article.web_page.blank? %>
-		<div class="button">
-			<%= link_to t(:online_version), @selected_article.web_page, :target => '_blank', :class => "btn btn-small" %>
-		</div>
-	<% end %>	
-	<%= render :partial => 'shared/map_button', :formats=>[:html], :handlers=>[:erb] %>
-	<% case I18n.locale %>
-		<% when :de %>
-			<% if @selected_article.teaser_image? %>
-				<%= image_tag(@selected_article.teaser_image.url(:medium), :alt => @selected_article.teaser_image.url, :title => "", :class => "thumbnail") %>
-			<% end %>
-		<% when :en %>
-			<% if @selected_article.teaser_image_en? %>
-				<%= image_tag(@selected_article.teaser_image_en.url(:medium), :alt => @selected_article.teaser_image_en.url, :title => "", :class => "thumbnail") %>
-			<% elsif @selected_article.teaser_image? %>
-				<%= image_tag(@selected_article.teaser_image.url(:medium), :alt => @selected_article.teaser_image.url, :title => "", :class => "thumbnail") %>
-			<% end %>
+<% if @format_for_map != true %>
+	<% if @selected_article.copyright_cleared == true %>
+		<% case I18n.locale %>
+			<% when :de %>
+				<% if @selected_article.source_file? %>
+					<div class="button">
+						<%= link_to t(:display_story_in_new_window), "https://docs.google.com/viewer?url=" + @selected_article.source_file.url, :target => '_blank', :class => "btn btn-small" %>
+					</div>
+				<% end %>
+			<% when :en %>
+				<% if @selected_article.source_file_en? %>
+					<div class="button">
+						<%= link_to t(:display_story_in_new_window), "https://docs.google.com/viewer?url=" + @selected_article.source_file_en.url, :target => '_blank', :class => "btn btn-small" %>
+					</div>	
+				<% elsif @selected_article.source_file? %>
+					<div class="button">
+						<%= link_to t(:display_story_in_new_window), "https://docs.google.com/viewer?url=" + @selected_article.source_file.url, :target => '_blank', :class => "btn btn-small" %>
+					</div>	
+				<% end %>
+		<% end %>
+		<% if !@selected_article.web_page.blank? %>
+			<div class="button">
+				<%= link_to t(:online_version), @selected_article.web_page, :target => '_blank', :class => "btn btn-small" %>
+			</div>
+		<% end %>
+		<%= render :partial => 'shared/map_button', :formats=>[:html], :handlers=>[:erb] %>
+		<% case I18n.locale %>
+			<% when :de %>
+				<% if @selected_article.source_file? and @selected_article.teaser_image? %>
+					<%= link_to(image_tag(@selected_article.teaser_image.url(image_size), :alt => @selected_article.teaser_image.url, :title => t(:display_story_in_new_window), :class => "thumbnail"), "https://docs.google.com/viewer?url=" + @selected_article.source_file.url, :target => '_blank') %>
+				<% end %>
+			<% when :en %>
+				<% if @selected_article.source_file_en? and @selected_article.teaser_image_en? %>
+					<%= link_to(image_tag(@selected_article.teaser_image_en.url(image_size), :alt => @selected_article.teaser_image_en.url, :title => t(:display_story_in_new_window), :class => "thumbnail"), "https://docs.google.com/viewer?url=" + @selected_article.source_file_en.url, :target => '_blank') %>
+				<% elsif @selected_article.source_file_en? and @selected_article.teaser_image? %>
+					<%= link_to(image_tag(@selected_article.teaser_image.url(image_size), :alt => @selected_article.teaser_image.url, :title => t(:display_story_in_new_window), :class => "thumbnail"), "https://docs.google.com/viewer?url=" + @selected_article.source_file_en.url, :target => '_blank') %>
+				<% elsif @selected_article.source_file? and @selected_article.teaser_image? %>
+					<%= link_to(image_tag(@selected_article.teaser_image.url(image_size), :alt => @selected_article.teaser_image.url, :title => t(:display_story_in_new_window), :class => "thumbnail"), "https://docs.google.com/viewer?url=" + @selected_article.source_file.url, :target => '_blank') %>
+				<% elsif @selected_article.teaser_image? %>
+					<%= image_tag(@selected_article.teaser_image.url(image_size), :alt => @selected_article.teaser_image.url, :title => "", :class => "thumbnail") %>
+				<% end %>
+		<% end %>
+	<% else %>
+		<% if !@selected_article.web_page.blank? %>
+			<div class="button">
+				<%= link_to t(:online_version), @selected_article.web_page, :target => '_blank', :class => "btn btn-small" %>
+			</div>
+		<% end %>	
+		<%= render :partial => 'shared/map_button', :formats=>[:html], :handlers=>[:erb] %>
+		<% case I18n.locale %>
+			<% when :de %>
+				<% if @selected_article.teaser_image? %>
+					<%= image_tag(@selected_article.teaser_image.url(image_size), :alt => @selected_article.teaser_image.url, :title => "", :class => "thumbnail") %>
+				<% end %>
+			<% when :en %>
+				<% if @selected_article.teaser_image_en? %>
+					<%= image_tag(@selected_article.teaser_image_en.url(image_size), :alt => @selected_article.teaser_image_en.url, :title => "", :class => "thumbnail") %>
+				<% elsif @selected_article.teaser_image? %>
+					<%= image_tag(@selected_article.teaser_image.url(image_size), :alt => @selected_article.teaser_image.url, :title => "", :class => "thumbnail") %>
+				<% end %>
+		<% end %>
 	<% end %>
 <% end %>

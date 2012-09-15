@@ -364,3 +364,50 @@ LOG:  database system was shut down at 2012-09-14 14:51:35 BST
 LOG:  autovacuum launcher started
 LOG:  database system is ready to accept connections
 FATAL:  database "intlman_test" does not exist
+ERROR:  column "longitude" cannot be cast to type double precision
+STATEMENT:  ALTER TABLE "articles" ALTER COLUMN "longitude" TYPE float
+ERROR:  invalid input syntax for type double precision: ""
+STATEMENT:  
+	        alter table articles
+	        alter column longitude
+	        type float using longitude::float
+	    
+ERROR:  invalid input syntax for type double precision: ""
+STATEMENT:  
+	        alter table articles alter column longitude type float using longitude::float
+	    
+ERROR:  syntax error at or near "alter" at character 81
+STATEMENT:  
+	        alter table articles
+	        alter column longitude type float
+	        alter column latitude type float
+	    
+ERROR:  syntax error at or near "alter" at character 57
+STATEMENT:   alter table articles alter column longitude type float alter column latitude type float
+	    
+ERROR:  syntax error at or near "alter" at character 68
+STATEMENT:   alter table articles 
+	    	alter column longitude type float
+	    	alter column latitude type float
+	    
+ERROR:  syntax error at or near "alter" at character 68
+STATEMENT:   alter table articles 
+	    	alter column longitude type float
+	    	alter column latitude type float;
+	    
+ERROR:  syntax error at or near "alter" at character 67
+STATEMENT:  alter table articles 
+	    	alter column longitude type float
+	    	alter column latitude type float;
+	    
+ERROR:  cached plan must not change result type
+STATEMENT:  SELECT  "articles".* FROM "articles"  WHERE "articles"."id" = $1 LIMIT 1
+ERROR:  cached plan must not change result type
+STATEMENT:  SELECT  "articles".* FROM "articles"  WHERE "articles"."id" = $1 LIMIT 1
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+LOG:  database system was shut down at 2012-09-15 04:29:01 BST
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started

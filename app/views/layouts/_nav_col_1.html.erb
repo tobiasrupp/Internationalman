@@ -35,6 +35,13 @@
     <% end  %>
       <%= link_to 'Blog', blog_path %>
     </li>
+   <% if request.params["action"] == "map" %>
+      <li class="active">
+    <% else %>
+      <li>
+    <% end  %>
+      <%= link_to t(:map), map_path %>
+    </li>
     <% if request.params["action"] == "about" %>
       <li class="active">
     <% else %>
