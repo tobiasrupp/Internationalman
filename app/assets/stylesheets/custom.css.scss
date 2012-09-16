@@ -353,17 +353,34 @@ h3 {
   .globe_btn {
     a {
       display: block;
-      width: 23px;
+      width: 21px;
       height: 21px;
       position: relative; top: 3px;
-      background: url(globe_map_double.png);
-      background-color: transparent;
+      background: url(globe_map_1.jpg);
+      background-color: white;
+      background-size: 21px 21px;
       background-repeat: no-repeat;
     }
     a:hover {
-      background-position: -22px 0; 
+      background: url(globe_map_2.png);
+      background-color: white;
+      background-size: 21px 21px;
     }
   }
+  // .globe_btn {
+  //   a {
+  //     display: block;
+  //     width: 45px;
+  //     height: 21px;
+  //     position: relative; top: 3px;
+  //     background: url(globe_map_double.png);
+  //     background-color: transparent;
+  //     background-repeat: no-repeat;
+  //   }
+  //   a:hover {
+  //     background-position: -21px 0; 
+  //   }
+  // }
   .greyed_out {
     color: $gray_2;
   }
