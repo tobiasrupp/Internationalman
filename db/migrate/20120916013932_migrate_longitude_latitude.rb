@@ -24,6 +24,20 @@ class MigrateLongitudeLatitude < ActiveRecord::Migration
   		end
   	end
   	say "Rows migrated: #{count.to_s}"
+
+  	Video.reset_column_information
+  	count = 0
+  	Video.all.each do |video|
+  		if !video.longitude.blank? and !video.latitude.blank?
+  			say "Row: #{video.title}"
+  			lon = video.longitude.to_f
+  			lat = video.latitude.to_f
+  			if video.update_attributes!(:lon => lon, :lat => lat, :gmaps => true, :address => 'Bensheim, Deutschland')
+  				count = count + 1
+  			end
+  		end
+  	end
+  	say "Rows migrated: #{count.to_s}"
   end
 
   def down
