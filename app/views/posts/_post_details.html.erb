@@ -1,7 +1,11 @@
 <% @fb_description = "" %>
 <div class="post_details">
 	<% if !@selected_post.title.blank? %>
-		<h3><%= @selected_post.title %></h3>
+		<% if @format_for_map != true %>
+			<h3><%= @selected_post.title %></h3>
+		<% else %>
+			<span class="map_info_window_link"><%= link_to @selected_post.title + ' (Blog)', blog_path + '/' + @selected_post.url_title %></span>
+		<% end %>
 	<% end %>	
 	<p>
 		<% line_string = "" %>
@@ -11,6 +15,7 @@
 			<% end %>
 			<% line_string = line_string + "#{l @selected_post.updated_at, :format => :long}" %>
 		<% end %>
+
 		<span class="greyed_out">
 		<% if !@selected_post.ctry.blank? %>
 			<% if !line_string.blank? %> 
@@ -43,74 +48,76 @@
 			<% @fb_description = @fb_description + ", " + t(:categories) + ': ' + category_string %>
 		<% end %>
 	</p>
-	<%= render :partial => 'shared/map_button', :formats=>[:html], :handlers=>[:erb] %>
-	<div class="post_body">
-		<% if @selected_post.image_1? %>
-			<% if @selected_post.image_1_options? %>
-				<% split_arr = @selected_post.image_1_options.split(' - ') %>
-				<% display_option = split_arr[0] %>	
-				<% if display_option != "Don't display" %>
-					<% image_size = split_arr[1].parameterize %>
-					<% case display_option %>
-						<% when "Display in Section 1 left" %>
-							<img src="<%= @selected_post.image_1.url(image_size) %>" alt="" class="thumbnail" style="float: left; margin-right: 0.8em; margin-bottom: 0.3em">
-						<% when "Display in Section 1 right" %>
-							<img src="<%= @selected_post.image_1.url(image_size) %>" alt="" class="thumbnail" style="float: right; margin-left: 0.8em; margin-bottom: 0.3em">
-					<% end %>		
-				<% end %>	
-			<% end %>				
-		<% end %>
-		<% if @selected_post.image_2? %>
-			<% if @selected_post.image_2_options? %>
-				<% split_arr = @selected_post.image_2_options.split(' - ') %>
-				<% display_option = split_arr[0] %>	
-				<% if display_option != "Don't display" %>
-					<% image_size = split_arr[1].parameterize %>
-					<% case display_option %>
-						<% when "Display in Section 1 left" %>
-							<img src="<%= @selected_post.image_2.url(image_size) %>" alt="" class="thumbnail" style="float: left; margin-right: 0.8em; margin-bottom: 0.3em">
-						<% when "Display in Section 1 right" %>
-							<img src="<%= @selected_post.image_2.url(image_size) %>" alt="" class="thumbnail" style="float: right; margin-left: 0.8em; margin-bottom: 0.3em">
-					<% end %>		
-				<% end %>	
-			<% end %>				
-		<% end %>
-		<% if !@selected_post.text.blank? %>
-			<%= raw @selected_post.text %>
-			<% @fb_description = @fb_description + ", " + truncate(strip_tags(@selected_post.text), :length => 200, :omission => ' ...') %>
-		<% end %>	
-		<% if @selected_post.image_1? %>
-			<% if @selected_post.image_1_options? %>
-				<% split_arr = @selected_post.image_1_options.split(' - ') %>
-				<% display_option = split_arr[0] %>	
-				<% if display_option != "Don't display" %>
-					<% image_size = split_arr[1].parameterize %>
-					<% case display_option %>
-						<% when "Display in Section 2 left" %>
-							<img src="<%= @selected_post.image_1.url(image_size) %>" alt="" class="thumbnail" style="float: left; margin-right: 0.8em; margin-bottom: 0.3em">
-						<% when "Display in Section 2 right" %>
-							<img src="<%= @selected_post.image_1.url(image_size) %>" alt="" class="thumbnail" style="float: right; margin-left: 0.8em; margin-bottom: 0.3em">
-					<% end %>		
-				<% end %>		
-			<% end %>	
-		<% end %>
-		<% if @selected_post.image_2? %>
-			<% if @selected_post.image_2_options? %>
-				<% split_arr = @selected_post.image_2_options.split(' - ') %>
-				<% display_option = split_arr[0] %>	
-				<% if display_option != "Don't display" %>
-					<% image_size = split_arr[1].parameterize %>
-					<% case display_option %>
-						<% when "Display in Section 2 left" %>
-							<img src="<%= @selected_post.image_2.url(image_size) %>" alt="" class="thumbnail" style="float: left; margin-right: 0.8em; margin-bottom: 0.3em">
-						<% when "Display in Section 2 right" %>
-							<img src="<%= @selected_post.image_2.url(image_size) %>" alt="" class="thumbnail" style="float: right; margin-left: 0.8em; margin-bottom: 0.3em">
+	<% if @format_for_map != true %>
+		<%= render :partial => 'shared/map_button', :formats=>[:html], :handlers=>[:erb] %>
+		<div class="post_body">
+			<% if @selected_post.image_1? %>
+				<% if @selected_post.image_1_options? %>
+					<% split_arr = @selected_post.image_1_options.split(' - ') %>
+					<% display_option = split_arr[0] %>	
+					<% if display_option != "Don't display" %>
+						<% image_size = split_arr[1].parameterize %>
+						<% case display_option %>
+							<% when "Display in Section 1 left" %>
+								<img src="<%= @selected_post.image_1.url(image_size) %>" alt="" class="thumbnail" style="float: left; margin-right: 0.8em; margin-bottom: 0.3em">
+							<% when "Display in Section 1 right" %>
+								<img src="<%= @selected_post.image_1.url(image_size) %>" alt="" class="thumbnail" style="float: right; margin-left: 0.8em; margin-bottom: 0.3em">
+						<% end %>		
 					<% end %>	
-				<% end %>			
-			<% end %>		
-		<% end %>
-		<% if !@selected_post.text_2.blank? %>
-			<%= raw @selected_post.text_2 %>
-		<% end %>
-	</div>
+				<% end %>				
+			<% end %>
+			<% if @selected_post.image_2? %>
+				<% if @selected_post.image_2_options? %>
+					<% split_arr = @selected_post.image_2_options.split(' - ') %>
+					<% display_option = split_arr[0] %>	
+					<% if display_option != "Don't display" %>
+						<% image_size = split_arr[1].parameterize %>
+						<% case display_option %>
+							<% when "Display in Section 1 left" %>
+								<img src="<%= @selected_post.image_2.url(image_size) %>" alt="" class="thumbnail" style="float: left; margin-right: 0.8em; margin-bottom: 0.3em">
+							<% when "Display in Section 1 right" %>
+								<img src="<%= @selected_post.image_2.url(image_size) %>" alt="" class="thumbnail" style="float: right; margin-left: 0.8em; margin-bottom: 0.3em">
+						<% end %>		
+					<% end %>	
+				<% end %>				
+			<% end %>
+			<% if !@selected_post.text.blank? %>
+				<%= raw @selected_post.text %>
+				<% @fb_description = @fb_description + ", " + truncate(strip_tags(@selected_post.text), :length => 200, :omission => ' ...') %>
+			<% end %>	
+			<% if @selected_post.image_1? %>
+				<% if @selected_post.image_1_options? %>
+					<% split_arr = @selected_post.image_1_options.split(' - ') %>
+					<% display_option = split_arr[0] %>	
+					<% if display_option != "Don't display" %>
+						<% image_size = split_arr[1].parameterize %>
+						<% case display_option %>
+							<% when "Display in Section 2 left" %>
+								<img src="<%= @selected_post.image_1.url(image_size) %>" alt="" class="thumbnail" style="float: left; margin-right: 0.8em; margin-bottom: 0.3em">
+							<% when "Display in Section 2 right" %>
+								<img src="<%= @selected_post.image_1.url(image_size) %>" alt="" class="thumbnail" style="float: right; margin-left: 0.8em; margin-bottom: 0.3em">
+						<% end %>		
+					<% end %>		
+				<% end %>	
+			<% end %>
+			<% if @selected_post.image_2? %>
+				<% if @selected_post.image_2_options? %>
+					<% split_arr = @selected_post.image_2_options.split(' - ') %>
+					<% display_option = split_arr[0] %>	
+					<% if display_option != "Don't display" %>
+						<% image_size = split_arr[1].parameterize %>
+						<% case display_option %>
+							<% when "Display in Section 2 left" %>
+								<img src="<%= @selected_post.image_2.url(image_size) %>" alt="" class="thumbnail" style="float: left; margin-right: 0.8em; margin-bottom: 0.3em">
+							<% when "Display in Section 2 right" %>
+								<img src="<%= @selected_post.image_2.url(image_size) %>" alt="" class="thumbnail" style="float: right; margin-left: 0.8em; margin-bottom: 0.3em">
+						<% end %>	
+					<% end %>			
+				<% end %>		
+			<% end %>
+			<% if !@selected_post.text_2.blank? %>
+				<%= raw @selected_post.text_2 %>
+			<% end %>
+		</div>
+	<% end %>
 </div>

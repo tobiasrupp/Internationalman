@@ -81,9 +81,9 @@ ActiveAdmin.register Article do
       f.input :teaser_image, :hint => f.template.image_tag(f.object.teaser_image.url(:thumb))
       f.input :teaser_image_en, :hint => f.template.image_tag(f.object.teaser_image_en.url(:thumb))
       f.input :address
-      f.input :gmaps, :label => "Geocoding found for address"
-      f.input :lon
-      f.input :lat
+      f.input :gmaps, :label => t(:geocoding_found)
+      f.input :lon, :label => "Longitude"
+      f.input :lat, :label => "Latitude"
       f.input :viewer_url, :hint => t(:translation_field)
       f.input :web_page, :hint => t(:translation_field)
       f.input :embed_code, :input_html => { :class => 'autogrow', :rows => 4, :cols => 20 }, :hint => t(:translation_field)
@@ -165,11 +165,19 @@ ActiveAdmin.register Article do
               td { article.teaser_image_en }
             end
             tr do
-              th { 'Lon' }
+              th { 'Address' }
+              td { article.address }
+            end
+            tr do
+              th { 'Gmaps' }
+              td { article.gmaps }
+            end
+            tr do
+              th { 'Longitude' }
               td { article.lon }
             end
             tr do
-              th { 'Lat' }
+              th { 'Latitude' }
               td { article.lat }
             end
             tr do

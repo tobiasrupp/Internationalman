@@ -6,7 +6,8 @@
  // #eaeaea;
 
 $gray_1: #a8a8a8;
-$gray_2: #999999;
+$gray_2: #7f7f7f;
+// #999999
 $gray_3: #666666;
 $gray_4: #333333;
 
@@ -165,7 +166,8 @@ a:hover {
 }
 
 .status_message {
-  margin-top: 33px;
+  margin-top: 35px;
+  line-height: 14px;
   .double_quote {
     // font-size: 200%;
   }
@@ -365,7 +367,7 @@ h3 {
     }
   }
   .greyed_out {
-    color: $gray_1;
+    color: $gray_2;
   }
   .embedded_video_viewer {
     clear: left;

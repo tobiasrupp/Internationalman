@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120915012440) do
+ActiveRecord::Schema.define(:version => 20120915230940) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -213,6 +213,10 @@ ActiveRecord::Schema.define(:version => 20120915012440) do
     t.string   "image_2_options"
     t.text     "text_2"
     t.string   "ctry"
+    t.float    "lat"
+    t.float    "lon"
+    t.boolean  "gmaps"
+    t.string   "address"
   end
 
   create_table "radio_track_categories", :force => true do |t|
@@ -259,6 +263,10 @@ ActiveRecord::Schema.define(:version => 20120915012440) do
     t.string   "web_page"
     t.string   "ctry"
     t.boolean  "copyright_cleared"
+    t.float    "lat"
+    t.float    "lon"
+    t.boolean  "gmaps"
+    t.string   "address"
   end
 
   create_table "status_message_translations", :force => true do |t|
@@ -327,6 +335,10 @@ ActiveRecord::Schema.define(:version => 20120915012440) do
     t.string   "camera_by"
     t.string   "ctry"
     t.boolean  "copyright_cleared"
+    t.float    "lat"
+    t.float    "lon"
+    t.boolean  "gmaps"
+    t.string   "address"
   end
 
 end

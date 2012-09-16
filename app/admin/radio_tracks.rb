@@ -60,8 +60,10 @@ ActiveAdmin.register RadioTrack do
       f.input :source_url, :hint => t(:translation_field)
       f.input :copyright_cleared, :as => :radio
       f.input :web_page, :hint => t(:translation_field)
-      f.input :longitude
-      f.input :latitude
+      f.input :address
+      f.input :gmaps, :label => t(:geocoding_found)
+      f.input :lon, :label => "Longitude"
+      f.input :lat, :label => "Latitude"
     end
     f.buttons
   end
@@ -132,12 +134,20 @@ ActiveAdmin.register RadioTrack do
               td { radio_track.copyright_cleared }
             end
             tr do
+              th { 'Address' }
+              td { radio_track.address }
+            end
+            tr do
+              th { 'Gmaps' }
+              td { radio_track.gmaps }
+            end
+            tr do
               th { 'Longitude' }
-              td { radio_track.longitude }
+              td { radio_track.lon }
             end
             tr do
               th { 'Latitude' }
-              td { radio_track.latitude }
+              td { radio_track.lat }
             end
             tr do
               th { 'Created At' }

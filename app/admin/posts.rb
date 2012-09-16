@@ -65,8 +65,10 @@ ActiveAdmin.register Post do
       f.input :text_2, :label => "Text section 2", :input_html => { :class => 'autogrow', :rows => 10, :cols => 20 }
       f.input :image_2, :hint => f.template.image_tag(f.object.image_2.url(:thumb))
       f.input :image_2_options, :as => :select, :collection => ["Don't display", "Display in Section 1 left - Small", "Display in Section 1 left - Medium", "Display in Section 1 right - Small", "Display in Section 1 right - Medium", "Display in Section 2 left - Small", "Display in Section 2 left - Medium", "Display in Section 2 right - Small", "Display in Section 2 right - Medium"], :required => false
-      f.input :longitude
-      f.input :latitude
+      f.input :address
+      f.input :gmaps, :label => t(:geocoding_found)
+      f.input :lon, :label => "Longitude"
+      f.input :lat, :label => "Latitude"
       # f.input :allow_comments, :label => "Allow commenting on this post"
     end
     f.buttons
@@ -138,12 +140,20 @@ ActiveAdmin.register Post do
               td { post.image_2_options }
             end
             tr do
+              th { 'Adress' }
+              td { post.address }
+            end
+            tr do
+              th { 'Gmaps' }
+              td { post.gmaps }
+            end
+            tr do
               th { 'Longitude' }
-              td { post.longitude }
+              td { post.lon }
             end
             tr do
               th { 'Latitude' }
-              td { post.latitude }
+              td { post.lat }
             end
             tr do
               th { 'Created At' }

@@ -1,9 +1,9 @@
 <% provide(:title, t(:map)) %>
 
 <% if !@lon.blank? and !@lat.blank? %>
-  <%= gmaps(:map_options => { :type => "HYBRID", :center_longitude => @lon,  :center_latitude => @lat, :zoom => @zoom, :auto_adjust => @auto_adjust ,"detect_location" => false, "center_on_user" => false, :raw => "{disableDefaultUI: false}"}, :markers  => { "data" => @json, "options" => {"custom_infowindow_class" => "yellow" }}) %>
+  <%= gmaps(:map_options => { :type => "HYBRID", :center_longitude => @lon,  :center_latitude => @lat, :zoom => @zoom, :auto_adjust => false ,"detect_location" => false, "center_on_user" => false, :raw => "{disableDefaultUI: false}"}, :markers  => { "data" => @json, "options" => {"custom_infowindow_class" => "yellow" }}) %>
 <% else %>
-  <%= gmaps(:map_options => { :type => "HYBRID", "detect_location" => false, "center_on_user" => false, :raw => "{disableDefaultUI: false}"}, :markers  => { "data" => @json, "options" => {"custom_infowindow_class" => "yellow" }}) %>
+  <%= gmaps(:map_options => { :type => "HYBRID", :auto_adjust => true }, :markers  => { "data" => @json, "options" => {"custom_infowindow_class" => "yellow" }}) %>
 <% end %>
 
 <% content_for :scripts do %>

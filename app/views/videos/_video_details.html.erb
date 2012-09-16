@@ -1,7 +1,11 @@
 <% @fb_description = "" %>
 <div class="video_details">
 		<% if !@selected_video.title.blank? %>
-			<h3><%= @selected_video.title %></h3>
+			<% if @format_for_map != true %>
+				<h3><%= @selected_video.title %></h3>
+			<% else %>
+				<span class="map_info_window_link"><%= link_to @selected_video.title + ' (TV)', tv_path + '/' + @selected_video.url_title %></span>
+			<% end %>	
 		<% end %>	
 		<p>
 		<% line_string = "" %>
@@ -31,23 +35,25 @@
 				<% @fb_description = @fb_description + raw(line_string) %>
 		<% end %> 
 
-		<% line_string = "" %>
-		<span class="greyed_out">
-		<% if !@selected_video.ctry.blank? %>
-			<% if !line_string.blank? %> 
-				<% line_string = line_string + ", " %>
+		<% if @format_for_map != true %>
+			<% line_string = "" %>
+			<span class="greyed_out">
+			<% if !@selected_video.ctry.blank? %>
+				<% if !line_string.blank? %> 
+					<% line_string = line_string + ", " %>
+				<% end %>
+				<% line_string = line_string + t(:country) + ": #{@selected_video.ctry}" %>
 			<% end %>
-			<% line_string = line_string + t(:country) + ": #{@selected_video.ctry}" %>
-		<% end %>
-		<% if !@selected_video.author.blank? %>
-			<% if !line_string.blank? %> 
-				<% line_string = line_string + ", " %>
+			<% if !@selected_video.author.blank? %>
+				<% if !line_string.blank? %> 
+					<% line_string = line_string + ", " %>
+				<% end %>
+				<% line_string = line_string + t(:text) + ": #{@selected_video.author}" %>
 			<% end %>
-			<% line_string = line_string + t(:text) + ": #{@selected_video.author}" %>
-		<% end %>
-		<% if !line_string.blank? %> 
-				<%= raw line_string %><br>
-				<% @fb_description = @fb_description + ", " + raw(line_string) %>
+			<% if !line_string.blank? %> 
+					<%= raw line_string %><br>
+					<% @fb_description = @fb_description + ", " + raw(line_string) %>
+			<% end %> 
 		<% end %> 
 
 		<% if !@selected_video.categories.nil? %>
@@ -63,12 +69,13 @@
 			<%= category_string %></span><br>
 			<% @fb_description = @fb_description + ", " + t(:categories) + ': ' + category_string %>
 		<% end %>
-	</p>
-	
+	</p>	
 </div>
-<% if !@selected_video.web_page.blank? %>
-	<div class="button">
-		<%= link_to t(:online_watch), @selected_video.web_page, :target => '_blank', :class => "btn btn-small" %>
-	</div>
+<% if @format_for_map != true %>
+	<% if !@selected_video.web_page.blank? %>
+		<div class="button">
+			<%= link_to t(:online_watch), @selected_video.web_page, :target => '_blank', :class => "btn btn-small" %>
+		</div>
+	<% end %>
+	<%= render :partial => 'shared/map_button', :formats=>[:html], :handlers=>[:erb] %>
 <% end %>
-<%= render :partial => 'shared/map_button', :formats=>[:html], :handlers=>[:erb] %>

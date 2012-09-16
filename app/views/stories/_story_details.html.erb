@@ -9,7 +9,11 @@
 		<% if @format_for_map != true %>
 			<h3><%= @selected_article.title %></h3>
 		<% else %>
-			<span class="map_info_window_link"><%= link_to @selected_article.title, stories_path + '/' + @selected_article.categories[0].url_name + '/' + @selected_article.url_title %></span>
+			<% if @is_corporate == true %>
+				<span class="map_info_window_link"><%= link_to @selected_article.title + ' (Corporate)', corporate_path + '/' + @selected_article.url_title %></span>
+			<% else %>
+				<span class="map_info_window_link"><%= link_to @selected_article.title + ' (Stories)', stories_path + '/' + @selected_article.categories[0].url_name + '/' + @selected_article.url_title %></span>
+			<% end %>
 		<% end %>	
 	<% end %>	
 	<p>

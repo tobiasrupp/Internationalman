@@ -61,8 +61,10 @@ ActiveAdmin.register Video do
       f.input :source_url, :hint => t(:translation_field)
       f.input :copyright_cleared, :as => :radio
       f.input :web_page, :hint => t(:translation_field)
-      f.input :longitude
-      f.input :latitude
+      f.input :address
+      f.input :gmaps, :label => t(:geocoding_found)
+      f.input :lon, :label => "Longitude"
+      f.input :lat, :label => "Latitude"
     end
     f.buttons
   end
@@ -136,13 +138,21 @@ ActiveAdmin.register Video do
               th { 'Copyright Cleared' }
               td { video.copyright_cleared }
             end
+             tr do
+              th { 'Address' }
+              td { video.address }
+            end
+            tr do
+              th { 'Gmaps' }
+              td { video.gmaps }
+            end
             tr do
               th { 'Longitude' }
-              td { video.longitude }
+              td { video.lon }
             end
             tr do
               th { 'Latitude' }
-              td { video.latitude }
+              td { video.lat }
             end
             tr do
               th { 'Created At' }
