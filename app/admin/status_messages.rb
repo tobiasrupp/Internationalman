@@ -3,7 +3,7 @@ ActiveAdmin.register StatusMessage do
     column :id
     column :text
     column :updated_at
-    column :language
+    column "Lang.", :language
 		default_actions
   end
 

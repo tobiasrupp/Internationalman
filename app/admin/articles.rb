@@ -17,10 +17,17 @@ ActiveAdmin.register Article do
         image_tag(article.teaser_image_en.url(:thumb), :alt => "")
       end
     end
-    column :copyright_cleared
-    column :language
+    column "Copyr.", :copyright_cleared
+    column "Lang.", :language
 		default_actions
   end
+
+  filter :title, :as => :string
+  filter :short_title, :as => :string
+  filter :url_title, :as => :string
+  filter :copyright_cleared, :as => :select
+  filter :ctry, :as => :string, :label => "Country"
+  filter :categories_id, :as => :check_boxes, :collection => proc {Category.all}
 
   # language switch - edit page
   action_item :only => :edit do

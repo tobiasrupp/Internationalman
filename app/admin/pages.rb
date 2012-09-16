@@ -4,7 +4,7 @@ ActiveAdmin.register Page do
     column :title
     column :body
     column :page_type
-   	column :language
+    column "Lang.", :language
 		default_actions
   end
 

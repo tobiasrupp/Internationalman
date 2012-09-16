@@ -5,7 +5,7 @@ ActiveAdmin.register Category do
     column :url_name
     column :display_section
    	column :display_sequence
-   	column :language
+    column "Lang.", :language
 		default_actions
   end
 

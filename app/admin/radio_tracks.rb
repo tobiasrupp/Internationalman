@@ -8,8 +8,8 @@ ActiveAdmin.register RadioTrack do
   		radio_track.categories.map { |p| p.name }.join('<br />').html_safe
 		end
     column :broadcast_date
-    column :copyright_cleared
-    column :language
+    column "Copyr.", :copyright_cleared
+    column "Lang.", :language
 		default_actions
   end
 

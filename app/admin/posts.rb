@@ -13,7 +13,7 @@ ActiveAdmin.register Post do
     column "Image 2" do |post| 
       image_tag(post.image_2.url(:thumb), :alt => "")
     end
-    column :language
+    column "Lang.", :language
 		default_actions
   end
 
