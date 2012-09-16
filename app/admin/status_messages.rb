@@ -7,6 +7,8 @@ ActiveAdmin.register StatusMessage do
 		default_actions
   end
 
+  filter :text
+  
   # language switch - edit page
   action_item :only => :edit do
     link_to "Switch To German", edit_admin_status_message_de_path
