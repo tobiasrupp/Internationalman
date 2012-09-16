@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
-  def index
-  end
-
+  
+  before_filter :set_status_message
+  
   def show
     # add_locale_to_url
     

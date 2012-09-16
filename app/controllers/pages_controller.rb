@@ -1,5 +1,7 @@
 class PagesController < ApplicationController
   
+  before_filter :set_status_message
+  
   def map
     # centre map with coordinates 
     if params[:lon] and params[:lat]

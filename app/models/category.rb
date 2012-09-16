@@ -7,6 +7,7 @@ class Category < ActiveRecord::Base
   has_and_belongs_to_many :radio_tracks, :join_table => 'radio_track_categories', :order => "broadcast_date DESC"
   has_and_belongs_to_many :videos, :join_table => 'videos_categories', :order => "broadcast_date DESC"
   has_and_belongs_to_many :posts, :join_table => 'post_categories', :order => "updated_at DESC"
+
   validates :name, :presence => true, :length => {:minimum => 1, :maximum => 20}, :uniqueness => { :case_sensitive => false }
   validates :url_name, :presence => true, :length => {:minimum => 1, :maximum => 100}, :uniqueness => { :case_sensitive => false }, :format => { :with => /\A[a-z-]+\z/, 
     :message => "Use only lowercase letters and dashes" }

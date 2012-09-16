@@ -1,19 +1,18 @@
 class StoriesController < ApplicationController
 
+  before_filter :set_status_message
+
   def show_stories
     # route /stories
     
     add_locale_to_url
   	
     # get categories with stories (non-corporate)
-  	story_categories = Category.find(:all,                                  
-	                        :include => :articles,
-	                        :conditions =>"name <> 'Corporate'",
-	                        :order => "display_section ASC, display_sequence ASC")
-    if story_categories.count == 0
-      flash.now[:notice] = "Keine Kategorien gefunden."
-      return
-    end
+    story_categories = Category.find(:all,              
+                          :include => :articles,
+                          :conditions => "name <> 'Corporate'",
+                          :order => "display_section ASC, display_sequence ASC")
+    
     @story_categories = []
     for category in story_categories
       if !category.articles.empty?
@@ -26,10 +25,12 @@ class StoriesController < ApplicationController
     end
 
   	# get current story
-  	current_article = get_latest_story
+    current_article = Article.find(:first,
+                            :include => :categories,
+                            :order => "published_date DESC")
 
     # get stories of the same category
-    current_category = get_category_from_story(current_article)
+    current_category = current_article.categories.first
     if !current_category.nil?
     	@selected_category = current_category
       @stories = current_category.articles
@@ -46,14 +47,11 @@ class StoriesController < ApplicationController
   	end 
   	
   	# get categories with stories (non-corporate)
-  	story_categories = Category.find(:all,                                  
-	                        :include => :articles,
-	                        :conditions =>"name <> 'Corporate'",
-	                        :order => "display_section ASC, display_sequence ASC")
-    if story_categories.count == 0
-      flash.now[:notice] = "Keine Kategorien gefunden."
-      return
-    end
+    story_categories = Category.find(:all,              
+                          :include => :articles,
+                          :conditions => "name <> 'Corporate'",
+                          :order => "display_section ASC, display_sequence ASC")
+    
     @story_categories = []
     for category in story_categories
       if !category.articles.empty?
@@ -67,6 +65,7 @@ class StoriesController < ApplicationController
 
   	# get all stories of requested category sorted by published_date
   	current_category = Category.find_by_url_name(params[:category])
+
   	if !current_category.nil?
       @stories = current_category.articles
       @selected_category = current_category
@@ -78,7 +77,7 @@ class StoriesController < ApplicationController
       	end
         if @selected_article.nil?
           # requested story unknown
-          flash.now[:error] = "Story '#{params[:article_title]}' in Kategorie '#{params[:category]}' wurde nicht gefunden."
+          flash.now[:error] = "Story '#{params[:article_title]}' wurde nicht gefunden."
         end
       else	
       	@selected_article = @stories[0]
@@ -99,53 +98,27 @@ class StoriesController < ApplicationController
     @radio_tracks = RadioTrack.find(:all,
                   :include => :categories,
                   :order => "broadcast_date DESC")
+    updated = @radio_tracks.first.broadcast_date unless @radio_tracks.empty?
+    if updated > @updated
+      @updated = updated
+    end
     @videos = Video.find(:all,
                   :include => :categories,
                   :order => "broadcast_date DESC")
+    updated = @videos.first.broadcast_date unless @videos.empty?
+    if updated > @updated
+      @updated = updated
+    end
     @posts = Post.find(:all,
                 :include => :categories,
                 :conditions => "publication_state = 'Published'",
                 :order => "created_at DESC")
+    updated = @posts.first.created_at unless @posts.empty?
+    if updated > @updated
+      @updated = updated
+    end
     respond_to do |format|
       format.atom
     end
   end
-
-private
-
-  def get_latest_story
-    articles = Article.find(:all,
-                            :include => :categories,
-                            :order => "published_date DESC")
-    
-    current_article = Article.new
-    articles.each do |article|
-      article.categories.each do |category|
-        if category.name != "Corporate"
-          return article        
-        end     
-      end
-    end
-  end
-  def get_category_from_story(story)
-    if story.categories.nil?
-      return
-    end
-    if story.categories.count == 1
-      return story.categories[0]
-    else
-      # determine category priority
-      story_categories = Category.find(:all,                                  
-              :include => :articles,
-              :conditions =>"name <> 'Corporate'",
-              :order => "display_section ASC, display_sequence ASC")
-      story_categories.each do |category|  
-        story.categories.each do |story_category|
-          if category == story_category
-            return category
-          end
-        end
-      end
-    end  
-  end 
 end
