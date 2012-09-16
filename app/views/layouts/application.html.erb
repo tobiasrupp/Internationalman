@@ -10,7 +10,8 @@
     <%= yield(:fb_properties) %>
     <%= csrf_meta_tags %>
     <%= yield(:video_player_script) %>
-    <%= render 'layouts/shim' %>    
+    <%= render 'layouts/shim' %>  
+    <%= render 'shared/favicon' %>     
   </head>
   <body>
     <%= yield(:like_button_script) %>
