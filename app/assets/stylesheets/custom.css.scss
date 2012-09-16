@@ -493,11 +493,15 @@ footer {
   }
 }
 #map {
-  a:link {
+  a {
+    color: $gray_4;
     text-decoration: underline;
-    // color: $gray_2;
+  }
+  a:hover {
+    color: $gray_2;
+  }
 }
-}
+
 #map img { 
   max-width: none;
 }
