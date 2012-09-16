@@ -17,7 +17,7 @@ class MigrateLongitudeLatitude < ActiveRecord::Migration
   		if !radio_track.longitude.blank? and !radio_track.latitude.blank?
   			lon = radio_track.longitude.to_f
   			lat = radio_track.latitude.to_f
-  			radio_track.update_attributes!(:lon => lon, :lat => lat)
+  			radio_track.update_attributes!(:lon => lon, :lat => lat, :gmaps => true, :address => '')
   			count = count + 1
   		end
   	end
