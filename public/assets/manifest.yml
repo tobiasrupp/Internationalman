@@ -24,7 +24,7 @@ globe_map.jpg: globe_map-0566de6d2ff6909c6ac8a629ee4079f1.jpg
 globe_map2.png: globe_map2-3b3ed067b8a959bbfbb20d11d2ff1705.png
 globe_map_1.jpg: globe_map_1-ffbe7b7dcb35ca9c12a1f86e0296bf76.jpg
 globe_map_2.png: globe_map_2-1914e4c7300227863eb660634c711f9f.png
-globe_map_double.png: globe_map_double-e0daea809306ff99917f15016c918b72.png
+globe_map_double.png: globe_map_double-27d7ff5df9294b500e422746a3ddd9ff.png
 line_3.png: line_3-160742e7756df1bcd411dd3f209f8c98.png
 line_4.png: line_4-9c39f9a7311c9dff7ad271a941b84c61.png
 line_5.png: line_5-fc94fe298819e3dc088d4cf04cc51306.png
@@ -46,7 +46,7 @@ video.png: video-db29976442e62112d303a75c06cb05fc.png
 active_admin.js: active_admin-621e60e25e5266efa19ff931d960dc73.js
 application.js: application-ab8bc21d2d3da896424954aab2d8a192.js
 active_admin.css: active_admin-1055494fb5f6d49e87abdc46d72eae33.css
-application.css: application-b1958ce8c33fd4a8ad274dc8673179ac.css
+application.css: application-c781714a4a90abec5545ec528c1e597b.css
 active_admin/admin_notes_icon.png: active_admin/admin_notes_icon-04bd616ed9d1ff51d7a53422d4caf510.png
 active_admin/datepicker/datepicker-header-bg.png: active_admin/datepicker/datepicker-header-bg-5f452fde9ca93c1fe7e9d47f0a3ece6a.png
 active_admin/datepicker/datepicker-input-icon.png: active_admin/datepicker/datepicker-input-icon-876ae70b38bc880f91ce2315ed552260.png
