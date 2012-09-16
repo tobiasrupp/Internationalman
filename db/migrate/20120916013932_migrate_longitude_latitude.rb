@@ -10,14 +10,18 @@ class MigrateLongitudeLatitude < ActiveRecord::Migration
   end
 
   def up
+  	say "Copying any existing data to lat/lon fields."
   	RadioTrack.reset_column_information
+  	count = 0
   	RadioTrack.all.each do |radio_track|
   		if !radio_track.longitude.blank? and !radio_track.latitude.blank?
   			lon = radio_track.longitude.to_f
   			lat = radio_track.latitude.to_f
   			radio_track.update_attributes!(:lon => lon, :lat => lat)
+  			count = count + 1
   		end
   	end
+  	say "Rows migrated: #{count.to_s}"
   end
 
   def down
