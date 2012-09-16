@@ -18,8 +18,9 @@ class MigrateLongitudeLatitude < ActiveRecord::Migration
   			say "Row: #{radio_track.title}"
   			lon = radio_track.longitude.to_f
   			lat = radio_track.latitude.to_f
-  			radio_track.update_attributes!(:lon => lon, :lat => lat, :gmaps => true, :address => 'Bensheim, Germany')
-  			count = count + 1
+  			if radio_track.update_attributes!(:lon => lon, :lat => lat, :gmaps => true, :address => 'Bensheim, Deutschland')
+  				count = count + 1
+  			end
   		end
   	end
   	say "Rows migrated: #{count.to_s}"
