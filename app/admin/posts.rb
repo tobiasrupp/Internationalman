@@ -17,6 +17,13 @@ ActiveAdmin.register Post do
 		default_actions
   end
 
+  filter :title, :as => :string
+  filter :short_title, :as => :string
+  filter :url_title, :as => :string
+  filter :publication_state, :as => :select, :collection => ["Unpublished", "Published"]
+  filter :ctry, :as => :string, :label => "Country"
+  filter :categories_id, :as => :check_boxes, :collection => proc {Category.all}
+
   # language switch - edit page
   action_item :only => :edit do
     link_to "Switch To German", edit_admin_post_de_path

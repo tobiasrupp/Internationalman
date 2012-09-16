@@ -9,6 +9,9 @@ ActiveAdmin.register Category do
 		default_actions
   end
 
+  filter :name, :as => :string
+  filter :url_name, :as => :string
+
   # language switch - edit page
   action_item :only => :edit do
     link_to "Switch To German", edit_admin_category_de_path

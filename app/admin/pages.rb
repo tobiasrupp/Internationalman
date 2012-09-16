@@ -8,6 +8,8 @@ ActiveAdmin.register Page do
 		default_actions
   end
 
+  filter :body
+
   # language switch - edit page
   action_item :only => :edit do
     link_to "Switch To German", edit_admin_page_de_path

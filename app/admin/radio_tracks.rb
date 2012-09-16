@@ -13,6 +13,13 @@ ActiveAdmin.register RadioTrack do
 		default_actions
   end
 
+  filter :title, :as => :string
+  filter :short_title, :as => :string
+  filter :url_title, :as => :string
+  filter :copyright_cleared, :as => :select
+  filter :ctry, :as => :string, :label => "Country"
+  filter :categories_id, :as => :check_boxes, :collection => proc {Category.all}
+  
   # language switch - edit page
   action_item :only => :edit do
     link_to "Switch To German", edit_admin_radio_track_de_path
