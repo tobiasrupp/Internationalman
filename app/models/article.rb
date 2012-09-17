@@ -7,12 +7,12 @@ class Article < ActiveRecord::Base
   has_and_belongs_to_many :categories, :join_table => 'article_categories', :order => 'display_section ASC, display_sequence ASC'
   attr_accessible :teaser_image
   scope :corporate_articles, joins(:categories).where("categories.name = 'Corporate'")
-  has_attached_file :teaser_image, :styles => { :medium => "430x304>", :thumb => "100x100>" }, :convert_options => { :medium => "-quality 90", :thumb => "-quality 90"},
+  has_attached_file :teaser_image, :styles => { :medium => "430x304", :thumb => "100x100>" }, :convert_options => { :medium => "-quality 90", :thumb => "-quality 90"},
     :storage => :s3,
     :path => "articles/:attachment/:id/:style.:extension",
     :s3_credentials => "#{Rails.root}/config/aws.yml"
    
-  has_attached_file :teaser_image_en, :styles => { :medium => "430x304>", :thumb => "100x100>" }, :convert_options => { :medium => "-quality 90", :thumb => "-quality 90"},
+  has_attached_file :teaser_image_en, :styles => { :medium => "430x304", :thumb => "100x100>" }, :convert_options => { :medium => "-quality 90", :thumb => "-quality 90"},
     :storage => :s3,
     :path => "articles/:attachment/:id/:style.:extension",
     :s3_credentials => "#{Rails.root}/config/aws.yml"

@@ -109,7 +109,13 @@
                 </ul>
               </div>
             </div>
-            <% if request.params["controller"] == "stories" or request.params["controller"] == "radio_tracks" %>
+            <% if request.params["controller"] == "stories" %>
+              <% if long_titles?(@stories) %>
+                <% column_width = 4 %>
+              <% else %>
+                <% column_width = 5 %>
+              <% end %> 
+            <% elsif request.params["controller"] == "radio_tracks" %>
               <% column_width = 5 %>
             <% else %>
               <% column_width = 6 %>

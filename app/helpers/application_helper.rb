@@ -16,15 +16,16 @@ module ApplicationHelper
     url = map_path + '?lat=' + lat + '&lon=' + lon
     return url
   end
-  # def get_request_url_with_changed_locale(locale)            
-  #   new_url = request.fullpath    
-  #   new_locale_url = new_us_url = new_jp_url = new_url           
-  #   if new_url == "/"          
-  #     new_locale_url.sub!(/\//,locale)           
-  #   elsif (new_url =~/\/en/) == 0        
-  #     new_us_url.sub!(/\/en/,locale)        
-  #   elsif (new_url =~/\/de/) == 0          
-  #     new_jp_url.sub!(/\/de/,locale)       
-  #   end     
-  # end
+  def long_titles?(items)
+    if items.nil? or items.count == 0
+      return false
+    end
+    items.each do |item|
+      length = item.short_title.size
+      if length > 28
+        return true
+      end
+    end
+    return false 
+  end 
 end
