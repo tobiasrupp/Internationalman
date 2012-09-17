@@ -19,7 +19,11 @@
 	<p>
 	<% line_string = "" %>
 	<% if !@selected_article.published_in.blank? %>
-		<% line_string = t(:published_in) + " <em>#{ @selected_article.published_in }</em>" %>
+		<% if I18n.locale == :de %>
+			<% line_string = t(:published_in) + " &bdquo;#{ @selected_article.published_in }&rdquo;" %>
+		<% else %>
+			<% line_string = t(:published_in) + " &ldquo;#{ @selected_article.published_in }&rdquo;" %>
+		<% end %>	
 	<% end %>
 	<% if !@selected_article.article_type.blank? %>
 		<% if !line_string.blank? %> 
