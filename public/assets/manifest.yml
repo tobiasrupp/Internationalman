@@ -7,6 +7,7 @@ cinema.png: cinema-ca4755220c66aa7a2b4afccc8ac4d2ca.png
 clock1.png: clock1-3dd5e078a039d03170453b96fea92f63.png
 clock2.png: clock2-59736894090f4a2935e4ca4b928c986f.png
 clock3.png: clock3-86a7ad3f8547b1429fa999eb085a3937.png
+clock4.png: clock4-5e333e62a2a15dd164e5a5df7e1a2c97.png
 contract.png: contract-c133953202d5c0dc1f4f232a86926b04.png
 factory.png: factory-84add607e434ebb378929ff108da88d0.png
 favicon.ico: favicon-4b0f575cd07a5f330026251136aba7ee.ico
@@ -18,6 +19,7 @@ glob5.gif: glob5-cd983a51522ee5aeb0b63999ca7cada0.gif
 glob6.gif: glob6-cd983a51522ee5aeb0b63999ca7cada0.gif
 glob_grey.gif: glob_grey-3616f1f695a24e3751215b892048af6c.gif
 globe_btn.png: globe_btn-a66a9a704d885173d667ddf0539448f7.png
+globe_logo.png: globe_logo-fa149acf9be4716416e55fbfa05cd18e.png
 globe_logo_1.png: globe_logo_1-6a00b077a118a46452b1a27c551782a1.png
 globe_logo_small.png: globe_logo_small-e9e09a7d6829c928a0604e325bdf9db5.png
 globe_map.jpg: globe_map-0566de6d2ff6909c6ac8a629ee4079f1.jpg
@@ -46,7 +48,7 @@ video.png: video-db29976442e62112d303a75c06cb05fc.png
 active_admin.js: active_admin-621e60e25e5266efa19ff931d960dc73.js
 application.js: application-ab8bc21d2d3da896424954aab2d8a192.js
 active_admin.css: active_admin-1055494fb5f6d49e87abdc46d72eae33.css
-application.css: application-f46249aa8c89cd01a3d75903d434271b.css
+application.css: application-d59a16561165224bef43a3570327ad53.css
 active_admin/admin_notes_icon.png: active_admin/admin_notes_icon-04bd616ed9d1ff51d7a53422d4caf510.png
 active_admin/datepicker/datepicker-header-bg.png: active_admin/datepicker/datepicker-header-bg-5f452fde9ca93c1fe7e9d47f0a3ece6a.png
 active_admin/datepicker/datepicker-input-icon.png: active_admin/datepicker/datepicker-input-icon-876ae70b38bc880f91ce2315ed552260.png
