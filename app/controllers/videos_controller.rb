@@ -18,6 +18,7 @@ class VideosController < ApplicationController
     	@videos.each do |video|
     		if video.url_title == params[:video_title]
     			@selected_video = video
+          @show_fb_like_button = true
     		end	
     	end
       if @selected_video.nil?

@@ -19,6 +19,7 @@ class PostsController < ApplicationController
     	@posts.each do |post|
     		if post.url_title == params[:post_title]
     			@selected_post = post
+          @show_fb_like_button = true
     		end	
     	end
       if @selected_post.nil?

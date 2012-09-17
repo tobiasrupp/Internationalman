@@ -18,6 +18,7 @@ class RadioTracksController < ApplicationController
     	@radio_tracks.each do |track|
     		if track.url_title == params[:track_title]
     			@selected_track = track
+          @show_fb_like_button = true
     		end	
     	end
       if @selected_track.nil?

@@ -19,6 +19,7 @@ class CorporateArticlesController < ApplicationController
     	@stories.each do |story|
     		if story.url_title == params[:article_title]
     			@selected_article = story
+          @show_fb_like_button = true
     		end	
     	end
       if @selected_article.nil?
