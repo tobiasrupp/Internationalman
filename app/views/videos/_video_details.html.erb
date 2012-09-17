@@ -10,7 +10,11 @@
 		<p>
 		<% line_string = "" %>
 		<% if !@selected_video.broadcaster.blank? %>
-			<% line_string = t(:broadcast_on) + " <em>#{ @selected_video.broadcaster }</em>" %>
+			<% if I18n.locale == :de %>
+				<% line_string = t(:broadcast_on) + " &bdquo;#{ @selected_video.broadcaster }&rdquo;" %>
+			<% else %>
+				<% line_string = t(:broadcast_on) + " &ldquo;#{ @selected_video.broadcaster }&rdquo;" %>
+			<% end %>
 		<% end %>
 		<% if !@selected_video.broadcast_date.blank? %>
 			<% if !line_string.blank? %> 
