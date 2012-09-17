@@ -54,7 +54,7 @@
 			<% line_string = line_string + t(:text) + ": #{@selected_track.author}" %>
 		<% end %>
 		<% if !line_string.blank? %> 
-				<%= raw line_string %>
+				<%= raw line_string %><br>
 				<% @fb_description = @fb_description + ", " + raw(line_string) %>
 		<% end %> 
 	<% end %> 

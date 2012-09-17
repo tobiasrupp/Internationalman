@@ -62,7 +62,7 @@
 			<% line_string = line_string + t(:photos) + ": #{@selected_article.photos_by}" %>
 		<% end %>
 		<% if !line_string.blank? %> 
-				<%= raw line_string %>
+				<%= raw line_string %><br>
 				<% @fb_description = @fb_description + ", " + raw(line_string) %>
 		<% end %> 
 	<% end %> 
