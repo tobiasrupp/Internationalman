@@ -33,19 +33,19 @@
             <div class="span line_box">
               <%= render 'layouts/nav_col_1' %>
               <div class="span2.5" id="navi_2">
-                <ul class="nav nav-list"> 
-                  <% if !@story_categories.nil? %>
-                    <% for category in @story_categories %>
-                      <% if category == @selected_category %>
-                        <li class="active">
-                      <% else %>
-                        <li>
-                      <% end  %>
-                        <%= link_to category.name, stories_path + '/' + category.url_name %>
-                      </li>
-                    <% end %>
+              <% if !@story_categories.nil? %>
+                <ul class="nav nav-list">   
+                  <% for category in @story_categories %>
+                    <% if category == @selected_category %>
+                      <li class="active">
+                    <% else %>
+                      <li>
+                    <% end  %>
+                      <%= link_to category.name, stories_path + '/' + category.url_name %>
+                    </li>
                   <% end %>
                 </ul>
+              <% end %>
               </div>
               <div class="span1.5" id="navi_3">
                 <ul class="nav nav-list">

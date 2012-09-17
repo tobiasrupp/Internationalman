@@ -398,7 +398,7 @@ h3 {
 
 .post_details {
   .post_body {
-    float: left;
+    clear: left;
     a {
     color: $gray_4;
     text-decoration: underline;
