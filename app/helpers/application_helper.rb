@@ -22,7 +22,7 @@ module ApplicationHelper
     end
     items.each do |item|
       length = item.short_title.size
-      if length > 28
+      if length > 25
         return true
       end
     end
