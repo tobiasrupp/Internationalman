@@ -1,79 +1,80 @@
 <% @fb_description = "" %>
 <div class="video_details">
-		<% if !@selected_video.title.blank? %>
-			<% if @format_for_map != true %>
-				<h3><%= @selected_video.title %></h3>
-			<% else %>
-				<span class="map_info_window_link"><%= link_to @selected_video.title + ' (TV)', tv_path + '/' + @selected_video.url_title %></span>
-			<% end %>	
+	<% if !@selected_video.title.blank? %>
+		<% if @format_for_map != true %>
+			<h3><%= @selected_video.title %></h3>
+		<% else %>
+			<span class="map_info_window_link"><%= link_to @selected_video.title + ' (TV)', tv_path + '/' + @selected_video.url_title %></span><br>
 		<% end %>	
-		<p>
-		<% line_string = "" %>
-		<% if !@selected_video.broadcaster.blank? %>
+	<% end %>	
+	<% line_string = "" %>
+	<% if !@selected_video.broadcaster.blank? %>
+		<% if I18n.locale == :de %>
+			<% line_string = t(:broadcast_on) + " &bdquo;#{ @selected_video.broadcaster }&rdquo;" %>
+		<% else %>
+			<% line_string = t(:broadcast_on) + " &ldquo;#{ @selected_video.broadcaster }&rdquo;" %>
+		<% end %>
+	<% end %>
+	<% if !@selected_video.broadcast_date.blank? %>
+		<% if !line_string.blank? %> 
 			<% if I18n.locale == :de %>
-				<% line_string = t(:broadcast_on) + " &bdquo;#{ @selected_video.broadcaster }&rdquo;" %>
+				<% line_string = line_string + " am " %>
 			<% else %>
-				<% line_string = t(:broadcast_on) + " &ldquo;#{ @selected_video.broadcaster }&rdquo;" %>
+				<% line_string = line_string + ", " %>			
 			<% end %>
-		<% end %>
-		<% if !@selected_video.broadcast_date.blank? %>
-			<% if !line_string.blank? %> 
-				<% if I18n.locale == :de %>
-					<% line_string = line_string + " am " %>
-				<% else %>
-					<% line_string = line_string + ", " %>			
-				<% end %>
-			<% else %>
-				<% line_string = t(:broadcast_on_day) + " " %>
-			<% end %> 
-			<% line_string = line_string + "#{l @selected_video.broadcast_date, :format => :long}" %>
-		<% end %>
-		<% if !@selected_video.duration.blank? %>
+		<% else %>
+			<% line_string = t(:broadcast_on_day) + " " %>
+		<% end %> 
+		<% line_string = line_string + "#{l @selected_video.broadcast_date, :format => :long}" %>
+	<% end %>
+	<% if !@selected_video.duration.blank? %>
+		<% if !line_string.blank? %> 
+			<% line_string = line_string + ", " %>
+		<% end %> 
+		<% line_string = line_string + t(:duration) + " #{ @selected_video.duration } Min."  %>
+	<% end %>
+	<% if !line_string.blank? %> 
+			<%= raw line_string %><br>
+			<% @fb_description = @fb_description + raw(line_string) %>
+	<% end %> 
+
+	<% if @format_for_map != true %>
+		<% line_string = "" %>
+	<div class="greyed_out">
+		<% if !@selected_video.ctry.blank? %>
 			<% if !line_string.blank? %> 
 				<% line_string = line_string + ", " %>
-			<% end %> 
-			<% line_string = line_string + t(:duration) + " #{ @selected_video.duration } Min."  %>
+			<% end %>
+			<% line_string = line_string + t(:country) + ": #{@selected_video.ctry}" %>
+		<% end %>
+		<% if !@selected_video.author.blank? %>
+			<% if !line_string.blank? %> 
+				<% line_string = line_string + ", " %>
+			<% end %>
+			<% line_string = line_string + t(:text) + ": #{@selected_video.author}" %>
 		<% end %>
 		<% if !line_string.blank? %> 
 				<%= raw line_string %><br>
-				<% @fb_description = @fb_description + raw(line_string) %>
+				<% @fb_description = @fb_description + ", " + raw(line_string) %>
 		<% end %> 
+	<% end %> 
 
-		<% if @format_for_map != true %>
-			<% line_string = "" %>
-			<span class="greyed_out">
-			<% if !@selected_video.ctry.blank? %>
-				<% if !line_string.blank? %> 
-					<% line_string = line_string + ", " %>
-				<% end %>
-				<% line_string = line_string + t(:country) + ": #{@selected_video.ctry}" %>
+	<% if !@selected_video.categories.nil? %>
+		<% category_string = "" %>
+		<%= t(:categories) %>: 
+		<% @selected_video.categories.each do |category| %> 
+			<% if category_string.blank? %>
+				<% category_string = category.name %>
+			<% else %>
+				<% category_string = category_string + ", " + category.name %>
 			<% end %>
-			<% if !@selected_video.author.blank? %>
-				<% if !line_string.blank? %> 
-					<% line_string = line_string + ", " %>
-				<% end %>
-				<% line_string = line_string + t(:text) + ": #{@selected_video.author}" %>
-			<% end %>
-			<% if !line_string.blank? %> 
-					<%= raw line_string %><br>
-					<% @fb_description = @fb_description + ", " + raw(line_string) %>
-			<% end %> 
-		<% end %> 
-
-		<% if !@selected_video.categories.nil? %>
-			<% category_string = "" %>
-			<%= t(:categories) %>: 
-			<% @selected_video.categories.each do |category| %> 
-				<% if category_string.blank? %>
-					<% category_string = category.name %>
-				<% else %>
-					<% category_string = category_string + ", " + category.name %>
-				<% end %>
-			<% end %>
-			<%= category_string %></span><br>
-			<% @fb_description = @fb_description + ", " + t(:categories) + ': ' + category_string %>
 		<% end %>
-	</p>	
+		<%= category_string %><br>
+		<% @fb_description = @fb_description + ", " + t(:categories) + ': ' + category_string %>
+	<% end %>
+	<% if @format_for_map != true %>
+	</div>
+	<% end %>
 </div>
 <% if @format_for_map != true %>
 	<% if !@selected_video.web_page.blank? %>

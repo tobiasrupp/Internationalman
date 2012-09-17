@@ -7,16 +7,15 @@
 			<span class="map_info_window_link"><%= link_to @selected_post.title + ' (Blog)', blog_path + '/' + @selected_post.url_title %></span>
 		<% end %>
 	<% end %>	
-	<p>
-		<% line_string = "" %>
-		<% if !@selected_post.updated_at.blank? %>
-			<% if !line_string.blank? %> 
-				<% line_string = line_string + ", " %>
-			<% end %>
-			<% line_string = line_string + "#{l @selected_post.updated_at, :format => :long}" %>
+	<% line_string = "" %>
+	<% if !@selected_post.updated_at.blank? %>
+		<% if !line_string.blank? %> 
+			<% line_string = line_string + ", " %>
 		<% end %>
+		<% line_string = line_string + "#{l @selected_post.updated_at, :format => :long}" %>
+	<% end %>
 
-		<span class="greyed_out">
+	<div class="greyed_out">
 		<% if !@selected_post.ctry.blank? %>
 			<% if !line_string.blank? %> 
 				<% line_string = line_string + ", " %>
@@ -44,10 +43,10 @@
 					<% category_string = category_string + ", " + category.name %>
 				<% end %>
 			<% end %>
-			<%= category_string %></span><br>
+			<%= category_string %>
 			<% @fb_description = @fb_description + ", " + t(:categories) + ': ' + category_string %>
 		<% end %>
-	</p>
+	</div>
 	<% if @format_for_map != true %>
 		<%= render :partial => 'shared/map_button', :formats=>[:html], :handlers=>[:erb] %>
 		<div class="post_body">
@@ -59,9 +58,9 @@
 						<% image_size = split_arr[1].parameterize %>
 						<% case display_option %>
 							<% when "Display in Section 1 left" %>
-								<img src="<%= @selected_post.image_1.url(image_size) %>" alt="" class="thumbnail" style="float: left; margin-right: 0.8em; margin-bottom: 0.3em">
+								<img src="<%= @selected_post.image_1.url(image_size) %>" alt="" class="thumbnail" style="float: left; margin-right: 0.8em; margin-bottom: 0.8em;">
 							<% when "Display in Section 1 right" %>
-								<img src="<%= @selected_post.image_1.url(image_size) %>" alt="" class="thumbnail" style="float: right; margin-left: 0.8em; margin-bottom: 0.3em">
+								<img src="<%= @selected_post.image_1.url(image_size) %>" alt="" class="thumbnail" style="float: right; margin-left: 0.8em; margin-bottom: 0.8em;">
 						<% end %>		
 					<% end %>	
 				<% end %>				
@@ -74,9 +73,9 @@
 						<% image_size = split_arr[1].parameterize %>
 						<% case display_option %>
 							<% when "Display in Section 1 left" %>
-								<img src="<%= @selected_post.image_2.url(image_size) %>" alt="" class="thumbnail" style="float: left; margin-right: 0.8em; margin-bottom: 0.3em">
+								<img src="<%= @selected_post.image_2.url(image_size) %>" alt="" class="thumbnail" style="float: left; margin-right: 0.8em; margin-bottom: 0.8em;">
 							<% when "Display in Section 1 right" %>
-								<img src="<%= @selected_post.image_2.url(image_size) %>" alt="" class="thumbnail" style="float: right; margin-left: 0.8em; margin-bottom: 0.3em">
+								<img src="<%= @selected_post.image_2.url(image_size) %>" alt="" class="thumbnail" style="float: right; margin-left: 0.8em; margin-bottom: 0.8em;">
 						<% end %>		
 					<% end %>	
 				<% end %>				
@@ -93,9 +92,9 @@
 						<% image_size = split_arr[1].parameterize %>
 						<% case display_option %>
 							<% when "Display in Section 2 left" %>
-								<img src="<%= @selected_post.image_1.url(image_size) %>" alt="" class="thumbnail" style="float: left; margin-right: 0.8em; margin-bottom: 0.3em">
+								<img src="<%= @selected_post.image_1.url(image_size) %>" alt="" class="thumbnail" style="float: left; margin-right: 0.8em; margin-bottom: 0.8em;">
 							<% when "Display in Section 2 right" %>
-								<img src="<%= @selected_post.image_1.url(image_size) %>" alt="" class="thumbnail" style="float: right; margin-left: 0.8em; margin-bottom: 0.3em">
+								<img src="<%= @selected_post.image_1.url(image_size) %>" alt="" class="thumbnail" style="float: right; margin-left: 0.8em; margin-bottom: 0.8em;">
 						<% end %>		
 					<% end %>		
 				<% end %>	
@@ -108,9 +107,9 @@
 						<% image_size = split_arr[1].parameterize %>
 						<% case display_option %>
 							<% when "Display in Section 2 left" %>
-								<img src="<%= @selected_post.image_2.url(image_size) %>" alt="" class="thumbnail" style="float: left; margin-right: 0.8em; margin-bottom: 0.3em">
+								<img src="<%= @selected_post.image_2.url(image_size) %>" alt="" class="thumbnail" style="float: left; margin-right: 0.8em; margin-bottom: 0.8em;">
 							<% when "Display in Section 2 right" %>
-								<img src="<%= @selected_post.image_2.url(image_size) %>" alt="" class="thumbnail" style="float: right; margin-left: 0.8em; margin-bottom: 0.3em">
+								<img src="<%= @selected_post.image_2.url(image_size) %>" alt="" class="thumbnail" style="float: right; margin-left: 0.8em; margin-bottom: 0.8em;">
 						<% end %>	
 					<% end %>			
 				<% end %>		

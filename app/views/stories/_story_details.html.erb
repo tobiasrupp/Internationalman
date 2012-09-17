@@ -10,13 +10,12 @@
 			<h3><%= @selected_article.title %></h3>
 		<% else %>
 			<% if @is_corporate == true %>
-				<span class="map_info_window_link"><%= link_to @selected_article.title + ' (Corporate)', corporate_path + '/' + @selected_article.url_title %></span>
+				<span class="map_info_window_link"><%= link_to @selected_article.title + ' (Corporate)', corporate_path + '/' + @selected_article.url_title %></span><br>
 			<% else %>
-				<span class="map_info_window_link"><%= link_to @selected_article.title + ' (Stories)', stories_path + '/' + @selected_article.categories[0].url_name + '/' + @selected_article.url_title %></span>
+				<span class="map_info_window_link"><%= link_to @selected_article.title + ' (Stories)', stories_path + '/' + @selected_article.categories[0].url_name + '/' + @selected_article.url_title %></span><br>
 			<% end %>
 		<% end %>	
 	<% end %>	
-	<p>
 	<% line_string = "" %>
 	<% if !@selected_article.published_in.blank? %>
 		<% if I18n.locale == :de %>
@@ -43,7 +42,7 @@
 	<% end %> 
 	<% if @format_for_map != true %>
 		<% line_string = "" %>
-		<span class="greyed_out">
+		<div class="greyed_out">
 		<% if !@selected_article.ctry.blank? %>
 			<% if !line_string.blank? %> 
 				<% line_string = line_string + ", " %>
@@ -63,10 +62,10 @@
 			<% line_string = line_string + t(:photos) + ": #{@selected_article.photos_by}" %>
 		<% end %>
 		<% if !line_string.blank? %> 
-				<%= raw line_string %><br>
+				<%= raw line_string %>
 				<% @fb_description = @fb_description + ", " + raw(line_string) %>
 		<% end %> 
-	<% end %>
+	<% end %> 
 	<% if !@selected_article.categories.nil? %>
 		<% category_string = "" %>
 		<%= t(:categories) %>: 
@@ -77,9 +76,12 @@
 							<% category_string = category_string + ", " + category.name %>
 						<% end %>
 					<% end %>
-					<%= category_string %></span>
+					<%= category_string %>
 					<% @fb_description = @fb_description + ", " + t(:categories) + ': ' + category_string %>
-	<% end %></p>
+	<% end %>
+	<% if @format_for_map != true %>
+		</div>
+	<% end %>
 </div>
 <% if @format_for_map != true %>
 	<% if @selected_article.copyright_cleared == true %>

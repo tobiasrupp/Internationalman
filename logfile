@@ -443,3 +443,10 @@ ERROR:  syntax error at or near "NULL" at character 246
 STATEMENT:  SELECT COUNT(*) FROM "categories" INNER JOIN "article_categories" ON "article_categories"."category_id" = "categories"."id" INNER JOIN "articles" ON "articles"."id" = "article_categories"."article_id" WHERE (name <> 'Corporate' and articles NOT NULL)
 ERROR:  missing FROM-clause entry for table "self" at character 233
 STATEMENT:  SELECT COUNT(*) FROM "categories" INNER JOIN "article_categories" ON "article_categories"."category_id" = "categories"."id" INNER JOIN "articles" ON "articles"."id" = "article_categories"."article_id" WHERE (name <> 'Corporate' and self.articles IS NOT NULL)
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+LOG:  database system was shut down at 2012-09-17 03:17:59 BST
+LOG:  autovacuum launcher started
+LOG:  database system is ready to accept connections
