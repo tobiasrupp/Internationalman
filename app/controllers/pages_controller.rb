@@ -38,7 +38,14 @@ class PagesController < ApplicationController
       marker.infowindow render_to_string(:partial => "/stories/story_details")
       if @is_corporate == true
         marker.title   article.title + ' (Corporate)'
-        marker.json({ :id => article.id, "picture" => '/assets/factory.png', "width" => 32, "height" => 37, "shadow_picture" => "http://maps.google.com/intl/en_us/mapfiles/ms/micons/msmarker.shadow.png", "shadow_width" => "110", "shadow_height" => "110", "shadow_anchor" => [15, 33] })
+              marker.json({ :id => article.id, "picture" => "http://maps.google.com/mapfiles/marker_grey.png",
+               "width" => 20,
+               "height" => 34,
+               "shadow_picture" => "http://maps.google.com/mapfiles/shadow50.png" ,
+               "shadow_width" => "37",
+               "shadow_height" => "34",
+               "shadow_anchor" => [10, 34]
+              })
       else
         marker.title   article.title + ' (Stories)'
         marker.json({ :id => article.id })

@@ -22,14 +22,14 @@ class Video < ActiveRecord::Base
 
   def gmaps4rails_marker_picture
   {
-   "picture" => "/assets/cinema.png",
-   "width" => 32,
-   "height" => 37,
+   "picture" => "http://maps.google.com/mapfiles/marker_yellow.png",
+   "width" => 20,
+   "height" => 34,
    # "marker_anchor" => [ 5, 10],
-   "shadow_picture" => "http://maps.google.com/intl/en_us/mapfiles/ms/micons/msmarker.shadow.png" ,
-   "shadow_width" => "110",
-   "shadow_height" => "110",
-   "shadow_anchor" => [15, 33],
+   "shadow_picture" => "http://maps.google.com/mapfiles/shadow50.png" ,
+   "shadow_width" => "37",
+   "shadow_height" => "34",
+   "shadow_anchor" => [10, 34],
   }
   end
 end
