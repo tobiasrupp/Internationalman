@@ -11,14 +11,18 @@ class PagesController < ApplicationController
     end  
     
     @articles = Article.find(:all,
-                :include => :categories)
+                :include => :categories,
+                :order => "published_date DESC")
     @radio_tracks = RadioTrack.find(:all,
-                :include => :categories)
+                :include => :categories,
+                :order => "broadcast_date DESC")
     @videos = Video.find(:all,
-                :include => :categories)
+                :include => :categories,
+                :order => "broadcast_date DESC")
     @posts = Post.find(:all,
                 :include => :categories,
-                :conditions => "publication_state = 'Published'")
+                :conditions => "publication_state = 'Published'",
+                :order => "created_at DESC")
 
     @format_for_map = true
 

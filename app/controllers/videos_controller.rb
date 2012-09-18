@@ -19,6 +19,7 @@ class VideosController < ApplicationController
     		if video.url_title == params[:video_title]
     			@selected_video = video
           @show_fb_like_button = true
+          break
     		end	
     	end
       if @selected_video.nil?
@@ -28,5 +29,12 @@ class VideosController < ApplicationController
     else	
     	@selected_video = @videos[0]
   	end
+    if long_titles?(@videos) 
+      @content_section_column_width = 5
+      @video_viewer_width = 400
+    else
+      @content_section_column_width = 6
+      @video_viewer_width = 450
+    end
   end
 end

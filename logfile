@@ -450,3 +450,12 @@ LOG:  database system is shut down
 LOG:  database system was shut down at 2012-09-17 03:17:59 BST
 LOG:  autovacuum launcher started
 LOG:  database system is ready to accept connections
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+LOG:  database system was shut down at 2012-09-17 23:00:33 BST
+LOG:  autovacuum launcher started
+LOG:  database system is ready to accept connections
+FATAL:  lock file "postmaster.pid" already exists
+HINT:  Is another postmaster (PID 1029) running in data directory "/usr/local/var/postgres"?

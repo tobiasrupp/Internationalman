@@ -29,5 +29,10 @@ class CorporateArticlesController < ApplicationController
     else	
     	@selected_article = @stories[0]
   	end
+    if long_titles?(@stories) 
+      @content_section_column_width = 5
+    else
+      @content_section_column_width = 6
+    end
   end
 end

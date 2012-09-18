@@ -1,9 +1,9 @@
 <% provide(:title, t(:map)) %>
 
 <% if !@lon.blank? and !@lat.blank? %>
-  <%= gmaps(:map_options => { :type => "HYBRID", :language => I18n.locale, :hl => I18n.locale, :region => I18n.locale, :center_longitude => @lon,  :center_latitude => @lat, :zoom => @zoom, :auto_adjust => false ,"detect_location" => false, "center_on_user" => false, :raw => "{disableDefaultUI: false}"}, :markers  => { "data" => @json, "options" => {"custom_infowindow_class" => "yellow", :do_clustering => true }}) %>
+  <%= gmaps(:map_options => { :type => "HYBRID", :language => I18n.locale, :hl => I18n.locale, :region => I18n.locale, :center_longitude => @lon,  :center_latitude => @lat, :zoom => @zoom, :auto_adjust => false ,"detect_location" => false, "center_on_user" => false, :raw => "{disableDefaultUI: false}"}, :markers  => { "data" => @json, "options" => {"custom_infowindow_class" => "yellow", :do_clustering => true, :randomize => true, :max_random_distance => 500 }}) %>
 <% else %>
-  <%= gmaps(:map_options => { :type => "HYBRID", :language => I18n.locale, :hl => I18n.locale, :region => I18n.locale, :auto_adjust => true }, :markers  => { "data" => @json, "options" => {"custom_infowindow_class" => "yellow", :do_clustering => true }}) %>
+  <%= gmaps(:map_options => { :type => "HYBRID", :language => I18n.locale, :hl => I18n.locale, :region => I18n.locale, :auto_adjust => true }, :markers  => { "data" => @json, "options" => {"custom_infowindow_class" => "yellow", :do_clustering => true, :randomize => true, :max_random_distance => 500 }}) %>
 <% end %>
 
 <% content_for :scripts do %>
@@ -17,7 +17,7 @@ Gmaps.map.infobox = function(boxText) {
     ,zIndex: null
     ,boxStyle: { 
       background: "url('http://google-maps-utility-library-v3.googlecode.com/svn/tags/infobox/1.1.5/examples/tipbox.gif') no-repeat"
-      ,opacity: 1
+      ,opacity: 0.75
       ,width: "280px"
        }
     ,closeBoxMargin: "10px 2px 2px 2px"

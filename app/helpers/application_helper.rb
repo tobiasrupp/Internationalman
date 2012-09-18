@@ -16,16 +16,4 @@ module ApplicationHelper
     url = map_path + '?lat=' + lat + '&lon=' + lon
     return url
   end
-  def long_titles?(items)
-    if items.nil? or items.count == 0
-      return false
-    end
-    items.each do |item|
-      length = item.short_title.size
-      if length > 25
-        return true
-      end
-    end
-    return false 
-  end 
 end

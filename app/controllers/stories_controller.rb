@@ -36,6 +36,11 @@ class StoriesController < ApplicationController
       @stories = current_category.articles
     end
     @selected_article = current_article  
+    if long_titles?(@stories) 
+      @content_section_column_width = 4
+    else
+      @content_section_column_width = 5
+    end
   end
 
   def show_stories_by_category
@@ -86,6 +91,11 @@ class StoriesController < ApplicationController
     else  
     	# category unknown
     	flash.now[:error] = "Kategorie '#{params[:category]}' wurde nicht gefunden."
+    end
+    if long_titles?(@stories) 
+      @content_section_column_width = 4
+    else
+      @content_section_column_width = 5
     end
   	render action: "show_stories"
   end

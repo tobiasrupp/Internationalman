@@ -109,40 +109,8 @@
                 </ul>
               </div>
             </div>
-            <% case request.params["controller"] %>
-              <% when "stories" %>
-                <% if long_titles?(@stories) %>
-                  <% column_width = 4 %>
-                <% else %>
-                  <% column_width = 5 %>
-                <% end %> 
-              <% when "corporate_articles" %>
-                <% if long_titles?(@stories) %>
-                  <% column_width = 5 %>
-                <% else %>
-                  <% column_width = 6 %>
-                <% end %>  
-              <% when "posts" %>
-                <% if long_titles?(@posts) %>
-                  <% column_width = 5 %>
-                <% else %>
-                  <% column_width = 6 %>
-                <% end %> 
-              <% when "videos" %>
-                <% if long_titles?(@videos) %>
-                  <% column_width = 5 %>
-                <% else %>
-                  <% column_width = 6 %>
-                <% end %> 
-              <% when "radio_tracks" %>
-                <% if long_titles?(@radio_tracks) %>
-                  <% column_width = 5 %>
-                <% else %>
-                  <% column_width = 6 %>
-                <% end %> 
-            <% end  %>
             <div class="span line_box">
-              <div class="span<%= column_width %>" id="content_section">
+              <div class="span<%= @content_section_column_width %>" id="content_section">
                 <!-- <div class="row"> -->
                   <%= render 'shared/message' %>
                   <%= yield %>

@@ -28,5 +28,10 @@ class RadioTracksController < ApplicationController
     else	
     	@selected_track = @radio_tracks[0]
   	end
+    if long_titles?(@radio_tracks) 
+      @content_section_column_width = 5
+    else
+      @content_section_column_width = 6
+    end
   end
 end
