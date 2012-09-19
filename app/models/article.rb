@@ -54,9 +54,9 @@ class Article < ActiveRecord::Base
 
   def gmaps4rails_marker_picture
   {
-   "picture" => "http://maps.google.com/mapfiles/marker_orange.png",
-   "width" => 20,
-   "height" => 34,
+   "picture" => "/assets/administration_b_w.png",
+   "width" => 32,
+   "height" => 37,
    # "marker_anchor" => [ 5, 10],
    "shadow_picture" => "http://maps.google.com/mapfiles/shadow50.png" ,
    "shadow_width" => "37",

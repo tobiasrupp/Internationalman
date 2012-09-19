@@ -381,10 +381,14 @@ h3 {
     margin-bottom: 5px;
   }
   .embedded_video_viewer {
+    // float: left;
     clear: left;
-    // margin-top: 5px;
+    // border: 1px solid $gray_1;
   }
   .jwplayer_viewer {
+    clear: left;
+  }
+  .video_viewer {
     clear: left;
   }
   .audio_player {

@@ -73,7 +73,7 @@ ActiveAdmin.register Video do
       f.input :broadcast_date, :start_year => Date.today.year - 15, :end_year => Date.today.year + 1
       f.input :broadcaster
       # f.input :filename
-      f.input :embed_code, :input_html => { :class => 'autogrow', :rows => 4, :cols => 20 }, :hint => t(:translation_field)
+      f.input :embed_code, :input_html => { :class => 'autogrow', :rows => 4, :cols => 20 }, :hint => "#{t(:translation_field)}; Set Width and Height. Max Width = 400 Pixels. E.g. Width = 400 and Height = 225 for a 16:9 aspect ratio."
       f.input :source_url, :hint => t(:translation_field)
       f.input :video_width, :hint => "#{t(:translation_field)}; Pixels"
       f.input :video_height, :hint => "#{t(:translation_field)}; Pixels"

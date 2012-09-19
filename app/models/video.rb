@@ -3,11 +3,11 @@ class Video < ActiveRecord::Base
   attr_accessible :categories, :category_ids
   has_and_belongs_to_many :categories, :join_table => 'video_categories', :order => 'display_section ASC, display_sequence ASC'
   
-  has_attached_file :teaser_image, :styles => { :sixteen_nine => "450x253!", :four_three => "450x337!", :thumb => "50x50!" }, :convert_options => { :sixteen_nine => "-quality 90", :four_three => "-quality 90", :thumb => "-quality 90"},
+  has_attached_file :teaser_image, :styles => { :sixteen_nine => "452x254!", :four_three => "452x337!", :thumb => "50x50!" }, :convert_options => { :sixteen_nine => "-quality 90", :four_three => "-quality 90", :thumb => "-quality 90"},
     :storage => :s3,
     :path => "videos/:attachment/:id/:style.:extension",
     :s3_credentials => "#{Rails.root}/config/aws.yml"
-  has_attached_file :teaser_image_en, :styles => { :sixteen_nine => "450x253!", :four_three => "450x337!", :thumb => "50x50!" }, :convert_options => { :sixteen_nine => "-quality 90", :four_three => "-quality 90", :thumb => "-quality 90"},
+  has_attached_file :teaser_image_en, :styles => { :sixteen_nine => "452x254!", :four_three => "452x337!", :thumb => "50x50!" }, :convert_options => { :sixteen_nine => "-quality 90", :four_three => "-quality 90", :thumb => "-quality 90"},
     :storage => :s3,
     :path => "videos/:attachment/:id/:style.:extension",
     :s3_credentials => "#{Rails.root}/config/aws.yml"
@@ -38,14 +38,14 @@ class Video < ActiveRecord::Base
 
   def gmaps4rails_marker_picture
   {
-   "picture" => "http://maps.google.com/mapfiles/marker_yellow.png",
-   "width" => 20,
-   "height" => 34,
+   "picture" => "/assets/video_b_w.png",
+   "width" => 32,
+   "height" => 37,
    # "marker_anchor" => [ 5, 10],
    "shadow_picture" => "http://maps.google.com/mapfiles/shadow50.png" ,
    "shadow_width" => "37",
    "shadow_height" => "34",
-   "shadow_anchor" => [10, 34],
+   "shadow_anchor" => [10, 32],
   }
   end
 end

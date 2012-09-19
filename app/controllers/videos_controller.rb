@@ -47,41 +47,43 @@ class VideosController < ApplicationController
 
     case column_width
       when 5
+        display_width = 380
         if width.blank? or height.blank?
           # use default viewer size
           @video_teaser_image_size = :sixteen_nine
-          @video_viewer_width = 400
+          @video_viewer_width = display_width
           @video_viewer_height = @video_viewer_width / 16 * 9
         else
           width = width.to_f
           height = height.to_f
-          if width <= 400
+          if width <= display_width
             @video_viewer_width = width.to_i
             @video_viewer_height = height.to_i
           else
-            ratio = width / 400
+            ratio = width / display_width
             height = height / ratio
             @video_viewer_height = height.to_i
-            @video_viewer_width = 400
+            @video_viewer_width = display_width
           end 
         end 
       when 6
+        display_width = 430
         if width.blank? or height.blank?
           # use default viewer size
           @video_teaser_image_size = :sixteen_nine
-          @video_viewer_width = 450
+          @video_viewer_width = display_width
           @video_viewer_height = @video_viewer_width / 16 * 9
         else
           width = width.to_f
           height = height.to_f
-          if width <= 400
+          if width <= display_width
             @video_viewer_width = width.to_i
             @video_viewer_height = height.to_i
           else
-            ratio = width / 400
+            ratio = width / display_width
             height = height / ratio
             @video_viewer_height = height.to_i
-            @video_viewer_width = 400
+            @video_viewer_width = display_width
           end 
         end
     end
