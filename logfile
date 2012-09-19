@@ -480,3 +480,11 @@ ERROR:  cached plan must not change result type
 STATEMENT:  SELECT  "video_translations".* FROM "video_translations"  WHERE "video_translations"."id" = $1 LIMIT 1
 ERROR:  current transaction is aborted, commands ignored until end of transaction block
 STATEMENT:  DEALLOCATE a9
+LOG:  unexpected EOF on client connection
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+LOG:  database system was shut down at 2012-09-19 04:15:11 BST
+LOG:  autovacuum launcher started
+LOG:  database system is ready to accept connections

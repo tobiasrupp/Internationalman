@@ -77,7 +77,7 @@ ActiveAdmin.register Video do
       f.input :source_url, :hint => t(:translation_field)
       f.input :video_width, :hint => "#{t(:translation_field)}; Pixels"
       f.input :video_height, :hint => "#{t(:translation_field)}; Pixels"
-      f.input :video_aspect_ratio, :hint => "#{t(:translation_field)}; E.g. 16:9 or 4:3"
+      f.input :video_aspect_ratio, :hint => "#{t(:translation_field)}; 16:9 or 4:3. If provided, teaser image can be resized automatically to fit the viewer. If not provided, teaser image must have exactly the same size as the video."
       f.input :teaser_image, :hint => f.template.image_tag(f.object.teaser_image.url(:thumb))
       f.input :teaser_image_en, :hint => f.template.image_tag(f.object.teaser_image_en.url(:thumb))
       f.input :copyright_cleared, :as => :radio
@@ -161,7 +161,7 @@ ActiveAdmin.register Video do
               td { video.video_height }
             end
             tr do
-              th { 'Video Aspect Ration' }
+              th { 'Video Aspect Ratio' }
               td { video.video_aspect_ratio }
             end
             tr do

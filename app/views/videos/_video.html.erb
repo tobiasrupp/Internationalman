@@ -7,14 +7,27 @@
 <% if !@selected_video.embed_code.blank? and @selected_video.copyright_cleared == true %>
 	<div class="embedded_video_viewer"><%= raw @selected_video.embed_code %></div>
 <% elsif !@selected_video.source_url.blank? and @selected_video.copyright_cleared == true %>
-	<% if I18n.locale == :de %>
-	<div class="embedded_video_viewer">
-		<video class="sublime" width="<%= @video_viewer_width %>" height="<%= @video_viewer_height %>" poster="<%= @selected_video.teaser_image.url(@video_teaser_image_size) %>" data-name="<%= @selected_video.title %>" preload="none"><source src="<%= @selected_video.source_url %>" /></video>
-	</div>
-	<% else %>
-		<div class="embedded_video_viewer">
-		<video class="sublime" width="<%= @video_viewer_width %>" height="<%= @video_viewer_height %>" poster="<%= @selected_video.teaser_image_en.url(@video_teaser_image_size) %>" data-name="<%= @selected_video.title %>" preload="none"><source src="<%= @selected_video.source_url %>" /></video>
-	</div>
-	<% end %>
+	<% case @video_player %>	
+		<% when 'jwplayer' %>
+			<% if I18n.locale == :de %>
+				<div class="embedded_video_viewer">
+    			<object data="/jwplayer/player.swf" name="player1" id="player1" type="application/x-shockwave-flash" height="<%= @video_viewer_height %>" width="<%= @video_viewer_width %>"><param value="true" name="allowfullscreen"><param value="always" name="allowscriptaccess"><param name="movie" value="/jwplayer/player.swf"><param value="file=<%= @selected_video.source_url %>&amp;image=<%= @selected_video.teaser_image.url(@video_teaser_image_size) %>" name="flashvars"></object>
+				</div>
+			<% else %>
+				<div class="embedded_video_viewer">
+					<object data="/jwplayer/player.swf" name="player1" id="player1" type="application/x-shockwave-flash" height="<%= @video_viewer_height %>" width="<%= @video_viewer_width %>"><param value="true" name="allowfullscreen"><param value="always" name="allowscriptaccess"><param name="movie" value="/jwplayer/player.swf"><param value="file=<%= @selected_video.source_url %>&amp;image=<%= @selected_video.teaser_image_en.url(@video_teaser_image_size) %>" name="flashvars"></object>
+				</div>
+			<% end %>
+		<% else %>
+			<% if I18n.locale == :de %>
+				<div class="embedded_video_viewer">
+					<video class="sublime" width="<%= @video_viewer_width %>" height="<%= @video_viewer_height %>" poster="<%= @selected_video.teaser_image.url(@video_teaser_image_size) %>" data-name="<%= @selected_video.title %>" controls="controls" preload="none" class="sv_force_flash"><source src="<%= @selected_video.source_url %>" /></video>
+				</div>
+			<% else %>
+				<div class="embedded_video_viewer">
+				<video class="sublime" width="<%= @video_viewer_width %>" height="<%= @video_viewer_height %>" poster="<%= @selected_video.teaser_image_en.url(@video_teaser_image_size) %>" data-name="<%= @selected_video.title %>" preload="none"><source src="<%= @selected_video.source_url %>" /></video>
+			</div>
+			<% end %>
+	<% end %>	
 <% end %>
 <%= render 'shared/like_button_meta_tags' %>

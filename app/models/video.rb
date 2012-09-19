@@ -3,11 +3,11 @@ class Video < ActiveRecord::Base
   attr_accessible :categories, :category_ids
   has_and_belongs_to_many :categories, :join_table => 'video_categories', :order => 'display_section ASC, display_sequence ASC'
   
-  has_attached_file :teaser_image, :styles => { :sixteen_nine => "450x252>", :four_three => "450x337>", :thumb => "100x100>" }, :convert_options => { :sixteen_nine => "-quality 90", :four_three => "-quality 90", :thumb => "-quality 90"},
+  has_attached_file :teaser_image, :styles => { :sixteen_nine => "450x253!", :four_three => "450x337!", :thumb => "50x50!" }, :convert_options => { :sixteen_nine => "-quality 90", :four_three => "-quality 90", :thumb => "-quality 90"},
     :storage => :s3,
     :path => "videos/:attachment/:id/:style.:extension",
     :s3_credentials => "#{Rails.root}/config/aws.yml"
-  has_attached_file :teaser_image_en, :styles => { :sixteen_nine => "450x252>", :four_three => "450x337>", :thumb => "100x100>" }, :convert_options => { :sixteen_nine => "-quality 90", :four_three => "-quality 90", :thumb => "-quality 90"},
+  has_attached_file :teaser_image_en, :styles => { :sixteen_nine => "450x253!", :four_three => "450x337!", :thumb => "50x50!" }, :convert_options => { :sixteen_nine => "-quality 90", :four_three => "-quality 90", :thumb => "-quality 90"},
     :storage => :s3,
     :path => "videos/:attachment/:id/:style.:extension",
     :s3_credentials => "#{Rails.root}/config/aws.yml"

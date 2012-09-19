@@ -23,27 +23,27 @@
       <img src="./assets/0.5.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2012-09-19T03:48:46+01:00">2012-09-19T03:48:46+01:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2012-09-19T17:46:58+01:00">2012-09-19T17:46:58+01:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="red">69.26%</span></span>
+    (<span class="covered_percent"><span class="red">72.19%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.53
+         1.54
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>35</b> files in total.
-    <b>1210</b> relevant lines. 
-    <span class="green"><b>838</b> lines covered</span> and
-    <span class="red"><b>372</b> lines missed </span>
+    <b>1165</b> relevant lines. 
+    <span class="green"><b>841</b> lines covered</span> and
+    <span class="red"><b>324</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -211,12 +211,12 @@
       
       <tr>
         <td class="strong"><a href="#b820354a57016b8b97fc79020408bd73c43d9bb9" class="src_link" title="app/controllers/videos_controller.rb">app/controllers/videos_controller.rb</a></td>
-        <td class="red strong">20.79 %</td>
-        <td>156</td>
-        <td>101</td>
-        <td>21</td>
-        <td>80</td>
-        <td>0.3</td>
+        <td class="red strong">42.86 %</td>
+        <td>99</td>
+        <td>56</td>
+        <td>24</td>
+        <td>32</td>
+        <td>0.5</td>
       </tr>
       
       <tr>
@@ -418,20 +418,20 @@
           <div class="file_list_container" id="Controllers">
   <h2>
     <span class="group_name">Controllers</span>
-    (<span class="covered_percent"><span class="red">34.84%</span></span>
+    (<span class="covered_percent"><span class="red">41.89%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.89
+         1.91
        </span>
     </span> hits/line)
   </h2>
   <a name="Controllers"></a>
   <div>
     <b>7</b> files in total.
-    <b>310</b> relevant lines. 
-    <span class="green"><b>108</b> lines covered</span> and
-    <span class="red"><b>202</b> lines missed </span>
+    <b>265</b> relevant lines. 
+    <span class="green"><b>111</b> lines covered</span> and
+    <span class="red"><b>154</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -509,12 +509,12 @@
       
       <tr>
         <td class="strong"><a href="#b820354a57016b8b97fc79020408bd73c43d9bb9" class="src_link" title="app/controllers/videos_controller.rb">app/controllers/videos_controller.rb</a></td>
-        <td class="red strong">20.79 %</td>
-        <td>156</td>
-        <td>101</td>
-        <td>21</td>
-        <td>80</td>
-        <td>0.3</td>
+        <td class="red strong">42.86 %</td>
+        <td>99</td>
+        <td>56</td>
+        <td>24</td>
+        <td>32</td>
+        <td>0.5</td>
       </tr>
       
     </tbody>
@@ -7291,7 +7291,7 @@
         <li class="covered" data-hits="1" data-linenumber="80">
           <span class="hits">1</span>
           
-          <code class="ruby">      f.input :video_aspect_ratio, :hint =&gt; &quot;#{t(:translation_field)}; E.g. 16:9 or 4:3&quot;</code>
+          <code class="ruby">      f.input :video_aspect_ratio, :hint =&gt; &quot;#{t(:translation_field)}; 16:9 or 4:3. If provided, teaser image can be resized automatically to fit the viewer. If not provided, teaser image must have exactly the same size as the video.&quot;</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="81">
@@ -7795,7 +7795,7 @@
         <li class="covered" data-hits="2" data-linenumber="164">
           <span class="hits">2</span>
           
-          <code class="ruby">              th { 'Video Aspect Ration' }</code>
+          <code class="ruby">              th { 'Video Aspect Ratio' }</code>
         </li>
       
         <li class="covered" data-hits="2" data-linenumber="165">
@@ -10817,11 +10817,11 @@
         <div class="source_table" id="b820354a57016b8b97fc79020408bd73c43d9bb9">
   <div class="header">
     <h3>app/controllers/videos_controller.rb</h3>
-    <h4><span class="red">20.79 %</span> covered</h4>
+    <h4><span class="red">42.86 %</span> covered</h4>
     <div>
-      <b>101</b> relevant lines. 
-      <span class="green"><b>21</b> lines covered</span> and
-      <span class="red"><b>80</b> lines missed.</span>
+      <b>56</b> relevant lines. 
+      <span class="green"><b>24</b> lines covered</span> and
+      <span class="red"><b>32</b> lines missed.</span>
     </div>
   </div>
   
@@ -11050,715 +11050,373 @@
           <code class="ruby">    set_video_viewer_size(@selected_video.video_width, @selected_video.video_height, @selected_video.video_aspect_ratio, @content_section_column_width)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="38">
+        <li class="covered" data-hits="1" data-linenumber="38">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">  end</code>
+          <code class="ruby">    if !@selected_video.source_url.blank?</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="39">
+        <li class="covered" data-hits="1" data-linenumber="39">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby"></code>
+          <code class="ruby">      array = @selected_video.source_url.split('video_player=')</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="40">
           <span class="hits">1</span>
           
-          <code class="ruby">  private</code>
+          <code class="ruby">      @video_player = array[1]</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="41">
           
           
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="42">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def set_video_viewer_size(width, height, aspect_ratio, column_width)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="43">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    case column_width</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="44">
-          
-          
-          <code class="ruby">      when 5</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="45">
-          
-          
-          <code class="ruby">        case aspect_ratio </code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="46">
-          
-          
-          <code class="ruby">          when '16:9'</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="47">
-          
-          
-          <code class="ruby">            @video_teaser_image_size = :sixteen_nine</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="48">
-          
-          
-          <code class="ruby">            if width.blank? or height.blank?</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="49">
-          
-          
-          <code class="ruby">              @video_viewer_width = 400</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="50">
-          
-          
-          <code class="ruby">              @video_viewer_height = 225</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="51">
-          
-          
-          <code class="ruby">              return</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="52">
-          
-          
-          <code class="ruby">            end</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="53">
-          
-          
-          <code class="ruby">            width = width.to_f</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="54">
-          
-          
-          <code class="ruby">            height = height.to_f</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="55">
-          
-          
-          <code class="ruby">            if width &lt;= 400</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="56">
-          
-          
-          <code class="ruby">              @video_viewer_width = width</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="57">
-          
-          
-          <code class="ruby">              @video_viewer_height = @video_viewer_width / 16 * 9</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="58">
-          
-          
-          <code class="ruby">            else</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="59">
-          
-          
-          <code class="ruby">              @video_viewer_width = 400</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="60">
-          
-          
-          <code class="ruby">              @video_viewer_height = 225</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="61">
-          
-          
-          <code class="ruby">            end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="62">
-          
-          
-          <code class="ruby">            return</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="63">
-          
-          
-          <code class="ruby">          when '4:3'</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="64">
-          
-          
-          <code class="ruby">            @video_teaser_image_size = :four_three</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="65">
-          
-          
-          <code class="ruby">            if width.blank? or height.blank?</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="66">
-          
-          
-          <code class="ruby">              @video_viewer_width = 400</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="67">
-          
-          
-          <code class="ruby">              @video_viewer_height = 300</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="68">
-          
-          
-          <code class="ruby">              return</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="69">
-          
-          
-          <code class="ruby">            end</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="70">
-          
-          
-          <code class="ruby">            width = width.to_f</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="71">
-          
-          
-          <code class="ruby">            height = height.to_f</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="72">
-          
-          
-          <code class="ruby">            if width &lt;= 400</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="73">
-          
-          
-          <code class="ruby">              @video_viewer_width = width</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="74">
-          
-          
-          <code class="ruby">              @video_viewer_height = @video_viewer_width / 4 * 3</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="75">
-          
-          
-          <code class="ruby">            else</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="76">
-          
-          
-          <code class="ruby">              @video_viewer_width = 400</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="77">
-          
-          
-          <code class="ruby">              @video_viewer_height = 300</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="78">
-          
-          
-          <code class="ruby">            end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="79">
-          
-          
-          <code class="ruby">            return</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="80">
-          
-          
-          <code class="ruby">          else  </code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="81">
-          
-          
-          <code class="ruby">            @video_teaser_image_size = :sixteen_nine</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="82">
-          
-          
-          <code class="ruby">            if width.blank? or height.blank?</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="83">
-          
-          
-          <code class="ruby">              @video_viewer_width = 400</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="84">
-          
-          
-          <code class="ruby">              @video_viewer_height = 300</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="85">
-          
-          
-          <code class="ruby">              return</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="86">
-          
-          
-          <code class="ruby">            end</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="87">
-          
-          
-          <code class="ruby">            width = width.to_f</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="88">
-          
-          
-          <code class="ruby">            height = height.to_f</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="89">
-          
-          
-          <code class="ruby">            if width &lt;= 400</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="90">
-          
-          
-          <code class="ruby">              @video_viewer_width = width</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="91">
-          
-          
-          <code class="ruby">              @video_viewer_height = height</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="92">
-          
-          
-          <code class="ruby">            else</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="93">
-          
-          
-          <code class="ruby">              ratio = width / 400</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="94">
-          
-          
-          <code class="ruby">              height = height / ratio</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="95">
-          
-          
-          <code class="ruby">              @video_viewer_height = height.to_i</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="96">
-          
-          
-          <code class="ruby">              @video_viewer_width = 400</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="97">
-          
-          
-          <code class="ruby">            end  </code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="98">
-          
-          
-          <code class="ruby">        end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="99">
-          
-          
-          <code class="ruby">      when 6</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="100">
-          <span class="hits">1</span>
-          
-          <code class="ruby">       case aspect_ratio </code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="101">
-          
-          
-          <code class="ruby">        when '16:9'</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="102">
-          
-          
-          <code class="ruby">          @video_teaser_image_size = :sixteen_nine</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="103">
-          
-          
-          <code class="ruby">          if width.blank? or height.blank?</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="104">
-          
-          
-          <code class="ruby">            @video_viewer_width = 450</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="105">
-          
-          
-          <code class="ruby">            @video_viewer_height = 253</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="106">
-          
-          
-          <code class="ruby">            return</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="107">
-          
-          
-          <code class="ruby">          end</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="108">
-          
-          
-          <code class="ruby">          width = width.to_f</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="109">
-          
-          
-          <code class="ruby">          height = height.to_f</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="110">
-          
-          
-          <code class="ruby">          if width &lt;= 450</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="111">
-          
-          
-          <code class="ruby">            @video_viewer_width = width</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="112">
-          
-          
-          <code class="ruby">            @video_viewer_height = @video_viewer_width / 16 * 9</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="113">
-          
-          
-          <code class="ruby">          else</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="114">
-          
-          
-          <code class="ruby">            @video_viewer_width = 450</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="115">
-          
-          
-          <code class="ruby">            @video_viewer_height = 253</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="116">
-          
-          
-          <code class="ruby">          end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="117">
-          
-          
-          <code class="ruby">          return</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="118">
-          
-          
-          <code class="ruby">        when '4:3'</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="119">
-          
-          
-          <code class="ruby">          @video_teaser_image_size = :four_three</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="120">
-          
-          
-          <code class="ruby">          if width.blank? or height.blank?</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="121">
-          
-          
-          <code class="ruby">            @video_viewer_width = 450</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="122">
-          
-          
-          <code class="ruby">            @video_viewer_height = 337</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="123">
-          
-          
-          <code class="ruby">            return</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="124">
-          
-          
-          <code class="ruby">          end</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="125">
-          
-          
-          <code class="ruby">          width = width.to_f</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="126">
-          
-          
-          <code class="ruby">          height = height.to_f</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="127">
-          
-          
-          <code class="ruby">          if width &lt;= 450</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="128">
-          
-          
-          <code class="ruby">            @video_viewer_width = width</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="129">
-          
-          
-          <code class="ruby">            @video_viewer_height = @video_viewer_width / 4 * 3</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="130">
-          
-          
-          <code class="ruby">          else</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="131">
-          
-          
-          <code class="ruby">            @video_viewer_width = 450</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="132">
-          
-          
-          <code class="ruby">            @video_viewer_height = 337</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="133">
-          
-          
-          <code class="ruby">          end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="134">
-          
-          
-          <code class="ruby">          return</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="135">
-          
-          
-          <code class="ruby">        else  </code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="136">
-          <span class="hits">1</span>
-          
-          <code class="ruby">          @video_teaser_image_size = :sixteen_nine</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="137">
-          <span class="hits">1</span>
-          
-          <code class="ruby">          if width.blank? or height.blank?</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="138">
-          <span class="hits">1</span>
-          
-          <code class="ruby">            @video_viewer_width = 450</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="139">
-          <span class="hits">1</span>
-          
-          <code class="ruby">            @video_viewer_height = 253</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="140">
-          <span class="hits">1</span>
-          
-          <code class="ruby">            return</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="141">
-          
-          
-          <code class="ruby">          end</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="142">
-          
-          
-          <code class="ruby">          width = width.to_f</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="143">
-          
-          
-          <code class="ruby">          height = height.to_f</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="144">
-          
-          
-          <code class="ruby">          if width &lt;= 450</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="145">
-          
-          
-          <code class="ruby">            @video_viewer_width = width</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="146">
-          
-          
-          <code class="ruby">            @video_viewer_height = height</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="147">
-          
-          
-          <code class="ruby">          else</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="148">
-          
-          
-          <code class="ruby">            ratio = width / 450</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="149">
-          
-          
-          <code class="ruby">            height = height / ratio</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="150">
-          
-          
-          <code class="ruby">            @video_viewer_height = height.to_i</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="151">
-          
-          
-          <code class="ruby">            @video_viewer_width = 450</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="152">
-          
-          
-          <code class="ruby">          end  </code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="153">
-          
-          
-          <code class="ruby">      end </code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="154">
-          
-          
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="155">
+        <li class="never" data-hits="" data-linenumber="42">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="156">
+        <li class="never" data-hits="" data-linenumber="43">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="44">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  private</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="45">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="46">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def set_video_viewer_size(width, height, aspect_ratio, column_width)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="47">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="48">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    case column_width</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="49">
+          
+          
+          <code class="ruby">      when 5</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="50">
+          
+          
+          <code class="ruby">        if width.blank? or height.blank?</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="51">
+          
+          
+          <code class="ruby">          # use default viewer size</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="52">
+          
+          
+          <code class="ruby">          @video_teaser_image_size = :sixteen_nine</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="53">
+          
+          
+          <code class="ruby">          @video_viewer_width = 400</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="54">
+          
+          
+          <code class="ruby">          @video_viewer_height = @video_viewer_width / 16 * 9</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="55">
+          
+          
+          <code class="ruby">        else</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="56">
+          
+          
+          <code class="ruby">          width = width.to_f</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="57">
+          
+          
+          <code class="ruby">          height = height.to_f</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="58">
+          
+          
+          <code class="ruby">          if width &lt;= 400</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="59">
+          
+          
+          <code class="ruby">            @video_viewer_width = width.to_i</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="60">
+          
+          
+          <code class="ruby">            @video_viewer_height = height.to_i</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="61">
+          
+          
+          <code class="ruby">          else</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="62">
+          
+          
+          <code class="ruby">            ratio = width / 400</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="63">
+          
+          
+          <code class="ruby">            height = height / ratio</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="64">
+          
+          
+          <code class="ruby">            @video_viewer_height = height.to_i</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="65">
+          
+          
+          <code class="ruby">            @video_viewer_width = 400</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="66">
+          
+          
+          <code class="ruby">          end </code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="67">
+          
+          
+          <code class="ruby">        end </code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="68">
+          
+          
+          <code class="ruby">      when 6</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="69">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        if width.blank? or height.blank?</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="70">
+          
+          
+          <code class="ruby">          # use default viewer size</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="71">
+          <span class="hits">1</span>
+          
+          <code class="ruby">          @video_teaser_image_size = :sixteen_nine</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="72">
+          <span class="hits">1</span>
+          
+          <code class="ruby">          @video_viewer_width = 450</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="73">
+          <span class="hits">1</span>
+          
+          <code class="ruby">          @video_viewer_height = @video_viewer_width / 16 * 9</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="74">
+          
+          
+          <code class="ruby">        else</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="75">
+          
+          
+          <code class="ruby">          width = width.to_f</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="76">
+          
+          
+          <code class="ruby">          height = height.to_f</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="77">
+          
+          
+          <code class="ruby">          if width &lt;= 400</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="78">
+          
+          
+          <code class="ruby">            @video_viewer_width = width.to_i</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="79">
+          
+          
+          <code class="ruby">            @video_viewer_height = height.to_i</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="80">
+          
+          
+          <code class="ruby">          else</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="81">
+          
+          
+          <code class="ruby">            ratio = width / 400</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="82">
+          
+          
+          <code class="ruby">            height = height / ratio</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="83">
+          
+          
+          <code class="ruby">            @video_viewer_height = height.to_i</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="84">
+          
+          
+          <code class="ruby">            @video_viewer_width = 400</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="85">
+          
+          
+          <code class="ruby">          end </code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="86">
+          
+          
+          <code class="ruby">        end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="87">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="88">
+          
+          
+          <code class="ruby">    # select image size from aspect ratio</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="89">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    case aspect_ratio </code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="90">
+          
+          
+          <code class="ruby">      when '16:9'</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="91">
+          
+          
+          <code class="ruby">        @video_teaser_image_size = :sixteen_nine</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="92">
+          
+          
+          <code class="ruby">      when '4:3'</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="93">
+          
+          
+          <code class="ruby">        @video_teaser_image_size = :four_three</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="94">
+          
+          
+          <code class="ruby">      else</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="95">
+          
+          
+          <code class="ruby">        # custom aspect ratio</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="96">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        @video_teaser_image_size = :original</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="97">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="98">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="99">
           
           
           <code class="ruby">end</code>
@@ -14293,7 +13951,7 @@
         <li class="covered" data-hits="1" data-linenumber="6">
           <span class="hits">1</span>
           
-          <code class="ruby">  has_attached_file :teaser_image, :styles =&gt; { :sixteen_nine =&gt; &quot;450x252&gt;&quot;, :four_three =&gt; &quot;450x337&gt;&quot;, :thumb =&gt; &quot;100x100&gt;&quot; }, :convert_options =&gt; { :sixteen_nine =&gt; &quot;-quality 90&quot;, :four_three =&gt; &quot;-quality 90&quot;, :thumb =&gt; &quot;-quality 90&quot;},</code>
+          <code class="ruby">  has_attached_file :teaser_image, :styles =&gt; { :sixteen_nine =&gt; &quot;450x253!&quot;, :four_three =&gt; &quot;450x337!&quot;, :thumb =&gt; &quot;50x50!&quot; }, :convert_options =&gt; { :sixteen_nine =&gt; &quot;-quality 90&quot;, :four_three =&gt; &quot;-quality 90&quot;, :thumb =&gt; &quot;-quality 90&quot;},</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="7">
@@ -14317,7 +13975,7 @@
         <li class="covered" data-hits="1" data-linenumber="10">
           <span class="hits">1</span>
           
-          <code class="ruby">  has_attached_file :teaser_image_en, :styles =&gt; { :sixteen_nine =&gt; &quot;450x252&gt;&quot;, :four_three =&gt; &quot;450x337&gt;&quot;, :thumb =&gt; &quot;100x100&gt;&quot; }, :convert_options =&gt; { :sixteen_nine =&gt; &quot;-quality 90&quot;, :four_three =&gt; &quot;-quality 90&quot;, :thumb =&gt; &quot;-quality 90&quot;},</code>
+          <code class="ruby">  has_attached_file :teaser_image_en, :styles =&gt; { :sixteen_nine =&gt; &quot;450x253!&quot;, :four_three =&gt; &quot;450x337!&quot;, :thumb =&gt; &quot;50x50!&quot; }, :convert_options =&gt; { :sixteen_nine =&gt; &quot;-quality 90&quot;, :four_three =&gt; &quot;-quality 90&quot;, :thumb =&gt; &quot;-quality 90&quot;},</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="11">
