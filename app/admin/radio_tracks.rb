@@ -66,7 +66,7 @@ ActiveAdmin.register RadioTrack do
       f.input :broadcaster
       f.input :source_url, :hint => t(:translation_field)
       f.input :copyright_cleared, :as => :radio
-      f.input :web_page, :hint => t(:translation_field)
+      f.input :web_page, :hint => t(:translation_field), :label => t(:online_listen)
       f.input :address
       f.input :gmaps, :label => t(:geocoding_found)
       f.input :lon, :label => "Longitude"
@@ -129,7 +129,7 @@ ActiveAdmin.register RadioTrack do
               td { radio_track.filename }
             end
             tr do
-              th { 'Web Page' }
+              th { t(:online_listen) }
               td { radio_track.web_page }
             end
             tr do

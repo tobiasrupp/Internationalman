@@ -31,10 +31,126 @@ class VideosController < ApplicationController
   	end
     if long_titles?(@videos) 
       @content_section_column_width = 5
-      @video_viewer_width = 400
     else
       @content_section_column_width = 6
-      @video_viewer_width = 450
+    end
+    set_video_viewer_size(@selected_video.video_width, @selected_video.video_height, @selected_video.video_aspect_ratio, @content_section_column_width)
+  end
+
+  private
+
+  def set_video_viewer_size(width, height, aspect_ratio, column_width)
+    case column_width
+      when 5
+        case aspect_ratio 
+          when '16:9'
+            @video_teaser_image_size = :sixteen_nine
+            if width.blank? or height.blank?
+              @video_viewer_width = 400
+              @video_viewer_height = 225
+              return
+            end
+            width = width.to_f
+            height = height.to_f
+            if width <= 400
+              @video_viewer_width = width
+              @video_viewer_height = @video_viewer_width / 16 * 9
+            else
+              @video_viewer_width = 400
+              @video_viewer_height = 225
+            end
+            return
+          when '4:3'
+            @video_teaser_image_size = :four_three
+            if width.blank? or height.blank?
+              @video_viewer_width = 400
+              @video_viewer_height = 300
+              return
+            end
+            width = width.to_f
+            height = height.to_f
+            if width <= 400
+              @video_viewer_width = width
+              @video_viewer_height = @video_viewer_width / 4 * 3
+            else
+              @video_viewer_width = 400
+              @video_viewer_height = 300
+            end
+            return
+          else  
+            @video_teaser_image_size = :sixteen_nine
+            if width.blank? or height.blank?
+              @video_viewer_width = 400
+              @video_viewer_height = 300
+              return
+            end
+            width = width.to_f
+            height = height.to_f
+            if width <= 400
+              @video_viewer_width = width
+              @video_viewer_height = height
+            else
+              ratio = width / 400
+              height = height / ratio
+              @video_viewer_height = height.to_i
+              @video_viewer_width = 400
+            end  
+        end
+      when 6
+       case aspect_ratio 
+        when '16:9'
+          @video_teaser_image_size = :sixteen_nine
+          if width.blank? or height.blank?
+            @video_viewer_width = 450
+            @video_viewer_height = 253
+            return
+          end
+          width = width.to_f
+          height = height.to_f
+          if width <= 450
+            @video_viewer_width = width
+            @video_viewer_height = @video_viewer_width / 16 * 9
+          else
+            @video_viewer_width = 450
+            @video_viewer_height = 253
+          end
+          return
+        when '4:3'
+          @video_teaser_image_size = :four_three
+          if width.blank? or height.blank?
+            @video_viewer_width = 450
+            @video_viewer_height = 337
+            return
+          end
+          width = width.to_f
+          height = height.to_f
+          if width <= 450
+            @video_viewer_width = width
+            @video_viewer_height = @video_viewer_width / 4 * 3
+          else
+            @video_viewer_width = 450
+            @video_viewer_height = 337
+          end
+          return
+        else  
+          @video_teaser_image_size = :sixteen_nine
+          if width.blank? or height.blank?
+            @video_viewer_width = 450
+            @video_viewer_height = 253
+            return
+          end
+          width = width.to_f
+          height = height.to_f
+          if width <= 450
+            @video_viewer_width = width
+            @video_viewer_height = height
+          else
+            ratio = width / 450
+            height = height / ratio
+            @video_viewer_height = height.to_i
+            @video_viewer_width = 450
+          end  
+      end 
     end
   end
 end

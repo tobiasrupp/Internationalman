@@ -459,3 +459,24 @@ LOG:  autovacuum launcher started
 LOG:  database system is ready to accept connections
 FATAL:  lock file "postmaster.pid" already exists
 HINT:  Is another postmaster (PID 1029) running in data directory "/usr/local/var/postgres"?
+ERROR:  cached plan must not change result type
+STATEMENT:  SELECT  "videos".* FROM "videos"  WHERE "videos"."id" = $1 LIMIT 1
+ERROR:  cached plan must not change result type
+STATEMENT:  SELECT  "videos".* FROM "videos"  WHERE "videos"."id" = $1 LIMIT 1
+FATAL:  database "intlman_test" does not exist
+ERROR:  cached plan must not change result type
+STATEMENT:  SELECT  "video_translations".* FROM "video_translations"  WHERE "video_translations"."id" = $1 LIMIT 1
+ERROR:  current transaction is aborted, commands ignored until end of transaction block
+STATEMENT:  DEALLOCATE a9
+ERROR:  cached plan must not change result type
+STATEMENT:  SELECT  "video_translations".* FROM "video_translations"  WHERE "video_translations"."id" = $1 LIMIT 1
+ERROR:  current transaction is aborted, commands ignored until end of transaction block
+STATEMENT:  DEALLOCATE a9
+ERROR:  cached plan must not change result type
+STATEMENT:  SELECT  "video_translations".* FROM "video_translations"  WHERE "video_translations"."id" = $1 LIMIT 1
+ERROR:  current transaction is aborted, commands ignored until end of transaction block
+STATEMENT:  DEALLOCATE a9
+ERROR:  cached plan must not change result type
+STATEMENT:  SELECT  "video_translations".* FROM "video_translations"  WHERE "video_translations"."id" = $1 LIMIT 1
+ERROR:  current transaction is aborted, commands ignored until end of transaction block
+STATEMENT:  DEALLOCATE a9

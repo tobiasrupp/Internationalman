@@ -32,9 +32,11 @@ class ApplicationController < ActionController::Base
       return false
     end
     items.each do |item|
-      length = item.short_title.size
-      if length > 25
-        return true
+      if !item.short_title.nil?
+        length = item.short_title.size
+        if length > 25
+          return true
+        end
       end
     end
     return false 

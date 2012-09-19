@@ -7,6 +7,15 @@ ActiveAdmin.register Video do
   		video.categories.map { |p| p.name }.join('<br />').html_safe
 		end
     column :broadcast_date
+    if I18n.locale == :de
+      column "Teaser Image" do |video| 
+        image_tag(video.teaser_image.url(:thumb), :alt => "")
+      end
+    else
+      column "Teaser Image EN" do |video| 
+        image_tag(video.teaser_image_en.url(:thumb), :alt => "")
+      end
+    end
     column "Copyr.", :copyright_cleared
     column "Lang.", :language
 		default_actions
@@ -64,10 +73,15 @@ ActiveAdmin.register Video do
       f.input :broadcast_date, :start_year => Date.today.year - 15, :end_year => Date.today.year + 1
       f.input :broadcaster
       # f.input :filename
-      f.input :embed_code, :input_html => { :class => 'autogrow', :rows => 10, :cols => 20 }, :hint => t(:translation_field)
+      f.input :embed_code, :input_html => { :class => 'autogrow', :rows => 4, :cols => 20 }, :hint => t(:translation_field)
       f.input :source_url, :hint => t(:translation_field)
+      f.input :video_width, :hint => "#{t(:translation_field)}; Pixels"
+      f.input :video_height, :hint => "#{t(:translation_field)}; Pixels"
+      f.input :video_aspect_ratio, :hint => "#{t(:translation_field)}; E.g. 16:9 or 4:3"
+      f.input :teaser_image, :hint => f.template.image_tag(f.object.teaser_image.url(:thumb))
+      f.input :teaser_image_en, :hint => f.template.image_tag(f.object.teaser_image_en.url(:thumb))
       f.input :copyright_cleared, :as => :radio
-      f.input :web_page, :hint => t(:translation_field)
+      f.input :web_page, :hint => t(:translation_field), :label => t(:online_watch)
       f.input :address
       f.input :gmaps, :label => t(:geocoding_found)
       f.input :lon, :label => "Longitude"
@@ -129,10 +143,7 @@ ActiveAdmin.register Video do
               th { 'Filename' }
               td { video.filename }
             end
-            tr do
-              th { 'Web Page' }
-              td { video.web_page }
-            end
+            
             tr do
               th { 'Embed Code' }
               td { video.embed_code }
@@ -142,8 +153,32 @@ ActiveAdmin.register Video do
               td { video.source_url }
             end
             tr do
+              th { 'Video Width' }
+              td { video.video_width }
+            end
+            tr do
+              th { 'Video Height' }
+              td { video.video_height }
+            end
+            tr do
+              th { 'Video Aspect Ration' }
+              td { video.video_aspect_ratio }
+            end
+            tr do
+              th { 'Teaser Image' }
+              td { video.teaser_image }
+            end
+            tr do
+              th { 'Teaser Image EN' }
+              td { video.teaser_image_en }
+            end
+             tr do
               th { 'Copyright Cleared' }
               td { video.copyright_cleared }
+            end
+            tr do
+              th { t(:online_watch) }
+              td { video.web_page }
             end
              tr do
               th { 'Address' }

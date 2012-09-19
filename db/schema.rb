@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120916013932) do
+ActiveRecord::Schema.define(:version => 20120918234244) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -304,11 +304,14 @@ ActiveRecord::Schema.define(:version => 20120916013932) do
     t.string   "url_title"
     t.string   "ctry"
     t.string   "language"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
     t.text     "embed_code"
     t.string   "web_page"
     t.string   "source_url"
+    t.string   "video_width"
+    t.string   "video_height"
+    t.string   "video_aspect_ratio"
   end
 
   add_index "video_translations", ["locale"], :name => "index_video_translations_on_locale"
@@ -329,8 +332,8 @@ ActiveRecord::Schema.define(:version => 20120916013932) do
     t.string   "author"
     t.string   "source_url"
     t.string   "web_page"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
     t.text     "embed_code"
     t.string   "camera_by"
     t.string   "ctry"
@@ -339,6 +342,17 @@ ActiveRecord::Schema.define(:version => 20120916013932) do
     t.float    "lon"
     t.boolean  "gmaps"
     t.string   "address"
+    t.string   "video_width"
+    t.string   "video_height"
+    t.string   "video_aspect_ratio"
+    t.string   "teaser_image_file_name"
+    t.string   "teaser_image_content_type"
+    t.integer  "teaser_image_file_size"
+    t.datetime "teaser_image_updated_at"
+    t.string   "teaser_image_en_file_name"
+    t.string   "teaser_image_en_content_type"
+    t.integer  "teaser_image_en_file_size"
+    t.datetime "teaser_image_en_updated_at"
   end
 
 end

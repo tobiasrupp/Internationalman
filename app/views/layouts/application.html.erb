@@ -70,7 +70,7 @@
                   <% if !@stories.nil? %>
                     <% for article in @stories %>
                       <% if article.title.blank? || article.url_title.blank? %>
-                         <%= t(:no_text_found)%> (<%=I18n.locale %>)<br>
+                         <div class="no_text_found"><%= t(:no_text_found)%> (<%=I18n.locale %>)</div>
                       <% else %>
                         <% if article == @selected_article %>
                           <li class="active">

@@ -92,7 +92,7 @@ ActiveAdmin.register Article do
       f.input :lon, :label => "Longitude"
       f.input :lat, :label => "Latitude"
       f.input :viewer_url, :hint => t(:translation_field)
-      f.input :web_page, :hint => t(:translation_field)
+      f.input :web_page, :hint => t(:translation_field), :label => t(:online_version)
       f.input :embed_code, :input_html => { :class => 'autogrow', :rows => 4, :cols => 20 }, :hint => t(:translation_field)
     end
     f.buttons
@@ -192,7 +192,7 @@ ActiveAdmin.register Article do
               td { article.viewer_url }
             end
             tr do
-              th { 'Web Page' }
+              th { t(:online_version) }
               td { article.web_page }
             end
             tr do
