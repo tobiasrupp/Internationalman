@@ -67,7 +67,7 @@ Intlman::Application.configure do
 
   config.action_mailer.default_url_options = { :host => 'localhost:3001' }
 
-  config.assets.precompile += ['active_admin.js', 'active_admin.css']
+  config.assets.precompile += ['active_admin.js', 'active_admin.css', 'ckeditor/init.js']
   config.assets.precompile += Ckeditor.assets
   # config.assets.precompile += ['active_admin.css', 'active_admin.js', 'ckeditor/init.js']
 end

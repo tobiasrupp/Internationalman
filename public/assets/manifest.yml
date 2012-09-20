@@ -49,6 +49,7 @@ ckeditor/config.js: ckeditor/config-5839d6a909dfb65fa6c6006e755de249.js
 active_admin.css: active_admin-1055494fb5f6d49e87abdc46d72eae33.css
 application.css: application-88f759096316a730740a48a161206efe.css
 ckeditor/application.js: ckeditor/application-c8ecaf7b244526de7fb2ca99aa0bee8b.js
+ckeditor/init.js: ckeditor/init-5d7e6106b41799260c6af53c3f75569a.js
 ckeditor/application.css: ckeditor/application-3bae7a0cbcd690437dfd0e9d9b027081.css
 ckeditor/CHANGES.html: ckeditor/CHANGES-f3495235117231ad2212e649d193f30b.html
 ckeditor/INSTALL.html: ckeditor/INSTALL-b549f694b9fb07ef4538dbfca7216d16.html
