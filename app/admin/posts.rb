@@ -66,10 +66,10 @@ ActiveAdmin.register Post do
       f.input :author
       f.input :ctry, :label => "Country", :hint => t(:translation_field)
       f.input :categories
-      f.input :text, :label => "Text section 1", :input_html => { :class => 'autogrow', :rows => 10, :cols => 20 }
+      f.input :text, :label => "Text section 1", :as => :ckeditor, :input_html => { :height => 300, :width => 500, :toolbar => 'Basic', :skin => 'office2003' }
       f.input :image_1, :hint => f.template.image_tag(f.object.image_1.url(:thumb))
       f.input :image_1_options, :as => :select, :collection => ["Don't display", "Display in Section 1 left - Small", "Display in Section 1 left - Medium", "Display in Section 1 right - Small", "Display in Section 1 right - Medium", "Display in Section 2 left - Small", "Display in Section 2 left - Medium", "Display in Section 2 right - Small", "Display in Section 2 right - Medium"], :required => false
-      f.input :text_2, :label => "Text section 2", :input_html => { :class => 'autogrow', :rows => 10, :cols => 20 }
+      f.input :text_2, :label => "Text section 2", :as => :ckeditor, :input_html => { :height => 300, :width => 500, :toolbar => 'Basic', :skin => 'office2003' }
       f.input :image_2, :hint => f.template.image_tag(f.object.image_2.url(:thumb))
       f.input :image_2_options, :as => :select, :collection => ["Don't display", "Display in Section 1 left - Small", "Display in Section 1 left - Medium", "Display in Section 1 right - Small", "Display in Section 1 right - Medium", "Display in Section 2 left - Small", "Display in Section 2 left - Medium", "Display in Section 2 right - Small", "Display in Section 2 right - Medium"], :required => false
       f.input :address

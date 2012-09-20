@@ -128,4 +128,5 @@ ActiveAdmin.setup do |config|
   #   config.register_javascript 'my_javascript.js'
 
   config.before_filter :set_locale
+  config.register_javascript 'ckeditor/init.js'
 end

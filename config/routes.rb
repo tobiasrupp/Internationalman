@@ -1,5 +1,7 @@
 Intlman::Application.routes.draw do
 
+  mount Ckeditor::Engine => '/ckeditor'
+
   root to: 'stories#show_stories'
   
   match '/stories',   to: 'stories#show_stories', :via => "get"
