@@ -5,42 +5,24 @@ class StoriesController < ApplicationController
   def show_stories
     # route /stories
     
-    add_locale_to_url
-  	
-    # get categories with stories (non-corporate)
-    story_categories = Category.find(:all,              
-                          :include => :articles,
-                          :conditions => "name <> 'Corporate'",
-                          :order => "display_section ASC, display_sequence ASC")
-    
-    @story_categories = []
-    for category in story_categories
-      if !category.articles.empty?
-        @story_categories<<category
-      end
-    end
-    if @story_categories.count == 0
-      flash.now[:notice] = "Keine Stories mit Kategorien gefunden."
-      return
-    end
+    # add_locale_to_url
 
   	# get current story
     current_article = Article.find(:first,
                             :include => :categories,
                             :order => "published_date DESC")
+    if current_article.nil?
+      flash.now[:notice] = "Keine Stories gefunden."
+      return
+    end
 
     # get stories of the same category
     current_category = current_article.categories.first
-    if !current_category.nil?
-    	@selected_category = current_category
-      @stories = current_category.articles
-    end
-    @selected_article = current_article  
-    if long_titles?(@stories) 
-      @content_section_column_width = 4
-    else
-      @content_section_column_width = 5
-    end
+    if current_category.nil?
+    	flash.now[:error] = "Keine Stories mit Kategorien gefunden."
+      return
+    end 
+    redirect_to stories_path + '/' + current_category.url_name + '/' + current_article.url_title
   end
 
   def show_stories_by_category
@@ -86,7 +68,9 @@ class StoriesController < ApplicationController
           flash.now[:error] = "Story '#{params[:article_title]}' wurde nicht gefunden."
         end
       else	
-      	@selected_article = @stories[0]
+      	current_article = @stories[0]
+        redirect_to  stories_path + '/' + current_category.url_name + '/' + current_article.url_title
+        return
     	end
     else  
     	# category unknown

@@ -27,7 +27,9 @@ class VideosController < ApplicationController
         flash.now[:error] = "TV-Beitrag '#{params[:video_title]}' wurde nicht gefunden."
       end
     else	
-    	@selected_video = @videos[0]
+    	current_video = @videos[0]
+      redirect_to tv_path + '/' + current_video.url_title
+      return
   	end
     if long_titles?(@videos) 
       @content_section_column_width = 5

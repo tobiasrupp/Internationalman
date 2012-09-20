@@ -27,7 +27,9 @@ class CorporateArticlesController < ApplicationController
         flash.now[:error] = "Corporate Artikel '#{params[:article_title]}' wurde nicht gefunden."
       end
     else	
-    	@selected_article = @stories[0]
+    	current_article = @stories[0]
+      redirect_to corporate_path + '/' + current_article.url_title
+      return
   	end
     if long_titles?(@stories) 
       @content_section_column_width = 5

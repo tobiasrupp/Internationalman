@@ -27,7 +27,9 @@ class PostsController < ApplicationController
         flash.now[:error] = "Blogeintrag '#{params[:post_title]}' wurde nicht gefunden."
       end
     else	
-    	@selected_post = @posts[0]
+    	current_post = @posts[0]
+      redirect_to blog_path + '/' + current_post.url_title
+      return
   	end
     if long_titles?(@posts) 
       @content_section_column_width = 5

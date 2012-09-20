@@ -26,7 +26,9 @@ class RadioTracksController < ApplicationController
         flash.now[:error] = "Radiobeitrag '#{params[:track_title]}' wurde nicht gefunden."
       end
     else	
-    	@selected_track = @radio_tracks[0]
+    	current_track = @radio_tracks[0]
+      redirect_to  radio_path + '/' + current_track.url_title
+      return
   	end
     if long_titles?(@radio_tracks) 
       @content_section_column_width = 5
