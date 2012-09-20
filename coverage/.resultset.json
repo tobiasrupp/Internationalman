@@ -1648,6 +1648,41 @@
         null,
         null
       ],
+      "/Users/tobias/dev/rails_projects/intlman/app/models/ckeditor/attachment_file.rb": [
+        1,
+        1,
+        null,
+        null,
+        null,
+        1,
+        1,
+        null,
+        1,
+        0,
+        null,
+        null
+      ],
+      "/Users/tobias/dev/rails_projects/intlman/app/models/ckeditor/asset.rb": [
+        1,
+        1,
+        1,
+        null
+      ],
+      "/Users/tobias/dev/rails_projects/intlman/app/models/ckeditor/picture.rb": [
+        1,
+        1,
+        null,
+        null,
+        null,
+        null,
+        1,
+        1,
+        null,
+        1,
+        0,
+        null,
+        null
+      ],
       "/Users/tobias/dev/rails_projects/intlman/app/controllers/corporate_articles_controller.rb": [
         1,
         null,
@@ -2174,6 +2209,6 @@
         null
       ]
     },
-    "timestamp": 1348086679
+    "timestamp": 1348146890
   }
 }

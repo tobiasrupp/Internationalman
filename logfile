@@ -492,3 +492,10 @@ FATAL:  lock file "postmaster.pid" already exists
 HINT:  Is another postmaster (PID 742) running in data directory "/usr/local/var/postgres"?
 FATAL:  database "intlman_test" does not exist
 FATAL:  database "intlman_test" does not exist
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+LOG:  database system was shut down at 2012-09-20 04:08:15 BST
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
