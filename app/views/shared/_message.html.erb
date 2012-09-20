@@ -1,9 +1,13 @@
-<% flash.each do |key, msg| %>
-	<% if key == :error %>
-		<span class="alert alert-error">
-	<% else %>
-		<span class="alert alert-info">
-	<% end %>
-  <%= msg %></span>
-  <div class="clear"></div>
-<% end %>
+<div class="row">
+  <div class="span8">
+    <% flash.each do |key, msg| %>
+			<% if key == :error %>
+				<span class="alert alert-error">
+			<% else %>
+				<span class="alert alert-info">
+			<% end %>
+			<%= msg %></span>
+			<div class="message_clear"></div>
+		<% end %>
+  </div>
+</div>

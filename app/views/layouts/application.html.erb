@@ -29,6 +29,7 @@
               <%= render 'shared/status_message' %>
             </div>
           </div>
+          <%= render 'shared/message' %>
           <div class="row">
             <div class="span line_box">
               <%= render 'layouts/nav_col_1' %>
@@ -111,10 +112,7 @@
             </div>
             <div class="span line_box">
               <div class="span<%= @content_section_column_width %>" id="content_section">
-                <!-- <div class="row"> -->
-                  <%= render 'shared/message' %>
                   <%= yield %>
-                <!-- </div> -->
               </div>
               <div class="span1.5" id="sidebar_right">
                 <%= render 'shared/sidebar_right' %>  
