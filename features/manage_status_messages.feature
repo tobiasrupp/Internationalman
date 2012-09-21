@@ -13,8 +13,8 @@ Scenario: Create Status Message
 	And I go to the "Status Messages page"
 	When I click on "New Status Message"
 	And I fill in "Text" with "Neue Status Nachricht"
-	And I click on "Create Status message"
+	And I click on "Create Statusmeldung"
 	Then 1 "StatusMessage" should exist
-	And I should see "Status message was successfully created"
+	And I should see "Statusmeldung was successfully created"
 	When I go to the "Homepage"
 	And I should see "Neue Status Nachricht"

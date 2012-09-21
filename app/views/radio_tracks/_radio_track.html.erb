@@ -6,10 +6,18 @@
 <% if !@selected_track.source_url.blank? and @selected_track.copyright_cleared == true %>
 	<div class="audio_player">
 		<% case @audio_player %>	
-			<% when 'media_element' %>
-				
+			<% when 'jwplayer' %>
+					<object data="/jwplayer/player.swf" name="player2" id="player2" type="application/x-shockwave-flash" height="24" width="320"><param value="true" name="allowfullscreen"><param value="always" name="allowscriptaccess"><param name="movie" value="/jwplayer/player.swf"><param value="file=<%= @selected_track.source_url %>" name="flashvars"></object>
 			<% else %>
-				<object data="/jwplayer/player.swf" name="player2" id="player2" type="application/x-shockwave-flash" height="24" width="320"><param value="true" name="allowfullscreen"><param value="always" name="allowscriptaccess"><param name="movie" value="/jwplayer/player.swf"><param value="file=<%= @selected_track.source_url %>" name="flashvars"></object>
+				<% provide(:audio_player_script, 
+					'<script src="/media_element_player/jquery.js"></script><script src="/media_element_player/mediaelement-and-player.min.js"></script><link rel="stylesheet" href="/media_element_player/mediaelementplayer.min.css" />'.html_safe) %>
+				<audio width="320" id="player2" preload="none" src="<%= @selected_track.source_url %>	" type="audio/mp3" controls="controls">
+				</audio>
+				<% content_for :scripts do %>
+					<script>
+						$('audio,video').mediaelementplayer();
+					</script>
+				<% end %>
 		<% end %>
 	</div>
 <% end %>

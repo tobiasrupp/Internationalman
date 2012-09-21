@@ -2,16 +2,17 @@
 <html>
   <head>
     <title><%= full_title(yield(:title)) %></title>
+    <%= render 'layouts/shim' %>  
     <%= stylesheet_link_tag    "application", media: "all" %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <!--  <%= auto_discovery_link_tag :atom, "/feed" %>
     <%= auto_discovery_link_tag :rss, "/feed.rss" %> -->
    <!--  <%= auto_discovery_link_tag :atom, feed_path %> -->
     <%= yield(:fb_properties) %>
-    <%= csrf_meta_tags %>
     <%= yield(:video_player_script) %>
-    <%= render 'layouts/shim' %>  
-    <%= render 'shared/favicon' %>     
+    <%= yield(:audio_player_script) %>
+    <%= csrf_meta_tags %>
+    <%= render 'shared/favicon' %>  
   </head>
   <body>
     <%= yield(:like_button_script) %>
@@ -126,5 +127,6 @@
       </div>  <!-- container -->
     </div>  <!-- container shadow -->
     <%= render 'shared/container_bottom' %>
+    <%= yield :scripts %>  
   </body>
 </html>

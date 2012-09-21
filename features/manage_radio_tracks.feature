@@ -28,9 +28,9 @@ Scenario: Create Radio Track
 	And I fill in "Broadcaster" with "NDR"
 	And I fill in "Author" with "Alexander Bühler"
 	And I fill in "Source url" with "http://www.example.com"
-	And I click on "Create Radio track"
+	And I click on "Create Radiobeitrag"
 	Then 1 "RadioTrack" should exist
-	And I should see "Radio track was successfully created"
+	And I should see "Radiobeitrag was successfully created"
 	And 1 "RadioTrackCategory" should exist
 	When I go to the "Radio page"
 	And I should see "Neuer Radiobeitrag Test"

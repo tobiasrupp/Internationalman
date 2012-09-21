@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
     language_locale = locale_from_accept_language
     default_locale = I18n.default_locale
     I18n.locale = params_locale || language_locale || default_locale
-
+    logger.debug "*** Locale set to '#{I18n.locale}'"
     if params_locale.blank?
       redirect_to "/#{I18n.locale}#{request.path_info}"
     end

@@ -35,5 +35,9 @@ class RadioTracksController < ApplicationController
     else
       @content_section_column_width = 6
     end
+    if !@selected_track.source_url.blank?
+      array = @selected_track.source_url.split('audio_player=')
+      @audio_player = array[1]
+    end
   end
 end

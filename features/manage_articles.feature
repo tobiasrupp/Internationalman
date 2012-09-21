@@ -27,9 +27,9 @@ Scenario: Create Article
 	# And I fill in "Filename" with "article1.pdf"
 	And I fill in "Author" with "Alexander Bühler"
 	And I fill in "Photos by" with ""
-	And I click on "Create Article"
+	And I click on "Create Artikel"
 	Then 1 article should exist
-	And I should see "Article was successfully created"
+	And I should see "Artikel was successfully created"
 
 # Scenario: Navigate to article by clicking link on Dashboard 
 # 	Given 1 article exists with title: "Ein neuer Artikel"
@@ -56,9 +56,9 @@ Scenario: Create Corporate Article
 	And I fill in "Photos by" with ""
 	And I fill in "Viewer url" with "..."
 	And I fill in "Embed code" with "..."
-	And I click on "Create Article"
+	And I click on "Create Artikel"
 	Then 1 article should exist
-	And I should see "Article was successfully created"
+	And I should see "Artikel was successfully created"
 	And 1 article_ids_category_ids records should exist
 	When I go to the "Corporate page"
 	And I should see "Neuer Corporate Artikel"

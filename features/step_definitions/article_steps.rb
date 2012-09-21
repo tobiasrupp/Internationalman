@@ -6,7 +6,7 @@ end
 
 Given /^I log in with this user$/ do
   visit('/en/admin')
-  fill_in('Email', with: "admin@example.com")
+  fill_in('E-Mail', with: "admin@example.com")
   fill_in('Password', with: 'password')
   # save_and_open_page
   click_button('Login')

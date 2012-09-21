@@ -26,9 +26,9 @@ Scenario: Create Post
 	And I choose radio button "Publication state" with "Published"
 	And I fill in "Author" with "Alexander Bühler"
 	And I fill in "Text" with "Dies ist ein Blog Text"
-	And I click on "Create Post"
+	And I click on "Create Blogeintrag"
 	Then 1 "Post" should exist
-	And I should see "Post was successfully created"
+	And I should see "Blogeintrag was successfully created"
 	And 1 "PostCategory" should exist
 	When I go to the "Blog page"
 	And I should see "Neuer Testo Blogeintrag"
