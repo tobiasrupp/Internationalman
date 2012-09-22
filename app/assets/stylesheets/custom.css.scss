@@ -1,6 +1,6 @@
 @import "bootstrap";
-// @import "bootstrap-responsive";
-
+@import "bootstrap-responsive";
+@import "bootstrap-responsive-utilities";
 /* mixins, variables, etc. */
 
  // #eaeaea;
@@ -250,7 +250,19 @@ h3 {
   margin-bottom: 18px;
 }
 
-.line_box {
+.line_box_1 {
+  border-top: 1px solid $gray_1;
+  padding-top: 40px;
+  min-height: 400px;
+  height: auto;
+}
+.line_box_2 {
+  border-top: 1px solid $gray_1;
+  padding-top: 40px;
+  min-height: 400px;
+  height: auto;
+}
+.line_box_3 {
   border-top: 1px solid $gray_1;
   padding-top: 40px;
   min-height: 400px;
@@ -549,4 +561,180 @@ footer {
     a:hover {
     color: #cc66cc;
     }
+}
+
+
+body {
+  /* Large desktop */
+  @media (min-width: 1200px) { 
+    h1 { 
+      color: blue;
+    }
+  }  
+
+  /* Portrait tablet to landscape and desktop */
+  @media (min-width: 768px) and (max-width: 979px) { 
+    #topnav {
+      width: 718px;
+    }
+    .status_message {
+      margin-left: 60px;
+    }
+    .line_box_1 {
+      width: 660px; 
+      min-height: 0px;
+      margin-bottom: 36px;
+    }
+    .line_box_2 {
+      min-height: 160px;
+      height: auto;
+      #content_section {
+        margin-left: 0;
+      } 
+      .span4 {
+        width: 585px;
+      }
+      .span5 {
+        width: 585px;
+      }
+      .span6 {
+        width: 585px;
+      }
+    }
+    .line_box_3 {
+      min-height: 160px;
+      height: auto;
+      .span7 {
+        width: 585px;
+      }
+      #content_section {
+       margin-left: 0;
+      }
+    }
+    .container_shadow {
+      background: transparent url('shadow_v.png') repeat-y;
+      // background-image: none;
+      // background-repeat: no-repeat;
+      width: 783px;
+      margin-left: auto;
+      margin-right: auto;
+      small {
+        float: left; 
+        margin-left: 520px;
+      }
+    }
+    .container_shadow_bottom {
+      // background: transparent url('shadow_h.png');
+      // background-repeat: no-repeat;
+      background-image: none;
+      width: 783px;
+    }
+    .map_container {
+      width: 407px;
+    }
+    .gmaps4rails_map {
+      // height: 360px;
+      width: 407px;
+    }
+  }
+
+  /* Landscape phone to portrait tablet */
+  @media (max-width: 767px) {  
+     #topnav {
+      width: 569px;
+    }
+    #logo {
+      margin-left: 36px;
+    }
+    h2 {
+      margin-bottom: 0;
+    }
+    .status_message {
+      margin-left: 49px;
+      margin-top: 20px;
+      margin-bottom: 35px;
+    }
+    .line_box_1 {
+      min-height: 0px;
+      padding-top: 20px;
+      // border: 0;
+    }
+    .line_box_2 {
+      clear: left;
+      min-height: 160px;
+      height: auto;
+      // padding-top: 65px;
+      // border: 0;
+      #content_section {
+       margin-left: 0;
+      } 
+      .span4 {
+        width: 449px;
+      }
+      .span5 {
+        width: 449px;
+      }
+      .span6 {
+        width: 449px;
+      }
+    }
+
+    .line_box_3 {
+      clear: left;
+      min-height: 160px;
+      height: auto;
+      // padding-top: 65px;
+      // border: 0;
+      #content_section {
+       margin-left: 0;
+      }
+      .span7 {
+        width: 449px;
+      }
+    }
+    #navi_1 {
+       margin-bottom: 20px;
+    }
+    .container_shadow {
+      // background: transparent url('shadow_v.png') repeat-y;
+      background-image: none;
+      background-repeat: no-repeat;
+      width: 575px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .container_shadow_bottom {
+      // background: transparent url('shadow_h.png');
+      // background-repeat: no-repeat;
+      background-image: none;
+      width: 575px;
+    }
+    .container_inner {
+      margin-right: 20px;
+    }
+
+    .map_container {
+      width: 407px;
+    }
+    .gmaps4rails_map {
+      // height: 360px;
+      width: 407px;
+    }
+
+    #sidebar_right {
+      float: left;
+    }  
+    .container_shadow_bottom small {
+    float: right; 
+    margin-left: auto;
+    margin-right: auto;
+    }
+  }
+
+  /* Landscape phones and down */
+  @media (max-width: 480px) { 
+    h1 {   
+      color: red;
+    }
+  }
 }

@@ -3,7 +3,7 @@
   <head>
     <title><%= full_title(yield(:title)) %></title>
     <%= render 'layouts/shim' %>  
-    <%= stylesheet_link_tag    "application", media: "all" %>
+    <%= stylesheet_link_tag "application", media: "all" %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <!--  <%= auto_discovery_link_tag :atom, "/feed" %>
     <%= auto_discovery_link_tag :rss, "/feed.rss" %> -->
@@ -27,12 +27,18 @@
               <%= render 'shared/alexander_buehler' %>
             </div>
             <div class="span5">
+             <!--  <span class="hidden-phone">hidden-phone</span>
+              <span class="hidden-tablet">hidden-tablet</span>
+              <span class="hidden-desktop">hidden-desktop</span>
+              <span class="visible-phone">visible-phone</span>
+              <span class="visible-tablet">visible-tablet</span>
+              <span class="visible-desktop">visible-desktop</span> -->
               <%= render 'shared/status_message' %>
             </div>
           </div>
           <%= render 'shared/message' %>
           <div class="row">
-            <div class="span line_box">
+            <div class="span line_box_1">
               <%= render 'layouts/nav_col_1' %>
               <div class="span2.5" id="navi_2">
               <% if !@story_categories.nil? %>
@@ -111,7 +117,7 @@
                 </ul>
               </div>
             </div>
-            <div class="span line_box">
+            <div class="span line_box_2">
               <div class="span<%= @content_section_column_width %>" id="content_section">
                   <%= yield %>
               </div>
