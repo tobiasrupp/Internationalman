@@ -838,5 +838,148 @@ body {
       margin-left: auto;
       margin-right: auto;
     }  
-  } 
+  }
+  /* styles for small phones */
+  @media (max-width: 320px) {
+    // h1 { 
+    //   color: purple;
+    //   margin-left: 0px;
+    // }
+    // h2 {
+    //   margin-bottom: 0;
+    //   margin-top: 0;
+    //   margin-left: 0px;
+    // }
+    // #header_section {
+    //   margin-top: 0px;
+    // }
+    .language_switch {
+      display: none;
+      // margin-right: 22px;
+    }
+    // .status_message_image {
+    //   margin-top: 0;
+    //   margin-left: 0;
+    //   margin-bottom: 0;
+    // }
+    // .status_message {
+    //   margin-top: 0;
+    //   margin-bottom: 0;
+    // }
+    .span5 {
+      width: 300px;
+    }
+    .span6 {
+      width: 300px;
+    }
+    .span8 {
+      width: 300px;
+    }
+    // .container {
+    //   background-image: none;
+    //   background-repeat: no-repeat;
+    // }
+    // [class*="span"] {
+    //   float: left;
+    // }
+    // [class*="span"] {
+    //   margin-left: 0;
+    // }
+    #topnav {
+      width: 314px;
+    }
+    // #logo {
+    //   margin-left: 19px;
+    // }
+    .line_box_1 {
+      min-height: 0px;
+      padding-top: 18px;
+      width: 300px;
+    }
+    .line_box_2 {
+      clear: left;
+      min-height: 160px;
+      height: auto;
+      #content_section {
+       margin-left: 0;
+      } 
+      .span4 {
+        width: 220px;
+      }
+      .span5 {
+        width: 220px;
+      }
+      .span6 {
+        width: 220px;
+      }
+    }
+    .line_box_3 {
+      clear: left;
+      min-height: 160px;
+      height: auto;
+      #content_section {
+       margin-left: 0;
+      }
+      .span7 {
+        width: 220px;
+      }
+    }
+    // #content_section {
+    //   padding-left: 15px;
+    // }
+    // .nav-list {
+    //   margin-right: -6px;
+    //   margin-left: 8px;
+    // }
+    // #navi_1 {
+    //    margin-bottom: 18px;
+    // }
+    // #navi_2 {
+    //    margin-bottom: 18px;
+    // }
+    #navi_3 {
+       margin-left: 0px;
+       clear: left;
+    }
+    .container_shadow {
+      // background: transparent url('shadow_v.png') repeat-y;
+      background-image: none;
+      background-repeat: no-repeat;
+      width: 320px;
+      margin-left: -20px;
+    }
+    .container_shadow_bottom {
+      background: transparent url('shadow_h_480.png');
+      // background-repeat: no-repeat;
+      // background-image: none;
+      margin-left: -20px;
+      width: 320px;
+      small {
+        float: right; 
+        margin-right: 1em;
+        margin-bottom: 5px;
+      }
+    }
+    .container_inner {
+      margin-right: 5px;
+      margin-left: 5px;
+    }
+    #content_section .audio_player {
+      display: none;
+    }
+    #content_section .video_viewer {
+      display: none;
+    }
+    .post_body {
+      img {
+        width: 100px;
+      }
+    }
+    .map_container {
+      height: 200px;
+    }
+    .gmaps4rails_map {
+      height: 200px;
+    }
+  }
 }
