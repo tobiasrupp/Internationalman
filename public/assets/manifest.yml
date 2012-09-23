@@ -36,6 +36,7 @@ pin.png: pin-6ea84f2a5a4685a280fe74d617eca43d.png
 rss.png: rss-ad8b6b27d5a4131c6eef057c99facab0.png
 shadow-border.png: shadow-border-78bb7a08e0ce78021fde085a56fcd878.png
 shadow_h.png: shadow_h-e59dc65a6169497d60171747a6618762.png
+shadow_h_480.png: shadow_h_480-e3436269e08cbb6871df27262840d0a1.png
 shadow_v.png: shadow_v-34f644bfbdd11c02361ff0294ca7babf.png
 shadows3.png: shadows3-0e72e8bbc8f9eeb47bd3e9b4b6817faf.png
 text_b_w.png: text_b_w-fa06430ddcd8f553c00753f9f91e47f8.png
@@ -47,7 +48,7 @@ active_admin.js: active_admin-621e60e25e5266efa19ff931d960dc73.js
 application.js: application-110056c9ecfd275dc3617ececd68b395.js
 ckeditor/config.js: ckeditor/config-5839d6a909dfb65fa6c6006e755de249.js
 active_admin.css: active_admin-1055494fb5f6d49e87abdc46d72eae33.css
-application.css: application-f4f4728143a5af2251ff9f01f918fb82.css
+application.css: application-bbe976c323bd5ef2d489296db728351a.css
 ckeditor/application.js: ckeditor/application-c8ecaf7b244526de7fb2ca99aa0bee8b.js
 ckeditor/init.js: ckeditor/init-5d7e6106b41799260c6af53c3f75569a.js
 ckeditor/application.css: ckeditor/application-3bae7a0cbcd690437dfd0e9d9b027081.css
@@ -435,5 +436,5 @@ active_admin/nested_menu_arrow.gif: active_admin/nested_menu_arrow-dcb32755d9740
 active_admin/nested_menu_arrow_dark.gif: active_admin/nested_menu_arrow_dark-f9fe6b6a563b7b15f3cd1be4e98d1ce0.gif
 active_admin/orderable.png: active_admin/orderable-d9e1503253eff94adee978d6f43f2409.png
 active_admin/application.js: active_admin/application-07fb877e0a0431c839801f158020b702.js
-glyphicons-halflings-white.png: glyphicons-halflings-white-ef3d5b8d6a297804352b4a46fdb5466d.png
-glyphicons-halflings.png: glyphicons-halflings-0e7ff93d8f48fe1f5f762e4312e78da7.png
+glyphicons-halflings-white.png: glyphicons-halflings-white-13553a5bf21ae3cc374006592488ec64.png
+glyphicons-halflings.png: glyphicons-halflings-ab3144065a860d198f1d7d9a4882640c.png

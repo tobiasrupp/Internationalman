@@ -1,11 +1,9 @@
 @import "bootstrap";
-@import "bootstrap-responsive";
-// @import "bootstrap-responsive-utilities";
+@import "bootstrap/responsive-767px-max";
 
 /* mixins, variables, etc. */
 
  // #eaeaea;
-
 $gray_0: #cccccc;
 $gray_1: #a8a8a8;
 $gray_2: #7f7f7f;
@@ -14,11 +12,6 @@ $gray_3: #666666;
 $gray_4: #333333;
 
 /* universal */
-
-html {
-  overflow: auto;
-  // overflow-y: scroll;
-}
 
 code {
   background-color: black;
@@ -31,10 +24,7 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: $gray_4;
   background: #454343 url('black_body_bg.png') repeat-x;
-}
-
-section {
-  // overflow: auto;
+  overflow: auto;
 }
 
 textarea {
@@ -173,11 +163,10 @@ address {
 }
 
 .language_divider {
-  // color: #ff9933;
   color: white;
 }
 .language_switch {
-  margin-right: 30px;
+  margin-right: 44px;
   a {
   text-decoration: none;
   color: $gray_2;
@@ -187,32 +176,40 @@ address {
   }
 }
 
+.status_message_image {
+  background: transparent url('clock4.png') no-repeat;
+  float: left;
+  width: 34px;
+  height: 72px;
+  margin-top: 18px;
+  margin-left: 45px;
+  line-height: 10px;
+  background-position: center; 
+}
 .status_message {
-  margin-top: 35px;
-  line-height: 14px;
+  display: table;
+  margin-top: 18px;
+  padding-left: 9px;
+  line-height: 10px;
+  height: 72px;
   .double_quote {
-    // font-size: 200%;
   }
   small {
     font-size: 10px;
     font-style: normal;
   }
-  img {
-    float: left;
-    margin-left: -32px;
-    margin-right: 8px;
-    margin-top: -2px;
-    // width: 34px;
-    // width: 34px;
-  }
   a {
-  text-decoration: none;
-  color: $gray_4;
-  font-weight: bold;
+    text-decoration: none;
+    color: $gray_4;
+    font-weight: bold;
   }
   a:hover {
-  color: $gray_2;
+    color: $gray_2;
   }
+}
+.status_message_inner {
+  display: table-cell;
+  vertical-align: middle;
 }
 
 h1 {
@@ -568,193 +565,43 @@ footer {
 // RESPONSIVE LAYOUTS
 
 body {
-  /* Large desktop */
-  @media (min-width: 1200px) { 
-    h1 { 
-      color: blue;
-    }
-  }  
-
-  /* Default Apple Laptop, iPad landscape, Kindle Fire landscape */
-  @media (min-width: 1024px) and (max-width: 1199px) { 
-    h1 { 
-      color: $gray_4;
-    }
-  }  
-
-  /* iOS Safari Viewport */
-  @media (min-width: 980px) and (max-width: 1023px) { 
-    h1 { 
-      color: orange;
-    }
-  }  
-
-  /* SVGA */
-  @media (min-width: 800px) and (max-width: 979px) { 
-    h1 { 
-      color: green;
-    }
-    #topnav {
-      width: 718px;
-    }
-    .status_message {
-      margin-left: 60px;
-    }
-    h2 {
-      // margin-bottom: 34px;
-    }
-    .line_box_1 {
-      width: 660px; 
-      min-height: 0px;
-      margin-bottom: 36px;
-    }
-    .line_box_2 {
-      min-height: 160px;
-      height: auto;
-      #content_section {
-        margin-left: 0;
-      } 
-      .span4 {
-        width: 585px;
-      }
-      .span5 {
-        width: 585px;
-      }
-      .span6 {
-        width: 585px;
-      }
-    }
-    .line_box_3 {
-      min-height: 160px;
-      height: auto;
-      .span7 {
-        width: 585px;
-      }
-      #content_section {
-       margin-left: 0;
-      }
-    }
-    .container_shadow {
-      background: transparent url('shadow_v.png') repeat-y;
-      // background-image: none;
-      // background-repeat: no-repeat;
-      width: 783px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .container_shadow_bottom {
-      // background: transparent url('shadow_h.png');
-      // background-repeat: no-repeat;
-      background-image: none;
-      width: 783px;
-      small {
-        float: left; 
-        margin-left: 520px;
-      }
-    }
-    .map_container {
-      width: 407px;
-    }
-    .gmaps4rails_map {
-      // height: 360px;
-      width: 407px;
-    }
-  }
-
-  /* iPad portrait mode */
-  @media (min-width: 768px) and (max-width: 799px) {
-    h1 { 
-      color: brown;
-    }
-     #topnav {
-      width: 718px;
-    }
-    .status_message {
-      margin-left: 60px;
-    }
-    h2 {
-      // margin-bottom: 34px;
-    }
-    .line_box_1 {
-      width: 660px; 
-      min-height: 0px;
-      margin-bottom: 36px;
-    }
-    .line_box_2 {
-      min-height: 160px;
-      height: auto;
-      #content_section {
-        margin-left: 0;
-      } 
-      .span4 {
-        width: 585px;
-      }
-      .span5 {
-        width: 585px;
-      }
-      .span6 {
-        width: 585px;
-      }
-    }
-    .line_box_3 {
-      min-height: 160px;
-      height: auto;
-      .span7 {
-        width: 585px;
-      }
-      #content_section {
-       margin-left: 0;
-      }
-    }
-    .container_shadow {
-      background: transparent url('shadow_v.png') repeat-y;
-      // background-image: none;
-      // background-repeat: no-repeat;
-      width: 783px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .container_shadow_bottom {
-      // background: transparent url('shadow_h.png');
-      // background-repeat: no-repeat;
-      background-image: none;
-      width: 783px;
-      small {
-        float: left; 
-        margin-left: 520px;
-      }
-    }
-    .map_container {
-      width: 407px;
-    }
-    .gmaps4rails_map {
-      // height: 360px;
-      width: 407px;
-    }  
-  }
-
-  /* Landscape phone to portrait tablet */
+  /* Styles for Landscape phone to portrait tablet */
   @media (min-width: 601px) and (max-width: 767px) { 
-    h1 { 
-      color: gold;
-    }   
+    // h1 { 
+    //   color: gold;
+    // }   
     #topnav {
       width: 569px;
     }
     #logo {
-      margin-left: 36px;
+      margin-left: 47px;
+    }
+    .language_switch {
+      margin-right: 47px;
     }
     h2 {
       margin-bottom: 0;
+      margin-left: 19px;
+    }
+    .status_message_image {
+      margin-top: 0;
+      margin-left: 18px;
+      margin-bottom: 0;
     }
     .status_message {
-      margin-left: 49px;
-      margin-top: 20px;
-      margin-bottom: 35px;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+    [class*="span"] {
+      float: left;
+    }
+    .nav-list {
+      margin-left: 11px;
     }
     .line_box_1 {
       min-height: 0px;
-      padding-top: 20px;
+      padding-top: 18px;
+      width: 509px;
       // border: 0;
     }
     .line_box_2 {
@@ -767,31 +614,35 @@ body {
        margin-left: 0;
       } 
       .span4 {
-        width: 449px;
+        width: 434px;
       }
       .span5 {
-        width: 449px;
+        width: 434px;
       }
       .span6 {
-        width: 449px;
+        width: 434px;
       }
+    }
+    #navi_1 {
+       margin-bottom: 18px;
+    }
+    #navi_2 {
+       margin-bottom: 18px;
+    }
+    #navi_3 {
+       margin-bottom: 18px;
     }
 
     .line_box_3 {
       clear: left;
       min-height: 160px;
       height: auto;
-      // padding-top: 65px;
-      // border: 0;
       #content_section {
        margin-left: 0;
       }
       .span7 {
-        width: 449px;
+        width: 434px;
       }
-    }
-    #navi_1 {
-       margin-bottom: 20px;
     }
     .container_shadow {
       // background: transparent url('shadow_v.png') repeat-y;
@@ -812,11 +663,11 @@ body {
     }
 
     .map_container {
-      width: 407px;
+      width: 100%;
     }
     .gmaps4rails_map {
       // height: 360px;
-      width: 407px;
+      width: 100%;
     }
 
     #sidebar_right {
@@ -829,94 +680,47 @@ body {
     }
   }
 
-  /* Kindle Fire */
-  @media (min-width: 521px) and (max-width: 600px) {
+  /* styles for iPhone, Facebook Page Tab and Kindle Fire */
+  @media only screen and (max-width: 600px) { 
     h1 { 
-      color: pink;
-    }
-    #header_section {
-      margin-top: 15px;
-    }
-    .map_container {
-      width: 100%;
-    }
-    .gmaps4rails_map {
-      // height: 360px;
-      width: 100%;
-    }
-  }
-
-  /* Facebook Page Tab */
-  @media (min-width: 481px) and (max-width: 520px) {
-    h1 { 
-      color: purple;
-    }
-    #header_section {
-      margin-top: 0px;
-    }
-     #topnav {
-      width: 514px;
-    }
-    .container_shadow {
-      width: 520px;
-    }
-    .container_shadow_bottom {
-      width: 520px;
-      background: transparent url('shadow_h.png');
-      background-repeat: no-repeat;
-      small {
-        float: right; 
-        margin-right: 1em;
-      }
-    }
-    .nav-list {
-      margin-right: 0;
-    }
-    .line_box_2 {
-      .span4 {
-        width: 400px;
-      }
-      .span5 {
-        width: 400px;
-      }
-      .span6 {
-        width: 400px;
-      }
-    }
-
-    .line_box_3 {
-      .span7 {
-        width: 400px;
-      }
-    }
-    .post_body {
-      img {
-        width: 160px;
-      }
-    }
-  }
-
-  /* iPhone, Landscape phones and down */
-  @media only screen and (max-width: 480px) { 
-    h1 { 
-      // color: $gray_4;
-      color: red;
+      // color: red;
       margin-left: 0px;
-      // margin-top: 28px;
     }
     h2 {
       margin-bottom: 0;
+      margin-top: 0;
       margin-left: 0px;
     }
     #header_section {
       margin-top: 0px;
     }
     .language_switch {
-      margin-right: 18px;
+      margin-right: 22px;
+    }
+    .status_message_image {
+      margin-top: 0;
+      margin-left: 0;
+      margin-bottom: 0;
+    }
+    .status_message {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+    .span5 {
+      width: 435px;
+    }
+    .span6 {
+      width: 435px;
+    }
+    .span8 {
+      width: 435px;
     }
     .container {
       background-image: none;
       background-repeat: no-repeat;
+    }
+    [class*="span"] {
+      float: left;
     }
     #topnav {
       width: 474px;
@@ -924,33 +728,17 @@ body {
     #logo {
       margin-left: 19px;
     }
-    .status_message {
-      margin-left: 31px;
-      margin-top: 20px;
-      margin-bottom: 35px;
-    }
-    // .nav-list {
-    //   margin-right: 0;
-    // }
-    #navi_1 {
-      // background-image: none;
-      // background-repeat: no-repeat;
-      // margin-left: -18px;
-    }
     .line_box_1 {
       min-height: 0px;
-      padding-top: 20px;
-      // border: 0;
+      padding-top: 18px;
+      width: 435px;
     }
     .line_box_2 {
       clear: left;
       min-height: 160px;
       height: auto;
-      // padding-top: 65px;
-      // border: 0;
       #content_section {
        margin-left: 0;
-
       } 
       .span4 {
         width: 360px;
@@ -962,13 +750,10 @@ body {
         width: 360px;
       }
     }
-
     .line_box_3 {
       clear: left;
       min-height: 160px;
       height: auto;
-      // padding-top: 65px;
-      // border: 0;
       #content_section {
        margin-left: 0;
       }
@@ -976,32 +761,82 @@ body {
         width: 360px;
       }
     }
+    #content_section {
+      padding-left: 15px;
+    }
+    .nav-list {
+      margin-right: -6px;
+      margin-left: 8px;
+    }
     #navi_1 {
-       margin-bottom: 20px;
+       margin-bottom: 18px;
+    }
+    #navi_2 {
+       margin-bottom: 18px;
+    }
+    #navi_3 {
+       margin-bottom: 18px;
     }
     .container_shadow {
       // background: transparent url('shadow_v.png') repeat-y;
       background-image: none;
       background-repeat: no-repeat;
       width: 480px;
+      margin-left: -20px;
+    }
+    .container_shadow_bottom {
+      background: transparent url('shadow_h_480.png');
+      // background-repeat: no-repeat;
+      // background-image: none;
+      margin-left: -20px;
+      width: 480px;
+      small {
+        float: right; 
+        margin-right: 22px;
+        margin-bottom: 5px;
+      }
+    }
+    .container_inner {
+      margin-right: 10px;
+      margin-left: 10px;
+    }
+    .post_body {
+      img {
+        width: 160px;
+      }
+    }
+    .map_container {
+      width: 100%;
+      height: 300px;
+    }
+    .gmaps4rails_map {
+      width: 100%;
+      height: 300px;
+    }
+  }
+
+  /* styles for Facebook Page Tab and Kindle Fire */
+  @media (min-width: 481px) and (max-width: 600px) {
+    h1 { 
+      // color: pink;
+    }
+    #header_section {
+      margin-top: 20px;
+    }
+    .container_shadow {
+      // background: transparent url('shadow_v.png') repeat-y;
+      background-image: none;
+      background-repeat: no-repeat;
+      // width: 480px;
       margin-left: auto;
       margin-right: auto;
     }
     .container_shadow_bottom {
-      // background: transparent url('shadow_h.png');
-      // background-repeat: no-repeat;
-      // background-image: none;
-      width: 480px;
-      // small {
-      //   float: right; 
-      //   margin-right: 1em;
-      // }
-    }
-    .container_inner {
-      margin-right: 20px;
-    }
-    // #sidebar_right {
-    //   float: left;
-    // }  
-  }
+      // background: transparent url('shadow_h_480.png');
+      background-repeat: no-repeat;
+      background-image: none;
+      margin-left: auto;
+      margin-right: auto;
+    }  
+  } 
 }

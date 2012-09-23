@@ -69,7 +69,8 @@ class VideosController < ApplicationController
           end 
         end 
       when 6
-        display_width = 430
+        # display_width = 430 # a bit too wide for the iPhone
+        display_width = 380
         if width.blank? or height.blank?
           # use default viewer size
           @video_teaser_image_size = :sixteen_nine
