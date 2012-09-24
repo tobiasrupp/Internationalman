@@ -9,7 +9,8 @@ class PostsController < ApplicationController
 		@posts = Post.find(:all,
 	              :include => :categories,
 	              :conditions => "publication_state = 'Published'",
-	              :order => "created_at DESC")
+	              :order => "created_at DESC",
+                :limit => 16)
     if @posts.count == 0
       flash.now[:notice] = "Kein Blogeintrag gefunden."
       return
