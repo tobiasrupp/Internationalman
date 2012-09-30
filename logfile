@@ -533,3 +533,16 @@ LOG:  received smart shutdown request
 LOG:  autovacuum launcher shutting down
 LOG:  shutting down
 LOG:  database system is shut down
+LOG:  database system was shut down at 2012-09-25 00:31:46 CEST
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ERROR:  missing FROM-clause entry for table "category" at character 213
+STATEMENT:  SELECT "articles".* FROM "articles" INNER JOIN "article_categories" ON "article_categories"."article_id" = "articles"."id" INNER JOIN "categories" ON "categories"."id" = "article_categories"."category_id" WHERE (category.name = "Corporate")
+ERROR:  missing FROM-clause entry for table "category" at character 213
+STATEMENT:  SELECT "articles".* FROM "articles" INNER JOIN "article_categories" ON "article_categories"."article_id" = "articles"."id" INNER JOIN "categories" ON "categories"."id" = "article_categories"."category_id" WHERE (category.name = "Corporate")
+ERROR:  column "Corporate" does not exist at character 231
+STATEMENT:  SELECT "articles".* FROM "articles" INNER JOIN "article_categories" ON "article_categories"."article_id" = "articles"."id" INNER JOIN "categories" ON "categories"."id" = "article_categories"."category_id" WHERE (categories.name = "Corporate")
+ERROR:  column "Corporate" does not exist at character 231
+STATEMENT:  SELECT "articles".* FROM "articles" INNER JOIN "article_categories" ON "article_categories"."article_id" = "articles"."id" INNER JOIN "categories" ON "categories"."id" = "article_categories"."category_id" WHERE (categories.name = "Corporate")
+ERROR:  column "Published" does not exist at character 106
+STATEMENT:  SELECT "posts".* FROM "posts"  WHERE (updated_at >= '2012-06-22 23:06:28.761363' AND publication_state = "Published") ORDER BY created_at DESC

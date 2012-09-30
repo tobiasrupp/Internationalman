@@ -1,6 +1,53 @@
 class StoriesController < ApplicationController
 
-  before_filter :set_status_message
+  before_filter :set_status_message, :except => [:refresh_facebook_data]
+
+  def refresh_facebook_data
+    if !params[:refresh_all] and !params[:days]
+      return
+    end
+
+    error = false
+    @records_updated = 0
+    case I18n.locale
+      when :de
+        error = refresh_facebook_data_of_stories(params[:days])
+        error = refresh_facebook_data_of_radio_tracks(params[:days])
+        error = refresh_facebook_data_of_videos(params[:days])
+        error = refresh_facebook_data_of_corporate_articles(params[:days])
+        error = refresh_facebook_data_of_posts(params[:days])
+        I18n.locale = 'en'
+        logger.debug "*** Locale set to '#{I18n.locale}'"
+        error = refresh_facebook_data_of_stories(params[:days])
+        error = refresh_facebook_data_of_radio_tracks(params[:days])
+        error = refresh_facebook_data_of_videos(params[:days])
+        error = refresh_facebook_data_of_corporate_articles(params[:days])
+        error = refresh_facebook_data_of_posts(params[:days])
+        I18n.locale = 'de'
+        logger.debug "*** Locale set to '#{I18n.locale}'"
+      when :en
+        error = refresh_facebook_data_of_stories(params[:days])
+        error = refresh_facebook_data_of_radio_tracks(params[:days])
+        error = refresh_facebook_data_of_videos(params[:days])
+        error = refresh_facebook_data_of_corporate_articles(params[:days])
+        error = refresh_facebook_data_of_posts(params[:days])
+        I18n.locale = 'de'
+        logger.debug "*** Locale set to '#{I18n.locale}'"
+        error = refresh_facebook_data_of_stories(params[:days])
+        error = refresh_facebook_data_of_radio_tracks(params[:days])
+        error = refresh_facebook_data_of_videos(params[:days])
+        error = refresh_facebook_data_of_corporate_articles(params[:days])
+        error = refresh_facebook_data_of_posts(params[:days])
+        I18n.locale = 'en'
+        logger.debug "*** Locale set to '#{I18n.locale}'"
+    end
+    if error == true
+      flash.now[:error] = "Completed with errors."
+    else
+      flash.now[:notice] = "Completed successfully. Records updated: #{@records_updated}"
+    end
+    # render :action => "show_stories"
+  end
 
   def show_stories
     # route /stories
@@ -81,7 +128,7 @@ class StoriesController < ApplicationController
     else
       @content_section_column_width = 5
     end
-  	render action: "show_stories"
+  	render :action => "show_stories"
   end
 
   def feed
@@ -115,5 +162,206 @@ class StoriesController < ApplicationController
     respond_to do |format|
       format.atom
     end
+  end
+
+  private
+
+  def refresh_facebook_data_of_stories(no_of_days)
+    error = false
+    if no_of_days
+      no_of_days = no_of_days.to_i
+    else
+      no_of_days = 0
+    end
+    if no_of_days >= 1
+      articles = Article.find(:all,
+            :include => :categories,
+            :conditions => ['updated_at >= ?', Time.now - no_of_days.day],
+            :order => "published_date DESC")
+    else
+      articles = Article.find(:all,
+            :include => :categories,
+            :order => "published_date DESC")
+    end 
+    articles.each do |article|
+      category = article.categories[0]
+      if category.name == 'Corporate'
+        next
+      end
+      url = 'http://developers.facebook.com/tools/debug/og/object?q=' + stories_url + '/' + category.url_name + '/' + article.url_title
+      response = HTTParty.get(url)
+
+      case response.code
+        when 200...205
+          logger.debug "*** Success #{response.code} (#{url})."
+          @records_updated = @records_updated + 1
+        when 404
+          logger.debug "*** ERROR #{response.code} (#{url})."
+          error = true
+        when 500...600
+          logger.debug "*** ERROR #{response.code} (#{url})."
+          error = true
+        else
+          logger.debug "*** ERROR #{response.code} (#{url})."
+          error = true
+      end
+      # sleep 1
+    end
+    return error
+  end
+
+  def refresh_facebook_data_of_radio_tracks(no_of_days)
+    error = false
+    if no_of_days
+      no_of_days = no_of_days.to_i
+    else
+      no_of_days = 0
+    end
+    if no_of_days >= 1
+      radio_tracks = RadioTrack.find(:all,
+            :conditions => ['updated_at >= ?', Time.now - no_of_days.day],
+            :order => "broadcast_date DESC")
+    else
+      radio_tracks = RadioTrack.find(:all,
+            :order => "broadcast_date DESC")
+    end 
+    radio_tracks.each do |track|
+      url = 'http://developers.facebook.com/tools/debug/og/object?q=' + radio_url + track.url_title
+      response = HTTParty.get(url)
+
+      case response.code
+        when 200...205
+          logger.debug "*** Success #{response.code} (#{url})."
+          @records_updated = @records_updated + 1
+        when 404
+          logger.debug "*** ERROR #{response.code} (#{url})."
+          error = true
+        when 500...600
+          logger.debug "*** ERROR #{response.code} (#{url})."
+          error = true
+        else
+          logger.debug "*** ERROR #{response.code} (#{url})."
+          error = true
+      end
+      # sleep 1
+    end
+    return error
+  end
+
+  def refresh_facebook_data_of_videos(no_of_days)
+    error = false
+    if no_of_days
+      no_of_days = no_of_days.to_i
+    else
+      no_of_days = 0
+    end
+    if no_of_days >= 1
+      videos = Video.find(:all,
+            :conditions => ['updated_at >= ?', Time.now - no_of_days.day],
+            :order => "broadcast_date DESC")
+    else
+      videos = Video.find(:all,
+            :order => "broadcast_date DESC")
+    end 
+    videos.each do |video|
+      url = 'http://developers.facebook.com/tools/debug/og/object?q=' + tv_url + video.url_title
+      response = HTTParty.get(url)
+
+      case response.code
+        when 200...205
+          logger.debug "*** Success #{response.code} (#{url})."
+          @records_updated = @records_updated + 1
+        when 404
+          logger.debug "*** ERROR #{response.code} (#{url})."
+          error = true
+        when 500...600
+          logger.debug "*** ERROR #{response.code} (#{url})."
+          error = true
+        else
+          logger.debug "*** ERROR #{response.code} (#{url})."
+          error = true
+      end
+      # sleep 1
+    end
+    return error
+  end
+
+  def refresh_facebook_data_of_corporate_articles(no_of_days)
+    error = false
+    if no_of_days
+      no_of_days = no_of_days.to_i
+    else
+      no_of_days = 0
+    end
+    if no_of_days >= 1
+      category = Category.find_by_name('Corporate')
+      articles = category.articles.find(:all,
+            :conditions => ['updated_at >= ?', Time.now - no_of_days.day],
+            :order => "published_date DESC")
+    else
+      category = Category.find_by_name('Corporate')
+      articles = category.articles.find(:all,
+            :order => "published_date DESC")
+    end 
+    articles.each do |article|
+      url = 'http://developers.facebook.com/tools/debug/og/object?q=' + corporate_url + '/' + article.url_title
+      response = HTTParty.get(url)
+
+      case response.code
+        when 200...205
+          logger.debug "*** Success #{response.code} (#{url})."
+          @records_updated = @records_updated + 1
+        when 404
+          logger.debug "*** ERROR #{response.code} (#{url})."
+          error = true
+        when 500...600
+          logger.debug "*** ERROR #{response.code} (#{url})."
+          error = true
+        else
+          logger.debug "*** ERROR #{response.code} (#{url})."
+          error = true
+      end
+      # sleep 1
+    end
+    return error
+  end
+
+  def refresh_facebook_data_of_posts(no_of_days)
+    error = false
+    if no_of_days
+      no_of_days = no_of_days.to_i
+    else
+      no_of_days = 0
+    end
+    if no_of_days >= 1
+      posts = Post.find(:all,
+            :conditions => ["updated_at >= ? AND publication_state = 'Published'", Time.now - no_of_days.day],
+            :order => "created_at DESC")
+    else
+      posts = Post.find(:all,
+            :conditions => ["publication_state = 'Published'"],
+            :order => "created_at DESC")
+    end 
+    posts.each do |post|
+      url = 'http://developers.facebook.com/tools/debug/og/object?q=' + blog_url + '/' + post.url_title
+      response = HTTParty.get(url)
+
+      case response.code
+        when 200...205
+          logger.debug "*** Success #{response.code} (#{url})."
+          @records_updated = @records_updated + 1
+        when 404
+          logger.debug "*** ERROR #{response.code} (#{url})."
+          error = true
+        when 500...600
+          logger.debug "*** ERROR #{response.code} (#{url})."
+          error = true
+        else
+          logger.debug "*** ERROR #{response.code} (#{url})."
+          error = true
+      end
+      # sleep 1
+    end
+    return error
   end
 end
