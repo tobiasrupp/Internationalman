@@ -190,8 +190,8 @@ class StoriesController < ApplicationController
         next
       end
       url = 'http://developers.facebook.com/tools/debug/og/object?q=' + stories_url + '/' + category.url_name + '/' + article.url_title
-      response = HTTParty.get(url)
-
+      response = HTTParty.get(url, :headers => {"User-Agent" => 'Mozilla/5.0 (iPad; U; CPU OS 3_2_1 like Mac OS X; en-us) AppleWebKit/531.21.10 (KHTML, like Gecko) Mobile/7B405'})
+      # puts response.inspect
       error = get_response_code_message(response.code, url)
     end
     return error
@@ -214,7 +214,7 @@ class StoriesController < ApplicationController
     end 
     radio_tracks.each do |track|
       url = 'http://developers.facebook.com/tools/debug/og/object?q=' + radio_url + '/' + track.url_title
-      response = HTTParty.get(url)
+      response = HTTParty.get(url, :headers => {"User-Agent" => 'Mozilla/5.0 (iPad; U; CPU OS 3_2_1 like Mac OS X; en-us) AppleWebKit/531.21.10 (KHTML, like Gecko) Mobile/7B405'})
 
       error = get_response_code_message(response.code, url)
     end
@@ -238,7 +238,7 @@ class StoriesController < ApplicationController
     end 
     videos.each do |video|
       url = 'http://developers.facebook.com/tools/debug/og/object?q=' + tv_url + '/' + video.url_title
-      response = HTTParty.get(url)
+      response = HTTParty.get(url, :headers => {"User-Agent" => 'Mozilla/5.0 (iPad; U; CPU OS 3_2_1 like Mac OS X; en-us) AppleWebKit/531.21.10 (KHTML, like Gecko) Mobile/7B405'})
       error = get_response_code_message(response.code, url)
     end
     return error
@@ -263,7 +263,7 @@ class StoriesController < ApplicationController
     end 
     articles.each do |article|
       url = 'http://developers.facebook.com/tools/debug/og/object?q=' + corporate_url + '/' + article.url_title
-      response = HTTParty.get(url)
+      response = HTTParty.get(url, :headers => {"User-Agent" => 'Mozilla/5.0 (iPad; U; CPU OS 3_2_1 like Mac OS X; en-us) AppleWebKit/531.21.10 (KHTML, like Gecko) Mobile/7B405'})
 
       error = get_response_code_message(response.code, url)
     end
@@ -288,7 +288,7 @@ class StoriesController < ApplicationController
     end 
     posts.each do |post|
       url = 'http://developers.facebook.com/tools/debug/og/object?q=' + blog_url + '/' + post.url_title
-      response = HTTParty.get(url)
+      response = HTTParty.get(url, :headers => {"User-Agent" => 'Mozilla/5.0 (iPad; U; CPU OS 3_2_1 like Mac OS X; en-us) AppleWebKit/531.21.10 (KHTML, like Gecko) Mobile/7B405'})
 
       error = get_response_code_message(response.code, url)
     end
