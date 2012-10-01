@@ -9,6 +9,7 @@ class StoriesController < ApplicationController
 
     error = false
     @records_updated = 0
+    @log = ""
     case I18n.locale
       when :de
         error = refresh_facebook_data_of_stories(params[:days])
@@ -46,7 +47,7 @@ class StoriesController < ApplicationController
     else
       flash.now[:notice] = "Completed successfully. Records updated: #{@records_updated}"
     end
-    # render :action => "show_stories"
+    render(:layout => 'pages')
   end
 
   def show_stories
@@ -191,21 +192,7 @@ class StoriesController < ApplicationController
       url = 'http://developers.facebook.com/tools/debug/og/object?q=' + stories_url + '/' + category.url_name + '/' + article.url_title
       response = HTTParty.get(url)
 
-      case response.code
-        when 200...205
-          logger.debug "*** Success #{response.code} (#{url})."
-          @records_updated = @records_updated + 1
-        when 404
-          logger.debug "*** ERROR #{response.code} (#{url})."
-          error = true
-        when 500...600
-          logger.debug "*** ERROR #{response.code} (#{url})."
-          error = true
-        else
-          logger.debug "*** ERROR #{response.code} (#{url})."
-          error = true
-      end
-      # sleep 1
+      error = get_response_code_message(response.code, url)
     end
     return error
   end
@@ -226,24 +213,10 @@ class StoriesController < ApplicationController
             :order => "broadcast_date DESC")
     end 
     radio_tracks.each do |track|
-      url = 'http://developers.facebook.com/tools/debug/og/object?q=' + radio_url + track.url_title
+      url = 'http://developers.facebook.com/tools/debug/og/object?q=' + radio_url + '/' + track.url_title
       response = HTTParty.get(url)
 
-      case response.code
-        when 200...205
-          logger.debug "*** Success #{response.code} (#{url})."
-          @records_updated = @records_updated + 1
-        when 404
-          logger.debug "*** ERROR #{response.code} (#{url})."
-          error = true
-        when 500...600
-          logger.debug "*** ERROR #{response.code} (#{url})."
-          error = true
-        else
-          logger.debug "*** ERROR #{response.code} (#{url})."
-          error = true
-      end
-      # sleep 1
+      error = get_response_code_message(response.code, url)
     end
     return error
   end
@@ -264,24 +237,9 @@ class StoriesController < ApplicationController
             :order => "broadcast_date DESC")
     end 
     videos.each do |video|
-      url = 'http://developers.facebook.com/tools/debug/og/object?q=' + tv_url + video.url_title
+      url = 'http://developers.facebook.com/tools/debug/og/object?q=' + tv_url + '/' + video.url_title
       response = HTTParty.get(url)
-
-      case response.code
-        when 200...205
-          logger.debug "*** Success #{response.code} (#{url})."
-          @records_updated = @records_updated + 1
-        when 404
-          logger.debug "*** ERROR #{response.code} (#{url})."
-          error = true
-        when 500...600
-          logger.debug "*** ERROR #{response.code} (#{url})."
-          error = true
-        else
-          logger.debug "*** ERROR #{response.code} (#{url})."
-          error = true
-      end
-      # sleep 1
+      error = get_response_code_message(response.code, url)
     end
     return error
   end
@@ -307,21 +265,7 @@ class StoriesController < ApplicationController
       url = 'http://developers.facebook.com/tools/debug/og/object?q=' + corporate_url + '/' + article.url_title
       response = HTTParty.get(url)
 
-      case response.code
-        when 200...205
-          logger.debug "*** Success #{response.code} (#{url})."
-          @records_updated = @records_updated + 1
-        when 404
-          logger.debug "*** ERROR #{response.code} (#{url})."
-          error = true
-        when 500...600
-          logger.debug "*** ERROR #{response.code} (#{url})."
-          error = true
-        else
-          logger.debug "*** ERROR #{response.code} (#{url})."
-          error = true
-      end
-      # sleep 1
+      error = get_response_code_message(response.code, url)
     end
     return error
   end
@@ -346,22 +290,29 @@ class StoriesController < ApplicationController
       url = 'http://developers.facebook.com/tools/debug/og/object?q=' + blog_url + '/' + post.url_title
       response = HTTParty.get(url)
 
-      case response.code
-        when 200...205
-          logger.debug "*** Success #{response.code} (#{url})."
-          @records_updated = @records_updated + 1
-        when 404
-          logger.debug "*** ERROR #{response.code} (#{url})."
-          error = true
-        when 500...600
-          logger.debug "*** ERROR #{response.code} (#{url})."
-          error = true
-        else
-          logger.debug "*** ERROR #{response.code} (#{url})."
-          error = true
-      end
-      # sleep 1
+      error = get_response_code_message(response.code, url)
     end
     return error
   end
+
+  def get_response_code_message(code, url)
+    case code
+      when 200...205
+        logger.debug "*** Success #{response.code} (#{url})."
+        @log = @log + "Success #{response.code} (#{url})" + "<br>"
+        @records_updated = @records_updated + 1
+      when 404
+        logger.debug "*** ERROR #{response.code} (#{url})."
+        @log = @log + "ERROR #{response.code} (#{url})" + "<br>"
+        error = true
+      when 500...600
+        logger.debug "*** ERROR #{response.code} (#{url})."
+        @log = @log + "ERROR #{response.code} (#{url})" + "<br>"
+        error = true
+      else
+        logger.debug "*** ERROR #{response.code} (#{url})."
+        @log = @log + "ERROR #{response.code} (#{url})" + "<br>"
+        error = true
+    end
+  end 
 end
