@@ -11,8 +11,10 @@ class StoriesController < ApplicationController
     else
       url = "developers.facebook.com/tools/debug/og/object?q=http://www.international-man.net/de/stories/tech/snowleopard-osx"
     end
-    response = RestClient.get(url, :headers => {"User-Agent" => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:15.0) Gecko/20100101 Firefox/15.0.1'})
+    # response = RestClient.get(url, :headers => {"User-Agent" => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:15.0) Gecko/20100101 Firefox/15.0.1'})
 
+    response = RestClient.get('developers.facebook.com/tools/debug/og/object?q=http://www.international-man.net/en/blog/pakunst')
+    
     @log = response
     # error = false
     # @records_updated = 0
