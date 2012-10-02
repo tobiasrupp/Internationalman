@@ -7,11 +7,11 @@ class StoriesController < ApplicationController
       return
     end
     if params[:url]
-      url = "developers.facebook.com/tools/debug/og/object?q=" + params[:url]
+      url = params[:url]
     else
-      url = "developers.facebook.com/tools/debug/og/object?q=http://www.international-man.net/de/stories/tech/snowleopard-osx"
+      url = "www.international-man.net/de/stories/tech/snowleopard-osx"
     end
-    response = RestClient.get(url, :headers => {"User-Agent" => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:15.0) Gecko/20100101 Firefox/15.0.1'})
+    response = RestClient.get('http://developers.facebook.com/tools/debug/og/object', :params => {:q => url })
     # response = RestClient.get('developers.facebook.com/tools/debug/og/object?q=http://www.international-man.net/en/blog/pakunst')
     @log = response
     # error = false
