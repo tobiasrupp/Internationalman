@@ -3,50 +3,57 @@ class StoriesController < ApplicationController
   before_filter :set_status_message, :except => [:refresh_facebook_data]
 
   def refresh_facebook_data
-    if !params[:refresh_all] and !params[:days]
+    if !params[:refresh_all] and !params[:days] and !params[:url]
       return
     end
-
-    error = false
-    @records_updated = 0
-    @log = ""
-    case I18n.locale
-      when :de
-        error = refresh_facebook_data_of_stories(params[:days])
-        error = refresh_facebook_data_of_radio_tracks(params[:days])
-        error = refresh_facebook_data_of_videos(params[:days])
-        error = refresh_facebook_data_of_corporate_articles(params[:days])
-        error = refresh_facebook_data_of_posts(params[:days])
-        I18n.locale = 'en'
-        logger.debug "*** Locale set to '#{I18n.locale}'"
-        error = refresh_facebook_data_of_stories(params[:days])
-        error = refresh_facebook_data_of_radio_tracks(params[:days])
-        error = refresh_facebook_data_of_videos(params[:days])
-        error = refresh_facebook_data_of_corporate_articles(params[:days])
-        error = refresh_facebook_data_of_posts(params[:days])
-        I18n.locale = 'de'
-        logger.debug "*** Locale set to '#{I18n.locale}'"
-      when :en
-        error = refresh_facebook_data_of_stories(params[:days])
-        error = refresh_facebook_data_of_radio_tracks(params[:days])
-        error = refresh_facebook_data_of_videos(params[:days])
-        error = refresh_facebook_data_of_corporate_articles(params[:days])
-        error = refresh_facebook_data_of_posts(params[:days])
-        I18n.locale = 'de'
-        logger.debug "*** Locale set to '#{I18n.locale}'"
-        error = refresh_facebook_data_of_stories(params[:days])
-        error = refresh_facebook_data_of_radio_tracks(params[:days])
-        error = refresh_facebook_data_of_videos(params[:days])
-        error = refresh_facebook_data_of_corporate_articles(params[:days])
-        error = refresh_facebook_data_of_posts(params[:days])
-        I18n.locale = 'en'
-        logger.debug "*** Locale set to '#{I18n.locale}'"
-    end
-    if error == true
-      flash.now[:error] = "Completed with errors."
+    if params[:url]
+      url = "developers.facebook.com/tools/debug/og/object?q=" + params[:url]
     else
-      flash.now[:notice] = "Completed successfully. Records updated: #{@records_updated}"
+      url = "developers.facebook.com/tools/debug/og/object?q=http://www.international-man.net/de/stories/tech/snowleopard-osx"
     end
+    response = RestClient.get(url, :headers => {"User-Agent" => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:15.0) Gecko/20100101 Firefox/15.0.1'})
+
+    @log = response
+    # error = false
+    # @records_updated = 0
+    # @log = ""
+    # case I18n.locale
+    #   when :de
+    #     error = refresh_facebook_data_of_stories(params[:days])
+    #     error = refresh_facebook_data_of_radio_tracks(params[:days])
+    #     error = refresh_facebook_data_of_videos(params[:days])
+    #     error = refresh_facebook_data_of_corporate_articles(params[:days])
+    #     error = refresh_facebook_data_of_posts(params[:days])
+    #     I18n.locale = 'en'
+    #     logger.debug "*** Locale set to '#{I18n.locale}'"
+    #     error = refresh_facebook_data_of_stories(params[:days])
+    #     error = refresh_facebook_data_of_radio_tracks(params[:days])
+    #     error = refresh_facebook_data_of_videos(params[:days])
+    #     error = refresh_facebook_data_of_corporate_articles(params[:days])
+    #     error = refresh_facebook_data_of_posts(params[:days])
+    #     I18n.locale = 'de'
+    #     logger.debug "*** Locale set to '#{I18n.locale}'"
+    #   when :en
+    #     error = refresh_facebook_data_of_stories(params[:days])
+    #     error = refresh_facebook_data_of_radio_tracks(params[:days])
+    #     error = refresh_facebook_data_of_videos(params[:days])
+    #     error = refresh_facebook_data_of_corporate_articles(params[:days])
+    #     error = refresh_facebook_data_of_posts(params[:days])
+    #     I18n.locale = 'de'
+    #     logger.debug "*** Locale set to '#{I18n.locale}'"
+    #     error = refresh_facebook_data_of_stories(params[:days])
+    #     error = refresh_facebook_data_of_radio_tracks(params[:days])
+    #     error = refresh_facebook_data_of_videos(params[:days])
+    #     error = refresh_facebook_data_of_corporate_articles(params[:days])
+    #     error = refresh_facebook_data_of_posts(params[:days])
+    #     I18n.locale = 'en'
+    #     logger.debug "*** Locale set to '#{I18n.locale}'"
+    # end
+    # if error == true
+    #   flash.now[:error] = "Completed with errors."
+    # else
+    #   flash.now[:notice] = "Completed successfully. Records updated: #{@records_updated}"
+    # end
     render(:layout => 'pages')
   end
 
