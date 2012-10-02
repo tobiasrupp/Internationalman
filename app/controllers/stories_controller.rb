@@ -2,6 +2,33 @@ class StoriesController < ApplicationController
 
   before_filter :set_status_message, :except => [:refresh_facebook_data]
 
+  def get_facebook_items_to_refresh
+    if !params[:get_all] and !params[:days]
+      return
+    end
+    starting_locale = I18n.locale
+
+    all_urls = []
+    I18n.locale = 'en'
+    logger.debug "*** Locale set to '#{I18n.locale}'"
+    all_urls = get_stories_to_refresh(params[:days])
+    all_urls = all_urls + get_radio_tracks_to_refresh(params[:days])
+    all_urls = all_urls + get_videos_to_refresh(params[:days])
+    all_urls = all_urls + get_corporate_articles_to_refresh(params[:days])
+    all_urls = all_urls + get_posts_to_refresh(params[:days])
+    I18n.locale = 'de'
+    logger.debug "*** Locale set to '#{I18n.locale}'"
+    all_urls = all_urls + get_stories_to_refresh(params[:days])
+    all_urls = all_urls + get_radio_tracks_to_refresh(params[:days])
+    all_urls = all_urls + get_videos_to_refresh(params[:days])
+    all_urls = all_urls + get_corporate_articles_to_refresh(params[:days])
+    all_urls = all_urls + get_posts_to_refresh(params[:days])
+    I18n.locale = starting_locale
+    logger.debug "*** Locale set to '#{I18n.locale}'"
+    @log = all_urls
+    render(:layout => false)
+  end
+    
   def refresh_facebook_data
     if !params[:refresh_all] and !params[:days] and !params[:url]
       return
@@ -174,8 +201,7 @@ class StoriesController < ApplicationController
 
   private
 
-  def refresh_facebook_data_of_stories(no_of_days)
-    error = false
+  def get_stories_to_refresh(no_of_days)
     if no_of_days
       no_of_days = no_of_days.to_i
     else
@@ -191,21 +217,19 @@ class StoriesController < ApplicationController
             :include => :categories,
             :order => "published_date DESC")
     end 
+    urls = []
     articles.each do |article|
       category = article.categories[0]
       if category.name == 'Corporate'
         next
       end
-      url = 'http://developers.facebook.com/tools/debug/og/object?q=' + stories_url + '/' + category.url_name + '/' + article.url_title
-      response = HTTParty.get(url, :headers => {"User-Agent" => 'Mozilla/5.0 (iPad; U; CPU OS 3_2_1 like Mac OS X; en-us) AppleWebKit/531.21.10 (KHTML, like Gecko) Mobile/7B405'})
-      # puts response.inspect
-      error = get_response_code_message(response.code, url)
+      url = stories_url + '/' + category.url_name + '/' + article.url_title
+      urls << url
     end
-    return error
+    return urls
   end
 
-  def refresh_facebook_data_of_radio_tracks(no_of_days)
-    error = false
+  def get_radio_tracks_to_refresh(no_of_days)
     if no_of_days
       no_of_days = no_of_days.to_i
     else
@@ -219,17 +243,15 @@ class StoriesController < ApplicationController
       radio_tracks = RadioTrack.find(:all,
             :order => "broadcast_date DESC")
     end 
+    urls = []
     radio_tracks.each do |track|
-      url = 'http://developers.facebook.com/tools/debug/og/object?q=' + radio_url + '/' + track.url_title
-      response = HTTParty.get(url, :headers => {"User-Agent" => 'Mozilla/5.0 (iPad; U; CPU OS 3_2_1 like Mac OS X; en-us) AppleWebKit/531.21.10 (KHTML, like Gecko) Mobile/7B405'})
-
-      error = get_response_code_message(response.code, url)
+      url = radio_url + '/' + track.url_title
+      urls << url
     end
-    return error
+    return urls
   end
 
-  def refresh_facebook_data_of_videos(no_of_days)
-    error = false
+  def get_videos_to_refresh(no_of_days)
     if no_of_days
       no_of_days = no_of_days.to_i
     else
@@ -243,16 +265,15 @@ class StoriesController < ApplicationController
       videos = Video.find(:all,
             :order => "broadcast_date DESC")
     end 
+    urls = []
     videos.each do |video|
-      url = 'http://developers.facebook.com/tools/debug/og/object?q=' + tv_url + '/' + video.url_title
-      response = HTTParty.get(url, :headers => {"User-Agent" => 'Mozilla/5.0 (iPad; U; CPU OS 3_2_1 like Mac OS X; en-us) AppleWebKit/531.21.10 (KHTML, like Gecko) Mobile/7B405'})
-      error = get_response_code_message(response.code, url)
+      url = tv_url + '/' + video.url_title
+      urls << url
     end
-    return error
+    return urls
   end
 
-  def refresh_facebook_data_of_corporate_articles(no_of_days)
-    error = false
+  def get_corporate_articles_to_refresh(no_of_days)
     if no_of_days
       no_of_days = no_of_days.to_i
     else
@@ -268,16 +289,15 @@ class StoriesController < ApplicationController
       articles = category.articles.find(:all,
             :order => "published_date DESC")
     end 
+    urls = []
     articles.each do |article|
-      url = 'http://developers.facebook.com/tools/debug/og/object?q=' + corporate_url + '/' + article.url_title
-      response = HTTParty.get(url, :headers => {"User-Agent" => 'Mozilla/5.0 (iPad; U; CPU OS 3_2_1 like Mac OS X; en-us) AppleWebKit/531.21.10 (KHTML, like Gecko) Mobile/7B405'})
-
-      error = get_response_code_message(response.code, url)
+      url = corporate_url + '/' + article.url_title
+      urls << url
     end
-    return error
+    return urls
   end
 
-  def refresh_facebook_data_of_posts(no_of_days)
+  def get_posts_to_refresh(no_of_days)
     error = false
     if no_of_days
       no_of_days = no_of_days.to_i
@@ -293,33 +313,32 @@ class StoriesController < ApplicationController
             :conditions => ["publication_state = 'Published'"],
             :order => "created_at DESC")
     end 
+    urls = []
     posts.each do |post|
-      url = 'http://developers.facebook.com/tools/debug/og/object?q=' + blog_url + '/' + post.url_title
-      response = HTTParty.get(url, :headers => {"User-Agent" => 'Mozilla/5.0 (iPad; U; CPU OS 3_2_1 like Mac OS X; en-us) AppleWebKit/531.21.10 (KHTML, like Gecko) Mobile/7B405'})
-
-      error = get_response_code_message(response.code, url)
+      url = blog_url + '/' + post.url_title
+      urls << url
     end
-    return error
+    return urls
   end
 
-  def get_response_code_message(code, url)
-    case code
-      when 200...205
-        logger.debug "*** Success #{response.code} (#{url})."
-        @log = @log + "Success #{response.code} (#{url})" + "<br>"
-        @records_updated = @records_updated + 1
-      when 404
-        logger.debug "*** ERROR #{response.code} (#{url})."
-        @log = @log + "ERROR #{response.code} (#{url})" + "<br>"
-        error = true
-      when 500...600
-        logger.debug "*** ERROR #{response.code} (#{url})."
-        @log = @log + "ERROR #{response.code} (#{url})" + "<br>"
-        error = true
-      else
-        logger.debug "*** ERROR #{response.code} (#{url})."
-        @log = @log + "ERROR #{response.code} (#{url})" + "<br>"
-        error = true
-    end
-  end 
+  # def get_response_code_message(code, url)
+  #   case code
+  #     when 200...205
+  #       logger.debug "*** Success #{response.code} (#{url})."
+  #       @log = @log + "Success #{response.code} (#{url})" + "<br>"
+  #       @records_updated = @records_updated + 1
+  #     when 404
+  #       logger.debug "*** ERROR #{response.code} (#{url})."
+  #       @log = @log + "ERROR #{response.code} (#{url})" + "<br>"
+  #       error = true
+  #     when 500...600
+  #       logger.debug "*** ERROR #{response.code} (#{url})."
+  #       @log = @log + "ERROR #{response.code} (#{url})" + "<br>"
+  #       error = true
+  #     else
+  #       logger.debug "*** ERROR #{response.code} (#{url})."
+  #       @log = @log + "ERROR #{response.code} (#{url})" + "<br>"
+  #       error = true
+  #   end
+  # end 
 end
