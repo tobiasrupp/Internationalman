@@ -9,14 +9,14 @@ class StoriesController < ApplicationController
     starting_locale = I18n.locale
 
     all_urls = []
-    I18n.locale = 'en'
+    I18n.locale = 'de'
     logger.debug "*** Locale set to '#{I18n.locale}'"
     all_urls = get_stories_to_refresh(params[:days])
     all_urls = all_urls + get_radio_tracks_to_refresh(params[:days])
     all_urls = all_urls + get_videos_to_refresh(params[:days])
     all_urls = all_urls + get_corporate_articles_to_refresh(params[:days])
     all_urls = all_urls + get_posts_to_refresh(params[:days])
-    I18n.locale = 'de'
+    I18n.locale = 'en'
     logger.debug "*** Locale set to '#{I18n.locale}'"
     all_urls = all_urls + get_stories_to_refresh(params[:days])
     all_urls = all_urls + get_radio_tracks_to_refresh(params[:days])
@@ -29,58 +29,38 @@ class StoriesController < ApplicationController
     render(:layout => false)
   end
     
-  def refresh_facebook_data
+  def refresh_facebook_data_remote
     if !params[:refresh_all] and !params[:days] and !params[:url]
       return
     end
+
+    @records_updated = 0
+    @log = ""
+    error = false
+    error_occurred = false
     if params[:url]
       url = params[:url]
+      response = RestClient.get('http://developers.facebook.com/tools/debug/og/object', :params => {:q => url })
+      error = get_response_code_message(response.code, url)
     else
-      url = "www.international-man.net/de/stories/tech/snowleopard-osx"
+      items = []
+      items = RestClient.get('http://www.international-man.net/de/get_facebook_items_to_refresh', :params => {:days => params[:days], :get_all => params[:refresh_all]})
+      items.gsub!(/[\[\]]/,'')
+      urls = items.split(', ')
+      urls.each do |url|
+        url.gsub!(/\A"|"\Z/, '')
+        response = RestClient.get('http://developers.facebook.com/tools/debug/og/object', :params => {:q => url })
+        error_occurred = get_response_code_message(response.code, url)
+        if error_occurred == true
+          error = true
+        end
+      end
     end
-    response = RestClient.get('http://developers.facebook.com/tools/debug/og/object', :params => {:q => url })
-    # response = RestClient.get('developers.facebook.com/tools/debug/og/object?q=http://www.international-man.net/en/blog/pakunst')
-    @log = response
-    # error = false
-    # @records_updated = 0
-    # @log = ""
-    # case I18n.locale
-    #   when :de
-    #     error = refresh_facebook_data_of_stories(params[:days])
-    #     error = refresh_facebook_data_of_radio_tracks(params[:days])
-    #     error = refresh_facebook_data_of_videos(params[:days])
-    #     error = refresh_facebook_data_of_corporate_articles(params[:days])
-    #     error = refresh_facebook_data_of_posts(params[:days])
-    #     I18n.locale = 'en'
-    #     logger.debug "*** Locale set to '#{I18n.locale}'"
-    #     error = refresh_facebook_data_of_stories(params[:days])
-    #     error = refresh_facebook_data_of_radio_tracks(params[:days])
-    #     error = refresh_facebook_data_of_videos(params[:days])
-    #     error = refresh_facebook_data_of_corporate_articles(params[:days])
-    #     error = refresh_facebook_data_of_posts(params[:days])
-    #     I18n.locale = 'de'
-    #     logger.debug "*** Locale set to '#{I18n.locale}'"
-    #   when :en
-    #     error = refresh_facebook_data_of_stories(params[:days])
-    #     error = refresh_facebook_data_of_radio_tracks(params[:days])
-    #     error = refresh_facebook_data_of_videos(params[:days])
-    #     error = refresh_facebook_data_of_corporate_articles(params[:days])
-    #     error = refresh_facebook_data_of_posts(params[:days])
-    #     I18n.locale = 'de'
-    #     logger.debug "*** Locale set to '#{I18n.locale}'"
-    #     error = refresh_facebook_data_of_stories(params[:days])
-    #     error = refresh_facebook_data_of_radio_tracks(params[:days])
-    #     error = refresh_facebook_data_of_videos(params[:days])
-    #     error = refresh_facebook_data_of_corporate_articles(params[:days])
-    #     error = refresh_facebook_data_of_posts(params[:days])
-    #     I18n.locale = 'en'
-    #     logger.debug "*** Locale set to '#{I18n.locale}'"
-    # end
-    # if error == true
-    #   flash.now[:error] = "Completed with errors."
-    # else
-    #   flash.now[:notice] = "Completed successfully. Records updated: #{@records_updated}"
-    # end
+    if error == true
+      flash.now[:error] = "Completed with errors."
+    else
+      flash.now[:notice] = "Completed successfully. Records updated: #{@records_updated}"
+    end
     render(:layout => 'pages')
   end
 
@@ -321,24 +301,24 @@ class StoriesController < ApplicationController
     return urls
   end
 
-  # def get_response_code_message(code, url)
-  #   case code
-  #     when 200...205
-  #       logger.debug "*** Success #{response.code} (#{url})."
-  #       @log = @log + "Success #{response.code} (#{url})" + "<br>"
-  #       @records_updated = @records_updated + 1
-  #     when 404
-  #       logger.debug "*** ERROR #{response.code} (#{url})."
-  #       @log = @log + "ERROR #{response.code} (#{url})" + "<br>"
-  #       error = true
-  #     when 500...600
-  #       logger.debug "*** ERROR #{response.code} (#{url})."
-  #       @log = @log + "ERROR #{response.code} (#{url})" + "<br>"
-  #       error = true
-  #     else
-  #       logger.debug "*** ERROR #{response.code} (#{url})."
-  #       @log = @log + "ERROR #{response.code} (#{url})" + "<br>"
-  #       error = true
-  #   end
-  # end 
+  def get_response_code_message(code, url)
+    case code
+      when 200...207
+        logger.debug "*** Success #{response.code} (#{url})."
+        @log = @log + "Success #{response.code} (#{url})" + "<br>"
+        @records_updated = @records_updated + 1
+      when 404
+        logger.debug "*** ERROR #{response.code} (#{url})."
+        @log = @log + "ERROR #{response.code} (#{url})" + "<br>"
+        error = true
+      when 500...600
+        logger.debug "*** ERROR #{response.code} (#{url})."
+        @log = @log + "ERROR #{response.code} (#{url})" + "<br>"
+        error = true
+      else
+        logger.debug "*** ERROR #{response.code} (#{url})."
+        @log = @log + "ERROR #{response.code} (#{url})" + "<br>"
+        error = true
+    end
+  end 
 end
