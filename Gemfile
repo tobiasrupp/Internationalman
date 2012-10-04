@@ -13,7 +13,7 @@ gem 'globalize3', '0.2.0'
 gem 'aws-sdk', '~> 1.3.4'
 gem 'gmaps4rails'
 gem 'ckeditor', '3.7.1'
-gem 'httparty'
+gem 'pg_search'
 gem 'rest-client'
 
 group :development, :test do

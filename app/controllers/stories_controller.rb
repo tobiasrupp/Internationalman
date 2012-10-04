@@ -1,6 +1,11 @@
 class StoriesController < ApplicationController
 
-  before_filter :set_status_message, :except => [:refresh_facebook_data]
+  before_filter :set_status_message, :except => []
+
+  def search
+    @articles = Article.text_search(params[:query])
+    render(:layout => 'pages')
+  end
 
   def get_facebook_items_to_refresh
     if !params[:get_all] and !params[:days]

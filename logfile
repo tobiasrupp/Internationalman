@@ -556,3 +556,61 @@ LOG:  database system is shut down
 LOG:  database system was shut down at 2012-10-03 02:46:00 CEST
 LOG:  database system is ready to accept connections
 LOG:  autovacuum launcher started
+ERROR:  column "locale" does not exist at character 97
+STATEMENT:  SELECT "articles".* FROM "articles"  WHERE ((title ilike '%Ages%' or author ilike '%Ages%') and locale = 'en')
+ERROR:  missing FROM-clause entry for table "article_translations" at character 45
+STATEMENT:  SELECT "articles".* FROM "articles"  WHERE (article_translations.title @@ 'mitt')
+ERROR:  relation "translations" does not exist at character 245
+STATEMENT:              SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+	              FROM pg_attribute a LEFT JOIN pg_attrdef d
+	                ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+	             WHERE a.attrelid = '"translations"'::regclass
+	               AND a.attnum > 0 AND NOT a.attisdropped
+	             ORDER BY a.attnum
+	
+FATAL:  lock file "postmaster.pid" already exists
+HINT:  Is another postmaster (PID 1313) running in data directory "/usr/local/var/postgres"?
+ERROR:  relation "translations" does not exist at character 245
+STATEMENT:              SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+	              FROM pg_attribute a LEFT JOIN pg_attrdef d
+	                ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+	             WHERE a.attrelid = '"translations"'::regclass
+	               AND a.attnum > 0 AND NOT a.attisdropped
+	             ORDER BY a.attnum
+	
+ERROR:  relation "translations" does not exist at character 245
+STATEMENT:              SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+	              FROM pg_attribute a LEFT JOIN pg_attrdef d
+	                ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+	             WHERE a.attrelid = '"translations"'::regclass
+	               AND a.attnum > 0 AND NOT a.attisdropped
+	             ORDER BY a.attnum
+	
+FATAL:  database "tobias" does not exist
+FATAL:  database "tobias" does not exist
+ERROR:  syntax error at or near "select" at character 101
+STATEMENT:  SELECT "articles".* FROM "articles" WHERE (to_tsvector('german', title) @@ plainto_tsquery('grab'))
+	select * from articles
+	select * from articles;
+ERROR:  column articles.categories does not exist at character 413
+STATEMENT:  SELECT "articles".*, (ts_rank((setweight(to_tsvector('english', coalesce("articles"."title"::text, '')), 'A') || setweight(to_tsvector('english', coalesce("articles"."short_title"::text, '')), 'B') || setweight(to_tsvector('english', coalesce("articles"."url_title"::text, '')), 'C') || setweight(to_tsvector('english', coalesce("articles"."author"::text, '')), 'D') || setweight(to_tsvector('english', coalesce("articles"."categories"::text, '')), 'E') || setweight(to_tsvector('english', coalesce("articles"."ctry"::text, '')), 'F') || setweight(to_tsvector('english', coalesce("articles"."published_in"::text, '')), 'G') || setweight(to_tsvector('english', coalesce("articles"."article_type"::text, '')), 'H') || setweight(to_tsvector('english', coalesce("articles"."address"::text, '')), 'I')), (to_tsquery('english', ''' ' || 'Corporate' || ' ''' || ':*')), 0)) AS pg_search_rank FROM "articles"  WHERE (((setweight(to_tsvector('english', coalesce("articles"."title"::text, '')), 'A') || setweight(to_tsvector('english', coalesce("articles"."short_title"::text, '')), 'B') || setweight(to_tsvector('english', coalesce("articles"."url_title"::text, '')), 'C') || setweight(to_tsvector('english', coalesce("articles"."author"::text, '')), 'D') || setweight(to_tsvector('english', coalesce("articles"."categories"::text, '')), 'E') || setweight(to_tsvector('english', coalesce("articles"."ctry"::text, '')), 'F') || setweight(to_tsvector('english', coalesce("articles"."published_in"::text, '')), 'G') || setweight(to_tsvector('english', coalesce("articles"."article_type"::text, '')), 'H') || setweight(to_tsvector('english', coalesce("articles"."address"::text, '')), 'I')) @@ (to_tsquery('english', ''' ' || 'Corporate' || ' ''' || ':*')))) ORDER BY pg_search_rank DESC, "articles"."id" ASC
+ERROR:  unrecognized weight: 72
+STATEMENT:  SELECT "articles".*, (ts_rank((setweight(to_tsvector('english', coalesce("articles"."title"::text, '')), 'A') || setweight(to_tsvector('english', coalesce("articles"."short_title"::text, '')), 'B') || setweight(to_tsvector('english', coalesce("articles"."url_title"::text, '')), 'C') || setweight(to_tsvector('english', coalesce("articles"."author"::text, '')), 'D') || setweight(to_tsvector('english', coalesce("articles"."article_type"::text, '')), 'H')), (to_tsquery('english', ''' ' || 'Titelseite' || ' ''' || ':*')), 0)) AS pg_search_rank FROM "articles"  WHERE (((setweight(to_tsvector('english', coalesce("articles"."title"::text, '')), 'A') || setweight(to_tsvector('english', coalesce("articles"."short_title"::text, '')), 'B') || setweight(to_tsvector('english', coalesce("articles"."url_title"::text, '')), 'C') || setweight(to_tsvector('english', coalesce("articles"."author"::text, '')), 'D') || setweight(to_tsvector('english', coalesce("articles"."article_type"::text, '')), 'H')) @@ (to_tsquery('english', ''' ' || 'Titelseite' || ' ''' || ':*')))) ORDER BY pg_search_rank DESC, "articles"."id" ASC
+ERROR:  unrecognized weight: 69
+STATEMENT:  SELECT "articles".*, (ts_rank((setweight(to_tsvector('english', coalesce("articles"."title"::text, '')), 'A') || setweight(to_tsvector('english', coalesce("articles"."short_title"::text, '')), 'B') || setweight(to_tsvector('english', coalesce("articles"."url_title"::text, '')), 'C') || setweight(to_tsvector('english', coalesce("articles"."author"::text, '')), 'D') || setweight(to_tsvector('english', coalesce("articles"."article_type"::text, '')), 'E')), (to_tsquery('english', ''' ' || 'Titelseite' || ' ''' || ':*')), 0)) AS pg_search_rank FROM "articles"  WHERE (((setweight(to_tsvector('english', coalesce("articles"."title"::text, '')), 'A') || setweight(to_tsvector('english', coalesce("articles"."short_title"::text, '')), 'B') || setweight(to_tsvector('english', coalesce("articles"."url_title"::text, '')), 'C') || setweight(to_tsvector('english', coalesce("articles"."author"::text, '')), 'D') || setweight(to_tsvector('english', coalesce("articles"."article_type"::text, '')), 'E')) @@ (to_tsquery('english', ''' ' || 'Titelseite' || ' ''' || ':*')))) ORDER BY pg_search_rank DESC, "articles"."id" ASC
+ERROR:  unrecognized weight: 69
+STATEMENT:  SELECT "articles".*, (ts_rank((setweight(to_tsvector('english', coalesce("articles"."title"::text, '')), 'A') || setweight(to_tsvector('english', coalesce("articles"."short_title"::text, '')), 'B') || setweight(to_tsvector('english', coalesce("articles"."url_title"::text, '')), 'C') || setweight(to_tsvector('english', coalesce("articles"."author"::text, '')), 'D') || setweight(to_tsvector('english', coalesce("articles"."article_type"::text, '')), 'E')), (to_tsquery('english', ''' ' || 'Titelseite' || ' ''' || ':*')), 0)) AS pg_search_rank FROM "articles"  WHERE (((setweight(to_tsvector('english', coalesce("articles"."title"::text, '')), 'A') || setweight(to_tsvector('english', coalesce("articles"."short_title"::text, '')), 'B') || setweight(to_tsvector('english', coalesce("articles"."url_title"::text, '')), 'C') || setweight(to_tsvector('english', coalesce("articles"."author"::text, '')), 'D') || setweight(to_tsvector('english', coalesce("articles"."article_type"::text, '')), 'E')) @@ (to_tsquery('english', ''' ' || 'Titelseite' || ' ''' || ':*')))) ORDER BY pg_search_rank DESC, "articles"."id" ASC
+ERROR:  column articles.categories does not exist at character 413
+STATEMENT:  SELECT "articles".*, (ts_rank((setweight(to_tsvector('english', coalesce("articles"."title"::text, '')), 'A') || setweight(to_tsvector('english', coalesce("articles"."short_title"::text, '')), 'B') || setweight(to_tsvector('english', coalesce("articles"."url_title"::text, '')), 'C') || setweight(to_tsvector('english', coalesce("articles"."author"::text, '')), 'D') || setweight(to_tsvector('english', coalesce("articles"."categories"::text, '')), 'E')), (to_tsquery('english', ''' ' || 'Titelseite' || ' ''' || ':*')), 0)) AS pg_search_rank FROM "articles"  WHERE (((setweight(to_tsvector('english', coalesce("articles"."title"::text, '')), 'A') || setweight(to_tsvector('english', coalesce("articles"."short_title"::text, '')), 'B') || setweight(to_tsvector('english', coalesce("articles"."url_title"::text, '')), 'C') || setweight(to_tsvector('english', coalesce("articles"."author"::text, '')), 'D') || setweight(to_tsvector('english', coalesce("articles"."categories"::text, '')), 'E')) @@ (to_tsquery('english', ''' ' || 'Titelseite' || ' ''' || ':*')))) ORDER BY pg_search_rank DESC, "articles"."id" ASC
+ERROR:  unrecognized weight: 69
+STATEMENT:  SELECT "articles".*, (ts_rank((setweight(to_tsvector('english', coalesce("articles"."title"::text, '')), 'A') || setweight(to_tsvector('english', coalesce("articles"."short_title"::text, '')), 'B') || setweight(to_tsvector('english', coalesce("articles"."url_title"::text, '')), 'C') || setweight(to_tsvector('english', coalesce("articles"."author"::text, '')), 'D') || setweight(to_tsvector('english', coalesce("articles"."ctry"::text, '')), 'E')), (to_tsquery('english', ''' ' || 'Titelseite' || ' ''' || ':*')), 0)) AS pg_search_rank FROM "articles"  WHERE (((setweight(to_tsvector('english', coalesce("articles"."title"::text, '')), 'A') || setweight(to_tsvector('english', coalesce("articles"."short_title"::text, '')), 'B') || setweight(to_tsvector('english', coalesce("articles"."url_title"::text, '')), 'C') || setweight(to_tsvector('english', coalesce("articles"."author"::text, '')), 'D') || setweight(to_tsvector('english', coalesce("articles"."ctry"::text, '')), 'E')) @@ (to_tsquery('english', ''' ' || 'Titelseite' || ' ''' || ':*')))) ORDER BY pg_search_rank DESC, "articles"."id" ASC
+ERROR:  unrecognized weight: 69
+STATEMENT:  SELECT "articles".*, (ts_rank((setweight(to_tsvector('english', coalesce("articles"."title"::text, '')), 'A') || setweight(to_tsvector('english', coalesce("articles"."short_title"::text, '')), 'B') || setweight(to_tsvector('english', coalesce("articles"."url_title"::text, '')), 'C') || setweight(to_tsvector('english', coalesce("articles"."author"::text, '')), 'D') || setweight(to_tsvector('english', coalesce("articles"."published_date"::text, '')), 'E') || to_tsvector('english', coalesce(pg_search_71b84947f0ea36f75e4402.pg_search_e9bf15bae1a2bbc36b9125::text, ''))), (to_tsquery('english', ''' ' || '2012' || ' ''' || ':*')), 0)) AS pg_search_rank FROM "articles" LEFT OUTER JOIN (SELECT "articles"."id" AS id, string_agg("categories"."name"::text, ' ') AS pg_search_e9bf15bae1a2bbc36b9125 FROM "articles" INNER JOIN "article_categories" ON "article_categories"."article_id" = "articles"."id" INNER JOIN "categories" ON "categories"."id" = "article_categories"."category_id" GROUP BY "articles"."id") pg_search_71b84947f0ea36f75e4402 ON pg_search_71b84947f0ea36f75e4402.id = "articles"."id" WHERE (((setweight(to_tsvector('english', coalesce("articles"."title"::text, '')), 'A') || setweight(to_tsvector('english', coalesce("articles"."short_title"::text, '')), 'B') || setweight(to_tsvector('english', coalesce("articles"."url_title"::text, '')), 'C') || setweight(to_tsvector('english', coalesce("articles"."author"::text, '')), 'D') || setweight(to_tsvector('english', coalesce("articles"."published_date"::text, '')), 'E') || to_tsvector('english', coalesce(pg_search_71b84947f0ea36f75e4402.pg_search_e9bf15bae1a2bbc36b9125::text, ''))) @@ (to_tsquery('english', ''' ' || '2012' || ' ''' || ':*')))) ORDER BY pg_search_rank DESC, "articles"."id" ASC
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+LOG:  database system was shut down at 2012-10-04 03:35:14 CEST
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+WARNING:  pgstat wait timeout

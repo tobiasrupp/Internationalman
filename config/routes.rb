@@ -26,8 +26,10 @@ Intlman::Application.routes.draw do
   match '/contact', to: 'pages#contact', :via => "get"
 
   match '/feed' => 'stories#feed', :as => :feed, :defaults => { :format => 'atom' }
-  match '/refresh_facebook_data_remote' => 'stories#refresh_facebook_data_remote', :as => :refresh_facebook_data_remote
-  match '/get_facebook_items_to_refresh' => 'stories#get_facebook_items_to_refresh', :as => :get_facebook_items_to_refresh
+  match '/refresh_facebook_data_remote', to: 'stories#refresh_facebook_data_remote', :as => :refresh_facebook_data_remote
+  match '/get_facebook_items_to_refresh', to: 'stories#get_facebook_items_to_refresh', :as => :get_facebook_items_to_refresh
+  match '/search', to: 'stories#search', :via => 'get', :as => :search
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

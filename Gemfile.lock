@@ -152,6 +152,9 @@ GEM
       cocaine (>= 0.0.2)
       mime-types
     pg (0.12.2)
+    pg_search (0.5.6)
+      activerecord (>= 3)
+      activesupport (>= 3)
     pickle (0.4.11)
       cucumber (>= 0.8)
       rake
@@ -252,12 +255,12 @@ DEPENDENCIES
   factory_girl_rails (= 1.4.0)
   globalize3 (= 0.2.0)
   gmaps4rails
-  httparty
   jquery-rails (= 2.0.2)
   launchy (= 2.1.2)
   meta_search (>= 1.1.0.pre)
   paperclip (= 3.1.4)
   pg (= 0.12.2)
+  pg_search
   pickle (= 0.4.11)
   rails (= 3.2.7)
   rails-translate-routes (= 0.1.3)

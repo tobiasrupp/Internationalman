@@ -1,0 +1,10 @@
+<div id="search_results">
+<% @format_for_map = true %>
+<% @articles.each do |article| %>
+  <div class="item_info">
+  	<% @selected_article = article %>
+    <%= render :partial => 'stories/story_details', :formats=>[:html], :handlers=>[:erb] %>
+  </div>
+  <br>
+<% end %>
+</div>

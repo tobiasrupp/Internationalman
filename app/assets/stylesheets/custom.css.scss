@@ -212,6 +212,26 @@ address {
   vertical-align: middle;
 }
 
+input.search-query  {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  line-height: 18px;
+  padding-top: 0px;
+  padding-bottom: 0px; 
+  padding-left: 4px;
+  padding-right: 4px;
+  border-radius: 0;
+}
+
+#search_form {
+  float: left;
+  margin: -2px 0 0 126px;
+  // margin-bottom: 9px;
+  input {
+    // height: 20px;
+  }
+}
+
 h1 {
   font-family: "Helvetica", Arial, sans-serif;
   font-size: 31px;

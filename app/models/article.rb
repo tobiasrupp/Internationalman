@@ -52,6 +52,34 @@ class Article < ActiveRecord::Base
 
   acts_as_gmappable :lat => 'lat', :lng => 'lon', :address => "address", :validation => false, :msg => ""
 
+  include PgSearch
+    pg_search_scope :search, :against => [
+    :title,
+    :short_title,
+    :url_title,
+    :author,
+    :photos_by,
+    :published_date,
+    :ctry,
+    :published_in,
+    :article_type,
+    :address
+    ],
+    :using => { :tsearch => { :prefix => true, :dictionary => "english", :any_word => true }},
+    associated_against: {categories: :name}
+  def self.text_search(query)
+    if query.present?
+      search(query)
+    else
+      scoped
+    end
+  end
+
+  def self.path
+    category = self.categories[0]
+    path = 'stories' + '/' + category.url_name + '/' + self.url_title
+    return path
+  end
   def gmaps4rails_marker_picture
   {
    "picture" => "/assets/administration_b_w.png",
