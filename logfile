@@ -664,3 +664,4 @@ STATEMENT:              SELECT a.attname, format_type(a.atttypid, a.atttypmod), 
 	               AND a.attnum > 0 AND NOT a.attisdropped
 	             ORDER BY a.attnum
 	
+FATAL:  database "intlman_test" does not exist
