@@ -11,5 +11,5 @@ PgSearch.multisearch_options = {
       :any_word => true 
     },
   },
-  ignoring: :accents
+  # ignoring: :accents
 }
