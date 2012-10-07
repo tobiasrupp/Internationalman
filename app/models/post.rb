@@ -2,6 +2,8 @@ class Post < ActiveRecord::Base
   attr_accessible :author, :country, :language, :latitude, :longitude, :short_title, :text, :title, :url_title, :publication_state, :allow_comments, :image_1, :image_1_options, :image_2, :image_2_options, :text_2, :ctry, :lat, :lon, :gmaps, :address
   attr_accessible :categories, :category_ids
   has_and_belongs_to_many :categories, :join_table => 'post_categories', :order => 'display_section ASC, display_sequence ASC'
+  scope :published_posts, where("publication_state = 'Published'")
+  scope :unpublished_posts, where("publication_state = 'Unpublished'")
   has_attached_file :image_1, :styles => { :medium => "320x320>", :small => "160x160>", :thumb => "100x100>" }, :convert_options => { :medium => "-quality 90", :small => "-quality 90", :thumb => "-quality 90"},
     :storage => :s3,
     :path => "posts/:attachment/:id/:style.:extension",
@@ -30,19 +32,8 @@ class Post < ActiveRecord::Base
 
   acts_as_gmappable :lat => 'lat', :lng => 'lon', :address => "address", :validation => false, :msg => ""
   include PgSearch
-  multisearchable :against => [
-    # :title,
-    # :short_title,
-    # :url_title,
-    # :text,
-    # :text_2,
-    # :author,
-    # :created_at,
-    # :ctry,
-    # :address,
-    # :category_list
-   :search_string
-    ]
+  multisearchable :against => [:search_string],
+                  :if => lambda { |record| record.publication_state == "Published" }
   
   def search_string
     original_locale = I18n.locale
@@ -71,6 +62,7 @@ class Post < ActiveRecord::Base
     search_content = search_content + separator + self.address unless self.address.nil? or self.address.blank?
     search_content = search_content + separator + self.category_list unless self.category_list.nil? or self.category_list.blank?
     I18n.locale = original_locale
+    return search_content
   end  
   
   def category_list

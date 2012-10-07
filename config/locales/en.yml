@@ -26,7 +26,7 @@ en:
   duration: Duration 
   show_on_map: Show On Map
   hits: documents found
-  hit: document found
+  hit: One document found
   no_hit: No document found
   enter_keywords: Enter keywords in the search field.
   search: Search

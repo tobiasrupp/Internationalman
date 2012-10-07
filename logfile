@@ -654,3 +654,13 @@ LOG:  database system is shut down
 LOG:  database system was shut down at 2012-10-06 02:20:42 BST
 LOG:  database system is ready to accept connections
 LOG:  autovacuum launcher started
+LOG:  unexpected EOF on client connection
+LOG:  unexpected EOF on client connection
+ERROR:  relation "pg_search_documents" does not exist at character 245
+STATEMENT:              SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+	              FROM pg_attribute a LEFT JOIN pg_attrdef d
+	                ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+	             WHERE a.attrelid = '"pg_search_documents"'::regclass
+	               AND a.attnum > 0 AND NOT a.attisdropped
+	             ORDER BY a.attnum
+	

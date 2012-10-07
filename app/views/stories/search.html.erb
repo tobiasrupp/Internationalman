@@ -3,11 +3,11 @@
 	<% @format_for_map = true %>
 	<p>
 		<% if @no_of_hits == 0 %>
-			<%= t(:no_hit) %> 
+			<%= t(:no_hit) %>.
 		<% elsif @no_of_hits == 1 %>
-			<%= @no_of_hits %> <%= t(:hit) %> 
+			<%= t(:hit) %>:
 		<% else %>
-			<%= @no_of_hits %> <%= t(:hits) %> 
+			<%= @no_of_hits %> <%= t(:hits) %>: 
 		<% end %>
 	</p>
 	<% @hit_list.each do |hit| %>

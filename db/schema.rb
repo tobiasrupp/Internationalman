@@ -76,11 +76,13 @@ ActiveRecord::Schema.define(:version => 20121004234454) do
   create_table "articles", :force => true do |t|
     t.string   "title"
     t.string   "language"
+    t.string   "country"
     t.string   "longitude"
     t.string   "latitude"
     t.string   "article_type"
     t.date     "published_date"
     t.string   "published_in"
+    t.string   "filename"
     t.string   "author"
     t.string   "photos_by"
     t.datetime "created_at",                   :null => false
@@ -93,8 +95,6 @@ ActiveRecord::Schema.define(:version => 20121004234454) do
     t.string   "teaser_image_content_type"
     t.integer  "teaser_image_file_size"
     t.datetime "teaser_image_updated_at"
-    t.string   "country"
-    t.string   "filename"
     t.string   "ctry"
     t.string   "web_page"
     t.string   "source_file_file_name"
@@ -123,7 +123,6 @@ ActiveRecord::Schema.define(:version => 20121004234454) do
     t.integer  "display_sequence"
     t.integer  "display_section"
     t.string   "url_name"
-    t.string   "url_title"
     t.string   "language"
   end
 

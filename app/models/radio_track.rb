@@ -61,6 +61,7 @@ class RadioTrack < ActiveRecord::Base
     search_content = search_content + separator + self.address unless self.address.nil? or self.address.blank?
     search_content = search_content + separator + self.category_list unless self.category_list.nil? or self.category_list.blank?
     I18n.locale = original_locale
+    return search_content
   end  
   
   def category_list

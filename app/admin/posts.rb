@@ -1,4 +1,6 @@
 ActiveAdmin.register Post do
+  scope :published_posts
+  scope :unpublished_posts
   index do
     column :id
     column :title
