@@ -24,8 +24,16 @@ de:
   published_on: Veröffentlicht am
   duration: Dauer
   show_on_map: Auf Karte anzeigen
+  hits: Dokumente gefunden
+  hit: Dokument gefunden
+  no_hit: Kein Dokument gefunden
+  enter_keywords: Geben Sie im Suchfeld Schlüsselworte ein.
+  search: Suchen
+  no_documents_found: Keine Dokumente gefunden.
+  type_something: ...
 
   translation_field: Translation Field
+
   
   date:
     abbr_day_names:

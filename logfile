@@ -614,3 +614,43 @@ LOG:  database system was shut down at 2012-10-04 03:35:14 CEST
 LOG:  database system is ready to accept connections
 LOG:  autovacuum launcher started
 WARNING:  pgstat wait timeout
+ERROR:  column articles.category_list does not exist at character 721
+STATEMENT:  INSERT INTO "pg_search_documents" (searchable_type, searchable_id, content, created_at, updated_at)
+	  SELECT 'Article' AS searchable_type,
+	         "articles".id AS searchable_id,
+	         (
+	           coalesce("articles".title::text, '') || ' ' || coalesce("articles".short_title::text, '') || ' ' || coalesce("articles".url_title::text, '') || ' ' || coalesce("articles".author::text, '') || ' ' || coalesce("articles".photos_by::text, '') || ' ' || coalesce("articles".published_date::text, '') || ' ' || coalesce("articles".ctry::text, '') || ' ' || coalesce("articles".published_in::text, '') || ' ' || coalesce("articles".article_type::text, '') || ' ' || coalesce("articles".address::text, '') || ' ' || coalesce("articles".category_list::text, '')
+	         ) AS content,
+	         '2012-10-04 22:06:06.161734' AS created_at,
+	         '2012-10-04 22:06:06.161734' AS updated_at
+	  FROM "articles"
+	
+ERROR:  column articles.category_list does not exist at character 721
+STATEMENT:  INSERT INTO "pg_search_documents" (searchable_type, searchable_id, content, created_at, updated_at)
+	  SELECT 'Article' AS searchable_type,
+	         "articles".id AS searchable_id,
+	         (
+	           coalesce("articles".title::text, '') || ' ' || coalesce("articles".short_title::text, '') || ' ' || coalesce("articles".url_title::text, '') || ' ' || coalesce("articles".author::text, '') || ' ' || coalesce("articles".photos_by::text, '') || ' ' || coalesce("articles".published_date::text, '') || ' ' || coalesce("articles".ctry::text, '') || ' ' || coalesce("articles".published_in::text, '') || ' ' || coalesce("articles".article_type::text, '') || ' ' || coalesce("articles".address::text, '') || ' ' || coalesce("articles".category_list::text, '')
+	         ) AS content,
+	         '2012-10-04 22:12:45.712040' AS created_at,
+	         '2012-10-04 22:12:45.712040' AS updated_at
+	  FROM "articles"
+	
+ERROR:  function unaccent(text) does not exist at character 76
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+STATEMENT:  SELECT COUNT(*) FROM "pg_search_documents"  WHERE (((to_tsvector('simple', unaccent(coalesce("pg_search_documents"."content"::text, '')))) @@ (to_tsquery('simple', ''' ' || unaccent('äsien') || ' ''' || ':*'))))
+FATAL:  database "intlman_test" does not exist
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+LOG:  database system was shut down at 2012-10-05 03:15:45 CEST
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+LOG:  database system was shut down at 2012-10-06 02:20:42 BST
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started

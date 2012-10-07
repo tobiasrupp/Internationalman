@@ -53,29 +53,75 @@ class Article < ActiveRecord::Base
   acts_as_gmappable :lat => 'lat', :lng => 'lon', :address => "address", :validation => false, :msg => ""
 
   include PgSearch
-    pg_search_scope :search, :against => [
-    :title,
-    :short_title,
-    :url_title,
-    :author,
-    :photos_by,
-    :published_date,
-    :ctry,
-    :published_in,
-    :article_type,
-    :address
-    ],
-    :using => { :tsearch => { :prefix => true, :dictionary => "english", :any_word => true }},
-    associated_against: {categories: :name}
+  multisearchable :against => [
+    # :title,
+    # :short_title,
+    # :url_title,
+    # :author,
+    # :photos_by,
+    # :published_date,
+    # :ctry,
+    # :published_in,
+    # :article_type,
+    # :address,
+    # :category_list,
+    :search_string
+    ]
+  
+  def search_string
+    original_locale = I18n.locale
+    separator = ', '
+    I18n.locale = :de
+    search_content = 'Stories, Artikel, Article'
+    search_content = search_content + separator + self.title unless self.title.nil? or self.title.blank?
+    search_content = search_content + separator + self.short_title unless self.short_title.nil? or self.short_title.blank?
+    search_content = search_content + separator + self.url_title unless self.url_title.nil? or self.url_title.blank?
+    search_content = search_content + separator + self.author unless self.author.nil? or self.author.blank?
+    search_content = search_content + separator + self.photos_by unless self.photos_by.nil? or self.photos_by.blank?
+    search_content = search_content + separator + I18n.l(self.published_date, :format => '%e. %B %Y') unless self.published_date.nil? or self.published_date.blank?
+    search_content = search_content + separator + self.published_in unless self.published_in.nil? or self.published_in.blank?
+    search_content = search_content + separator + self.ctry unless self.ctry.nil? or self.ctry.blank?
+    search_content = search_content + separator + self.article_type unless self.article_type.nil? or self.article_type.blank?
+    search_content = search_content + separator + self.address unless self.address.nil? or self.address.blank?
+    search_content = search_content + separator + self.category_list unless self.category_list.nil? or self.category_list.blank?
+    I18n.locale = :en
+    search_content = search_content + separator + self.title unless self.title.nil? or self.title.blank?
+    search_content = search_content + separator + self.short_title unless self.short_title.nil? or self.short_title.blank?
+    search_content = search_content + separator + self.url_title unless self.url_title.nil? or self.url_title.blank?
+    search_content = search_content + separator + self.author unless self.author.nil? or self.author.blank?
+    search_content = search_content + separator + self.photos_by unless self.photos_by.nil? or self.photos_by.blank?
+    search_content = search_content + separator + I18n.l(self.published_date, :format => '%e %B %Y') unless self.published_date.nil? or self.published_date.blank? 
+    search_content = search_content + separator + self.published_in unless self.published_in.nil? or self.published_in.blank?
+    search_content = search_content + separator + self.ctry unless self.ctry.nil? or self.ctry.blank?
+    search_content = search_content + separator + self.article_type unless self.article_type.nil? or self.article_type.blank?
+    search_content = search_content + separator + self.address unless self.address.nil? or self.address.blank?
+    search_content = search_content + separator + self.category_list unless self.category_list.nil? or self.category_list.blank?
+    I18n.locale = original_locale
+  end  
+
+  def category_list
+    category_list = ''
+    self.categories.each do |category|
+      if category_list == ''
+        category_list = category.name
+      else
+        category_list = category_list + ', ' + category.name
+      end
+    end
+    return category_list
+  end
+
+  def self.rebuild_pg_search_documents
+    find_each { |record| record.update_pg_search_document }
+  end
+
   def self.text_search(query)
     if query.present?
-      search(query)
-    else
-      scoped
+      PgSearch.multisearch(query)
     end
   end
 
-  def self.path
+  def path
     category = self.categories[0]
     path = 'stories' + '/' + category.url_name + '/' + self.url_title
     return path

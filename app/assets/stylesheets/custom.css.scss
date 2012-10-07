@@ -221,14 +221,15 @@ input.search-query  {
   padding-left: 4px;
   padding-right: 4px;
   border-radius: 0;
+  height: 16px;
+  // margin-top: 2px;
 }
 
 #search_form {
   float: left;
   margin: -2px 0 0 126px;
-  // margin-bottom: 9px;
-  input {
-    // height: 20px;
+  .btn {
+    margin-top: 1px;
   }
 }
 

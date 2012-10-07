@@ -3,8 +3,22 @@ class StoriesController < ApplicationController
   before_filter :set_status_message, :except => []
 
   def search
-    @articles = Article.text_search(params[:query])
+    if params[:query].blank?
+      # flash.now[:error] = I18n.t(:enter_keywords) 
+      return
+    end
+    if @hit_list = Article.text_search(params[:query])
+      @no_of_hits = @hit_list.size
+    else
+      flash.now[:notice] = I18n.t(:no_documents_found)  
+    end
     render(:layout => 'pages')
+  end
+
+  def rebuild_pg_search_documents
+    Article.rebuild_pg_search_documents
+    flash.now[:notice] = "Index rebuilt."  
+    redirect_to search_path
   end
 
   def get_facebook_items_to_refresh
