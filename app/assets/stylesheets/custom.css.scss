@@ -600,6 +600,9 @@ body {
     .language_switch {
       margin-right: 47px;
     }
+    #search_form {
+      display: none;
+    }
     h2 {
       margin-bottom: 0;
       margin-left: 19px;
@@ -701,7 +704,7 @@ body {
     }
   }
 
-  /* styles for iPhone, Facebook Page Tab and Kindle Fire */
+  /* styles for iPhone, Facebook Page Tab, Kindle Fire and small phones*/
   @media only screen and (max-width: 600px) { 
     h1 { 
       // color: red;
@@ -714,6 +717,9 @@ body {
     }
     #header_section {
       margin-top: 0px;
+    }
+    #search_form {
+      display: none;
     }
     .language_switch {
       margin-right: 22px;
@@ -862,31 +868,12 @@ body {
   }
   /* styles for small phones */
   @media (max-width: 320px) {
-    // h1 { 
-    //   color: purple;
-    //   margin-left: 0px;
-    // }
-    // h2 {
-    //   margin-bottom: 0;
-    //   margin-top: 0;
-    //   margin-left: 0px;
-    // }
-    // #header_section {
-    //   margin-top: 0px;
-    // }
+   
     .language_switch {
       display: none;
       // margin-right: 22px;
     }
-    // .status_message_image {
-    //   margin-top: 0;
-    //   margin-left: 0;
-    //   margin-bottom: 0;
-    // }
-    // .status_message {
-    //   margin-top: 0;
-    //   margin-bottom: 0;
-    // }
+  
     .span5 {
       width: 300px;
     }
@@ -896,16 +883,7 @@ body {
     .span8 {
       width: 300px;
     }
-    // .container {
-    //   background-image: none;
-    //   background-repeat: no-repeat;
-    // }
-    // [class*="span"] {
-    //   float: left;
-    // }
-    // [class*="span"] {
-    //   margin-left: 0;
-    // }
+
     #topnav {
       width: 314px;
     }
@@ -945,19 +923,7 @@ body {
         width: 220px;
       }
     }
-    // #content_section {
-    //   padding-left: 15px;
-    // }
-    // .nav-list {
-    //   margin-right: -6px;
-    //   margin-left: 8px;
-    // }
-    // #navi_1 {
-    //    margin-bottom: 18px;
-    // }
-    // #navi_2 {
-    //    margin-bottom: 18px;
-    // }
+   
     #navi_3 {
        margin-left: 0px;
        clear: left;
