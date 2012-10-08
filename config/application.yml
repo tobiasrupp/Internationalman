@@ -1,0 +1,18 @@
+defaults: &defaults
+  twitter:
+    user: tobiasrupp1
+  sublime_video_script: <script type="text/javascript" src="http://cdn.sublimevideo.net/js/nv8041sd.js"></script>
+  facebook:
+    site_admin_ids: 100004335090083
+    default_image_url: http://www.international-man.net/assets/globe_map.jpg
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
+  twitter:
+    user: pennythoughts10

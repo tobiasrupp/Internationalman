@@ -2686,12 +2686,18 @@
         1,
         null
       ],
+      "/Users/tobias/dev/rails_projects/intlman/app/models/settings.rb": [
+        1,
+        1,
+        1,
+        null
+      ],
       "/Users/tobias/dev/rails_projects/intlman/app/models/video_category.rb": [
         1,
         1,
         null
       ]
     },
-    "timestamp": 1349647441
+    "timestamp": 1349732978
   }
 }

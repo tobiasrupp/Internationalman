@@ -18,7 +18,7 @@
 				</div>
 			<% end %>
 		<% else %>
-			<% provide(:video_player_script, '<script type="text/javascript" src="http://cdn.sublimevideo.net/js/nv8041sd.js"></script>'.html_safe) %>
+			<% provide(:video_player_script, Settings.sublime_video_script.html_safe) %>
 			<% if I18n.locale == :de %>
 				<div class="video_viewer">
 					<video class="sublime" width="<%= @video_viewer_width %>" height="<%= @video_viewer_height %>" poster="<%= @selected_video.teaser_image.url(@video_teaser_image_size) %>" data-name="<%= @selected_video.title %>" preload="none" class="sv_force_flash"><source src="<%= @selected_video.source_url %>" /></video>

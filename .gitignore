@@ -26,3 +26,4 @@ doc/
 config/aws.yml
 intlman_development.psql
 intlman_production.psql
+twitter.rb

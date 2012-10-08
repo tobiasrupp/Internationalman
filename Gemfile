@@ -15,6 +15,8 @@ gem 'gmaps4rails', '1.5.5'
 gem 'ckeditor', '3.7.1'
 gem 'pg_search', '0.5.6'
 gem 'rest-client', '1.6.7'
+gem 'twitter', '4.1.0'
+gem 'settingslogic', '~> 2.0.8'
 
 group :development, :test do
   # gem 'sqlite3', '1.3.5'
