@@ -674,3 +674,24 @@ LOG:  database system is ready to accept connections
 LOG:  autovacuum launcher started
 FATAL:  lock file "postmaster.pid" already exists
 HINT:  Is another postmaster (PID 811) running in data directory "/usr/local/var/postgres"?
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+LOG:  database system was shut down at 2012-10-08 23:33:25 BST
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+FATAL:  database "intlman_test" does not exist
+ERROR:  operator does not exist: character varying = bigint at character 77
+HINT:  No operator matches the given name and argument type(s). You might need to add explicit type casts.
+STATEMENT:  SELECT  1 AS one FROM "status_messages"  WHERE "status_messages"."tweet_id" = 255377510353739776 LIMIT 1
+FATAL:  database "intlman_test" does not exist
+ERROR:  cached plan must not change result type
+STATEMENT:  SELECT  "status_messages".* FROM "status_messages"  WHERE "status_messages"."id" = $1 LIMIT 1
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+LOG:  database system was shut down at 2012-10-09 20:03:17 BST
+LOG:  autovacuum launcher started
+LOG:  database system is ready to accept connections

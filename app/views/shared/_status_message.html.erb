@@ -1,31 +1,22 @@
 <div class="status_message_image"></div>
 <div class="status_message">
-	<% cache "status_message#{Time.now.strftime('%Y-%m-%d-%H') + '-' + I18n.locale.to_s}" do %>
-		<% message = "" %>
-		<% prefix = "" %>
-		<% tweet = Twitter.user_timeline(Settings.twitter.user, count: 1).first unless Rails.env.test? %>
-		<% if !tweet.nil? and !tweet.blank? %>
-			<% if !@status_message.nil? and !@status_message.text.blank? %>
-				<% if @status_message.updated_at < tweet.created_at %>
-					<% message = tweet.text %>
-					<% prefix = "Twitter: " %>
-		    <% else %>
-			   	<% message = raw @status_message.text %>
-		  	<% end %>
-		  <% else %>
-		  	<% message = tweet.text %>
-		  	<% prefix = "Twitter: " %>
-		 	<% end %>
-		<% else %>
-			<% if !@status_message.nil? and !@status_message.text.blank? %>
-				<% message = raw @status_message.text %> 	
+	<% prefix = "" %>
+	<% message = "" %>
+	<% cache "status_message_#{I18n.locale.to_s}", :expires_in => Settings.cache.status_message_expires_in.minutes do %>
+		<% @status_message = StatusMessage.get_recent %>
+		<% if !@status_message.nil? and !@status_message.text.blank? %>
+			<% if @status_message.tweet_id %>
+				<% prefix = "Twitter: " %>
+				<% message = @status_message.text %>
+			<% else %>
+				<% message = raw @status_message.text %>
 			<% end %>
+		  <% if I18n.locale == :de %>
+		  	<div class="status_message_inner">
+		  	<small><%= link_to prefix, Settings.twitter.profile_url, :target => '_blank' unless prefix.blank? %><span class="double_quote">&bdquo;</span><%= message %><span class="double_quote">&ldquo;</span></small></div>
+		  <% else %>
+		    <div class="status_message_inner"><small><%= link_to prefix, Settings.twitter.profile_url, :target => '_blank' unless prefix.blank? %><span class="double_quote">&ldquo;</span><%= message %><span class="double_quote">&rdquo;</span></small></div>
+		  <% end %>
 		<% end %>
-	  <% if I18n.locale == :de %>
-	  	<div class="status_message_inner">
-	  	<small><%= link_to prefix, "https://twitter.com/pennythoughts10", :target => '_blank' unless prefix.blank? %><span class="double_quote">&bdquo;</span><%= message %><span class="double_quote">&ldquo;</span></small></div>
-	  <% else %>
-	    <div class="status_message_inner"><small><%= link_to prefix, "https://twitter.com/pennythoughts10", :target => '_blank' unless prefix.blank? %><span class="double_quote">&ldquo;</span><%= message %><span class="double_quote">&rdquo;</span></small></div>
-	  <% end %>
   <% end %>
 </div>

@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   
-  before_filter :set_status_message
+  # before_filter :set_status_message
   
   def show
     # add_locale_to_url

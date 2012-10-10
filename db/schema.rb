@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121004234454) do
+ActiveRecord::Schema.define(:version => 20121009155718) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -76,13 +76,11 @@ ActiveRecord::Schema.define(:version => 20121004234454) do
   create_table "articles", :force => true do |t|
     t.string   "title"
     t.string   "language"
-    t.string   "country"
     t.string   "longitude"
     t.string   "latitude"
     t.string   "article_type"
     t.date     "published_date"
     t.string   "published_in"
-    t.string   "filename"
     t.string   "author"
     t.string   "photos_by"
     t.datetime "created_at",                   :null => false
@@ -95,6 +93,8 @@ ActiveRecord::Schema.define(:version => 20121004234454) do
     t.string   "teaser_image_content_type"
     t.integer  "teaser_image_file_size"
     t.datetime "teaser_image_updated_at"
+    t.string   "country"
+    t.string   "filename"
     t.string   "ctry"
     t.string   "web_page"
     t.string   "source_file_file_name"
@@ -123,6 +123,7 @@ ActiveRecord::Schema.define(:version => 20121004234454) do
     t.integer  "display_sequence"
     t.integer  "display_section"
     t.string   "url_name"
+    t.string   "url_title"
     t.string   "language"
   end
 
@@ -291,8 +292,11 @@ ActiveRecord::Schema.define(:version => 20121004234454) do
   create_table "status_messages", :force => true do |t|
     t.string   "text"
     t.string   "language"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+    t.string   "tweet_id"
+    t.string   "tweet_screen_name"
+    t.datetime "tweet_created_at"
   end
 
   create_table "video_categories", :force => true do |t|

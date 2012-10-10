@@ -2,7 +2,10 @@ ActiveAdmin.register StatusMessage do
    index do
     column :id
     column :text
-    column :updated_at
+    column :tweet_id
+    column :tweet_screen_name
+    column :tweet_created_at
+    column :created_at
     column "Lang.", :language
 		default_actions
   end
@@ -45,6 +48,9 @@ ActiveAdmin.register StatusMessage do
     f.inputs do
     	f.input :language, :input_html => { :readonly => true, :value => I18n.locale}, :hint => "Read-only"
       f.input :text, :required => true, :input_html => { :size => 255 }, :hint => "#{t(:translation_field)}"
+      f.input :tweet_id, :input_html => { :disabled => true }, :hint => "Read-only"
+      f.input :tweet_screen_name, :input_html => { :disabled => true }, :hint => "Read-only"
+      f.input :tweet_created_at, :input_html => { :disabled => true }, :hint => "Read-only"
     end
     f.buttons
   end
@@ -61,6 +67,18 @@ ActiveAdmin.register StatusMessage do
             tr do
               th { 'Language' }
               td { status_message.language }
+            end
+            tr do
+              th { 'Tweet ID' }
+              td { status_message.tweet_id }
+            end
+            tr do
+              th { 'Tweet Screen Name' }
+              td { status_message.tweet_screen_name }
+            end
+             tr do
+              th { 'Tweet Created At' }
+              td { status_message.tweet_created_at }
             end
             tr do
               th { 'Text' }

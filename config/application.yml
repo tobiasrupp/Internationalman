@@ -1,10 +1,13 @@
 defaults: &defaults
   twitter:
     user: tobiasrupp1
+    profile_url: https://twitter.com/tobiasrupp1
   sublime_video_script: <script type="text/javascript" src="http://cdn.sublimevideo.net/js/nv8041sd.js"></script>
   facebook:
     site_admin_ids: 100004335090083
     default_image_url: http://www.international-man.net/assets/globe_map.jpg
+  cache:
+    status_message_expires_in: 10
 
 development:
   <<: *defaults
@@ -16,3 +19,4 @@ production:
   <<: *defaults
   twitter:
     user: pennythoughts10
+    profile_url: https://twitter.com/pennythoughts10

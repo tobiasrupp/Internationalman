@@ -1,6 +1,6 @@
 class StoriesController < ApplicationController
 
-  before_filter :set_status_message, :except => []
+  # before_filter :set_status_message, :except => []
 
   def search
     if params[:query].blank?

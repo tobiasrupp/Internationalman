@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   
-  before_filter :set_status_message
+  # before_filter :set_status_message
   
   def map
     # centre map with coordinates 
@@ -55,6 +55,8 @@ class PagesController < ApplicationController
     @is_corporate = false
 
     radio_tracks_json = @radio_tracks.to_gmaps4rails do |radio_track, marker|
+      radio_track = check_for_missing_texts(radio_track)
+
       @selected_track = radio_track
       marker.infowindow render_to_string(:partial => "/radio_tracks/radio_track_details")
       marker.title   radio_track.title + ' (Radio)'
