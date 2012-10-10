@@ -29,18 +29,18 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def check_for_missing_texts(object)
-    if !object.title
-      object.title = I18n.t(:no_text_found) + ' (' + I18n.locale.to_s + ')'
-    end
-    if !object.short_title
-      object.short_title = I18n.t(:no_text_found) + ' (' + I18n.locale.to_s + ')'
-    end
-    if !object.url_title
-      object.url_title = I18n.t(:no_text_found) + ' (' + I18n.locale.to_s + ')'
-    end
-    return object
-  end
+  # def check_for_missing_texts(object)
+  #   if !object.title
+  #     object.title = I18n.t(:no_text_found) + ' (' + I18n.locale.to_s + ')'
+  #   end
+  #   if !object.short_title
+  #     object.short_title = I18n.t(:no_text_found) + ' (' + I18n.locale.to_s + ')'
+  #   end
+  #   if !object.url_title
+  #     object.url_title = I18n.t(:no_text_found) + ' (' + I18n.locale.to_s + ')'
+  #   end
+  #   return object
+  # end
 
   def long_titles?(items)
     if items.nil? or items.count == 0

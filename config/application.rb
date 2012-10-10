@@ -43,7 +43,8 @@ module Intlman
     #   config.i18n.reload!
     # end
 
-    config.i18n.fallbacks = true    
+    # config.i18n.fallbacks = true  
+    config.i18n.fallbacks = [:de, :en]
     config.i18n.default_locale = :de
 
     # Configure the default encoding used in templates for Ruby 1.9.
