@@ -2,5 +2,7 @@
 	<% return %>
 <% end %>
 <%= render 'shared/like_button' %>
-<%= render :partial => 'stories/story_details', :formats=>[:html], :handlers=>[:erb] %>
+<% cache get_cache_key(@selected_article) do %>
+	<%= render :partial => 'stories/story_details', :formats=>[:html], :handlers=>[:erb] %>
+<% end %>
 <%= render 'shared/like_button_meta_tags' %>

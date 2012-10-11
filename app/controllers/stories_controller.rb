@@ -147,6 +147,7 @@ class StoriesController < ApplicationController
         if @selected_article.nil?
           # requested story unknown
           flash.now[:error] = "Story '#{params[:article_title]}' wurde nicht gefunden."
+          return
         end
       else	
       	current_article = @stories[0]
@@ -156,6 +157,7 @@ class StoriesController < ApplicationController
     else  
     	# category unknown
     	flash.now[:error] = "Kategorie '#{params[:category]}' wurde nicht gefunden."
+      return
     end
     if long_titles?(@stories) 
       @content_section_column_width = 4

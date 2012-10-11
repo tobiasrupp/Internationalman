@@ -1,8 +1,10 @@
-<% if !@page_title.nil? %>
-	<% provide(:title, @page_title) %>
-<% end %>
-<% if !@page_body.nil? %>
-	<div class="page_body">
-		<%= raw @page_body %>
-	</div>
+<% cache get_cache_key(@page) do %>
+	<% if !@page.title.nil? %>
+		<% provide(:title, @page.title) %>
+	<% end %>
+	<% if !@page.body.nil? %>
+		<div class="page_body">
+			<%= raw @page.body %>
+		</div>
+	<% end %>
 <% end %>
