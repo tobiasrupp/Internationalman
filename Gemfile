@@ -17,6 +17,7 @@ gem 'pg_search', '0.5.6'
 gem 'rest-client', '1.6.7'
 gem 'twitter', '4.1.0'
 gem 'settingslogic', '~> 2.0.8'
+gem 'dalli'
 
 group :development, :test do
   # gem 'sqlite3', '1.3.5'

@@ -706,3 +706,10 @@ LOG:  autovacuum launcher started
 LOG:  database system is ready to accept connections
 ERROR:  column "new" does not exist at character 54
 STATEMENT:  SELECT  "radio_tracks".* FROM "radio_tracks"  WHERE (new-radio-feature) LIMIT 1
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+LOG:  database system was shut down at 2012-10-11 23:27:06 BST
+LOG:  autovacuum launcher started
+LOG:  database system is ready to accept connections
