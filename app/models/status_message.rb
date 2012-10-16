@@ -12,34 +12,34 @@ class StatusMessage < ActiveRecord::Base
 
   	# get recent cashed message or tweet
   	message = StatusMessage.find(:first, :order => "id DESC")
-  	if !message
-  		return 
-  	end 
-  	if message.tweet_id.blank?
-  		# message is normal message, get cached tweet
-  		tweet = StatusMessage.find(:first, :conditions => ["tweet_id != ?", ""], :order => "id DESC")
+  	# if !message
+  	# 	return 
+  	# end 
+  	# if message.tweet_id.blank?
+  	# 	# message is normal message, get cached tweet
+  	# 	tweet = StatusMessage.find(:first, :conditions => ["tweet_id != ?", ""], :order => "id DESC")
   		
-  		# check if tweet is expired
-  		if tweet.nil? or tweet.expired? 
-  			new_tweet = self.pull_recent_tweet
-  			# check if there is a newer tweet
-  			if new_tweet and new_tweet.created_at > message.created_at
-  				message = new_tweet
-  			end
-  		else
-  			# cached tweet is not expired and can be used
-  			message = tweet
-  		end 
-  	else
-  		# message is a tweet, check if tweet is expired
-  		if message.expired?
-				# check if there is a newer tweet
-				new_tweet = self.pull_recent_tweet
-				if new_tweet and new_tweet.created_at > message.tweet_created_at
-  				message = new_tweet
-  			end
-  		end
-  	end
+  	# 	# check if tweet is expired
+  	# 	if tweet.nil? or tweet.expired? 
+  	# 		new_tweet = self.pull_recent_tweet
+  	# 		# check if there is a newer tweet
+  	# 		if new_tweet and new_tweet.created_at > message.created_at
+  	# 			message = new_tweet
+  	# 		end
+  	# 	else
+  	# 		# cached tweet is not expired and can be used
+  	# 		message = tweet
+  	# 	end 
+  	# else
+  	# 	# message is a tweet, check if tweet is expired
+  	# 	if message.expired?
+			# 	# check if there is a newer tweet
+			# 	new_tweet = self.pull_recent_tweet
+			# 	if new_tweet and new_tweet.created_at > message.tweet_created_at
+  	# 			message = new_tweet
+  	# 		end
+  	# 	end
+  	# end
   	return message
   end
 
