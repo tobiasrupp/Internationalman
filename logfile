@@ -713,3 +713,10 @@ LOG:  database system is shut down
 LOG:  database system was shut down at 2012-10-11 23:27:06 BST
 LOG:  autovacuum launcher started
 LOG:  database system is ready to accept connections
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+LOG:  database system was shut down at 2012-10-16 23:08:01 BST
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
