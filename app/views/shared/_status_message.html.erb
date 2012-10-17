@@ -1,21 +1,21 @@
 <div class="status_message_image"></div>
 <div class="status_message">
-	<% prefix = "" %>
+	<% suffix = "" %>
 	<% message = "" %>
 	<% cache "status_message_#{I18n.locale.to_s}", :expires_in => Settings.cache.status_message_expires_in.minutes do %>
 		<% @status_message = StatusMessage.get_recent %>
 		<% if !@status_message.nil? and !@status_message.text.blank? %>
 			<% if @status_message.tweet_id %>
-				<% prefix = "Twitter: " %>
+				<% suffix = " (Twitter)" %>
 				<% message = @status_message.text %>
 			<% else %>
 				<% message = raw @status_message.text %>
 			<% end %>
 		  <% if I18n.locale == :de %>
 		  	<div class="status_message_inner">
-		  	<small><%= link_to prefix, Settings.twitter.profile_url, :target => '_blank' unless prefix.blank? %><span class="double_quote">&bdquo;</span><%= message %><span class="double_quote">&ldquo;</span></small></div>
+		  	<small><span class="double_quote">&bdquo;</span><%= message %><span class="double_quote">&ldquo;</span><%= link_to suffix, Settings.twitter.profile_url, :target => '_blank' unless suffix.blank? %></small></div>
 		  <% else %>
-		    <div class="status_message_inner"><small><%= link_to prefix, Settings.twitter.profile_url, :target => '_blank' unless prefix.blank? %><span class="double_quote">&ldquo;</span><%= message %><span class="double_quote">&rdquo;</span></small></div>
+		    <div class="status_message_inner"><small><span class="double_quote">&ldquo;</span><%= message %><span class="double_quote">&rdquo;<%= link_to suffix, Settings.twitter.profile_url, :target => '_blank' unless suffix.blank? %></span></small></div>
 		  <% end %>
 		<% end %>
   <% end %>
