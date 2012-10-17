@@ -10,15 +10,17 @@
   </head>
   <body>
     <div class="container_shadow">
-      <div class="container" id="header_section">
+       <div class="container" id="header_section">
+<% cache "header_wrapper_#{I18n.locale.to_s}" do %>       
           <%= render 'layouts/header' %> 
       </div>
       <div class="container">
-        <div class="container_inner">  
+        <div class="container_inner">
           <div class="row">
             <div class="span4">
               <%= render 'shared/alexander_buehler' %>
             </div>
+<% end %>              
             <div class="span6">
               <%= render 'shared/status_message' %>
             </div>
@@ -32,6 +34,7 @@
               <div class="span7" id="content_section">
                 <%= yield %>
               </div>
+<% cache "sidebar_footer_wrapper_#{I18n.locale.to_s}" do %>
               <div class="span1.5" id="sidebar_right">
               <%= render 'shared/sidebar_right' %>  
               </div> 
@@ -43,6 +46,7 @@
         </div>
       </div>
     </div>  
+<% end %>    
     <%= render 'shared/container_bottom' %>
   </body>
 </html>

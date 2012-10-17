@@ -18,6 +18,7 @@
     <%= yield(:like_button_script) %>
     <div class="container_shadow">
       <div class="container" id="header_section">
+<% cache "header_wrapper_#{I18n.locale.to_s}" do %>       
           <%= render 'layouts/header' %> 
       </div>
       <div class="container">
@@ -26,6 +27,7 @@
             <div class="span4">
               <%= render 'shared/alexander_buehler' %>
             </div>
+<% end %>              
             <div class="span6">
               <%= render 'shared/status_message' %>
             </div>
@@ -115,6 +117,7 @@
               <div class="span<%= @content_section_column_width %>" id="content_section">
                   <%= yield %>
               </div>
+<% cache "sidebar_footer_wrapper_#{I18n.locale.to_s}" do %>
               <div class="span1.5" id="sidebar_right">
                 <%= render 'shared/sidebar_right' %>  
               </div>    
@@ -127,6 +130,7 @@
       </div>  <!-- container -->
     </div>  <!-- container shadow -->
     <%= render 'shared/container_bottom' %>
+<% end %>    
     <%= yield :scripts %>  
   </body>
 </html>
