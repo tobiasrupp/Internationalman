@@ -7,7 +7,7 @@ defaults: &defaults
     site_admin_ids: 100004335090083
     default_image_url: http://www.international-man.net/assets/globe_map.jpg
   cache:
-    status_message_expires_in: 1
+    status_message_expires_in: 10
 
 development:
   <<: *defaults
