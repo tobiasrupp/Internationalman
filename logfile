@@ -720,3 +720,56 @@ LOG:  database system is shut down
 LOG:  database system was shut down at 2012-10-16 23:08:01 BST
 LOG:  database system is ready to accept connections
 LOG:  autovacuum launcher started
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+LOG:  database system was shut down at 2012-10-17 23:57:41 BST
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ERROR:  column a.categories_id does not exist at character 81
+STATEMENT:  SELECT "categories".* FROM "categories" left join articles a on categories.id = a.categories_id WHERE (a.id is not null)
+ERROR:  column a.categories_id does not exist at character 81
+STATEMENT:  SELECT "categories".* FROM "categories" left join articles a on categories.id = a.categories_id WHERE (a.id is not null)
+ERROR:  invalid input syntax for type boolean: "articles" at character 49
+STATEMENT:  SELECT "categories".* FROM "categories"  WHERE ('articles')
+ERROR:  invalid input syntax for type boolean: "articles" at character 49
+STATEMENT:  SELECT "categories".* FROM "categories"  WHERE ('articles')
+ERROR:  syntax error at or near "null" at character 62
+STATEMENT:  SELECT "categories".* FROM "categories"  WHERE (articles not null)
+ERROR:  syntax error at or near "null" at character 62
+STATEMENT:  SELECT "categories".* FROM "categories"  WHERE (articles not null)
+ERROR:  column "articles" does not exist at character 49
+STATEMENT:  SELECT "categories".* FROM "categories"  WHERE (articles is null)
+ERROR:  missing FROM-clause entry for table "articles" at character 43
+STATEMENT:  SELECT COUNT(*) FROM "categories"  WHERE (articles.size > 0)
+ERROR:  missing FROM-clause entry for table "articles" at character 43
+STATEMENT:  SELECT COUNT(*) FROM "categories"  WHERE (articles.count > 0)
+ERROR:  missing FROM-clause entry for table "articles" at character 43
+STATEMENT:  SELECT COUNT(*) FROM "categories"  WHERE (articles.count > 0)
+ERROR:  column reference "url_name" is ambiguous at character 138
+STATEMENT:  SELECT COUNT(*) FROM "categories" INNER JOIN "category_translations" ON "category_translations"."category_id" = "categories"."id" WHERE (url_name = 'asia')
+ERROR:  column reference "url_name" is ambiguous at character 138
+STATEMENT:  SELECT COUNT(*) FROM "categories" INNER JOIN "category_translations" ON "category_translations"."category_id" = "categories"."id" WHERE (url_name = 'asia')
+ERROR:  missing FROM-clause entry for table "translations" at character 138
+STATEMENT:  SELECT COUNT(*) FROM "categories" INNER JOIN "category_translations" ON "category_translations"."category_id" = "categories"."id" WHERE (translations.url_name = 'asia')
+ERROR:  missing FROM-clause entry for table "translations" at character 138
+STATEMENT:  SELECT COUNT(*) FROM "categories" INNER JOIN "category_translations" ON "category_translations"."category_id" = "categories"."id" WHERE (translations.url_name = 'asia')
+LOG:  database system was interrupted; last known up at 2012-10-18 21:04:58 BST
+LOG:  database system was not properly shut down; automatic recovery in progress
+LOG:  record with zero length at 0/515CAC8
+LOG:  redo is not required
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+LOG:  unexpected EOF on client connection
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+LOG:  database system was shut down at 2012-10-19 10:53:02 BST
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+WARNING:  pgstat wait timeout
+WARNING:  pgstat wait timeout
+WARNING:  pgstat wait timeout
+WARNING:  pgstat wait timeout

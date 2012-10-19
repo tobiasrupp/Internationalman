@@ -28,7 +28,7 @@ class VideosController < ApplicationController
       end
     else	
     	current_video = @videos[0]
-      redirect_to tv_path + '/' + current_video.url_title
+      redirect_to :action => :show, :video_title => current_video.url_title, :only_path => true
       return
   	end
     if long_titles?(@videos) 

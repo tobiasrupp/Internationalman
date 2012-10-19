@@ -28,7 +28,7 @@ class CorporateArticlesController < ApplicationController
       end
     else	
     	current_article = @stories[0]
-      redirect_to corporate_path + '/' + current_article.url_title
+      redirect_to :action => :show, :article_title => current_article.url_title, :only_path => true
       return
   	end
     if long_titles?(@stories) 

@@ -4,7 +4,7 @@
 	<% end %>
 	<% if !@page.body.nil? %>
 		<div class="page_body">
-			<%= raw @page.body %>
+			<%= @page.body.html_safe %>
 		</div>
 	<% end %>
 <% end %>

@@ -1,10 +1,11 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.7'
+gem 'rails', '3.2.8'
 gem 'bootstrap-sass', '2.1.0.0'
 gem 'sass-rails',   '3.2.4'
 gem 'country-select', '1.1.1'
-gem 'pg', '0.12.2'
+# gem 'pg', '0.12.2'
+gem 'pg', '0.14.1'
 gem 'activeadmin', '0.4.4'
 gem "meta_search",    '>= 1.1.0.pre'
 gem "paperclip", '3.1.4'
@@ -18,10 +19,12 @@ gem 'rest-client', '1.6.7'
 gem 'twitter', '4.1.0'
 gem 'settingslogic', '~> 2.0.8'
 gem 'dalli', '2.3.0'
+# gem 'rack-mini-profiler'
 
 group :development, :test do
   # gem 'sqlite3', '1.3.5'
   gem 'rspec-rails', '2.10.0'
+  gem 'bullet'
 end
 
 # Gems used only for assets and not required

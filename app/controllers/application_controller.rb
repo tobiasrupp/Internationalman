@@ -2,10 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
 	before_filter :set_locale
-  before_filter :set_locale_from_url
-  
-  protected
-
+  # before_filter :set_locale_from_url
 
   private
 
@@ -16,7 +13,7 @@ class ApplicationController < ActionController::Base
     I18n.locale = params_locale || language_locale || default_locale
     logger.debug "*** Locale set to '#{I18n.locale}'"
     if params_locale.blank?
-      redirect_to "/#{I18n.locale}#{request.path_info}"
+      redirect_to :locale => I18n.locale, :only_path => true
     end
   end
 

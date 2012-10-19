@@ -29,7 +29,7 @@ class PostsController < ApplicationController
       end
     else	
     	current_post = @posts[0]
-      redirect_to blog_path + '/' + current_post.url_title
+      redirect_to :action => :show, :post_title => current_post.url_title, :only_path => true
       return
   	end
     if long_titles?(@posts) 

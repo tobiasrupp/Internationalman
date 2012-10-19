@@ -85,8 +85,6 @@ class StoriesController < ApplicationController
 
   def show_stories
     # route /stories
-    
-    # add_locale_to_url
 
   	# get current story
     current_article = Article.find(:first,
@@ -103,11 +101,10 @@ class StoriesController < ApplicationController
     	flash.now[:error] = "Keine Stories mit Kategorien gefunden."
       return
     end 
-    redirect_to stories_path + '/' + current_category.url_name + '/' + current_article.url_title
+    redirect_to :action => :show_stories_by_category, :category => current_category.url_name, :article_title => current_article.url_title, :only_path => true
   end
 
   def show_stories_by_category
-
   	# route /stories/category
 
   	if !params[:category]
@@ -116,13 +113,13 @@ class StoriesController < ApplicationController
   	
   	# get categories with stories (non-corporate)
     story_categories = Category.find(:all,              
-                          :include => :articles,
+                          :include => [:translations, :articles],
                           :conditions => "name <> 'Corporate'",
                           :order => "display_section ASC, display_sequence ASC")
     
     @story_categories = []
     for category in story_categories
-      if !category.articles.empty?
+      if category.articles.size > 0
         @story_categories<<category
       end
     end
@@ -149,9 +146,10 @@ class StoriesController < ApplicationController
           flash.now[:error] = "Story '#{params[:article_title]}' wurde nicht gefunden."
           return
         end
-      else	
+      else
+        # article parameter has not been provided 
       	current_article = @stories[0]
-        redirect_to  stories_path + '/' + current_category.url_name + '/' + current_article.url_title
+        redirect_to :action => :show_stories_by_category, :category => current_category.url_name, :article_title => current_article.url_title, :only_path => true
         return
     	end
     else  

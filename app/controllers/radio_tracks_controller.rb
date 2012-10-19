@@ -33,7 +33,7 @@ class RadioTracksController < ApplicationController
         flash.now[:notice] = "Kein Radiobeitrag gefunden."
         return
       end
-      redirect_to  radio_path + '/' + current_track.url_title
+      redirect_to :action => :show, :track_title => current_track.url_title, :only_path => true
       return
   	end
     if long_titles?(@radio_tracks) 

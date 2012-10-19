@@ -9,7 +9,7 @@
 				<% suffix = " (Twitter)" %>
 				<% message = @status_message.text %>
 			<% else %>
-				<% message = raw @status_message.text %>
+				<% message = @status_message.text.html_safe %>
 			<% end %>
 		  <% if I18n.locale == :de %>
 		  	<div class="status_message_inner">
