@@ -21,12 +21,13 @@ gem 'settingslogic', '~> 2.0.8'
 gem 'dalli', '2.3.0'
 # gem 'rack-mini-profiler'
 gem 'exception_notification'
+gem 'letter_opener'
 
 group :development, :test do
   # gem 'sqlite3', '1.3.5'
   gem 'rspec-rails', '2.10.0'
   gem 'bullet'
-  gem 'letter_opener'
+  # gem 'letter_opener'
 end
 
 # Gems used only for assets and not required
