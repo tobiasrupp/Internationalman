@@ -22,6 +22,7 @@ class StoriesController < ApplicationController
   end
 
   def get_facebook_items_to_refresh
+    raise "testo"
     if !params[:get_all] and !params[:days]
       return
     end
