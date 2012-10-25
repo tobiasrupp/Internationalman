@@ -34,4 +34,17 @@ module ApplicationHelper
     end
     return cache_key
   end  
+
+  def category_list(categories)
+    return false unless categories
+    category_list = '' 
+    categories.each do |category|
+      if category_list == ''
+        category_list = category.name
+      else
+        category_list = category_list + ', ' + category.name
+      end
+    end
+    return category_list
+  end
 end
