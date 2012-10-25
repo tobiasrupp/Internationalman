@@ -75,8 +75,8 @@ Intlman::Application.configure do
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 
   config.middleware.use ExceptionNotifier,
-  sender_address: 'noreply@international-man.net',
-  exception_recipients: 'tobiasrupp.developer@gmail.com'
+  sender_address: 'tobiasrupp.developer@gmail.com',
+  exception_recipients: 'tobiasrupp72@gmail.com'
   # ,
   # ignore_exceptions: ExceptionNotifier.default_ignore_exceptions # + [RuntimeError]
   
@@ -100,7 +100,7 @@ Intlman::Application.configure do
   config.action_mailer.smtp_settings = {
     :address              => "smtp.gmail.com",
     :port                 => 587,
-    :domain               => 'international-man.net',
+    # :domain               => 'international-man.net',
     :user_name            => ENV["GMAIL_SMTP_USER"],
     :password             => ENV["GMAIL_SMTP_PASSWORD"],
     :authentication       => 'plain',
