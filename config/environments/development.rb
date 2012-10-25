@@ -35,5 +35,14 @@ Intlman::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
 
+  config.middleware.use ExceptionNotifier,
+  sender_address: 'noreply@example.com',
+  exception_recipients: 'tobiasrupp.developer@gmail.com'
+  # ,
+  # ignore_exceptions: ExceptionNotifier.default_ignore_exceptions # + [RuntimeError]
+  
+  config.action_mailer.delivery_method = :letter_opener
+
   config.action_mailer.default_url_options = { :host => 'localhost:3001' }
+
 end
