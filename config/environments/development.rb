@@ -37,7 +37,7 @@ Intlman::Application.configure do
 
   config.middleware.use ExceptionNotifier,
   sender_address: 'noreply@example.com',
-  exception_recipients: 'tobiasrupp.developer@gmail.com'
+  exception_recipients: Settings.exception_notification.recipients
   # ,
   # ignore_exceptions: ExceptionNotifier.default_ignore_exceptions # + [RuntimeError]
   

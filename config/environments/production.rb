@@ -76,7 +76,7 @@ Intlman::Application.configure do
 
   config.middleware.use ExceptionNotifier,
   sender_address: 'noreply@international-man.net',
-  exception_recipients: 'tobiasrupp.developer@gmail.com'
+  exception_recipients: Settings.exception_notification.recipients
   # ,
   # ignore_exceptions: ExceptionNotifier.default_ignore_exceptions # + [RuntimeError]
   
@@ -87,16 +87,6 @@ Intlman::Application.configure do
  # Specify what domain to use for mailer URLs
   config.action_mailer.default_url_options = { :host => 'www.international-man.net' }
 
-  # Change mail delivery to either :smtp, :sendmail, :file, :test
-  # config.action_mailer.delivery_method = :smtp
-  # config.action_mailer.smtp_settings = {
-  #   :address              => "smtp.gmail.com",
-  #   :port                 => 587,
-  #   # :domain               => 'international-man.net',
-  #   :user_name            => ENV["GMAIL_SMTP_USER"],
-  #   :password             => ENV["GMAIL_SMTP_PASSWORD"],
-  #   :authentication       => 'plain',
-  #   :enable_starttls_auto => true  }
   ActionMailer::Base.smtp_settings = {
     :address        => 'smtp.sendgrid.net',
     :port           => '587',

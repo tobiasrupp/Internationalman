@@ -8,6 +8,8 @@ defaults: &defaults
     default_image_url: http://www.international-man.net/assets/globe_map.jpg
   cache:
     status_message_expires_in: 10
+  exception_notification:
+    recipients: tobiasrupp72@gmail.com
 
 development:
   <<: *defaults
