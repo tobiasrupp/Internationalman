@@ -12,14 +12,6 @@ module OutputBaseMethods
     return category_list
   end
 
-  def self.text_search(query)
-    if query.present?
-      PgSearch.multisearch(query)
-    # else
-    #   scoped
-    end
-  end
-
   def map_icon(image_path)
   {
    "picture" => "#{image_path}",

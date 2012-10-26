@@ -58,6 +58,14 @@ class Article < ActiveRecord::Base
     :search_string
     ]
 
+  def self.text_search(query)
+    if query.present?
+      PgSearch.multisearch(query)
+    # else
+    #   scoped
+    end
+  end
+
   def self.rebuild_pg_search_documents
     find_each { |record| record.update_pg_search_document }
   end

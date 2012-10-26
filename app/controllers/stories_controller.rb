@@ -1,6 +1,7 @@
 class StoriesController < ApplicationController
 
   # before_filter :set_status_message, :except => []
+  before_filter :authenticate_admin_user!, :only => [:get_facebook_items_to_refresh, :rebuild_pg_search_index, :refresh_facebook_data_remote]
 
   def search
     if params[:query].blank?
@@ -15,9 +16,9 @@ class StoriesController < ApplicationController
     render(:layout => 'pages')
   end
 
-  def rebuild_pg_search_documents
+  def rebuild_pg_search_index
     Article.rebuild_pg_search_documents
-    flash.now[:notice] = "Index rebuilt."  
+    flash[:notice] = "Index rebuilt."  
     redirect_to search_path
   end
 
@@ -198,7 +199,7 @@ class StoriesController < ApplicationController
     end
   end
 
-  private
+private
 
   def get_stories_to_refresh(no_of_days)
     if no_of_days
