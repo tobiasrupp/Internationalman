@@ -20,7 +20,7 @@ gem 'twitter', '4.1.0'
 gem 'settingslogic', '~> 2.0.8'
 gem 'dalli', '2.3.0'
 # gem 'rack-mini-profiler'
-gem 'exception_notification'
+gem 'exception_notification', git: 'git://github.com/alanjds/exception_notification.git'
 gem 'letter_opener'
 
 group :development, :test do

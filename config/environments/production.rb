@@ -75,8 +75,8 @@ Intlman::Application.configure do
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 
   config.middleware.use ExceptionNotifier,
-  sender_address: 'tobiasrupp.developer@gmail.com',
-  exception_recipients: 'tobiasrupp72@gmail.com'
+  sender_address: 'noreply@international-man.net',
+  exception_recipients: 'tobiasrupp.developer@gmail.com'
   # ,
   # ignore_exceptions: ExceptionNotifier.default_ignore_exceptions # + [RuntimeError]
   
@@ -106,7 +106,7 @@ Intlman::Application.configure do
     :domain         => 'heroku.com'
   }
   ActionMailer::Base.delivery_method = :smtp
-  
+
   config.assets.precompile += ['active_admin.js', 'active_admin.css', 'ckeditor/init.js']
   config.assets.precompile += Ckeditor.assets
   # config.assets.precompile += ['active_admin.css', 'active_admin.js', 'ckeditor/init.js']
