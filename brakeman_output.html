@@ -165,7 +165,7 @@ p {
   <tr>
     <td>/Users/tobias/dev/rails_projects/intlman</td>
     <td>3.2.8</td>
-    <td>2012-10-19 12:50:13 +0100</td>
+    <td>2012-10-26 15:36:26 +0100</td>
     <td>BasicAuth, ContentTag, CrossSiteScripting, DefaultRoutes, DigestDoS, EscapeFunction, Evaluation, Execute, FileAccess, FilterSkipping, ForgerySetting, LinkTo, LinkToHref, MailTo, MassAssignment, ModelAttributes, NestedAttributes, QuoteTableName, Redirect, Render, ResponseSplitting, SQL, SafeBufferManipulation, SelectTag, SelectVulnerability, Send, SendFile, SessionSettings, SingleQuotes, SkipBeforeFilter, StripTags, TranslateBug, ValidationRegex, WithoutProtection</td>
   </tr>
 </table>
@@ -194,7 +194,7 @@ p {
   </tr>
   <tr>
     <td>Security Warnings</td>
-    <td>0 <span class='high-confidence'>(0)</span></td>
+    <td>1 <span class='high-confidence'>(0)</span></td>
   </tr>
 </table>
 <br>
@@ -204,16 +204,111 @@ p {
     <th>Total</th>
   </tr>
   
+  <tr>
+    <td>Redirect</td>
+    <td>1</td>
+  </tr>
+  
 </table>
 <br>
 <h2>Security Warnings</h2>  
 <table>
 
   <tr>
-    <th>General Warnings</th>
+    <th>Confidence</th>
+    <th>Class</th>
+    <th>Method</th>
+    <th>Warning Type</th>
+    <th>Message</th>
   </tr>
+  
   <tr>
-    <td>[NONE]</td>
+    <td><span class='weak-confidence'>Weak</span></td>
+    <td>ApplicationController</td>
+    <td>set_locale</td>
+    <td><a href="http://brakemanscanner.org/docs/warning_types/redirect/">Redirect</a></td>
+    <td><div class='warning_message' onClick="toggle('context1');toggle('message1');toggle('full_message1')" ><span id='message1' style='display:block' >Possible unprotected redirect near line 17: redirect_to(&quot;/#{(<span class="user_input">params[:locale]</span> or (locale_from_accept_l...</span><span id='full_message1' style='display:none'>Possible unprotected redirect near line 17: redirect_to(&quot;/#{(<span class="user_input">params[:locale]</span> or (locale_from_accept_language or I18n.default_locale))}#{request.path_info}&quot;)</span><table id='context1' class='context' style='display:none'><caption>app/controllers/application_controller.rb</caption>        <tr class='context first'>
+          <td class='context_line'>
+            <pre class='context'>12</pre>
+          </td>
+          <td class='context'>
+            <pre class='context'>    default_locale = I18n.default_locale</pre>
+          </td>
+        </tr>
+          <tr class='context alt'>
+            <td class='context_line'>
+              <pre class='context'>13</pre>
+            </td>
+            <td class='context'>
+              <pre class='context'>    I18n.locale = params_locale || language_locale || default_locale</pre>
+            </td>
+          </tr>
+          <tr class='context'>
+            <td class='context_line'>
+              <pre class='context'>14</pre>
+            </td>
+            <td class='context'>
+              <pre class='context'>    logger.debug &quot;*** Locale set to '#{I18n.locale}'&quot;</pre>
+            </td>
+          </tr>
+          <tr class='context alt'>
+            <td class='context_line'>
+              <pre class='context'>15</pre>
+            </td>
+            <td class='context'>
+              <pre class='context'>    if params_locale.blank?</pre>
+            </td>
+          </tr>
+          <tr class='context near_error'>
+            <td class='context_line'>
+              <pre class='context'>16</pre>
+            </td>
+            <td class='context'>
+              <pre class='context'>      # redirect_to :locale =&gt; I18n.locale, :only_path =&gt; true</pre>
+            </td>
+          </tr>
+          <tr class='context alt error'>
+            <td class='context_line'>
+              <pre class='context'>17</pre>
+            </td>
+            <td class='context'>
+              <pre class='context'>      redirect_to &quot;/#{I18n.locale}#{request.path_info}&quot;</pre>
+            </td>
+          </tr>
+          <tr class='context near_error'>
+            <td class='context_line'>
+              <pre class='context'>18</pre>
+            </td>
+            <td class='context'>
+              <pre class='context'>    end</pre>
+            </td>
+          </tr>
+          <tr class='context alt'>
+            <td class='context_line'>
+              <pre class='context'>19</pre>
+            </td>
+            <td class='context'>
+              <pre class='context'>  end</pre>
+            </td>
+          </tr>
+          <tr class='context'>
+            <td class='context_line'>
+              <pre class='context'>21</pre>
+            </td>
+            <td class='context'>
+              <pre class='context'>  def locale_from_accept_language</pre>
+            </td>
+          </tr>
+          <tr class='context alt'>
+            <td class='context_line'>
+              <pre class='context'>22</pre>
+            </td>
+            <td class='context'>
+              <pre class='context'>    accepted_lang = request.env['HTTP_ACCEPT_LANGUAGE']</pre>
+            </td>
+          </tr>
+</table></div></td>
   </tr>
+  
 
 </table></body></html>
