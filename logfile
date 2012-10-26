@@ -795,3 +795,10 @@ LOG:  database system was shut down at 2012-10-20 00:52:28 BST
 LOG:  database system is ready to accept connections
 LOG:  autovacuum launcher started
 LOG:  unexpected EOF on client connection
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+LOG:  database system was shut down at 2012-10-25 23:24:31 BST
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started

@@ -80,24 +80,33 @@ Intlman::Application.configure do
   # ,
   # ignore_exceptions: ExceptionNotifier.default_ignore_exceptions # + [RuntimeError]
   
-  config.action_mailer.delivery_method = :letter_opener
+  # config.action_mailer.delivery_method = :letter_opener
   # Don't care if the mailer can't send
   config.action_mailer.raise_delivery_errors = true
 
- # # Specify what domain to use for mailer URLs
- #  config.action_mailer.default_url_options = { :host => 'www.international-man.net' }
+ # Specify what domain to use for mailer URLs
+  config.action_mailer.default_url_options = { :host => 'www.international-man.net' }
 
- #  # Change mail delivery to either :smtp, :sendmail, :file, :test
- #  config.action_mailer.delivery_method = :smtp
- #  config.action_mailer.smtp_settings = {
- #    :address              => "smtp.gmail.com",
- #    :port                 => 587,
- #    # :domain               => 'international-man.net',
- #    :user_name            => ENV["GMAIL_SMTP_USER"],
- #    :password             => ENV["GMAIL_SMTP_PASSWORD"],
- #    :authentication       => 'plain',
- #    :enable_starttls_auto => true  }
-
+  # Change mail delivery to either :smtp, :sendmail, :file, :test
+  # config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.smtp_settings = {
+  #   :address              => "smtp.gmail.com",
+  #   :port                 => 587,
+  #   # :domain               => 'international-man.net',
+  #   :user_name            => ENV["GMAIL_SMTP_USER"],
+  #   :password             => ENV["GMAIL_SMTP_PASSWORD"],
+  #   :authentication       => 'plain',
+  #   :enable_starttls_auto => true  }
+  ActionMailer::Base.smtp_settings = {
+    :address        => 'smtp.sendgrid.net',
+    :port           => '587',
+    :authentication => :plain,
+    :user_name      => ENV['SENDGRID_USERNAME'],
+    :password       => ENV['SENDGRID_PASSWORD'],
+    :domain         => 'heroku.com'
+  }
+  ActionMailer::Base.delivery_method = :smtp
+  
   config.assets.precompile += ['active_admin.js', 'active_admin.css', 'ckeditor/init.js']
   config.assets.precompile += Ckeditor.assets
   # config.assets.precompile += ['active_admin.css', 'active_admin.js', 'ckeditor/init.js']
