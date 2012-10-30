@@ -69,13 +69,7 @@
 	<% if !@selected_article.categories.nil? %>
 		<% category_string = "" %>
 		<%= t(:categories) %>: 
-					<% @selected_article.categories.each do |category| %> 
-						<% if category_string.blank? %>
-							<% category_string = category.name %>
-						<% else %>
-							<% category_string = category_string + ", " + category.name %>
-						<% end %>
-					<% end %>
+					<% category_string = category_list(@selected_article.categories) %>
 					<%= category_string %>
 					<% @fb_description = @fb_description + ", " + t(:categories) + ': ' + category_string %>
 	<% end %>

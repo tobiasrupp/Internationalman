@@ -32,7 +32,7 @@ Intlman::Application.routes.draw do
   devise_scope :admin_user do
     match '/refresh_facebook_data_remote', to: 'stories#refresh_facebook_data_remote', :as => :refresh_facebook_data_remote
     match '/get_facebook_items_to_refresh', to: 'stories#get_facebook_items_to_refresh', :as => :get_facebook_items_to_refresh
-    match '/rebuild_pg_search_index', to: 'stories#rebuild_pg_search_index', :as => :rebuild_pg_search_index
+    match '/rebuild_search_index', to: 'stories#rebuild_pg_search_index', :as => :rebuild_search_index
   end
 
   # The priority is based upon order of creation:

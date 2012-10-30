@@ -1,14 +1,6 @@
 class PagesController < ApplicationController
   
-  # before_filter :set_status_message
-  
   def map
-    # centre map with coordinates 
-    if params[:lon] and params[:lat]
-      @lon = params[:lon]
-      @lat = params[:lat]
-      @zoom = 5
-    end  
     
     @articles = Article.find(:all,
                 :include => :categories,

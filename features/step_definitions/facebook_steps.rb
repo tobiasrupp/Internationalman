@@ -4,7 +4,7 @@
 #   # end
 # end
 
-Given /^these articles records exist$/ do |table|
+Given /^these article records exist$/ do |table|
   table.hashes.each do |attributes|
   	attributes["categories"] = Category.where(:name => attributes["categories"].split(', ')).all
     article = Article.create!(attributes)

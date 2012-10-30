@@ -10,7 +10,7 @@ Background:
 		| name      | display_sequence | display_section | url_name  | language |  
 		| Afrika    | 2                | 1               | afrika    | de       |  
 		| Corporate |                  |                 | corporate | de       |  
-	And these articles records exist
+	And these article records exist
 	| title         | short_title | url_title     | ctry     | author           | photos_by    | categories        | published_in | published_date | article_type | web_page              | address      | longitude  | latitude | language |  
 	| Neuer Artikel | N. Artikel  | neuer-artikel | Deutschland | Alexander Bühler | Luca Zanetti | Afrika, Corporate | Die Zeit     | 20120101       | Titelseite   | http://www.spiegel.de | Buenaventura | -77.070229 | 3.886611 | de       |  
 

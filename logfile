@@ -824,3 +824,24 @@ LOG:  database system is shut down
 LOG:  database system was shut down at 2012-10-28 23:19:18 GMT
 LOG:  autovacuum launcher started
 LOG:  database system is ready to accept connections
+LOG:  unexpected EOF on client connection
+ERROR:  function unaccent(text) does not exist at character 76
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+STATEMENT:  SELECT COUNT(*) FROM "pg_search_documents"  WHERE (((to_tsvector('simple', unaccent(coalesce("pg_search_documents"."content"::text, '')))) @@ (to_tsquery('simple', ''' ' || unaccent('Alex') || ' ''' || ':*'))))
+FATAL:  database "intlman_test" does not exist
+ERROR:  function unaccent(text) does not exist at character 76
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+STATEMENT:  SELECT COUNT(*) FROM "pg_search_documents"  WHERE (((to_tsvector('simple', unaccent(coalesce("pg_search_documents"."content"::text, '')))) @@ (to_tsquery('simple', ''' ' || unaccent('Alex') || ' ''' || ':*'))))
+FATAL:  database "intlman_test" does not exist
+FATAL:  database "intlman_test" does not exist
+ERROR:  function unaccent(text) does not exist at character 76
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+STATEMENT:  SELECT COUNT(*) FROM "pg_search_documents"  WHERE (((to_tsvector('simple', unaccent(coalesce("pg_search_documents"."content"::text, '')))) @@ (to_tsquery('simple', ''' ' || unaccent('Alex') || ' ''' || ':*'))))
+FATAL:  database "intlman_test" does not exist
+ERROR:  function unaccent(text) does not exist at character 76
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+STATEMENT:  SELECT COUNT(*) FROM "pg_search_documents"  WHERE (((to_tsvector('simple', unaccent(coalesce("pg_search_documents"."content"::text, '')))) @@ (to_tsquery('simple', ''' ' || unaccent('Alex') || ' ''' || ':*'))))
+FATAL:  database "intlman_test" does not exist
+FATAL:  database "intlman_test" does not exist
+LOG:  could not send data to client: Broken pipe
+FATAL:  database "intlman_test" does not exist

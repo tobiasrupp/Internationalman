@@ -1,7 +1,15 @@
 Feature: Routes
 	In order to access the website content
 	As a user
-	I want to see and use nice clean RESTful routes
+	I want to see and use nice clean routes
+
+Background:
+Given the following categories records
+	| name         | display_sequence | display_section | url_name     | language |  
+	| Afrika       | 1                | 1               | afrika       | de       |  
+	And these article records exist
+	| title         | short_title | url_title     | ctry        | author           | photos_by    | categories                      | published_in | published_date | article_type | web_page              | address      | longitude  | latitude | language |  
+	| Neuer Artikel | N. Artikel  | neuer-artikel | Deutschland | Alexander Bühler | Luca Zanetti | Afrika, Waffenhandel, Corporate | Die Zeit     | 20120101       | Titelseite   | http://www.spiegel.de | Buenaventura | -77.070229 | 3.886611 | de       |  
 
 Scenario: Routing to frontend pages
 	When I enter the URL "/"
@@ -25,15 +33,6 @@ Scenario: Routing to frontend pages
 
 	When I enter the URL "/en/blog/ein-neuer-blog-eintrag"
 	Then the page should be found
-
-	# When I enter the URL "/blog/2010"
-	# Then the page should be found
-
-	# When I enter the URL "/blog/2010/9"
-	# Then the page should be found
-
-	# When I enter the URL "/blog/afrika"
-	# Then the page should be found
 
 	When I enter the URL "/en/stories"
 	Then the page should be found
@@ -62,15 +61,6 @@ Scenario: Routing to frontend pages
 	When I enter the URL "/de/blog/ein-neuer-blog-eintrag"
 	Then the page should be found
 
-	# When I enter the URL "/blog/2010"
-	# Then the page should be found
-
-	# When I enter the URL "/blog/2010/9"
-	# Then the page should be found
-
-	# When I enter the URL "/blog/afrika"
-	# Then the page should be found
-
 	When I enter the URL "/de/stories"
 	Then the page should be found
 
@@ -79,10 +69,11 @@ Scenario: Routing to frontend pages
 
 	When I enter the URL "/de/stories/afrika/artikel-ueber-afrika"
 	Then the page should be found
-	# When I enter the URL "/stories/afrika/2001"
-	# Then the page should be found
 
-	# When I enter the URL "/stories/2001"
-	# Then the page should be found
+Scenario: Routing of invalid urls
+	When I enter the URL "/de/stories/afrika/strange-article"
+	Then I should see "Story 'strange-article' wurde nicht gefunden."
+	When I enter the URL "/de/stories/strange-category"
+	Then I should see "Kategorie 'strange-category' wurde nicht gefunden."
 
 

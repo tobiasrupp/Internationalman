@@ -73,6 +73,9 @@ module NavigationHelpers
     when /Articles page/
       '/en/admin/articles' 
 
+    when /Map page/
+      map_en_path
+
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #

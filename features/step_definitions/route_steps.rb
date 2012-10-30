@@ -12,5 +12,6 @@ Then /^the page should be found$/ do
   page.should_not have_content("Not Found")
   page.should_not have_content("Routing Error")
   page.should_not have_content("No route matches")
+  page.should_not have_content("Error")
 end
 

@@ -1,7 +1,7 @@
 class StoriesController < ApplicationController
 
   # before_filter :set_status_message, :except => []
-  before_filter :authenticate_admin_user!, :only => [:get_facebook_items_to_refresh, :rebuild_pg_search_index, :refresh_facebook_data_remote]
+  before_filter :authenticate_admin_user!, :only => [:rebuild_pg_search_index, :refresh_facebook_data_remote]
 
   def search
     if params[:query].blank?
@@ -23,7 +23,7 @@ class StoriesController < ApplicationController
   end
 
   def get_facebook_items_to_refresh
-    if !params[:get_all] and !params[:days]
+    if !params[:days]
       return
     end
     starting_locale = I18n.locale
@@ -60,17 +60,35 @@ class StoriesController < ApplicationController
     error_occurred = false
     if params[:url]
       url = params[:url]
-      response = RestClient.get('http://developers.facebook.com/tools/debug/og/object', :params => {:q => url })
-      error = get_response_code_message(response.code, url)
+      if Rails.env.test?
+        # mock get request in test environment
+        code = 200
+      else 
+        response = RestClient.get('http://developers.facebook.com/tools/debug/og/object', :params => {:q => url })
+        code = response.code
+      end
+      error = get_response_code_message(code, url)
     else
       items = []
-      items = RestClient.get('http://www.international-man.net/de/get_facebook_items_to_refresh', :params => {:days => params[:days], :get_all => params[:refresh_all]})
+      if Rails.env.test?
+        # mock get request in test environment, get data from local development environment
+        request_root_url = "http://localhost:3001"
+      else 
+        request_root_url = "http://www.international-man.net"
+      end
+        items = RestClient.get("#{request_root_url}/de/get_facebook_items_to_refresh", :params => {:days => params[:days], :get_all => params[:refresh_all]})
       items.gsub!(/[\[\]]/,'')
       urls = items.split(', ')
       urls.each do |url|
         url.gsub!(/\A"|"\Z/, '')
-        response = RestClient.get('http://developers.facebook.com/tools/debug/og/object', :params => {:q => url })
-        error_occurred = get_response_code_message(response.code, url)
+        if Rails.env.test?
+          # mock get request in test environment
+          code = 200
+        else 
+          response = RestClient.get('http://developers.facebook.com/tools/debug/og/object', :params => {:q => url })
+          code = response.code
+        end
+        error_occurred = get_response_code_message(code, url)
         if error_occurred == true
           error = true
         end
@@ -202,11 +220,7 @@ class StoriesController < ApplicationController
 private
 
   def get_stories_to_refresh(no_of_days)
-    if no_of_days
-      no_of_days = no_of_days.to_i
-    else
-      no_of_days = 0
-    end
+    no_of_days = no_of_days.to_i
     if no_of_days >= 1
       articles = Article.find(:all,
             :include => :categories,
@@ -230,11 +244,7 @@ private
   end
 
   def get_radio_tracks_to_refresh(no_of_days)
-    if no_of_days
-      no_of_days = no_of_days.to_i
-    else
-      no_of_days = 0
-    end
+    no_of_days = no_of_days.to_i
     if no_of_days >= 1
       radio_tracks = RadioTrack.find(:all,
             :conditions => ['updated_at >= ?', Time.now - no_of_days.day],
@@ -252,11 +262,7 @@ private
   end
 
   def get_videos_to_refresh(no_of_days)
-    if no_of_days
-      no_of_days = no_of_days.to_i
-    else
-      no_of_days = 0
-    end
+    no_of_days = no_of_days.to_i
     if no_of_days >= 1
       videos = Video.find(:all,
             :conditions => ['updated_at >= ?', Time.now - no_of_days.day],
@@ -274,11 +280,7 @@ private
   end
 
   def get_corporate_articles_to_refresh(no_of_days)
-    if no_of_days
-      no_of_days = no_of_days.to_i
-    else
-      no_of_days = 0
-    end
+    no_of_days = no_of_days.to_i
     if no_of_days >= 1
       category = Category.find_by_name('Corporate')
       articles = category.articles.find(:all,
@@ -299,11 +301,7 @@ private
 
   def get_posts_to_refresh(no_of_days)
     error = false
-    if no_of_days
-      no_of_days = no_of_days.to_i
-    else
-      no_of_days = 0
-    end
+    no_of_days = no_of_days.to_i
     if no_of_days >= 1
       posts = Post.find(:all,
             :conditions => ["updated_at >= ? AND publication_state = 'Published'", Time.now - no_of_days.day],
