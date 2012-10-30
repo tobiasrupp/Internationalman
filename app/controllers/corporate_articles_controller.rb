@@ -25,6 +25,7 @@ class CorporateArticlesController < ApplicationController
       if @selected_article.nil?
         # requested story unknown
         flash.now[:error] = "Corporate Artikel '#{params[:article_title]}' wurde nicht gefunden."
+        return
       end
     else	
     	current_article = @stories[0]

@@ -25,6 +25,7 @@ class VideosController < ApplicationController
       if @selected_video.nil?
         # requested video unknown
         flash.now[:error] = "TV-Beitrag '#{params[:video_title]}' wurde nicht gefunden."
+        return
       end
     else	
     	current_video = @videos[0]

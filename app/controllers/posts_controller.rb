@@ -26,6 +26,7 @@ class PostsController < ApplicationController
       if @selected_post.nil?
         # requested post unknown
         flash.now[:error] = "Blogeintrag '#{params[:post_title]}' wurde nicht gefunden."
+        return
       end
     else	
     	current_post = @posts[0]

@@ -806,3 +806,21 @@ LOG:  unexpected EOF on client connection
 LOG:  unexpected EOF on client connection
 LOG:  unexpected EOF on client connection
 LOG:  unexpected EOF on client connection
+ERROR:  relation "videos_categories" does not exist at character 44
+STATEMENT:  SELECT "videos".* FROM "videos" INNER JOIN "videos_categories" ON "videos"."id" = "videos_categories"."video_id" WHERE "videos_categories"."category_id" = 331 ORDER BY broadcast_date DESC
+LOG:  unexpected EOF on client connection
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+LOG:  database system was shut down at 2012-10-26 23:51:36 BST
+LOG:  autovacuum launcher started
+LOG:  database system is ready to accept connections
+LOG:  unexpected EOF on client connection
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+LOG:  database system was shut down at 2012-10-28 23:19:18 GMT
+LOG:  autovacuum launcher started
+LOG:  database system is ready to accept connections

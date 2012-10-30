@@ -35,3 +35,34 @@ Scenario: Create Post
 	And I should see "Dies ist ein Blog Text"
 	And I should see "Afrika"
 	And I should see "Dies ist ein Blog Text"
+
+# Display Post (frontend)
+	When I go to the "Blog page"
+	And I should see "Neuer Testo Blogeintrag"
+	And I should see "N. Blogeintrag"
+	And I should see "Dies ist ein Blog Text"
+
+#	Post page (backend)
+	When I go to the "Posts page"
+	Then I should see "Id"
+	And I should see "Title"
+	And I should see "Short Title"
+	And I should see "Categories"
+	And I should see "Publication State"
+	And I should see "Lang."
+	And I should see "Image 1"
+	And I should see "Image 2"
+	And I should see "Switch To German"
+	And I should see "Switch To English"
+	When I click on "Edit"
+
+# Edit Post
+	Then I should see "Edit Post"
+	And I should see "Switch To German"
+	And I should see "Switch To English"
+	When I go to the "Dashboard"
+
+# Dashboard
+	Then I should see "Recent Blog Posts"
+	When I click on "Neuer Testo Blogeintrag"
+

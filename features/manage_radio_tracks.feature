@@ -32,6 +32,36 @@ Scenario: Create Radio Track
 	Then 1 "RadioTrack" should exist
 	And I should see "Radiobeitrag was successfully created"
 	And 1 "RadioTrackCategory" should exist
+
+# Display Radio Track (frontend)
 	When I go to the "Radio page"
 	And I should see "Neuer Radiobeitrag Test"
 	And I should see "NDR"
+	When I go to the "Dashboard"
+
+# Dashboard
+	Then I should see "Recent Videos"
+	When I click on "Neuer Radiobeitrag Test"
+
+# Show Video
+	Then I should see "Radio Track Details"
+	And I should see "Neuer Radiobeitrag Test"
+
+#	Radio Track page (backend)
+	When I go to the "Radio Track page"
+	Then I should see "Id"
+	And I should see "Title"
+	And I should see "Short Title"
+	And I should see "Categories"
+	And I should see "Broadcast Date"
+	And I should see "Copyr."
+	And I should see "Lang."
+	And I should see "Switch To German"
+	And I should see "Switch To English"
+	When I click on "Edit"
+
+# Edit Radio Track
+	Then I should see "Edit Radio Track"
+	And I should see "Switch To German"
+	And I should see "Switch To English"
+

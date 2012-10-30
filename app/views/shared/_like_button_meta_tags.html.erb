@@ -3,17 +3,43 @@
 	<% fb_site_admin_id = Settings.facebook.site_admin_ids %>
 	<% default_image_url = Settings.facebook.default_image_url %>
 	<% if !@selected_article.nil? %>
-		<% fb_properties = "<meta property=\"og:title\" content=\"#{@selected_article.title}\"/>" + "\n<meta property=\"og:type\" content=\"article\"/>" + "\n<meta property=\"og:url\" content=\"#{request.protocol + request.host_with_port + request.fullpath}\"/>" + "\n<meta property=\"og:image\" content=\"#{@selected_article.teaser_image.url(:medium)}\"/>" + "\n<meta property=\"og:site_name\" content=\"International Man - #{t(:alexander_buehler) + ', Journalist'}\"/>" + "\n<meta property=\"fb:admins\" content=\"#{fb_site_admin_id}\"/>" + "\n<meta property=\"og:description\" content=\"#{@fb_description}\"/>" %>
+		<% if I18n.locale == :de %>
+			<% if @selected_article.teaser_image? %>
+				<% article_image = @selected_article.teaser_image.url(:medium) %>
+			<% else %>
+				<% article_image = default_image_url %>
+			<% end %>
+		<% elsif I18n.locale == :en %>
+			<% if @selected_article.teaser_image_en? %>
+				<% article_image = @selected_article.teaser_image_en.url(:medium) %>
+			<% else %>
+				<% article_image = default_image_url %>
+			<% end %>
+		<% end %>
+		<% fb_properties = "<meta property=\"og:title\" content=\"#{@selected_article.title}\"/>" + "\n<meta property=\"og:type\" content=\"article\"/>" + "\n<meta property=\"og:url\" content=\"#{request.protocol + request.host_with_port + request.fullpath}\"/>" + "\n<meta property=\"og:image\" content=\"#{article_image}\"/>" + "\n<meta property=\"og:site_name\" content=\"International Man - #{t(:alexander_buehler) + ', Journalist'}\"/>" + "\n<meta property=\"fb:admins\" content=\"#{fb_site_admin_id}\"/>" + "\n<meta property=\"og:description\" content=\"#{@fb_description}\"/>" %>
 		<% provide(:fb_properties, raw(fb_properties)) %>
 	<% elsif !@selected_video.nil? %>
-		<% fb_properties = "<meta property=\"og:title\" content=\"#{@selected_video.title}\"/>" + "\n<meta property=\"og:type\" content=\"article\"/>" + "\n<meta property=\"og:url\" content=\"#{request.protocol + request.host_with_port + request.fullpath}\"/>" + "\n<meta property=\"og:image\" content=\"#{default_image_url}\"/>" + "\n<meta property=\"og:site_name\" content=\"International Man - #{t(:alexander_buehler) + ', Journalist'}\"/>" + "\n<meta property=\"fb:admins\" content=\"#{fb_site_admin_id}\"/>" + "\n<meta property=\"og:description\" content=\"#{@fb_description}\"/>" %>
+		<% if I18n.locale == :de %>
+			<% if @selected_video.teaser_image? %>
+				<% video_image = @selected_video.teaser_image.url(:medium) %>
+			<% else %>
+				<% video_image = default_image_url %>
+			<% end %>
+		<% elsif I18n.locale == :en %>
+			<% if @selected_video.teaser_image_en? %>
+				<% video_image = @selected_video.teaser_image_en.url(:medium) %>
+			<% else %>
+				<% video_image = default_image_url %>
+			<% end %>
+		<% end %>
+		<% fb_properties = "<meta property=\"og:title\" content=\"#{@selected_video.title}\"/>" + "\n<meta property=\"og:type\" content=\"article\"/>" + "\n<meta property=\"og:url\" content=\"#{request.protocol + request.host_with_port + request.fullpath}\"/>" + "\n<meta property=\"og:image\" content=\"#{video_image}\"/>" + "\n<meta property=\"og:site_name\" content=\"International Man - #{t(:alexander_buehler) + ', Journalist'}\"/>" + "\n<meta property=\"fb:admins\" content=\"#{fb_site_admin_id}\"/>" + "\n<meta property=\"og:description\" content=\"#{@fb_description}\"/>" %>
 		<% provide(:fb_properties, raw(fb_properties)) %>
 	<% elsif !@selected_track.nil? %>
 		<% fb_properties = "<meta property=\"og:title\" content=\"#{@selected_track.title}\"/>" + "\n<meta property=\"og:type\" content=\"article\"/>" + "\n<meta property=\"og:url\" content=\"#{request.protocol + request.host_with_port + request.fullpath}\"/>" + "\n<meta property=\"og:image\" content=\"#{default_image_url}\"/>" + "\n<meta property=\"og:site_name\" content=\"International Man - #{t(:alexander_buehler) + ', Journalist'}\"/>" + "\n<meta property=\"fb:admins\" content=\"#{fb_site_admin_id}\"/>" + "\n<meta property=\"og:description\" content=\"#{@fb_description}\"/>" %>
 		<% provide(:fb_properties, raw(fb_properties)) %>
 	<% elsif !@selected_post.nil? %>
 		<% if @selected_post.image_1? %>
-			<% post_image = @selected_post.image_1 %>
+			<% post_image = @selected_post.image_1.url(:medium) %>
 		<% else %>
 			<% post_image = default_image_url %>
 		<% end %>

@@ -60,6 +60,19 @@ module NavigationHelpers
       
     when /Status Messages page/
       '/en/admin/status_messages' 
+
+    when /Dashboard/
+      '/en/admin'
+
+    when /Pages page/
+      '/en/admin/pages'  
+
+    when /Categories page/
+      '/en/admin/categories' 
+
+    when /Articles page/
+      '/en/admin/articles' 
+
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #
