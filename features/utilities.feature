@@ -58,4 +58,8 @@ Background:
 		And I authenticate on the login screen
 		Then I should see "Completed successfully. Records updated"
 
+	Scenario: Update Facebook Like Button data of a specified item with FB Linter Tool
+		When I enter the path "/de/refresh_facebook_data_remote?url=localhost:3001/de/stories/afrika/neuer-artikel" in the browser
+		And I authenticate on the login screen
+		Then I should see "Completed successfully. Records updated"
 

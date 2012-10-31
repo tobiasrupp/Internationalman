@@ -8,6 +8,7 @@ end
 Given /^these video records exist$/ do |table|
   table.hashes.each do |attributes|
   	attributes["categories"] = Category.where(:name => attributes["categories"].split(', ')).all
+    # debugger
     video = Video.create!(attributes)
   end
 end

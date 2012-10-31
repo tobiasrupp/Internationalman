@@ -1,5 +1,6 @@
 class StatusMessage < ActiveRecord::Base
   attr_accessible :text, :language, :tweet_id, :tweet_screen_name, :tweet_created_at
+   attr_accessible :created_at
 
   validates :text, :presence => true, :length => {:minimum => 1, :maximum => 254}
   validates :language, :presence => true, :length => {:minimum => 2, :maximum => 40}
@@ -80,4 +81,10 @@ class StatusMessage < ActiveRecord::Base
   		return message
   	end
   end
+
+# private
+
+#   def test_tweet
+#     TestTweet.new 
+#   end
 end

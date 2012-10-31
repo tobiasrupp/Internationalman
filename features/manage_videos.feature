@@ -7,12 +7,12 @@ Background:
 	Given an admin user exists with email: "admin@example.com" and password: "password"
 	And I log in with this user
 	And the following categories records
-	|name|display_sequence|display_section|url_name|language|
-		|Afrika|2|1|afrika|de|
-		|Corporate|||corporate|de|
+	| name      | display_sequence | display_section | url_name  | language |  
+	| Afrika    | 2                | 1               | afrika    | de       |  
+	| Corporate |                  |                 | corporate | de       |  
 
 Scenario: Create video and show it on different pages
-
+	
 # Create video 
 	Given no "Video" exists
 	And I go to the "Videos page"
@@ -75,7 +75,53 @@ Scenario: Create video and show it on different pages
 	And I should see "Switch To German"
 	And I should see "Switch To English"
 
+Scenario: Show video with 'long' short title 
+	Given these video records exist
+	| title       | short_title                  | url_title   | categories | broadcast_date | address | language |  
+	| Neues Video | N. Video long long long long | neues-video | Afrika     | 20100101       | Togo    | de       |  
 
+	And I go to the "TV page"
+	Then I should see "N. Video long long long long"
 
+Scenario: Show video with 'long' short title and size information given
+	Given these video records exist
+	| title       | short_title                  | url_title   | categories | broadcast_date | address | video_width | video_height | video_aspect_ratio | language |  
+	| Neues Video | N. Video long long long long | neues-video | Afrika     | 20100101       | Togo    | 100         | 100          | 16:9               | de       |  
 
+	And I go to the "TV page"
+	Then I should see "N. Video long long long long"
 
+Scenario: Show video with 'long' short title and large width
+	Given these video records exist
+	| title       | short_title                  | url_title   | categories | broadcast_date | address | video_width | video_height | video_aspect_ratio | language |  
+	| Neues Video | N. Video long long long long | neues-video | Afrika     | 20100101       | Togo    | 500         | 320          | 16:9               | de       |  
+
+	And I go to the "TV page"
+	Then I should see "N. Video long long long long"
+
+Scenario: Show video with 'normal' short title and size information given
+	Given these video records exist
+	| title       | short_title | url_title   | categories | broadcast_date | address | video_width | video_height | video_aspect_ratio | language |  
+	| Neues Video | N. Vid.     | neues-video | Afrika     | 20100101       | Togo    | 100         | 100          | 4:3                | de       |  
+
+	And I go to the "TV page"
+	Then I should see "N. Vid."
+
+Scenario: Show video with 'normal' short title and large width
+	Given these video records exist
+	| title       | short_title | url_title   | categories | broadcast_date | address | video_width | video_height | video_aspect_ratio | language |  
+	| Neues Video | N. Vid.    | neues-video | Afrika     | 20100101       | Togo    | 500         | 320          | 16:9               | de       |  
+
+	And I go to the "TV page"
+	Then I should see "N. Vid."
+
+Scenario: Show error message when there are no videos in the database
+	When I go to the "TV page"
+	Then I should see "Kein TV-Beitrag gefunden"
+
+Scenario: Show error message when the video passed in the url does not exist
+	Given these video records exist
+	| title       | short_title | url_title   | categories | broadcast_date | address | language |  
+	| Neues Video | N. Video    | neues-video | Afrika     | 20100101       | Togo    | de       |  
+	When I enter the path "/de/tv/strange" in the browser 
+	Then I should see "TV-Beitrag 'strange' wurde nicht gefunden"

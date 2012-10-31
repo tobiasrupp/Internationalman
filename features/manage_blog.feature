@@ -66,3 +66,21 @@ Scenario: Create Post
 	Then I should see "Recent Blog Posts"
 	When I click on "Neuer Testo Blogeintrag"
 
+Scenario: Show error message when there are no posts in the database
+	When I go to the "Blog page"
+	Then I should see "Kein Blogeintrag gefunden"
+
+Scenario: Show error message when the post passed in the url does not exist
+	Given these post records exist
+	| title    | short_title | url_title | categories | publication_state | address | language |  
+	| Blogpost | Blogp.      | blogpost  | Afrika     | Published         | Togo    | de       |  
+	When I enter the path "/de/blog/strange" in the browser 
+	Then I should see "Blogeintrag 'strange' wurde nicht gefunden"
+
+Scenario: Show post with 'long' short title
+	Given these post records exist
+	| title    | short_title           | url_title | categories | publication_state | address | language |  
+	| Blogpost | Blogp. long long long | blogpost  | Afrika     | Published         | Togo    | de       |  
+	When I go to the "Blog page"
+	Then I should see "Blogp. long long long"
+

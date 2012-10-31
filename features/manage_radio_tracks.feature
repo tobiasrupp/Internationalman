@@ -65,3 +65,20 @@ Scenario: Create Radio Track
 	And I should see "Switch To German"
 	And I should see "Switch To English"
 
+Scenario: Show error message when there are no radio tracks in the database
+	When I go to the "Radio page"
+	Then I should see "Kein Radiobeitrag gefunden"
+
+Scenario: Show error message when the radio track passed in the url does not exist
+	Given these radio track records exist
+	| title        | short_title | url_title | categories | broadcast_date | address | language |  
+	| Radiobeitrag | Radiob.     | radio     | Afrika     | 20100101       | Togo    | de       |  
+	When I enter the path "/de/radio/strange" in the browser 
+	Then I should see "Radiobeitrag 'strange' wurde nicht gefunden"
+
+Scenario: Show radio track with 'long' short title
+	Given these radio track records exist
+	| title        | short_title                 | url_title | categories | broadcast_date | address | language |  
+	| Radiobeitrag | Radiob. long long long long | radio     | Afrika     | 20100101       | Togo    | de       |  
+	When I go to the "Radio page"
+	Then I should see "Radiob. long long long long"

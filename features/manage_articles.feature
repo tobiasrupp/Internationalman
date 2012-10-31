@@ -66,6 +66,34 @@ Scenario: Create Article
 	And I should see "Switch To German"
 	And I should see "Switch To English"
 
+Scenario: Show error message when there are no articles in the database
+	When I go to the "Stories page"
+	Then I should see "Keine Stories gefunden"
+
+Scenario: Show error message when the category passed in the url does not exist
+	Given these article records exist
+	| title   | short_title | url_title | categories | published_date | address | language |  
+	| Artikel | Art.        | artikel   | Afrika     | 20100101       | Togo    | de       |  
+	When I enter the path "/de/stories/strange" in the browser 
+	Then I should see "Kategorie 'strange' wurde nicht gefunden"
+
+Scenario: Show article with 'long' short title
+	Given these article records exist
+	| title   | short_title              | url_title | categories | published_date | address | language |  
+	| Artikel | Art. long long long long | artikel   | Afrika     | 20100101       | Togo    | de       |  
+	When I go to the "Stories page"
+	Then I should see "Art. long long long long"
+
+Scenario: Click on a story category should display the article
+	Given these article records exist
+	| title   | short_title              | url_title | categories | published_date | address | language |  
+	| Artikel | Art. | artikel   | Afrika     | 20100101       | Togo    | de       |  
+	When I go to the "Stories page"
+	And I click on "Afrika"
+	Then I should see "Artikel"
+	And I should see "Art."
+	And I should see "Afrika"
+
 Scenario: Create Corporate Article
 	Given no article exists
 	And I am on the articles page
@@ -79,7 +107,6 @@ Scenario: Create Corporate Article
 	And I fill in "Article type" with "..."
 	And I fill in Published date with "12 March 2010"
 	And I fill in "Published in" with "Die Zeit"
-	# And I fill in "Filename" with "article1.pdf"
 	And I fill in "Author" with "Alexander Bühler"
 	And I fill in "Photos by" with ""
 	And I fill in "Viewer url" with "..."
@@ -92,4 +119,20 @@ Scenario: Create Corporate Article
 	And I should see "Neuer Corporate Artikel"
 	And I should see "Die Zeit"
 
+Scenario: Show error message when there are no corporate articles in the database
+	When I go to the "Corporate page"
+	Then I should see "Kein Corporate Artikel gefunden"
 
+Scenario: Show error message when the corporate article passed in the url does not exist
+	Given these article records exist
+	| title   | short_title | url_title | categories | published_date | address | language |  
+	| Artikel | Art.        | artikel   | Corporate  | 20100101       | Togo    | de       |  
+	When I enter the path "/de/corporate/strange" in the browser 
+	Then I should see "Corporate Artikel 'strange' wurde nicht gefunden"
+
+Scenario: Show corporate article with 'long' short title
+	Given these article records exist
+	| title   | short_title              | url_title | categories | published_date | address | language |  
+	| Artikel | Art. long long long long | artikel   | Corporate  | 20100101       | Togo    | de       |  
+	When I go to the "Corporate page"
+	Then I should see "Art. long long long long"
