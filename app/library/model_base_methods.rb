@@ -54,26 +54,14 @@ module ModelBaseMethods
       search_string += check_and_add_value(self.address)
       search_string += check_and_add_value(self.category_list)
       if self.class.name == 'Video' or self.class.name == 'RadioTrack'
-  	    if i == 1 # German
-  	    	search_string += check_and_add_value(I18n.l(self.broadcast_date, :format => '%e. %B %Y'))
-  	  	elsif i == 2 # English
-  	    	search_string += check_and_add_value(I18n.l(self.broadcast_date, :format => '%e %B %Y'))
-  	    end
+        search_string += check_and_add_date(self.broadcast_date)
   	    search_string += check_and_add_value(self.broadcaster)
       elsif self.class.name == 'Post'
-        if i == 1 # German
-          search_string += check_and_add_value(I18n.l(self.created_at, :format => '%e. %B %Y'))
-        elsif i == 2 # English
-          search_string += check_and_add_value(I18n.l(self.created_at, :format => '%e %B %Y'))
-        end
+        search_string += check_and_add_date(self.created_at)
         search_string += check_and_add_value(self.text)
         search_string += check_and_add_value(self.text_2)
       elsif self.class.name == 'Article'
-        if i == 1 # German
-          search_string += check_and_add_value(I18n.l(self.published_date, :format => '%e. %B %Y'))
-        elsif i == 2 # English
-          search_string += check_and_add_value(I18n.l(self.published_date, :format => '%e %B %Y'))
-        end
+        search_string += check_and_add_date(self.published_date)
         search_string += check_and_add_value(self.published_in)
         search_string += check_and_add_value(self.photos_by)
         search_string += check_and_add_value(self.article_type)
@@ -90,5 +78,18 @@ private
       return ''
     end  
     @separator + value 
+  end
+
+  def check_and_add_date(date)
+    if date.nil? or date.blank?
+      return ''
+    end  
+    case I18n.locale
+      when :de
+        date = I18n.l(date, :format => '%e. %B %Y') 
+      when :en
+        date = I18n.l(date, :format => '%e %B %Y')
+    end
+    @separator + date 
   end
 end

@@ -23,27 +23,27 @@
       <img src="./assets/0.5.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2012-11-01T14:11:11+00:00">2012-11-01T14:11:11+00:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2012-11-01T14:30:05+00:00">2012-11-01T14:30:05+00:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="green">96.56%</span></span>
+    (<span class="covered_percent"><span class="green">96.5%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         8.55
+         8.56
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>38</b> files in total.
-    <b>1455</b> relevant lines. 
+    <b>1456</b> relevant lines. 
     <span class="green"><b>1405</b> lines covered</span> and
-    <span class="red"><b>50</b> lines missed </span>
+    <span class="red"><b>51</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -291,12 +291,12 @@
       
       <tr>
         <td class="strong"><a href="#133945b34190084687977d6a37cec6714444e005" class="src_link" title="app/library/model_base_methods.rb">app/library/model_base_methods.rb</a></td>
-        <td class="green strong">100.0 %</td>
-        <td>94</td>
+        <td class="green strong">98.18 %</td>
+        <td>110</td>
+        <td>55</td>
         <td>54</td>
-        <td>54</td>
-        <td>0</td>
-        <td>102.9</td>
+        <td>1</td>
+        <td>103.3</td>
       </tr>
       
       <tr>
@@ -866,20 +866,20 @@
           <div class="file_list_container" id="Libraries">
   <h2>
     <span class="group_name">Libraries</span>
-    (<span class="covered_percent"><span class="green">100.0%</span></span>
+    (<span class="covered_percent"><span class="green">98.18%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         102.9
+         103.3
        </span>
     </span> hits/line)
   </h2>
   <a name="Libraries"></a>
   <div>
     <b>1</b> files in total.
-    <b>54</b> relevant lines. 
+    <b>55</b> relevant lines. 
     <span class="green"><b>54</b> lines covered</span> and
-    <span class="red"><b>0</b> lines missed </span>
+    <span class="red"><b>1</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -897,12 +897,12 @@
       
       <tr>
         <td class="strong"><a href="#133945b34190084687977d6a37cec6714444e005" class="src_link" title="app/library/model_base_methods.rb">app/library/model_base_methods.rb</a></td>
-        <td class="green strong">100.0 %</td>
-        <td>94</td>
+        <td class="green strong">98.18 %</td>
+        <td>110</td>
+        <td>55</td>
         <td>54</td>
-        <td>54</td>
-        <td>0</td>
-        <td>102.9</td>
+        <td>1</td>
+        <td>103.3</td>
       </tr>
       
     </tbody>
@@ -14177,11 +14177,11 @@
         <div class="source_table" id="133945b34190084687977d6a37cec6714444e005">
   <div class="header">
     <h3>app/library/model_base_methods.rb</h3>
-    <h4><span class="green">100.0 %</span> covered</h4>
+    <h4><span class="green">98.18 %</span> covered</h4>
     <div>
-      <b>54</b> relevant lines. 
+      <b>55</b> relevant lines. 
       <span class="green"><b>54</b> lines covered</span> and
-      <span class="red"><b>0</b> lines missed.</span>
+      <span class="red"><b>1</b> lines missed.</span>
     </div>
   </div>
   
@@ -14527,226 +14527,322 @@
         <li class="covered" data-hits="48" data-linenumber="57">
           <span class="hits">48</span>
           
-          <code class="ruby">  	    if i == 1 # German</code>
+          <code class="ruby">        search_string += check_and_add_date(self.broadcast_date)</code>
         </li>
       
-        <li class="covered" data-hits="24" data-linenumber="58">
-          <span class="hits">24</span>
+        <li class="never" data-hits="" data-linenumber="58">
           
-          <code class="ruby">  	    	search_string += check_and_add_value(I18n.l(self.broadcast_date, :format =&gt; '%e. %B %Y'))</code>
+          
+          <code class="ruby">  	   #  if i == 1 # German</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="59">
           
           
-          <code class="ruby">  	  	elsif i == 2 # English</code>
+          <code class="ruby">  	   #  	search_string += check_and_add_value(I18n.l(self.broadcast_date, :format =&gt; '%e. %B %Y'))</code>
         </li>
       
-        <li class="covered" data-hits="24" data-linenumber="60">
-          <span class="hits">24</span>
+        <li class="never" data-hits="" data-linenumber="60">
           
-          <code class="ruby">  	    	search_string += check_and_add_value(I18n.l(self.broadcast_date, :format =&gt; '%e %B %Y'))</code>
+          
+          <code class="ruby">  	  	# elsif i == 2 # English</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="61">
           
           
-          <code class="ruby">  	    end</code>
+          <code class="ruby">  	   #  	search_string += check_and_add_value(I18n.l(self.broadcast_date, :format =&gt; '%e %B %Y'))</code>
         </li>
       
-        <li class="covered" data-hits="48" data-linenumber="62">
+        <li class="never" data-hits="" data-linenumber="62">
+          
+          
+          <code class="ruby">  	   #  end</code>
+        </li>
+      
+        <li class="covered" data-hits="48" data-linenumber="63">
           <span class="hits">48</span>
           
           <code class="ruby">  	    search_string += check_and_add_value(self.broadcaster)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="63">
+        <li class="never" data-hits="" data-linenumber="64">
           
           
           <code class="ruby">      elsif self.class.name == 'Post'</code>
         </li>
       
-        <li class="covered" data-hits="20" data-linenumber="64">
-          <span class="hits">20</span>
+        <li class="never" data-hits="" data-linenumber="65">
           
-          <code class="ruby">        if i == 1 # German</code>
-        </li>
-      
-        <li class="covered" data-hits="10" data-linenumber="65">
-          <span class="hits">10</span>
           
-          <code class="ruby">          search_string += check_and_add_value(I18n.l(self.created_at, :format =&gt; '%e. %B %Y'))</code>
+          <code class="ruby">        # if i == 1 # German</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="66">
           
           
-          <code class="ruby">        elsif i == 2 # English</code>
+          <code class="ruby">        #   search_string += check_and_add_value(I18n.l(self.created_at, :format =&gt; '%e. %B %Y'))</code>
         </li>
       
-        <li class="covered" data-hits="10" data-linenumber="67">
-          <span class="hits">10</span>
+        <li class="never" data-hits="" data-linenumber="67">
           
-          <code class="ruby">          search_string += check_and_add_value(I18n.l(self.created_at, :format =&gt; '%e %B %Y'))</code>
+          
+          <code class="ruby">        # elsif i == 2 # English</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="68">
           
           
-          <code class="ruby">        end</code>
+          <code class="ruby">        #   search_string += check_and_add_value(I18n.l(self.created_at, :format =&gt; '%e %B %Y'))</code>
         </li>
       
-        <li class="covered" data-hits="20" data-linenumber="69">
-          <span class="hits">20</span>
+        <li class="never" data-hits="" data-linenumber="69">
           
-          <code class="ruby">        search_string += check_and_add_value(self.text)</code>
+          
+          <code class="ruby">        # end</code>
         </li>
       
         <li class="covered" data-hits="20" data-linenumber="70">
           <span class="hits">20</span>
           
+          <code class="ruby">        search_string += check_and_add_date(self.created_at)</code>
+        </li>
+      
+        <li class="covered" data-hits="20" data-linenumber="71">
+          <span class="hits">20</span>
+          
+          <code class="ruby">        search_string += check_and_add_value(self.text)</code>
+        </li>
+      
+        <li class="covered" data-hits="20" data-linenumber="72">
+          <span class="hits">20</span>
+          
           <code class="ruby">        search_string += check_and_add_value(self.text_2)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="71">
+        <li class="never" data-hits="" data-linenumber="73">
           
           
           <code class="ruby">      elsif self.class.name == 'Article'</code>
         </li>
       
-        <li class="covered" data-hits="54" data-linenumber="72">
-          <span class="hits">54</span>
-          
-          <code class="ruby">        if i == 1 # German</code>
-        </li>
-      
-        <li class="covered" data-hits="27" data-linenumber="73">
-          <span class="hits">27</span>
-          
-          <code class="ruby">          search_string += check_and_add_value(I18n.l(self.published_date, :format =&gt; '%e. %B %Y'))</code>
-        </li>
-      
         <li class="never" data-hits="" data-linenumber="74">
           
           
-          <code class="ruby">        elsif i == 2 # English</code>
+          <code class="ruby">        # if i == 1 # German</code>
         </li>
       
-        <li class="covered" data-hits="27" data-linenumber="75">
-          <span class="hits">27</span>
+        <li class="never" data-hits="" data-linenumber="75">
           
-          <code class="ruby">          search_string += check_and_add_value(I18n.l(self.published_date, :format =&gt; '%e %B %Y'))</code>
+          
+          <code class="ruby">        #   search_string += check_and_add_value(I18n.l(self.published_date, :format =&gt; '%e. %B %Y'))</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="76">
           
           
-          <code class="ruby">        end</code>
+          <code class="ruby">        # elsif i == 2 # English</code>
         </li>
       
-        <li class="covered" data-hits="54" data-linenumber="77">
-          <span class="hits">54</span>
+        <li class="never" data-hits="" data-linenumber="77">
           
-          <code class="ruby">        search_string += check_and_add_value(self.published_in)</code>
+          
+          <code class="ruby">        #   search_string += check_and_add_value(I18n.l(self.published_date, :format =&gt; '%e %B %Y'))</code>
         </li>
       
-        <li class="covered" data-hits="54" data-linenumber="78">
-          <span class="hits">54</span>
+        <li class="never" data-hits="" data-linenumber="78">
           
-          <code class="ruby">        search_string += check_and_add_value(self.photos_by)</code>
+          
+          <code class="ruby">        # end</code>
         </li>
       
         <li class="covered" data-hits="54" data-linenumber="79">
           <span class="hits">54</span>
           
+          <code class="ruby">        search_string += check_and_add_date(self.published_date)</code>
+        </li>
+      
+        <li class="covered" data-hits="54" data-linenumber="80">
+          <span class="hits">54</span>
+          
+          <code class="ruby">        search_string += check_and_add_value(self.published_in)</code>
+        </li>
+      
+        <li class="covered" data-hits="54" data-linenumber="81">
+          <span class="hits">54</span>
+          
+          <code class="ruby">        search_string += check_and_add_value(self.photos_by)</code>
+        </li>
+      
+        <li class="covered" data-hits="54" data-linenumber="82">
+          <span class="hits">54</span>
+          
           <code class="ruby">        search_string += check_and_add_value(self.article_type)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="80">
+        <li class="never" data-hits="" data-linenumber="83">
           
           
           <code class="ruby">      end </code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="81">
+        <li class="never" data-hits="" data-linenumber="84">
           
           
           <code class="ruby">  	end</code>
         </li>
       
-        <li class="covered" data-hits="61" data-linenumber="82">
+        <li class="covered" data-hits="61" data-linenumber="85">
           <span class="hits">61</span>
           
           <code class="ruby">  	I18n.locale = original_locale</code>
         </li>
       
-        <li class="covered" data-hits="61" data-linenumber="83">
+        <li class="covered" data-hits="61" data-linenumber="86">
           <span class="hits">61</span>
           
           <code class="ruby">		return search_string</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="84">
+        <li class="never" data-hits="" data-linenumber="87">
           
           
           <code class="ruby">  end  </code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="85">
+        <li class="never" data-hits="" data-linenumber="88">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="86">
+        <li class="covered" data-hits="1" data-linenumber="89">
           <span class="hits">1</span>
           
           <code class="ruby">private</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="87">
+        <li class="never" data-hits="" data-linenumber="90">
           
           
           <code class="ruby">  </code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="88">
+        <li class="covered" data-hits="1" data-linenumber="91">
           <span class="hits">1</span>
           
           <code class="ruby">  def check_and_add_value(value)</code>
         </li>
       
-        <li class="covered" data-hits="1226" data-linenumber="89">
-          <span class="hits">1226</span>
+        <li class="covered" data-hits="1104" data-linenumber="92">
+          <span class="hits">1104</span>
           
           <code class="ruby">    if value.nil? or value.blank?</code>
         </li>
       
-        <li class="covered" data-hits="134" data-linenumber="90">
+        <li class="covered" data-hits="134" data-linenumber="93">
           <span class="hits">134</span>
           
           <code class="ruby">      return ''</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="91">
+        <li class="never" data-hits="" data-linenumber="94">
           
           
           <code class="ruby">    end  </code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="92">
-          
+        <li class="covered" data-hits="970" data-linenumber="95">
+          <span class="hits">970</span>
           
           <code class="ruby">    @separator + value </code>
         </li>
       
-        <li class="covered" data-hits="1092" data-linenumber="93">
-          <span class="hits">1092</span>
+        <li class="never" data-hits="" data-linenumber="96">
+          
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="94">
+        <li class="never" data-hits="" data-linenumber="97">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="98">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def check_and_add_date(date)</code>
+        </li>
+      
+        <li class="covered" data-hits="122" data-linenumber="99">
+          <span class="hits">122</span>
+          
+          <code class="ruby">    if date.nil? or date.blank?</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="100">
+          
+          
+          <code class="ruby">      return ''</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="101">
+          
+          
+          <code class="ruby">    end  </code>
+        </li>
+      
+        <li class="covered" data-hits="122" data-linenumber="102">
+          <span class="hits">122</span>
+          
+          <code class="ruby">    case I18n.locale</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="103">
+          
+          
+          <code class="ruby">      when :de</code>
+        </li>
+      
+        <li class="covered" data-hits="61" data-linenumber="104">
+          <span class="hits">61</span>
+          
+          <code class="ruby">        date = I18n.l(date, :format =&gt; '%e. %B %Y') </code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="105">
+          
+          
+          <code class="ruby">      when :en</code>
+        </li>
+      
+        <li class="covered" data-hits="61" data-linenumber="106">
+          <span class="hits">61</span>
+          
+          <code class="ruby">        date = I18n.l(date, :format =&gt; '%e %B %Y')</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="107">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="covered" data-hits="122" data-linenumber="108">
+          <span class="hits">122</span>
+          
+          <code class="ruby">    @separator + date </code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="109">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="110">
           
           
           <code class="ruby">end</code>
