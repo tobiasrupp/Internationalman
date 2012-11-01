@@ -26,7 +26,13 @@ module ModelBaseMethods
 
   def search_string
     # builds a search string with field values including German and English translations for full-text search
-    search_string = SearchString.new(self).create
+    case self.class.name
+    when 'Article'
+      search_string = ArticleSearchString.new(self).create
+    when 'Post'
+      search_string = PostSearchString.new(self).create
+    else # video and radio track
+      search_string = VideoAndRadioTrackSearchString.new(self).create
+    end
   end  
-  
 end
