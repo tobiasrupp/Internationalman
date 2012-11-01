@@ -30,16 +30,17 @@ module ModelBaseMethods
     @separator = ', '
     I18n.locale = :de
     i = 0
-    case self.class.name
-   	 	when 'Video'
-    		search_string = 'TV, Video, Fernsehen'
-      when 'RadioTrack'
-        search_string = 'Radio, Audio, mp3'
-      when 'Post'
-        search_string = 'Blog, Blogeintrag, Posts'
-      when 'Article'
-        search_string = 'Stories, Artikel, Article'
-    end
+    # case self.class.name
+   	#  	when 'Video'
+    # 		search_string = 'TV, Video, Fernsehen'
+    #   when 'RadioTrack'
+    #     search_string = 'Radio, Audio, mp3'
+    #   when 'Post'
+    #     search_string = 'Blog, Blogeintrag, Posts'
+    #   when 'Article'
+    #     search_string = 'Stories, Artikel, Article'
+    # end
+    search_string = get_general_keywords(self.class.name)
     2.times do
     # loop 2 times, first in German then in English
       i += 1
@@ -92,4 +93,17 @@ private
     end
     @separator + date 
   end
+
+  def get_general_keywords(model_name)
+    case model_name
+      when 'Video'
+        search_string = 'TV, Video, Fernsehen'
+      when 'RadioTrack'
+        search_string = 'Radio, Audio, mp3'
+      when 'Post'
+        search_string = 'Blog, Blogeintrag, Posts'
+      when 'Article'
+        search_string = 'Stories, Artikel, Article'
+    end
+  end 
 end
