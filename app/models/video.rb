@@ -1,5 +1,5 @@
 class Video < ActiveRecord::Base
-  include OutputBaseMethods
+  include ModelBaseMethods
   attr_accessible :author, :broadcast_date, :broadcaster, :country, :duration, :filename, :language, :latitude, :longitude, :short_title, :source_url, :title, :url_title, :web_page, :embed_code, :camera_by, :ctry, :copyright_cleared, :lat, :lon, :gmaps, :address, :teaser_image, :video_width, :video_height, :video_aspect_ratio, :teaser_image_en
   attr_accessible :categories, :category_ids
   has_and_belongs_to_many :categories, :join_table => 'video_categories', :order => 'display_section ASC, display_sequence ASC'

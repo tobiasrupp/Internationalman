@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
-  include OutputBaseMethods
+  include ModelBaseMethods
   attr_accessible :author, :country, :language, :latitude, :longitude, :short_title, :text, :title, :url_title, :publication_state, :allow_comments, :image_1, :image_1_options, :image_2, :image_2_options, :text_2, :ctry, :lat, :lon, :gmaps, :address
   attr_accessible :categories, :category_ids
   has_and_belongs_to_many :categories, :join_table => 'post_categories', :order => 'display_section ASC, display_sequence ASC'

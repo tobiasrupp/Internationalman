@@ -1,5 +1,5 @@
 class RadioTrack < ActiveRecord::Base
-  include OutputBaseMethods
+  include ModelBaseMethods
   attr_accessible :author, :broadcast_date, :broadcaster, :country, :duration, :ctry
   attr_accessible :filename, :language, :latitude, :longitude, :short_title
   attr_accessible :source_url, :title, :url_title, :web_page, :copyright_cleared, :lat, :lon, :gmaps, :address

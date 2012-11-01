@@ -1,5 +1,5 @@
 class Article < ActiveRecord::Base
-  include OutputBaseMethods
+  include ModelBaseMethods
   attr_accessible :article_type, :author, :ctry, :filename, :language
   attr_accessible :latitude, :longitude, :photos_by, :published_date, :published_in, :web_page
   attr_accessible :title, :url_title, :embed_code, :short_title, :viewer_url, :source_file, :copyright_cleared, :teaser_image_en, :source_file_en, :lon, :lat, :gmaps, :address

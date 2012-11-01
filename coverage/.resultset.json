@@ -543,7 +543,7 @@
         null,
         null
       ],
-      "/Users/tobias/dev/rails_projects/intlman/app/library/output_base_methods.rb": [
+      "/Users/tobias/dev/rails_projects/intlman/app/library/model_base_methods.rb": [
         1,
         null,
         1,
@@ -634,6 +634,7 @@
         1,
         1226,
         134,
+        null,
         null,
         1092,
         null,
@@ -2675,6 +2676,6 @@
         null
       ]
     },
-    "timestamp": 1351777446
+    "timestamp": 1351779071
   }
 }
