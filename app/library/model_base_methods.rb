@@ -25,73 +25,8 @@ module ModelBaseMethods
   end
 
   def search_string
-  	# builds a search string with field values including German and English translations for full-text search
-    original_locale = I18n.locale
-    @separator = ', '
-    search_string = get_general_keywords(self.class.name)
-    I18n.locale = :de
-    search_string = build(search_string)
-    I18n.locale = :en
-    search_string = build(search_string)
-  	I18n.locale = original_locale
-		return search_string
+    # builds a search string with field values including German and English translations for full-text search
+    search_string = SearchString.new(self).create
   end  
-
-private
-
-  def build(search_string)
-    search_string += check_and_add_value(self.title)
-    search_string += check_and_add_value(self.short_title)
-    search_string += check_and_add_value(self.url_title)
-    search_string += check_and_add_value(self.author)
-    search_string += check_and_add_value(self.ctry)
-    search_string += check_and_add_value(self.address)
-    search_string += check_and_add_value(self.category_list)
-    if self.class.name == 'Video' or self.class.name == 'RadioTrack'
-      search_string += check_and_add_date(self.broadcast_date)
-      search_string += check_and_add_value(self.broadcaster)
-    elsif self.class.name == 'Post'
-      search_string += check_and_add_date(self.created_at)
-      search_string += check_and_add_value(self.text)
-      search_string += check_and_add_value(self.text_2)
-    elsif self.class.name == 'Article'
-      search_string += check_and_add_date(self.published_date)
-      search_string += check_and_add_value(self.published_in)
-      search_string += check_and_add_value(self.photos_by)
-      search_string += check_and_add_value(self.article_type)      
-    end 
-  end
-
-  def check_and_add_value(value)
-    if value.nil? or value.blank?
-      return ''
-    end  
-    @separator + value 
-  end
-
-  def check_and_add_date(date)
-    if date.nil? or date.blank?
-      return ''
-    end  
-    case I18n.locale
-      when :de
-        date = I18n.l(date, :format => '%e. %B %Y') 
-      when :en
-        date = I18n.l(date, :format => '%e %B %Y')
-    end
-    @separator + date 
-  end
-
-  def get_general_keywords(model_name)
-    case model_name
-      when 'Video'
-        search_string = 'TV, Video, Fernsehen'
-      when 'RadioTrack'
-        search_string = 'Radio, Audio, mp3'
-      when 'Post'
-        search_string = 'Blog, Blogeintrag, Posts'
-      when 'Article'
-        search_string = 'Stories, Artikel, Article'
-    end
-  end 
+  
 end
