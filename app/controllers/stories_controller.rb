@@ -12,9 +12,10 @@ class StoriesController < ApplicationController
      
     # get stories of the same category
     current_category = current_article.categories.first
-    return flash.now[:error] = "Keine Stories mit Kategorien gefunden." if current_category.nil?
+    return handle_error('no_categories') if current_category.nil?
 
-    redirect_to :action => :show_stories_by_category, :category => current_category.url_name, :article_title => current_article.url_title, :only_path => true
+    # redirect_to :action => :show_stories_by_category, :category => current_category.url_name, :article_title => current_article.url_title, :only_path => true
+    redirect_to_article(current_article,current_category)
   end
 
   def show_stories_by_category
@@ -22,13 +23,13 @@ class StoriesController < ApplicationController
 
   	# get categories with stories (non-corporate)
     @story_categories = get_categories_with_stories
-    return flash.now[:notice] = "Keine Stories mit Kategorien gefunden." if @story_categories.count == 0
+    return handle_error('no_stories_with_categories') if @story_categories.count == 0
 
   	# get all stories of requested category sorted by published_date
   	current_category = Category.find_by_url_name(params[:category])
 
     # category unknown
-    return flash.now[:error] = "Kategorie '#{params[:category]}' wurde nicht gefunden." if current_category.nil?
+    return handle_error('category_not_found') if current_category.nil?
 
     @stories = current_category.articles
     @selected_category = current_category
@@ -39,11 +40,11 @@ class StoriesController < ApplicationController
     @selected_article = get_selected_article(@stories, params[:article_title])
     
     # requested story unknown
-    return flash.now[:error] = "Story '#{params[:article_title]}' wurde nicht gefunden." if @selected_article.nil?
+    return handle_error('article_not_found') if @selected_article.nil?
 
     @show_fb_like_button = true
     @content_section_column_width = get_content_column_width(@stories)
-  	render :action => "show_stories"
+    render :action => "show_stories"
   end
 
 private
@@ -80,4 +81,17 @@ private
   def redirect_to_article(article, category)
     redirect_to :action => :show_stories_by_category, :category => category.url_name, :article_title => article.url_title, :only_path => true
   end  
+
+  def handle_error(reason)
+    case reason
+      when 'no_categories'
+        flash.now[:error] = "Keine Stories mit Kategorien gefunden."
+      when 'no_stories_with_categories'
+        flash.now[:notice] = "Keine Stories mit Kategorien gefunden."
+      when 'category_not_found'
+        flash.now[:error] = "Kategorie '#{params[:category]}' wurde nicht gefunden."
+      when 'article_not_found'
+        flash.now[:error] = "Story '#{params[:article_title]}' wurde nicht gefunden."
+    end
+  end
 end
