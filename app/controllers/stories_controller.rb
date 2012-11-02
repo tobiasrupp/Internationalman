@@ -21,12 +21,7 @@ class StoriesController < ApplicationController
   	# route /stories/category
 
   	# get categories with stories (non-corporate)
-    categories = Category.find(:all,              
-                          :include => [:translations, :articles],
-                          :conditions => "name <> 'Corporate'",
-                          :order => "display_section ASC, display_sequence ASC")
-    
-    @story_categories = get_categories_with_stories(categories)
+    @story_categories = get_categories_with_stories
     return flash.now[:notice] = "Keine Stories mit Kategorien gefunden." if @story_categories.count == 0
 
   	# get all stories of requested category sorted by published_date
@@ -55,8 +50,12 @@ class StoriesController < ApplicationController
 
 private
 
-  def get_categories_with_stories(categories)
+  def get_categories_with_stories
     story_categories = []
+    categories = Category.find(:all,              
+                          :include => [:translations, :articles],
+                          :conditions => "name <> 'Corporate'",
+                          :order => "display_section ASC, display_sequence ASC")
     for category in categories
       if category.articles.count > 0
         story_categories<<category
