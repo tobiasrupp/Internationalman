@@ -1,26 +1,26 @@
 class StoriesController < ApplicationController
 
   # before_filter :set_status_message, :except => []
-  before_filter :authenticate_admin_user!, :only => [:rebuild_pg_search_index, :refresh_facebook_data_remote]
+  before_filter :authenticate_admin_user!, :only => [:refresh_facebook_data_remote]
 
-  def search
-    if params[:query].blank?
-      # flash.now[:error] = I18n.t(:enter_keywords) 
-      return
-    end
-    if @hit_list = Article.text_search(params[:query])
-      @no_of_hits = @hit_list.size
-    else
-      flash.now[:notice] = I18n.t(:no_documents_found)  
-    end
-    render(:layout => 'pages')
-  end
+  # def search
+  #   if params[:query].blank?
+  #     # flash.now[:error] = I18n.t(:enter_keywords) 
+  #     return
+  #   end
+  #   if @hit_list = Article.text_search(params[:query])
+  #     @no_of_hits = @hit_list.size
+  #   else
+  #     flash.now[:notice] = I18n.t(:no_documents_found)  
+  #   end
+  #   render(:layout => 'pages')
+  # end
 
-  def rebuild_pg_search_index
-    Article.rebuild_pg_search_documents
-    flash[:notice] = "Index rebuilt."  
-    redirect_to search_path
-  end
+  # def rebuild_pg_search_index
+  #   Article.rebuild_pg_search_documents
+  #   flash[:notice] = "Index rebuilt."  
+  #   redirect_to search_path
+  # end
 
   def get_facebook_items_to_refresh
     if !params[:days]

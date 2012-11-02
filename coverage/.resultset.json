@@ -237,6 +237,10 @@
         1,
         null
       ],
+      "/Users/tobias/dev/rails_projects/intlman/app/helpers/searches_helper.rb": [
+        1,
+        null
+      ],
       "/Users/tobias/dev/rails_projects/intlman/app/helpers/stories_helper.rb": [
         1,
         null,
@@ -2141,9 +2145,8 @@
         null,
         null
       ],
-      "/Users/tobias/dev/rails_projects/intlman/app/controllers/stories_controller.rb": [
+      "/Users/tobias/dev/rails_projects/intlman/app/controllers/searches_controller.rb": [
         1,
-        null,
         null,
         1,
         null,
@@ -2164,6 +2167,32 @@
         1,
         1,
         1,
+        null,
+        null
+      ],
+      "/Users/tobias/dev/rails_projects/intlman/app/controllers/stories_controller.rb": [
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
         null,
         null,
         1,
@@ -2326,39 +2355,6 @@
         11,
         null,
         11,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
         null,
         null,
         1,
@@ -2753,6 +2749,6 @@
         null
       ]
     },
-    "timestamp": 1351868135
+    "timestamp": 1351869574
   }
 }
