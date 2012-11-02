@@ -24,22 +24,13 @@ class StoriesController < ApplicationController
   def show_stories_by_category
   	# route /stories/category
 
-  	if !params[:category]
-  		return
-  	end 
-  	
   	# get categories with stories (non-corporate)
-    story_categories = Category.find(:all,              
+    categories = Category.find(:all,              
                           :include => [:translations, :articles],
                           :conditions => "name <> 'Corporate'",
                           :order => "display_section ASC, display_sequence ASC")
     
-    @story_categories = []
-    for category in story_categories
-      if category.articles.size > 0
-        @story_categories<<category
-      end
-    end
+    @story_categories = get_categories_with_stories(categories)
     if @story_categories.count == 0
       flash.now[:notice] = "Keine Stories mit Kategorien gefunden."
       return
@@ -61,22 +52,44 @@ class StoriesController < ApplicationController
       redirect_to :action => :show_stories_by_category, :category => current_category.url_name, :article_title => current_article.url_title, :only_path => true
       return
     end
-  	@stories.each do |story|
-  		if story.url_title == params[:article_title]
-  			@selected_article = story
-        @show_fb_like_button = true
-  		end	
-  	end
+    @selected_article = get_selected_article(@stories, params[:article_title])
     if @selected_article.nil?
       # requested story unknown
       flash.now[:error] = "Story '#{params[:article_title]}' wurde nicht gefunden."
       return
     end
-    if long_titles?(@stories) 
-      @content_section_column_width = 4
-    else
-      @content_section_column_width = 5
-    end
+    @show_fb_like_button = true
+    @content_section_column_width = get_content_column_width(@stories)
   	render :action => "show_stories"
+  end
+
+private
+
+  def get_categories_with_stories(categories)
+    story_categories = []
+    for category in categories
+      if category.articles.count > 0
+        story_categories<<category
+      end
+      return story_categories
+    end
+  end  
+
+  def get_selected_article(articles, requested_article)
+    selected_article = nil
+    articles.each do |article|
+      if article.url_title == requested_article
+        selected_article = article
+      end 
+    end
+    return selected_article
+  end 
+
+  def get_content_column_width(stories)
+    if long_titles?(stories) 
+      content_column_width = 4
+    else
+      content_column_width = 5
+    end
   end
 end
