@@ -1,5 +1,7 @@
 Intlman::Application.routes.draw do
 
+  get "feeds/feed"
+
   mount Ckeditor::Engine => '/ckeditor'
 
   root to: 'stories#show_stories'
@@ -25,7 +27,7 @@ Intlman::Application.routes.draw do
   match '/about',   to: 'pages#about', :via => "get"
   match '/contact', to: 'pages#contact', :via => "get"
 
-  match '/feed' => 'stories#feed', :as => :feed, :defaults => { :format => 'atom' }
+  match '/feed' => 'feeds#feed', :as => :feed, :defaults => { :format => 'atom' }
   
   match '/search', to: 'stories#search', :via => 'get', :as => :search
 
