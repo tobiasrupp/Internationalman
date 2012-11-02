@@ -32,12 +32,10 @@ class StoriesController < ApplicationController
 
     @stories = current_category.articles
     @selected_category = current_category
-    if !params[:article_title]
-     # article parameter has not been provided, display current article 
-      current_article = @stories[0]
-      redirect_to :action => :show_stories_by_category, :category => current_category.url_name, :article_title => current_article.url_title, :only_path => true
-      return
-    end
+
+    # article parameter has not been provided, display current article 
+    return redirect_to_article(@stories[0],current_category) if !params[:article_title]
+
     @selected_article = get_selected_article(@stories, params[:article_title])
     
     # requested story unknown
@@ -78,4 +76,8 @@ private
       return 4 if long_titles?(stories) 
       return 5
   end
+
+  def redirect_to_article(article, category)
+    redirect_to :action => :show_stories_by_category, :category => category.url_name, :article_title => article.url_title, :only_path => true
+  end  
 end
