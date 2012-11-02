@@ -48,30 +48,28 @@ class StoriesController < ApplicationController
   	# get all stories of requested category sorted by published_date
   	current_category = Category.find_by_url_name(params[:category])
 
-  	if !current_category.nil?
-      @stories = current_category.articles
-      @selected_category = current_category
-      if params[:article_title]
-      	@stories.each do |story|
-      		if story.url_title == params[:article_title]
-      			@selected_article = story
-            @show_fb_like_button = true
-      		end	
-      	end
-        if @selected_article.nil?
-          # requested story unknown
-          flash.now[:error] = "Story '#{params[:article_title]}' wurde nicht gefunden."
-          return
-        end
-      else
-        # article parameter has not been provided 
-      	current_article = @stories[0]
-        redirect_to :action => :show_stories_by_category, :category => current_category.url_name, :article_title => current_article.url_title, :only_path => true
-        return
-    	end
-    else  
-    	# category unknown
-    	flash.now[:error] = "Kategorie '#{params[:category]}' wurde nicht gefunden."
+  	if current_category.nil?
+      # category unknown
+      flash.now[:error] = "Kategorie '#{params[:category]}' wurde nicht gefunden."
+      return
+    end  
+    @stories = current_category.articles
+    @selected_category = current_category
+    if !params[:article_title]
+     # article parameter has not been provided, display current article 
+      current_article = @stories[0]
+      redirect_to :action => :show_stories_by_category, :category => current_category.url_name, :article_title => current_article.url_title, :only_path => true
+      return
+    end
+  	@stories.each do |story|
+  		if story.url_title == params[:article_title]
+  			@selected_article = story
+        @show_fb_like_button = true
+  		end	
+  	end
+    if @selected_article.nil?
+      # requested story unknown
+      flash.now[:error] = "Story '#{params[:article_title]}' wurde nicht gefunden."
       return
     end
     if long_titles?(@stories) 
