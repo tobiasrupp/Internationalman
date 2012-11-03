@@ -5,6 +5,11 @@ class ApplicationController < ActionController::Base
 
   private
 
+  # def present(object, klass = nil)
+  #   klass ||= "#{object.class}Presenter".constantize
+  #   klass.new(object, view_content)
+  # end
+
   def set_locale
     params_locale = params[:locale]
     language_locale = locale_from_accept_language

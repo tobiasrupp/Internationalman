@@ -884,3 +884,20 @@ LOG:  database system is shut down
 LOG:  database system was shut down at 2012-11-01 23:07:23 GMT
 LOG:  database system is ready to accept connections
 LOG:  autovacuum launcher started
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+LOG:  database system was shut down at 2012-11-02 23:29:48 GMT
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+LOG:  unexpected EOF on client connection
+LOG:  unexpected EOF on client connection
+LOG:  unexpected EOF on client connection
+LOG:  unexpected EOF on client connection
+LOG:  unexpected EOF on client connection
+LOG:  unexpected EOF on client connection
+LOG:  unexpected EOF on client connection
+LOG:  unexpected EOF on client connection
+LOG:  unexpected EOF on client connection
+LOG:  unexpected EOF on client connection

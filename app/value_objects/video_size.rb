@@ -18,26 +18,26 @@ private
 		width = video.video_width
 		height = video.video_height
 	  display_width = max_width
-    if width.blank? or height.blank?
-      # size not supplied, use max viewer size
-      self.viewer_width = display_width
-      self.viewer_height = @viewer_width / 16 * 9
-      return
-    end
-    # size supplied
-    width = width.to_f
-    height = height.to_f
-    if width <= display_width
-    	# smaller than max width, use requested size
-      self.viewer_width = width.to_i
-      self.viewer_height = height.to_i
-      return
-    end  
-  	# wider than max width, scale viewer down to max width
-    ratio = width / display_width
-    height = height / ratio
-    self.viewer_height = height.to_i
-    self.viewer_width = display_width
+		if width.blank? or height.blank?
+			# size not supplied, use max viewer size
+			self.viewer_width = display_width
+			self.viewer_height = @viewer_width / 16 * 9
+			return
+		end
+		# size supplied
+		width = width.to_f
+		height = height.to_f
+		if width <= display_width
+			# smaller than max width, use requested size
+			self.viewer_width = width.to_i
+			self.viewer_height = height.to_i
+			return
+		end  
+		# wider than max width, scale viewer down to max width
+		ratio = width / display_width
+		height = height / ratio
+		self.viewer_height = height.to_i
+		self.viewer_width = display_width
 	end
 	
 	def calculate_teaser_image_size(video)

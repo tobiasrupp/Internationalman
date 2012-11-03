@@ -1,3 +1,4 @@
+@focus
 Feature: Map
 	In order to view stories, radio tracks, videos and blog posts and their geographical location 
 	As a user
