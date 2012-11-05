@@ -18,15 +18,8 @@ class Post < ActiveRecord::Base
 
   validates_attachment :image_1, :content_type => { :content_type => /image/ }, :size => { :in => 1..300.kilobytes }
   validates_attachment :image_2, :content_type => { :content_type => /image/ }, :size => { :in => 1..300.kilobytes }
-
-  # validates :title, :presence => true, :length => {:minimum => 1, :maximum => 254}
-  # validates :short_title, :presence => true, :length => {:minimum => 1, :maximum => 25}
-  # validates :url_title, :presence => true, :length => {:minimum => 1, :maximum => 100}, :uniqueness => { :case_sensitive => false }, :format => { :with => /\A[a-z\d-]+\z/, 
-  #   :message => "Use only lowercase letters, dashes or numbers." }
-  # validates :language, :presence => true, :length => {:minimum => 2, :maximum => 40}
   validates :publication_state, :presence => true
-  # validates :categories, :presence => true
-
+ 
   translates :title, :short_title, :url_title, :ctry, :language, :text, :text_2, :fallbacks_for_empty_translations => true
   class Translation
     attr_accessible :locale

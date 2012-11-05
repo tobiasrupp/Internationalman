@@ -4,12 +4,11 @@ class MapPresenter < BasePresenter
 
   def to_json
     articles_json = build_articles_json
-    # debugger
-    radio_tracks_json = build_radio_tracks_json
+    radio_tracks_json = build_generic_json(data[:radio_tracks], 'radio_track', 'Radio')
     @json = articles_json.chop + ',' + radio_tracks_json[1..-1]
-    videos_json = build_videos_json
+    videos_json = build_generic_json(data[:videos], 'video', 'TV')
     @json = @json.chop + ',' + videos_json[1..-1]
-    posts_json = build_posts_json
+    posts_json = build_generic_json(data[:posts], 'post', 'Blog')
     @json = @json.chop + ',' + posts_json[1..-1]
     return @json
   end
@@ -19,7 +18,7 @@ class MapPresenter < BasePresenter
   # end
   
 private
-
+  
   def build_articles_json
     articles_json = data[:articles].to_gmaps4rails do |article, marker|
       is_corporate = corporate_article?(article)
@@ -34,30 +33,15 @@ private
     end
     return articles_json
   end 
-  def build_radio_tracks_json
-    radio_tracks_json = data[:radio_tracks].to_gmaps4rails do |radio_track, marker|
-      marker.infowindow radio_track_summary(radio_track)
-      marker.title  radio_track.title + ' (Radio)'
-      marker.json({ :id => radio_track.id })
+  def build_generic_json(data, type, suffix)
+    json = data.to_gmaps4rails do |object, marker|
+      marker.infowindow send("#{type}_summary", object)
+      marker.title object.title + ' (' + suffix + ')'
+      marker.json({ :id => object.id })
     end
-    return radio_tracks_json
-  end 
-  def build_videos_json
-    videos_json = data[:videos].to_gmaps4rails do |video, marker|
-      marker.infowindow video_summary(video)
-      marker.title  video.title + ' (TV)'
-      marker.json({ :id => video.id })
-    end
-    return videos_json
-  end 
-  def build_posts_json
-    posts_json = data[:posts].to_gmaps4rails do |post, marker|
-      marker.infowindow post_summary(post)
-      marker.title  post.title + ' (Blog)'
-      marker.json({ :id => post.id })
-    end
-    return posts_json
-  end 
+    return json
+  end
+
   def article_summary(article)
     render :partial => 'stories/story_details', :locals => {:@selected_article => article, :@format_for_map => true}
   end
@@ -90,11 +74,6 @@ private
        "shadow_height" => "34",
        "shadow_anchor" => [10, 34]
       })
-    return marker
-  end  
-  def base_json(item, marker, suffix)
-    marker.title item.title + " (#{suffix})"
-    marker.json({ :id => item.id })
     return marker
   end  
 end

@@ -19,23 +19,14 @@ class Video < ActiveRecord::Base
     :message => "Invalid file type. Select an image." }, :size => { :in => 1..300.kilobytes }
   validates_attachment :teaser_image_en, :content_type => { :content_type => /image/, 
     :message => "Invalid file type. Select an image." }, :size => { :in => 1..300.kilobytes }
-  # validates :title, :presence => true, :length => {:minimum => 1, :maximum => 254}
-  # validates :short_title, :presence => true, :length => {:minimum => 1, :maximum => 35}
-  # validates :url_title, :presence => true, :length => {:minimum => 1, :maximum => 100}, :uniqueness => { :case_sensitive => false }, :format => { :with => /\A[a-z\d-]+\z/, 
-  #   :message => "Use only lowercase letters, dashes or numbers." }
-  # validates :language, :presence => true, :length => {:minimum => 2, :maximum => 40}
   validates :source_url, :format => { :with => /^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/ix, :message => "Use a URL starting with http:// or https:// " }, :allow_blank => true
-  # validates :web_page, :format => { :with => /^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/ix, :message => "Use a URL starting with http:// or https:// " }, :allow_blank => true
   validates :broadcast_date, :presence => true
-  # validates :categories, :presence => true
-
+  
 	translates :title, :short_title, :url_title, :ctry, :language, :embed_code, :web_page, :source_url, :video_width, :video_height, :video_aspect_ratio, :fallbacks_for_empty_translations => true
   class Translation
     attr_accessible :locale
   end
 
-  # acts_as_gmappable :lat => 'lat', :lng => 'lon', :address => "address", :validation => false, :msg => ""
-  
   include PgSearch
   multisearchable :against => [
     :search_string

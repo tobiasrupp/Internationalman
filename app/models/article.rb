@@ -43,13 +43,9 @@ class Article < ActiveRecord::Base
     :message => "Invalid file type. Select a PDF." }, :size => { :in => 1..5000.kilobytes }
    validates_attachment :source_file_en, :content_type => { :content_type => /pdf/, 
     :message => "Invalid file type. Select a PDF." }, :size => { :in => 1..5000.kilobytes }
-  # validates :web_page, :format => { :with => /^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/ix, :message => "Use a URL starting with http:// or https:// " }, :allow_blank => true
-
+  
   validates :published_date, :presence => true
-  # validates :categories, :presence => true
-
-  # acts_as_gmappable :lat => 'lat', :lng => 'lon', :address => "address", :validation => false, :msg => ""
-
+  
   include PgSearch
   multisearchable :against => [
     :search_string
