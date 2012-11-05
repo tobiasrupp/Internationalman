@@ -3,28 +3,16 @@ class ServicesController < ApplicationController
 	before_filter :authenticate_admin_user!, :except => [:get_facebook_items_to_refresh]
 
   def get_facebook_items_to_refresh
-    if !params[:days]
-      return
-    end
+    return if params[:days].blank?
+    
     starting_locale = I18n.locale
-
     all_urls = []
-    I18n.locale = 'de'
-    logger.debug "*** Locale set to '#{I18n.locale}'"
-    all_urls = get_stories_to_refresh(params[:days])
-    all_urls = all_urls + get_radio_tracks_to_refresh(params[:days])
-    all_urls = all_urls + get_videos_to_refresh(params[:days])
-    all_urls = all_urls + get_corporate_articles_to_refresh(params[:days])
-    all_urls = all_urls + get_posts_to_refresh(params[:days])
-    I18n.locale = 'en'
-    logger.debug "*** Locale set to '#{I18n.locale}'"
-    all_urls = all_urls + get_stories_to_refresh(params[:days])
-    all_urls = all_urls + get_radio_tracks_to_refresh(params[:days])
-    all_urls = all_urls + get_videos_to_refresh(params[:days])
-    all_urls = all_urls + get_corporate_articles_to_refresh(params[:days])
-    all_urls = all_urls + get_posts_to_refresh(params[:days])
-    I18n.locale = starting_locale
-    logger.debug "*** Locale set to '#{I18n.locale}'"
+    set_locale(:de)
+    all_urls = get_urls(all_urls)
+    set_locale(:en)
+    all_urls = get_urls(all_urls)
+
+    set_locale(starting_locale)
     @log = all_urls
     render(:layout => false)
   end
@@ -85,7 +73,15 @@ class ServicesController < ApplicationController
   def refresh_facebook_item
   end
 
-  private
+private
+
+  def get_urls(all_urls)
+    all_urls += get_stories_to_refresh(params[:days])
+    all_urls += get_radio_tracks_to_refresh(params[:days])
+    all_urls += get_videos_to_refresh(params[:days])
+    all_urls += get_corporate_articles_to_refresh(params[:days])
+    all_urls += get_posts_to_refresh(params[:days])
+  end
 
   def get_stories_to_refresh(no_of_days)
     no_of_days = no_of_days.to_i

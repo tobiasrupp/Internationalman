@@ -10,13 +10,13 @@ class ApplicationController < ActionController::Base
   #   klass.new(object, view_content)
   # end
 
-  def set_locale
+  def set_locale(locale = nil)
     params_locale = params[:locale]
     language_locale = locale_from_accept_language
     default_locale = I18n.default_locale
-    I18n.locale = params_locale || language_locale || default_locale
+    I18n.locale = locale || params_locale || language_locale || default_locale
     logger.debug "*** Locale set to '#{I18n.locale}'"
-    if params_locale.blank?
+    if params_locale.blank? and locale.blank?
       # redirect_to :locale => I18n.locale, :only_path => true
       redirect_to "/#{I18n.locale}#{request.path_info}"
     end
