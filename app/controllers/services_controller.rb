@@ -5,15 +5,17 @@ class ServicesController < ApplicationController
   def get_facebook_items_to_refresh
     return if params[:days].blank?
     
-    starting_locale = I18n.locale
-    all_urls = []
-    set_locale(:de)
-    all_urls = get_urls(all_urls)
-    set_locale(:en)
-    all_urls = get_urls(all_urls)
+    @log = FacebookUtility.new.items_to_refresh(params[:days])
 
-    set_locale(starting_locale)
-    @log = all_urls
+    # starting_locale = I18n.locale
+    # all_urls = []
+    # set_locale(:de)
+    # all_urls = get_urls(all_urls)
+    # set_locale(:en)
+    # all_urls = get_urls(all_urls)
+
+    # set_locale(starting_locale)
+    # @log = facebook_utility.items_to_refresh
     render(:layout => false)
   end
 
@@ -70,118 +72,115 @@ class ServicesController < ApplicationController
     render(:layout => 'pages')
   end
 
-  def refresh_facebook_item
-  end
-
 private
 
-  def get_urls(all_urls)
-    all_urls += get_stories_to_refresh(params[:days])
-    all_urls += get_radio_tracks_to_refresh(params[:days])
-    all_urls += get_videos_to_refresh(params[:days])
-    all_urls += get_corporate_articles_to_refresh(params[:days])
-    all_urls += get_posts_to_refresh(params[:days])
-  end
+  # def get_urls(all_urls)
+  #   all_urls += get_stories_to_refresh(params[:days])
+  #   all_urls += get_radio_tracks_to_refresh(params[:days])
+  #   all_urls += get_videos_to_refresh(params[:days])
+  #   all_urls += get_corporate_articles_to_refresh(params[:days])
+  #   all_urls += get_posts_to_refresh(params[:days])
+  # end
 
-  def get_stories_to_refresh(no_of_days)
-    no_of_days = no_of_days.to_i
-    if no_of_days >= 1
-      articles = Article.find(:all,
-            :include => :categories,
-            :conditions => ['updated_at >= ?', Time.now - no_of_days.day],
-            :order => "published_date DESC")
-    else
-      articles = Article.find(:all,
-            :include => :categories,
-            :order => "published_date DESC")
-    end 
-    urls = []
-    articles.each do |article|
-      category = article.categories[0]
-      if category.name == 'Corporate'
-        next
-      end
-      url = stories_url + '/' + category.url_name + '/' + article.url_title
-      urls << url
-    end
-    return urls
-  end
+  # def get_stories_to_refresh(no_of_days)
+  #   no_of_days = no_of_days.to_i
+  #   if no_of_days >= 1
+  #     articles = Article.find(:all,
+  #           :include => :categories,
+  #           :conditions => ['updated_at >= ?', Time.now - no_of_days.day],
+  #           :order => "published_date DESC")
+  #   else
+  #     articles = Article.find(:all,
+  #           :include => :categories,
+  #           :order => "published_date DESC")
+  #   end 
+  #   urls = []
+  #   articles.each do |article|
+  #     category = article.categories[0]
+  #     if category.name == 'Corporate'
+  #       next
+  #     end
+  #     url = stories_url + '/' + category.url_name + '/' + article.url_title
+  #     urls << url
+  #   end
+  #   return urls
+  # end
 
-  def get_radio_tracks_to_refresh(no_of_days)
-    no_of_days = no_of_days.to_i
-    if no_of_days >= 1
-      radio_tracks = RadioTrack.find(:all,
-            :conditions => ['updated_at >= ?', Time.now - no_of_days.day],
-            :order => "broadcast_date DESC")
-    else
-      radio_tracks = RadioTrack.find(:all,
-            :order => "broadcast_date DESC")
-    end 
-    urls = []
-    radio_tracks.each do |track|
-      url = radio_url + '/' + track.url_title
-      urls << url
-    end
-    return urls
-  end
+  # def get_radio_tracks_to_refresh(no_of_days)
+  #   no_of_days = no_of_days.to_i
+  #   if no_of_days >= 1
+  #     radio_tracks = RadioTrack.find(:all,
+  #           :conditions => ['updated_at >= ?', Time.now - no_of_days.day],
+  #           :order => "broadcast_date DESC")
+  #   else
+  #     radio_tracks = RadioTrack.find(:all,
+  #           :order => "broadcast_date DESC")
+  #   end 
+  #   urls = []
+  #   radio_tracks.each do |track|
+  #     url = radio_url + '/' + track.url_title
+  #     urls << url
+  #   end
+  #   return urls
+  # end
 
-  def get_videos_to_refresh(no_of_days)
-    no_of_days = no_of_days.to_i
-    if no_of_days >= 1
-      videos = Video.find(:all,
-            :conditions => ['updated_at >= ?', Time.now - no_of_days.day],
-            :order => "broadcast_date DESC")
-    else
-      videos = Video.find(:all,
-            :order => "broadcast_date DESC")
-    end 
-    urls = []
-    videos.each do |video|
-      url = tv_url + '/' + video.url_title
-      urls << url
-    end
-    return urls
-  end
+  # def get_videos_to_refresh(no_of_days)
+  #   no_of_days = no_of_days.to_i
+  #   if no_of_days >= 1
+  #     videos = Video.find(:all,
+  #           :conditions => ['updated_at >= ?', Time.now - no_of_days.day],
+  #           :order => "broadcast_date DESC")
+  #   else
+  #     videos = Video.find(:all,
+  #           :order => "broadcast_date DESC")
+  #   end 
+  #   urls = []
+  #   videos.each do |video|
+  #     url = tv_url + '/' + video.url_title
+  #     urls << url
+  #   end
+  #   return urls
+  # end
 
-  def get_corporate_articles_to_refresh(no_of_days)
-    no_of_days = no_of_days.to_i
-    if no_of_days >= 1
-      category = Category.find_by_name('Corporate')
-      articles = category.articles.find(:all,
-            :conditions => ['updated_at >= ?', Time.now - no_of_days.day],
-            :order => "published_date DESC")
-    else
-      category = Category.find_by_name('Corporate')
-      articles = category.articles.find(:all,
-            :order => "published_date DESC")
-    end 
-    urls = []
-    articles.each do |article|
-      url = corporate_url + '/' + article.url_title
-      urls << url
-    end
-    return urls
-  end
+  # def get_corporate_articles_to_refresh(no_of_days)
+  #   no_of_days = no_of_days.to_i
+  #   if no_of_days >= 1
+  #     category = Category.find_by_name('Corporate')
+  #     articles = category.articles.find(:all,
+  #           :conditions => ['updated_at >= ?', Time.now - no_of_days.day],
+  #           :order => "published_date DESC")
+  #   else
+  #     category = Category.find_by_name('Corporate')
+  #     articles = category.articles.find(:all,
+  #           :order => "published_date DESC")
+  #   end 
+  #   urls = []
+  #   articles.each do |article|
+  #     url = corporate_url + '/' + article.url_title
+  #     urls << url
+  #   end
+  #   return urls
+  # end
 
-  def get_posts_to_refresh(no_of_days)
-    error = false
-    no_of_days = no_of_days.to_i
-    if no_of_days >= 1
-      posts = Post.find(:all,
-            :conditions => ["updated_at >= ? AND publication_state = 'Published'", Time.now - no_of_days.day],
-            :order => "created_at DESC")
-    else
-      posts = Post.find(:all,
-            :conditions => ["publication_state = 'Published'"],
-            :order => "created_at DESC")
-    end 
-    urls = []
-    posts.each do |post|
-      url = blog_url + '/' + post.url_title
-      urls << url
-    end
-    return urls
-  end
+  # def get_posts_to_refresh(no_of_days)
+  #   error = false
+  #   no_of_days = no_of_days.to_i
+  #   if no_of_days >= 1
+  #     posts = Post.find(:all,
+  #           :conditions => ["updated_at >= ? AND publication_state = 'Published'", Time.now - no_of_days.day],
+  #           :order => "created_at DESC")
+  #   else
+  #     posts = Post.find(:all,
+  #           :conditions => ["publication_state = 'Published'"],
+  #           :order => "created_at DESC")
+  #   end 
+  #   urls = []
+  #   posts.each do |post|
+  #     url = blog_url + '/' + post.url_title
+  #     urls << url
+  #   end
+  #   return urls
+  # end
 
   def get_response_code_message(code, url)
     case code

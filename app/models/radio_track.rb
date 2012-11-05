@@ -25,4 +25,9 @@ class RadioTrack < ActiveRecord::Base
   def gmaps4rails_marker_picture
     map_icon('/assets/audio_b_w.png')
   end
+
+  def path
+    path = "/#{I18n.locale}/radio/" + self.url_title
+    return path
+  end
 end

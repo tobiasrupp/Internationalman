@@ -35,4 +35,18 @@ module ModelBaseMethods
       search_string = VideoAndRadioTrackSearchString.new(self).create
     end
   end  
+
+  def host
+    if Rails.env.production?
+      host = 'http://www.international-man.net'
+    else
+      host = 'http://localhost:3001'
+    end
+  end
+
+  def url(corporate_article = false)
+    return url = self.host + self.path unless corporate_article == true
+    # corporate article
+    return url = self.host + self.path(corporate_article)
+  end 
 end

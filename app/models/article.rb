@@ -63,9 +63,14 @@ class Article < ActiveRecord::Base
     find_each { |record| record.update_pg_search_document }
   end
 
-  def path
+  def path(corporate_article = false)
+    if corporate_article == true
+      section = 'corporate'
+    else
+      section = 'stories'
+    end
     category = self.categories[0]
-    path = 'stories' + '/' + category.url_name + '/' + self.url_title
+    path = "/#{I18n.locale}/#{section}/" + category.url_name + '/' + self.url_title
     return path
   end
 

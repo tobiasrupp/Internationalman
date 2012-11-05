@@ -35,4 +35,9 @@ class Video < ActiveRecord::Base
   def gmaps4rails_marker_picture
     map_icon('/assets/video_b_w.png')
   end
+
+  def path
+    path = "/#{I18n.locale}/tv/" + self.url_title
+    return path
+  end
 end

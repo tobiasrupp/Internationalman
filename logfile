@@ -920,3 +920,4 @@ LOG:  unexpected EOF on client connection
 LOG:  unexpected EOF on client connection
 LOG:  unexpected EOF on client connection
 LOG:  unexpected EOF on client connection
+WARNING:  pgstat wait timeout

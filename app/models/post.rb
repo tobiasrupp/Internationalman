@@ -34,4 +34,9 @@ class Post < ActiveRecord::Base
   def gmaps4rails_marker_picture
     map_icon('/assets/text_b_w.png')
   end
+
+  def path
+    path = "/#{I18n.locale}/blog/" + self.url_title
+    return path
+  end
 end
