@@ -65,29 +65,29 @@ private
     return collect_urls(items)
   end
 
-  def get_radio_tracks_to_refresh(no_of_days)
-    if no_of_days >= 1
-      radio_tracks = RadioTrack.find(:all,
-            :conditions => ['updated_at >= ?', Time.now - no_of_days.day],
-            :order => "broadcast_date DESC")
-    else
-      radio_tracks = RadioTrack.find(:all,
-            :order => "broadcast_date DESC")
-    end 
-    return collect_urls(radio_tracks)
-  end
+  # def get_radio_tracks_to_refresh(no_of_days)
+  #   if no_of_days >= 1
+  #     radio_tracks = RadioTrack.find(:all,
+  #           :conditions => ['updated_at >= ?', Time.now - no_of_days.day],
+  #           :order => "broadcast_date DESC")
+  #   else
+  #     radio_tracks = RadioTrack.find(:all,
+  #           :order => "broadcast_date DESC")
+  #   end 
+  #   return collect_urls(radio_tracks)
+  # end
 
-  def get_videos_to_refresh(no_of_days)
-    if no_of_days >= 1
-      videos = Video.find(:all,
-            :conditions => ['updated_at >= ?', Time.now - no_of_days.day],
-            :order => "broadcast_date DESC")
-    else
-      videos = Video.find(:all,
-            :order => "broadcast_date DESC")
-    end 
-    return collect_urls(videos)
-  end
+  # def get_videos_to_refresh(no_of_days)
+  #   if no_of_days >= 1
+  #     videos = Video.find(:all,
+  #           :conditions => ['updated_at >= ?', Time.now - no_of_days.day],
+  #           :order => "broadcast_date DESC")
+  #   else
+  #     videos = Video.find(:all,
+  #           :order => "broadcast_date DESC")
+  #   end 
+  #   return collect_urls(videos)
+  # end
 
   def get_corporate_articles_to_refresh(no_of_days)
   	category = Category.find_by_name('Corporate')
