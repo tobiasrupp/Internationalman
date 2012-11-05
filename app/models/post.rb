@@ -1,5 +1,6 @@
 class Post < ActiveRecord::Base
   include ModelBaseMethods
+  include ModelBaseValidations
   attr_accessible :author, :country, :language, :latitude, :longitude, :short_title, :text, :title, :url_title, :publication_state, :allow_comments, :image_1, :image_1_options, :image_2, :image_2_options, :text_2, :ctry, :lat, :lon, :gmaps, :address
   attr_accessible :categories, :category_ids
   has_and_belongs_to_many :categories, :join_table => 'post_categories', :order => 'display_section ASC, display_sequence ASC'
@@ -18,13 +19,13 @@ class Post < ActiveRecord::Base
   validates_attachment :image_1, :content_type => { :content_type => /image/ }, :size => { :in => 1..300.kilobytes }
   validates_attachment :image_2, :content_type => { :content_type => /image/ }, :size => { :in => 1..300.kilobytes }
 
-  validates :title, :presence => true, :length => {:minimum => 1, :maximum => 254}
-  validates :short_title, :presence => true, :length => {:minimum => 1, :maximum => 25}
-  validates :url_title, :presence => true, :length => {:minimum => 1, :maximum => 100}, :uniqueness => { :case_sensitive => false }, :format => { :with => /\A[a-z\d-]+\z/, 
-    :message => "Use only lowercase letters, dashes or numbers." }
-  validates :language, :presence => true, :length => {:minimum => 2, :maximum => 40}
+  # validates :title, :presence => true, :length => {:minimum => 1, :maximum => 254}
+  # validates :short_title, :presence => true, :length => {:minimum => 1, :maximum => 25}
+  # validates :url_title, :presence => true, :length => {:minimum => 1, :maximum => 100}, :uniqueness => { :case_sensitive => false }, :format => { :with => /\A[a-z\d-]+\z/, 
+  #   :message => "Use only lowercase letters, dashes or numbers." }
+  # validates :language, :presence => true, :length => {:minimum => 2, :maximum => 40}
   validates :publication_state, :presence => true
-  validates :categories, :presence => true
+  # validates :categories, :presence => true
 
   translates :title, :short_title, :url_title, :ctry, :language, :text, :text_2, :fallbacks_for_empty_translations => true
   class Translation

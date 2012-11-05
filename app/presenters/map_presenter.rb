@@ -4,6 +4,7 @@ class MapPresenter < BasePresenter
 
   def to_json
     articles_json = build_articles_json
+    # debugger
     radio_tracks_json = build_radio_tracks_json
     @json = articles_json.chop + ',' + radio_tracks_json[1..-1]
     videos_json = build_videos_json
@@ -26,6 +27,7 @@ private
       if is_corporate == true
         marker = corporate_article_json(article, marker)
       else
+        # marker = base_json(article, marker, 'Stories')
         marker.title  article.title + ' (Stories)'
         marker.json({ :id => article.id })
       end
@@ -88,6 +90,11 @@ private
        "shadow_height" => "34",
        "shadow_anchor" => [10, 34]
       })
+    return marker
+  end  
+  def base_json(item, marker, suffix)
+    marker.title item.title + " (#{suffix})"
+    marker.json({ :id => item.id })
     return marker
   end  
 end

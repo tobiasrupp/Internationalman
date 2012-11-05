@@ -905,3 +905,17 @@ LOG:  unexpected EOF on client connection
 WARNING:  pgstat wait timeout
 LOG:  unexpected EOF on client connection
 LOG:  unexpected EOF on client connection
+LOG:  unexpected EOF on client connection
+LOG:  unexpected EOF on client connection
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+LOG:  database system was shut down at 2012-11-03 21:23:44 GMT
+LOG:  autovacuum launcher started
+LOG:  database system is ready to accept connections
+LOG:  unexpected EOF on client connection
+LOG:  unexpected EOF on client connection
+LOG:  unexpected EOF on client connection
+LOG:  unexpected EOF on client connection
+LOG:  unexpected EOF on client connection
