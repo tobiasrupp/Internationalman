@@ -23,8 +23,8 @@ private
 
   def get_urls(all_urls)
     all_urls += get_stories_to_refresh(@days)
-    all_urls += get_radio_tracks_to_refresh(@days)
-    all_urls += get_videos_to_refresh(@days)
+    all_urls += get_items_to_refresh(@days, 'RadioTrack')
+    all_urls += get_items_to_refresh(@days, 'Video')
     all_urls += get_corporate_articles_to_refresh(@days)
     all_urls += get_posts_to_refresh(@days)
   end
@@ -49,6 +49,20 @@ private
       urls << article.url
     end
     return urls
+  end
+
+
+   def get_items_to_refresh(no_of_days, model_name)
+   	model = model_name.constantize
+    if no_of_days >= 1
+      items = model.find(:all,
+            :conditions => ['updated_at >= ?', Time.now - no_of_days.day],
+            :order => "broadcast_date DESC")
+    else
+      items = model.find(:all,
+            :order => "broadcast_date DESC")
+    end 
+    return collect_urls(items)
   end
 
   def get_radio_tracks_to_refresh(no_of_days)
