@@ -37,7 +37,7 @@ class StoriesController < ApplicationController
     # article parameter has not been provided, display current article 
     return redirect_to_article(@stories[0],current_category) if !params[:article_title]
 
-    @selected_article = get_selected_article(@stories, params[:article_title])
+    @selected_article = get_selected_item(@stories, params[:article_title])
     
     # requested story unknown
     return handle_error('article_not_found') if @selected_article.nil?
@@ -63,19 +63,19 @@ private
     return story_categories
   end  
 
-  def get_selected_article(articles, requested_article)
-    selected_article = nil
-    articles.each do |article|
-      if article.url_title == requested_article
-        selected_article = article
-      end 
-    end
-    return selected_article
-  end 
+  # def get_selected_article(articles, requested_article)
+  #   selected_article = nil
+  #   articles.each do |article|
+  #     if article.url_title == requested_article
+  #       selected_article = article
+  #     end 
+  #   end
+  #   return selected_article
+  # end 
 
   def get_content_column_width(stories)
-      return 4 if long_titles?(stories) 
-      return 5
+    return 4 if long_titles?(stories) 
+    return 5
   end
 
   def redirect_to_article(article, category)

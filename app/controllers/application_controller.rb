@@ -45,4 +45,19 @@ class ApplicationController < ActionController::Base
     end
     return false 
   end
+
+  def get_selected_item(items, requested_item)
+    selected_item = nil
+    items.each do |item|
+      if item.url_title == requested_item
+        selected_item = item
+      end 
+    end
+    return selected_item
+  end 
+
+  def get_content_column_width(posts)
+    return 5 if long_titles?(posts) 
+    return 6
+  end  
 end
