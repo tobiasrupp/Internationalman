@@ -1,4 +1,7 @@
 class FacebookUtility
+  attr_accessor :records_updated
+  attr_accessor :log
+
 	def initialize
     @original_locale = I18n.locale
   end
@@ -15,10 +18,79 @@ class FacebookUtility
     return all_urls
   end
 
+  def refresh_like_button_data(days = false, url = false)
+    @log = ''
+    @records_updated = 0
+    ok = true
+    if url.present?
+      # refresh FB data for one item (page) by its url
+      code = refresh_by_url(url)
+      ok = handle_response_code(code, url)
+    end  
+    if days.present?
+      # refresh FB data for multiple items changed within the given number of days
+      urls = get_items_to_refresh_from_production(days)
+      urls.each do |url|
+        url.gsub!(/\A"|"\Z/, '') # remove quotation marks
+        code = refresh_by_url(url)
+        # debugger
+        success = handle_response_code(code, url)
+        if success == false
+          ok = false
+        end
+      end
+    end
+    return ok
+  end
+
 private
+
+  def refresh_by_url(url)
+    if Rails.env.test?
+      # mock get request in test environment
+      code = 200
+    else 
+      response = RestClient.get('http://developers.facebook.com/tools/debug/og/object', :params => {:q => url })
+      code = response.code
+    end
+    return code
+  end  
+
+
+  def handle_response_code(code, url)
+    case code
+      when 200...207
+        Rails.logger.info "*** Success #{code} (#{url})."
+        @log += "Success #{code} (#{url})" + "<br>"
+        @records_updated += 1
+        ok = true
+      else
+        Rails.logger.error "*** ERROR #{code} (#{url})."
+        @log += "ERROR #{code} (#{url})" + "<br>"
+        ok = false
+    end
+    return ok
+  end 
+
+  def get_items_to_refresh_from_production(days = false)
+    items = []
+    if Rails.env.test?
+      # mock request in test environment, get data from local development environment
+      request_root_url = "http://localhost:3001"
+    else 
+      request_root_url = "http://www.international-man.net"
+    end
+    items = RestClient.get("#{request_root_url}/de/get_facebook_items_to_refresh", :params => {:days => days})
+    items.gsub!(/[\[\]]/,'') # remove brackets
+    urls = items.split(', ')
+    return urls
+  end
+
+
+
 	def set_locale(locale)
 		I18n.locale = locale 
-    Rails.logger.info "*** Locale set to '#{I18n.locale}'"
+		Rails.logger.info "*** Locale set to '#{I18n.locale}'"
 	end
 
   def get_urls(all_urls)
@@ -64,30 +136,6 @@ private
     end 
     return collect_urls(items)
   end
-
-  # def get_radio_tracks_to_refresh(no_of_days)
-  #   if no_of_days >= 1
-  #     radio_tracks = RadioTrack.find(:all,
-  #           :conditions => ['updated_at >= ?', Time.now - no_of_days.day],
-  #           :order => "broadcast_date DESC")
-  #   else
-  #     radio_tracks = RadioTrack.find(:all,
-  #           :order => "broadcast_date DESC")
-  #   end 
-  #   return collect_urls(radio_tracks)
-  # end
-
-  # def get_videos_to_refresh(no_of_days)
-  #   if no_of_days >= 1
-  #     videos = Video.find(:all,
-  #           :conditions => ['updated_at >= ?', Time.now - no_of_days.day],
-  #           :order => "broadcast_date DESC")
-  #   else
-  #     videos = Video.find(:all,
-  #           :order => "broadcast_date DESC")
-  #   end 
-  #   return collect_urls(videos)
-  # end
 
   def get_corporate_articles_to_refresh(no_of_days)
   	category = Category.find_by_name('Corporate')
