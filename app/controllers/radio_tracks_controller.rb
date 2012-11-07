@@ -1,49 +1,36 @@
 class RadioTracksController < ApplicationController
- 
-  # before_filter :set_status_message
 
   def show
-    # add_locale_to_url
-    
-  	# get all radio tracks to display them in 2. level navigation list sorted by broadcast date descending
-		# @radio_tracks = RadioTrack.find(:all,
-	 #              :include => :categories,
-	 #              :order => "broadcast_date DESC")
-    # if !@radio_tracks = RadioTrack.order()
-    #   flash.now[:notice] = "Kein Radiobeitrag gefunden."
-    #   return
-    # end
-		# display details of current radio track in content section
-    if params[:track_title]
-      @radio_tracks = RadioTrack.order('broadcast_date DESC').includes(:categories)
-      @radio_tracks.each do |track|
-        if track.url_title == params[:track_title]
-          @selected_track = track
-          @show_fb_like_button = true
-        end 
-      end
-      if @selected_track.nil? 
-        # requested radio track unknown
-        flash.now[:error] = "Radiobeitrag '#{params[:track_title]}' wurde nicht gefunden."
-        return
-      end
-    else	
-    	# current_track = @radio_tracks[0]
+    if params[:track_title].blank?
+      # no track specified
       if !current_track = RadioTrack.order('broadcast_date DESC').first
-        flash.now[:notice] = "Kein Radiobeitrag gefunden."
-        return
+        return handle_error('no_item_found', 'Radiobeitrag')
       end
-      redirect_to :action => :show, :track_title => current_track.url_title, :only_path => true
-      return
+      return redirect_to_radio_track(current_track)
   	end
-    if long_titles?(@radio_tracks) 
-      @content_section_column_width = 5
-    else
-      @content_section_column_width = 6
-    end
-    if !@selected_track.source_url.blank?
-      array = @selected_track.source_url.split('audio_player=')
-      @audio_player = array[1]
-    end
+    @radio_tracks = RadioTrack.order('broadcast_date DESC').includes(:categories)
+    @selected_track = get_selected_item(@radio_tracks, params[:track_title])
+
+    # requested radio track unknown
+    return handle_error('item_not_found', 'Radiobeitrag', params[:track_title]) if @selected_track.nil?
+
+    @show_fb_like_button = true
+    @content_section_column_width = get_content_column_width(@radio_tracks) 
+    @audio_player = get_audio_player(@selected_track.source_url)
   end
+
+private  
+
+  def get_audio_player(source_url)
+    audio_player = ''
+    if source_url.present?
+      array = source_url.split('audio_player=')
+      audio_player = array[1]
+    end
+    return audio_player
+  end
+
+  def redirect_to_radio_track(radio_track)
+    redirect_to :action => :show, :track_title => radio_track.url_title, :only_path => true
+  end 
 end
