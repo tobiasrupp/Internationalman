@@ -63,16 +63,6 @@ private
     return story_categories
   end  
 
-  # def get_selected_article(articles, requested_article)
-  #   selected_article = nil
-  #   articles.each do |article|
-  #     if article.url_title == requested_article
-  #       selected_article = article
-  #     end 
-  #   end
-  #   return selected_article
-  # end 
-
   def get_content_column_width(stories)
     return 4 if long_titles?(stories) 
     return 5

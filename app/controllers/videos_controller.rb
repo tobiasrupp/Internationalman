@@ -1,9 +1,6 @@
 class VideosController < ApplicationController
-  
-  # before_filter :set_status_message
 
   def show
-    # add_locale_to_url
     
   	# get all videos to display them in 2. level navigation list sorted by broadcast date descending
 		@videos = Video.find(:all,

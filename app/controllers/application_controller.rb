@@ -60,4 +60,13 @@ class ApplicationController < ActionController::Base
     return 5 if long_titles?(posts) 
     return 6
   end  
+
+  def handle_error(reason, item_text = nil, variable = nil)
+    case reason
+      when 'no_item_found'
+        flash.now[:notice] = "Kein #{item_text} gefunden."
+      when 'item_not_found'  
+        flash.now[:error] = "#{item_text} '#{variable}' wurde nicht gefunden."
+    end
+  end    
 end
