@@ -8,22 +8,22 @@ module NavigationHelpers
   def path_to(page_name)
     case page_name
 
-    when /the home\s?page/
-      '/'
+    # when /the home\s?page/
+    #   '/'
 
-    # the following are examples using path_to_pickle
+    # # the following are examples using path_to_pickle
 
-    when /^#{capture_model}(?:'s)? page$/                           # eg. the forum's page
-      path_to_pickle $1
+    # when /^#{capture_model}(?:'s)? page$/                           # eg. the forum's page
+    #   path_to_pickle $1
 
-    when /^#{capture_model}(?:'s)? #{capture_model}(?:'s)? page$/   # eg. the forum's post's page
-      path_to_pickle $1, $2
+    # when /^#{capture_model}(?:'s)? #{capture_model}(?:'s)? page$/   # eg. the forum's post's page
+    #   path_to_pickle $1, $2
 
-    when /^#{capture_model}(?:'s)? #{capture_model}'s (.+?) page$/  # eg. the forum's post's comments page
-      path_to_pickle $1, $2, :extra => $3                           #  or the forum's post's edit page
+    # when /^#{capture_model}(?:'s)? #{capture_model}'s (.+?) page$/  # eg. the forum's post's comments page
+    #   path_to_pickle $1, $2, :extra => $3                           #  or the forum's post's edit page
 
-    when /^#{capture_model}(?:'s)? (.+?) page$/                     # eg. the forum's posts page
-      path_to_pickle $1, :extra => $2                               #  or the forum's edit page
+    # when /^#{capture_model}(?:'s)? (.+?) page$/                     # eg. the forum's posts page
+    #   path_to_pickle $1, :extra => $2                               #  or the forum's edit page
 
     when /Contact page/
       contact_en_path
