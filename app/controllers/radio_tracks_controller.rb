@@ -16,19 +16,10 @@ class RadioTracksController < ApplicationController
 
     @show_fb_like_button = true
     @content_section_column_width = get_content_column_width(@radio_tracks) 
-    @audio_player = get_audio_player(@selected_track.source_url)
+    @audio_player = get_media_player(@selected_track.source_url, 'audio_player')
   end
 
 private  
-
-  def get_audio_player(source_url)
-    audio_player = ''
-    if source_url.present?
-      array = source_url.split('audio_player=')
-      audio_player = array[1]
-    end
-    return audio_player
-  end
 
   def redirect_to_radio_track(radio_track)
     redirect_to :action => :show, :track_title => radio_track.url_title, :only_path => true

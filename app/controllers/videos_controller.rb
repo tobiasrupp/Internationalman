@@ -6,42 +6,23 @@ class VideosController < ApplicationController
 		@videos = Video.find(:all,
 	              :include => :categories,
 	              :order => "broadcast_date DESC")
-    if @videos.count == 0
-      flash.now[:notice] = "Kein TV-Beitrag gefunden."
-      return
-    end
-		# display details of current video in content section
-    if params[:video_title]
-    	@videos.each do |video|
-    		if video.url_title == params[:video_title]
-    			@selected_video = video
-          @show_fb_like_button = true
-          break
-    		end	
-    	end
-      if @selected_video.nil?
-        # requested video unknown
-        flash.now[:error] = "TV-Beitrag '#{params[:video_title]}' wurde nicht gefunden."
-        return
-      end
-    else	
-    	current_video = @videos[0]
-      redirect_to :action => :show, :video_title => current_video.url_title, :only_path => true
-      return
-  	end
-    if long_titles?(@videos) 
-      @content_section_column_width = 5
-    else
-      @content_section_column_width = 6
-    end
+    return handle_error('no_item_found', 'TV-Beitrag') if @videos.count == 0
+    return redirect_to_video(@videos[0]) if params[:video_title].blank?
+    @selected_video = get_selected_item(@videos, params[:video_title])
+
+    # requested video unknown
+    return handle_error('item_not_found', 'TV-Beitrag', params[:video_title]) if @selected_video.nil?
+   
+    @show_fb_like_button = true
+    @content_section_column_width = get_content_column_width(@videos)
     set_video_viewer_size(@selected_video.video_width, @selected_video.video_height, @selected_video.video_aspect_ratio)
-    if !@selected_video.source_url.blank?
-      array = @selected_video.source_url.split('video_player=')
-      @video_player = array[1]
-    end
+    @video_player = get_media_player(@selected_video.source_url, 'video_player')
   end
 
-  private
+private
+  def redirect_to_video(video)
+    redirect_to :action => :show, :video_title => video.url_title, :only_path => true
+  end  
 
   def set_video_viewer_size(width, height, aspect_ratio)
     video_size = VideoSize.new(@selected_video) 

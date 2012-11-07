@@ -24,4 +24,10 @@ private
   def redirect_to_post(post)
     redirect_to :action => :show, :post_title => post.url_title, :only_path => true
   end  
+
+  def get_content_column_width(stories)
+    return 4 if long_titles?(stories) 
+    return 5
+  end
+  
 end

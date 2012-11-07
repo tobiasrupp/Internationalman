@@ -56,8 +56,8 @@ class ApplicationController < ActionController::Base
     return selected_item
   end 
 
-  def get_content_column_width(posts)
-    return 5 if long_titles?(posts) 
+  def get_content_column_width(items)
+    return 5 if long_titles?(items) 
     return 6
   end  
 
@@ -68,5 +68,16 @@ class ApplicationController < ActionController::Base
       when 'item_not_found'  
         flash.now[:error] = "#{item_text} '#{variable}' wurde nicht gefunden."
     end
-  end    
+  end  
+
+  def get_media_player(source_url, param_name)
+    media_player = ''
+    s = param_name + '='
+    if source_url.present?
+      array = source_url.split(s)
+      media_player = array[1]
+    end
+    return media_player
+  end
+  
 end
