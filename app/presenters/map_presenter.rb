@@ -13,10 +13,6 @@ class MapPresenter < BasePresenter
     return @json
   end
   
-  # def avatar
-  #   h.link_to_if user.url.present?, h.image_tag("avatars/#{avatar_name}", class: "avatar"), user.url
-  # end
-  
 private
   
   def build_articles_json

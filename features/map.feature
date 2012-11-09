@@ -30,7 +30,7 @@ Background:
 	| title         | short_title | url_title      | ctry        | author           | categories | address      | longitude  | latitude | language | publication_state |  
 	| Neuer Blogpost | N. Post     | neuer-blogpost | Deutschland | Alexander Bühler | Corporate  | Buenaventura | -77.070229 | 3.886611 | de       | Published         |  
 
-	Scenario: Display Article Video and Radio Track on Map
+	Scenario: Display Article, Video, Post and Radio Track on Map
 		When I go to the "Map page"
 		# contained in map javascript code, visible on icon click
 		Then I should see "Neuer Artikel"
