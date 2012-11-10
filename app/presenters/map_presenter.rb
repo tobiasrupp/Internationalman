@@ -22,7 +22,6 @@ private
       if is_corporate == true
         marker = corporate_article_json(article, marker)
       else
-        # marker = base_json(article, marker, 'Stories')
         marker.title  article.title + ' (Stories)'
         marker.json({ :id => article.id })
       end
@@ -39,7 +38,7 @@ private
   end
 
   def article_summary(article)
-    render :partial => 'stories/story_details', :locals => {:@selected_article => article, :@format_for_map => true}
+    render :partial => 'stories/story_summary', :locals => {:@selected_article => article, :@format_for_map => true}
   end
   def radio_track_summary(track)
     render :partial => 'radio_tracks/radio_track_details', :locals => {:@selected_track => track, :@format_for_map => true}

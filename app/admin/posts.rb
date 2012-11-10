@@ -10,10 +10,10 @@ ActiveAdmin.register Post do
 		end
     column :publication_state
     column "Image 1" do |post| 
-      image_tag(post.image_1.url(:thumb), :alt => "")
+      image_tag(post.image_1.url(:thumb), :alt => "") if post.image_1?
     end
     column "Image 2" do |post| 
-      image_tag(post.image_2.url(:thumb), :alt => "")
+      image_tag(post.image_2.url(:thumb), :alt => "") if post.image_2?
     end
     column "Lang.", :language
 		default_actions
@@ -69,10 +69,18 @@ ActiveAdmin.register Post do
       f.input :ctry, :label => "Country", :hint => t(:translation_field)
       f.input :categories
       f.input :text, :label => "Text section 1", :as => :ckeditor, :input_html => { :height => 200, :width => 460 }
-      f.input :image_1, :hint => f.template.image_tag(f.object.image_1.url(:thumb))
+      if f.object.image_1?
+        f.input :image_1, :hint => f.template.image_tag(f.object.image_1.url(:thumb))
+      else
+        f.input :image_1
+      end
       f.input :image_1_options, :as => :select, :collection => ["Don't display", "Display in Section 1 left - Small", "Display in Section 1 left - Medium", "Display in Section 1 right - Small", "Display in Section 1 right - Medium", "Display in Section 2 left - Small", "Display in Section 2 left - Medium", "Display in Section 2 right - Small", "Display in Section 2 right - Medium"], :required => false
       f.input :text_2, :label => "Text section 2", :as => :ckeditor, :input_html => { :height => 200, :width => 460 }
-      f.input :image_2, :hint => f.template.image_tag(f.object.image_2.url(:thumb))
+      if f.object.image_2?
+        f.input :image_2, :hint => f.template.image_tag(f.object.image_2.url(:thumb))
+      else
+        f.input :image_2
+      end
       f.input :image_2_options, :as => :select, :collection => ["Don't display", "Display in Section 1 left - Small", "Display in Section 1 left - Medium", "Display in Section 1 right - Small", "Display in Section 1 right - Medium", "Display in Section 2 left - Small", "Display in Section 2 left - Medium", "Display in Section 2 right - Small", "Display in Section 2 right - Medium"], :required => false
       f.input :address
       f.input :gmaps, :label => t(:geocoding_found)

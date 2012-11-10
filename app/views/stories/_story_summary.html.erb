@@ -1,0 +1,13 @@
+<% present @selected_article, 'StoryPresenter'.constantize do |story_presenter| %>
+	<% story_presenter.format_for_map = @format_for_map %>
+	<% story_presenter.is_corporate = @is_corporate %>
+	<%= story_presenter.title %>
+	<% line_string = "" %>
+	<% line_string = story_presenter.published_in %>
+	<% line_string = story_presenter.article_type(line_string) %>
+	<% line_string = story_presenter.published_date(line_string) %>
+	<% if line_string.present? %>
+			<%= raw line_string %><br>
+	<% end %> 
+	<%= story_presenter.category_list %>
+<% end %>

@@ -9,11 +9,11 @@ ActiveAdmin.register Video do
     column :broadcast_date
     if I18n.locale == :de
       column "Teaser Image" do |video| 
-        image_tag(video.teaser_image.url(:thumb), :alt => "")
+        image_tag(video.teaser_image.url(:thumb), :alt => "") if video.teaser_image?
       end
     else
       column "Teaser Image EN" do |video| 
-        image_tag(video.teaser_image_en.url(:thumb), :alt => "")
+        image_tag(video.teaser_image_en.url(:thumb), :alt => "") if video.teaser_image_en?
       end
     end
     column "Copyr.", :copyright_cleared
@@ -78,8 +78,16 @@ ActiveAdmin.register Video do
       f.input :video_width, :hint => "#{t(:translation_field)}; Pixels"
       f.input :video_height, :hint => "#{t(:translation_field)}; Pixels"
       f.input :video_aspect_ratio, :hint => "#{t(:translation_field)}; 16:9 or 4:3. If provided, teaser image can be resized automatically to fit the viewer. If not provided, teaser image must have exactly the same size as the video."
+      if f.object.teaser_image?
       f.input :teaser_image, :hint => f.template.image_tag(f.object.teaser_image.url(:thumb))
+      else
+        f.input :teaser_image
+      end
+      if f.object.teaser_image_en?
       f.input :teaser_image_en, :hint => f.template.image_tag(f.object.teaser_image_en.url(:thumb))
+      else
+        f.input :teaser_image_en
+      end
       f.input :copyright_cleared, :as => :radio
       f.input :web_page, :hint => t(:translation_field), :label => t(:online_watch)
       f.input :address

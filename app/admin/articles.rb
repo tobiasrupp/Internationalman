@@ -10,11 +10,11 @@ ActiveAdmin.register Article do
     column :published_date
     if I18n.locale == :de
       column "Teaser Image" do |article| 
-        image_tag(article.teaser_image.url(:thumb), :alt => "")
+        image_tag(article.teaser_image.url(:thumb), :alt => "") if article.teaser_image?
       end
     else
       column "Teaser Image EN" do |article| 
-        image_tag(article.teaser_image_en.url(:thumb), :alt => "")
+        image_tag(article.teaser_image_en.url(:thumb), :alt => "") if article.teaser_image_en?
       end
     end
     column "Copyr.", :copyright_cleared
@@ -85,8 +85,16 @@ ActiveAdmin.register Article do
       f.input :source_file, :hint => f.object.source_file_file_name
       f.input :source_file_en, :hint => f.object.source_file_en_file_name
       f.input :copyright_cleared, :as => :radio
-      f.input :teaser_image, :hint => f.template.image_tag(f.object.teaser_image.url(:thumb))
-      f.input :teaser_image_en, :hint => f.template.image_tag(f.object.teaser_image_en.url(:thumb))
+      if f.object.teaser_image?
+        f.input :teaser_image, :hint => f.template.image_tag(f.object.teaser_image.url(:thumb))
+      else
+        f.input :teaser_image
+      end
+      if f.object.teaser_image_en?
+        f.input :teaser_image_en, :hint => f.template.image_tag(f.object.teaser_image_en.url(:thumb))
+      else
+        f.input :teaser_image_en
+      end
       f.input :address
       f.input :gmaps, :label => t(:geocoding_found)
       f.input :lon, :label => "Longitude"
