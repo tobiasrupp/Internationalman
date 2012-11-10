@@ -65,12 +65,11 @@ class Article < ActiveRecord::Base
 
   def path(corporate_article = false)
     if corporate_article == true
-      section = 'corporate'
+      path = "/#{I18n.locale}/corporate/" + self.url_title
     else
-      section = 'stories'
+      category = self.categories[0]
+      path = "/#{I18n.locale}/stories/" + category.url_name + '/' + self.url_title
     end
-    category = self.categories[0]
-    path = "/#{I18n.locale}/#{section}/" + category.url_name + '/' + self.url_title
     return path
   end
 
