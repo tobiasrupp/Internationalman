@@ -57,67 +57,68 @@ class StoryPresenter < BasePresenter
 
   def source_file
 		return '' unless story.copyright_cleared == true
-		case I18n.locale
-		when :de
-			if story.source_file?
-				s = button_display_story_in_viewer(story.source_file)
-			elsif story.source_file_en?
-				s = button_display_story_in_viewer(story.source_file_en)
-			end
-		when :en
-			if story.source_file_en?
-				s = button_display_story_in_viewer(story.source_file_en)
-			elsif story.source_file?
-				s = button_display_story_in_viewer(story.source_file)
-			end
-		end
+		return send("source_file_#{I18n.locale}")
   end
 
   def teaser_image
-  	return teaser_image_copyright_not_cleared unless story.copyright_cleared == true
-		return teaser_image_copyright_cleared 
+  	return send("teaser_image_copyright_cleared_#{I18n.locale}") if story.copyright_cleared == true
+  	return send("teaser_image_copyright_not_cleared_#{I18n.locale}") 
   end
 
 private
  	attr_writer :image_size
 
- 	def teaser_image_copyright_not_cleared
- 		case I18n.locale
-		when :de
-			if story.teaser_image?
-				s = image_without_link(:teaser_image)
-			elsif story.teaser_image_en?
-				s = image_without_link(:teaser_image_en)
-			end
-		when :en
-			if story.teaser_image_en?
-				s = image_without_link(:teaser_image_en)
-			elsif story.teaser_image?
-				s = image_without_link(:teaser_image)
-			end
+ 	def source_file_de
+ 		if story.source_file?
+			s = button_display_story_in_viewer(story.source_file)
+		elsif story.source_file_en?
+			s = button_display_story_in_viewer(story.source_file_en)
 		end
  	end
 
- 	def teaser_image_copyright_cleared
- 		case I18n.locale
-		when :de
-			if story.teaser_image? and story.source_file?
-				s = image_with_link_to_viewer(:teaser_image, :source_file)
-			elsif story.teaser_image?
-				s = image_without_link(:teaser_image)
-			end
-		when :en
-			if story.teaser_image_en? and story.source_file_en?
-				s = image_with_link_to_viewer(:teaser_image_en, :source_file_en)
-			elsif story.teaser_image? and story.source_file_en?
-				s = image_with_link_to_viewer(:teaser_image, :source_file_en)
-			elsif story.teaser_image? and story.source_file?
-				s = image_with_link_to_viewer(:teaser_image, :source_file)
-			elsif story.teaser_image?
-				s = image_without_link(:teaser_image)
-			end
+ 	def source_file_en
+ 		if story.source_file_en?
+			s = button_display_story_in_viewer(story.source_file_en)
+		elsif story.source_file?
+			s = button_display_story_in_viewer(story.source_file)
 		end
  	end
+
+ 	def teaser_image_copyright_not_cleared_de
+ 		if story.teaser_image?
+			s = image_without_link(:teaser_image)
+		elsif story.teaser_image_en?
+			s = image_without_link(:teaser_image_en)
+		end
+ 	end
+
+ 	def teaser_image_copyright_not_cleared_en
+ 		if story.teaser_image_en?
+			s = image_without_link(:teaser_image_en)
+		elsif story.teaser_image?
+			s = image_without_link(:teaser_image)
+		end
+ 	end
+
+ 	def teaser_image_copyright_cleared_de
+ 		if story.teaser_image? and story.source_file?
+			s = image_with_link_to_viewer(:teaser_image, :source_file)
+		elsif story.teaser_image?
+			s = image_without_link(:teaser_image)
+		end
+ 	end
+
+ 	def teaser_image_copyright_cleared_en
+ 		if story.teaser_image_en? and story.source_file_en?
+			s = image_with_link_to_viewer(:teaser_image_en, :source_file_en)
+		elsif story.teaser_image? and story.source_file_en?
+			s = image_with_link_to_viewer(:teaser_image, :source_file_en)
+		elsif story.teaser_image? and story.source_file?
+			s = image_with_link_to_viewer(:teaser_image, :source_file)
+		elsif story.teaser_image?
+			s = image_without_link(:teaser_image)
+		end
+ 	end	
 
  	def image_with_link_to_viewer(image_field_name, source_file_field_name)
  		s = (link_to(image_tag(story.send(image_field_name).url(self.image_size), :alt => story.send(image_field_name).url(self.image_size), :title => t(:display_story_in_new_window), :class => "thumbnail"), "https://docs.google.com/viewer?url=" + story.send(source_file_field_name).url, :target => '_blank')).html_safe
