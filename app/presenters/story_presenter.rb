@@ -75,24 +75,7 @@ class StoryPresenter < BasePresenter
 
   def teaser_image
   	return teaser_image_copyright_not_cleared unless story.copyright_cleared == true
-		case I18n.locale
-		when :de
-			if story.teaser_image? and story.source_file?
-				s = image_with_link_to_viewer(:teaser_image, :source_file)
-			elsif story.teaser_image?
-				s = image_without_link(:teaser_image)
-			end
-		when :en
-			if story.teaser_image_en? and story.source_file_en?
-				s = image_with_link_to_viewer(:teaser_image_en, :source_file_en)
-			elsif story.teaser_image? and story.source_file_en?
-				s = image_with_link_to_viewer(:teaser_image, :source_file_en)
-			elsif story.teaser_image? and story.source_file?
-				s = image_with_link_to_viewer(:teaser_image, :source_file)
-			elsif story.teaser_image?
-				s = image_without_link(:teaser_image)
-			end
-		end
+		return teaser_image_copyright_cleared 
   end
 
 private
@@ -109,6 +92,27 @@ private
 		when :en
 			if story.teaser_image_en?
 				s = image_without_link(:teaser_image_en)
+			elsif story.teaser_image?
+				s = image_without_link(:teaser_image)
+			end
+		end
+ 	end
+
+ 	def teaser_image_copyright_cleared
+ 		case I18n.locale
+		when :de
+			if story.teaser_image? and story.source_file?
+				s = image_with_link_to_viewer(:teaser_image, :source_file)
+			elsif story.teaser_image?
+				s = image_without_link(:teaser_image)
+			end
+		when :en
+			if story.teaser_image_en? and story.source_file_en?
+				s = image_with_link_to_viewer(:teaser_image_en, :source_file_en)
+			elsif story.teaser_image? and story.source_file_en?
+				s = image_with_link_to_viewer(:teaser_image, :source_file_en)
+			elsif story.teaser_image? and story.source_file?
+				s = image_with_link_to_viewer(:teaser_image, :source_file)
 			elsif story.teaser_image?
 				s = image_without_link(:teaser_image)
 			end
