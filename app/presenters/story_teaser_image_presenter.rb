@@ -51,13 +51,17 @@ private
 			s = image_with_link_to_viewer(:teaser_image, :source_file_en)
 		elsif story.teaser_image? and story.source_file?
 			s = image_with_link_to_viewer(:teaser_image, :source_file)
-		elsif story.teaser_image?
-			s = image_without_link(:teaser_image)
+		# elsif story.teaser_image?
+		# 	s = image_without_link(:teaser_image)
 		end
  	end	
 
  	def image_with_link_to_viewer(image_field_name, source_file_field_name)
- 		s = (link_to(image_tag(story.send(image_field_name).url(image_size), :alt => story.send(image_field_name).url(image_size), :title => t(:display_story_in_new_window), :class => "thumbnail"), "https://docs.google.com/viewer?url=" + story.send(source_file_field_name).url, :target => '_blank')).html_safe
+ 		s = (link_to(get_image_tag(image_field_name), "https://docs.google.com/viewer?url=" + story.send(source_file_field_name).url, :target => '_blank')).html_safe
+ 	end
+
+ 	def get_image_tag(image_field_name)
+ 		s = image_tag(story.send(image_field_name).url(image_size), :alt => story.send(image_field_name).url(image_size), :title => t(:display_story_in_new_window), :class => "thumbnail")
  	end
 
  	def image_without_link(image_field_name)

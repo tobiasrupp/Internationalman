@@ -23,14 +23,14 @@
       <img src="./assets/0.5.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2012-11-10T16:27:23+00:00">2012-11-10T16:27:23+00:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2012-11-10T20:31:25+00:00">2012-11-10T20:31:25+00:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="green">94.98%</span></span>
+    (<span class="covered_percent"><span class="green">95.05%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
@@ -42,8 +42,8 @@
   <div>
     <b>57</b> files in total.
     <b>1635</b> relevant lines. 
-    <span class="green"><b>1553</b> lines covered</span> and
-    <span class="red"><b>82</b> lines missed </span>
+    <span class="green"><b>1554</b> lines covered</span> and
+    <span class="red"><b>81</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -551,11 +551,11 @@
       
       <tr>
         <td class="strong"><a href="#2ab7463625e4068309e62b4a1e25c9eb65e180fd" class="src_link" title="app/presenters/story_teaser_image_presenter.rb">app/presenters/story_teaser_image_presenter.rb</a></td>
-        <td class="red strong">47.62 %</td>
-        <td>67</td>
+        <td class="red strong">50.0 %</td>
+        <td>71</td>
         <td>42</td>
-        <td>20</td>
-        <td>22</td>
+        <td>21</td>
+        <td>21</td>
         <td>2.7</td>
       </tr>
       
@@ -1220,7 +1220,7 @@
           <div class="file_list_container" id="Ungrouped">
   <h2>
     <span class="group_name">Ungrouped</span>
-    (<span class="covered_percent"><span class="green">95.6%</span></span>
+    (<span class="covered_percent"><span class="green">95.68%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
@@ -1232,8 +1232,8 @@
   <div>
     <b>21</b> files in total.
     <b>1158</b> relevant lines. 
-    <span class="green"><b>1107</b> lines covered</span> and
-    <span class="red"><b>51</b> lines missed </span>
+    <span class="green"><b>1108</b> lines covered</span> and
+    <span class="red"><b>50</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -1381,11 +1381,11 @@
       
       <tr>
         <td class="strong"><a href="#2ab7463625e4068309e62b4a1e25c9eb65e180fd" class="src_link" title="app/presenters/story_teaser_image_presenter.rb">app/presenters/story_teaser_image_presenter.rb</a></td>
-        <td class="red strong">47.62 %</td>
-        <td>67</td>
+        <td class="red strong">50.0 %</td>
+        <td>71</td>
         <td>42</td>
-        <td>20</td>
-        <td>22</td>
+        <td>21</td>
+        <td>21</td>
         <td>2.7</td>
       </tr>
       
@@ -17515,11 +17515,11 @@
         <div class="source_table" id="2ab7463625e4068309e62b4a1e25c9eb65e180fd">
   <div class="header">
     <h3>app/presenters/story_teaser_image_presenter.rb</h3>
-    <h4><span class="red">47.62 %</span> covered</h4>
+    <h4><span class="red">50.0 %</span> covered</h4>
     <div>
       <b>42</b> relevant lines. 
-      <span class="green"><b>20</b> lines covered</span> and
-      <span class="red"><b>22</b> lines missed.</span>
+      <span class="green"><b>21</b> lines covered</span> and
+      <span class="red"><b>21</b> lines missed.</span>
     </div>
   </div>
   
@@ -17844,16 +17844,16 @@
           <code class="ruby">			s = image_with_link_to_viewer(:teaser_image, :source_file)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="54">
+        <li class="never" data-hits="" data-linenumber="54">
           
           
-          <code class="ruby">		elsif story.teaser_image?</code>
+          <code class="ruby">		# elsif story.teaser_image?</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="55">
+        <li class="never" data-hits="" data-linenumber="55">
           
           
-          <code class="ruby">			s = image_without_link(:teaser_image)</code>
+          <code class="ruby">		# 	s = image_without_link(:teaser_image)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="56">
@@ -17883,7 +17883,7 @@
         <li class="missed" data-hits="0" data-linenumber="60">
           
           
-          <code class="ruby"> 		s = (link_to(image_tag(story.send(image_field_name).url(image_size), :alt =&gt; story.send(image_field_name).url(image_size), :title =&gt; t(:display_story_in_new_window), :class =&gt; &quot;thumbnail&quot;), &quot;https://docs.google.com/viewer?url=&quot; + story.send(source_file_field_name).url, :target =&gt; '_blank')).html_safe</code>
+          <code class="ruby"> 		s = (link_to(get_image_tag(image_field_name), &quot;https://docs.google.com/viewer?url=&quot; + story.send(source_file_field_name).url, :target =&gt; '_blank')).html_safe</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="61">
@@ -17901,13 +17901,13 @@
         <li class="covered" data-hits="1" data-linenumber="63">
           <span class="hits">1</span>
           
-          <code class="ruby"> 	def image_without_link(image_field_name)</code>
+          <code class="ruby"> 	def get_image_tag(image_field_name)</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="64">
           
           
-          <code class="ruby"> 		s = (image_tag(story.send(image_field_name).url(image_size), :alt =&gt; story.send(image_field_name).url(image_size), :title =&gt; &quot;&quot;, :class =&gt; &quot;thumbnail&quot;)).html_safe</code>
+          <code class="ruby"> 		s = image_tag(story.send(image_field_name).url(image_size), :alt =&gt; story.send(image_field_name).url(image_size), :title =&gt; t(:display_story_in_new_window), :class =&gt; &quot;thumbnail&quot;)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="65">
@@ -17922,7 +17922,31 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="67">
+        <li class="covered" data-hits="1" data-linenumber="67">
+          <span class="hits">1</span>
+          
+          <code class="ruby"> 	def image_without_link(image_field_name)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="68">
+          
+          
+          <code class="ruby"> 		s = (image_tag(story.send(image_field_name).url(image_size), :alt =&gt; story.send(image_field_name).url(image_size), :title =&gt; &quot;&quot;, :class =&gt; &quot;thumbnail&quot;)).html_safe</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="69">
+          
+          
+          <code class="ruby"> 	end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="70">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="71">
           
           
           <code class="ruby">end</code>
