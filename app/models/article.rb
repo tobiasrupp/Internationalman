@@ -10,25 +10,26 @@ class Article < ActiveRecord::Base
   has_and_belongs_to_many :categories, :join_table => 'article_categories', :order => 'display_section ASC, display_sequence ASC'
   attr_accessible :teaser_image
   scope :corporate_articles, joins(:categories).where("categories.name = 'Corporate'")
-  has_attached_file :teaser_image, :styles => { :medium => "430x304", :thumb => "100x100>" }, :convert_options => { :medium => "-quality 90", :thumb => "-quality 90"},
-    :storage => :s3,
-    :path => "articles/:attachment/:id/:style.:extension",
-    :s3_credentials => "#{Rails.root}/config/aws.yml"
-   
-  has_attached_file :teaser_image_en, :styles => { :medium => "430x304", :thumb => "100x100>" }, :convert_options => { :medium => "-quality 90", :thumb => "-quality 90"},
-    :storage => :s3,
-    :path => "articles/:attachment/:id/:style.:extension",
-    :s3_credentials => "#{Rails.root}/config/aws.yml"
-      
-  has_attached_file :source_file,
-    :storage => :s3,
-    :path => "articles/:attachment/:id/:style.:extension",
-    :s3_credentials => "#{Rails.root}/config/aws.yml"
+  
+  column_names = []
+  column_names << :teaser_image
+  column_names << :teaser_image_en
+  column_names.each do |column_name|
+      has_attached_file column_name, :styles => { :medium => "430x304", :thumb => "100x100>" }, :convert_options => { :medium => "-quality 90", :thumb => "-quality 90"},
+        :storage => :s3,
+        :path => "articles/:attachment/:id/:style.:extension",
+        :s3_credentials => "#{Rails.root}/config/aws.yml"
+  end
 
-  has_attached_file :source_file_en,
-    :storage => :s3,
-    :path => "articles/:attachment/:id/:style.:extension",
-    :s3_credentials => "#{Rails.root}/config/aws.yml"
+  column_names = []
+  column_names << :source_file
+  column_names << :source_file_en
+  column_names.each do |column_name|
+    has_attached_file column_name,
+      :storage => :s3,
+      :path => "articles/:attachment/:id/:style.:extension",
+      :s3_credentials => "#{Rails.root}/config/aws.yml"
+  end
       
   translates :title, :short_title, :url_title, :article_type, :ctry, :language, :web_page, :viewer_url, :embed_code, :fallbacks_for_empty_translations => true
   class Translation

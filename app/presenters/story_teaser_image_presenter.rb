@@ -67,5 +67,4 @@ private
  	def image_without_link(image_field_name)
  		s = (image_tag(story.send(image_field_name).url(image_size), :alt => story.send(image_field_name).url(image_size), :title => "", :class => "thumbnail")).html_safe
  	end
-
 end

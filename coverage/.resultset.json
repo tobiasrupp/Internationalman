@@ -540,22 +540,23 @@
         1,
         1,
         1,
-        1,
-        null,
-        null,
-        null,
         null,
         1,
-        null,
-        null,
-        null,
-        null,
         1,
+        1,
+        1,
+        2,
+        null,
         null,
         null,
         null,
         null,
         1,
+        1,
+        1,
+        1,
+        2,
+        null,
         null,
         null,
         null,
@@ -2362,6 +2363,23 @@
         null,
         null
       ],
+      "/Users/tobias/dev/rails_projects/intlman/app/library/image_attachable.rb": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
       "/Users/tobias/dev/rails_projects/intlman/app/models/article_category.rb": [
         1,
         1,
@@ -2694,7 +2712,6 @@
         null,
         1,
         0,
-        null,
         null,
         null
       ],
@@ -3035,6 +3052,6 @@
         null
       ]
     },
-    "timestamp": 1352579481
+    "timestamp": 1352922006
   }
 }
