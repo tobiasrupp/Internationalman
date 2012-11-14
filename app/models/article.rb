@@ -2,6 +2,7 @@ class Article < ActiveRecord::Base
   include ModelBaseMethods
   include ModelBaseValidations
   include ModelBaseDefinitions
+  include TeaserImageValidatable
   attr_accessible :article_type, :author, :ctry, :filename, :language
   attr_accessible :latitude, :longitude, :photos_by, :published_date, :published_in, :web_page
   attr_accessible :title, :url_title, :embed_code, :short_title, :viewer_url, :source_file, :copyright_cleared, :teaser_image_en, :source_file_en, :lon, :lat, :gmaps, :address
@@ -15,10 +16,10 @@ class Article < ActiveRecord::Base
   column_names << :teaser_image
   column_names << :teaser_image_en
   column_names.each do |column_name|
-      has_attached_file column_name, :styles => { :medium => "430x304", :thumb => "100x100>" }, :convert_options => { :medium => "-quality 90", :thumb => "-quality 90"},
-        :storage => :s3,
-        :path => "articles/:attachment/:id/:style.:extension",
-        :s3_credentials => "#{Rails.root}/config/aws.yml"
+    has_attached_file column_name, :styles => { :medium => "430x304", :thumb => "100x100>" }, :convert_options => { :medium => "-quality 90", :thumb => "-quality 90"},
+      :storage => :s3,
+      :path => "articles/:attachment/:id/:style.:extension",
+      :s3_credentials => "#{Rails.root}/config/aws.yml"
   end
 
   column_names = []
@@ -36,10 +37,6 @@ class Article < ActiveRecord::Base
     attr_accessible :locale
   end
 
-  validates_attachment :teaser_image, :content_type => { :content_type => /image/, 
-    :message => "Invalid file type. Select an image." }, :size => { :in => 1..300.kilobytes }
-  validates_attachment :teaser_image_en, :content_type => { :content_type => /image/, 
-    :message => "Invalid file type. Select an image." }, :size => { :in => 1..300.kilobytes }
   validates_attachment :source_file, :content_type => { :content_type => /pdf/, 
     :message => "Invalid file type. Select a PDF." }, :size => { :in => 1..5000.kilobytes }
    validates_attachment :source_file_en, :content_type => { :content_type => /pdf/, 
