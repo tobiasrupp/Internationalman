@@ -10,8 +10,10 @@ class Video < ActiveRecord::Base
   column_names = []
   column_names << :teaser_image
   column_names << :teaser_image_en
+  styles = { :sixteen_nine => "452x254!", :four_three => "452x337!", :thumb => "50x50!" }
+  convert_options = { :sixteen_nine => "-quality 90", :four_three => "-quality 90", :thumb => "-quality 90"}
   column_names.each do |column_name|
-    has_attached_file column_name, :styles => { :sixteen_nine => "452x254!", :four_three => "452x337!", :thumb => "50x50!" }, :convert_options => { :sixteen_nine => "-quality 90", :four_three => "-quality 90", :thumb => "-quality 90"},
+    has_attached_file column_name, :styles => styles, :convert_options => convert_options,
       :storage => :s3,
       :path => "videos/:attachment/:id/:style.:extension",
       :s3_credentials => "#{Rails.root}/config/aws.yml"

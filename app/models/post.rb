@@ -11,8 +11,10 @@ class Post < ActiveRecord::Base
   column_names = []
   column_names << :image_1
   column_names << :image_2
+  styles = { :medium => "320x320>", :small => "160x160>", :thumb => "100x100>" }
+  convert_options = { :medium => "-quality 90", :small => "-quality 90", :thumb => "-quality 90"}
   column_names.each do |column_name|
-    has_attached_file column_name, :styles => { :medium => "320x320>", :small => "160x160>", :thumb => "100x100>" }, :convert_options => { :medium => "-quality 90", :small => "-quality 90", :thumb => "-quality 90"},
+    has_attached_file column_name, :styles => styles, :convert_options => convert_options,
       :storage => :s3,
       :path => "posts/:attachment/:id/:style.:extension",
       :s3_credentials => "#{Rails.root}/config/aws.yml"
