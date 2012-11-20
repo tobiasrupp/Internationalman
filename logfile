@@ -977,3 +977,10 @@ LOG:  database system is ready to accept connections
 LOG:  autovacuum launcher started
 LOG:  unexpected EOF on client connection
 LOG:  unexpected EOF on client connection
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+LOG:  database system was shut down at 2012-11-20 20:38:21 GMT
+LOG:  autovacuum launcher started
+LOG:  database system is ready to accept connections

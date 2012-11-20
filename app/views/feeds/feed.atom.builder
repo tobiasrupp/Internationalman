@@ -12,7 +12,7 @@ atom_feed :language => 'en-US' do |feed|
         entry.title("Stories - " + t(:no_text_found))
       end
       @selected_article = article
-      entry.content((render :partial => 'stories/story_summary', :formats=>[:html], :handlers=>[:erb]).html_safe, :type => 'html')
+      entry.content((render :partial => 'stories/story_details', :formats=>[:html], :handlers=>[:erb]).html_safe, :type => 'html')
       if !article.author.nil?
         entry.author do |author|
           author.name(article.author)
