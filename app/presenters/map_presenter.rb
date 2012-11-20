@@ -20,7 +20,8 @@ private
       is_corporate = corporate_article?(article)
       marker.infowindow article_summary(article)
       if is_corporate == true
-        marker = corporate_article_json(article, marker)
+        marker.title  article.title + ' (Corporate)'
+        marker.json(corporate_article_json(article))
       else
         marker.title  article.title + ' (Stories)'
         marker.json({ :id => article.id })
@@ -59,17 +60,15 @@ private
     end
     return is_corporate
   end
-  def corporate_article_json(article, marker)
-    marker.title  article.title + ' (Corporate)'
-    marker.json({ :id => article.id, "picture" => "/assets/clothers_male_b_w.png",
-       "width" => 32,
-       "height" => 37,
-       "shadow_picture" => "http://maps.google.com/mapfiles/shadow50.png" ,
-       "shadow_width" => "37",
-       "shadow_height" => "34",
-       "shadow_anchor" => [10, 34]
-      })
-    return marker
+  def corporate_article_json(article)
+    { :id => article.id, "picture" => "/assets/clothers_male_b_w.png",
+     "width" => 32,
+     "height" => 37,
+     "shadow_picture" => "http://maps.google.com/mapfiles/shadow50.png" ,
+     "shadow_width" => "37",
+     "shadow_height" => "34",
+     "shadow_anchor" => [10, 34]
+    }
   end  
 end
 
