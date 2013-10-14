@@ -22,20 +22,6 @@ CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
 COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
 
 
---
--- Name: unaccent; Type: EXTENSION; Schema: -; Owner: -
---
-
-CREATE EXTENSION IF NOT EXISTS unaccent WITH SCHEMA public;
-
-
---
--- Name: EXTENSION unaccent; Type: COMMENT; Schema: -; Owner: -
---
-
-COMMENT ON EXTENSION unaccent IS 'text search dictionary that removes accents';
-
-
 SET search_path = public, pg_catalog;
 
 SET default_tablespace = '';
@@ -1010,11 +996,11 @@ ALTER TABLE ONLY videos ALTER COLUMN id SET DEFAULT nextval('videos_id_seq'::reg
 
 
 --
--- Name: admin_notes_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: active_admin_comments_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
 ALTER TABLE ONLY active_admin_comments
-    ADD CONSTRAINT admin_notes_pkey PRIMARY KEY (id);
+    ADD CONSTRAINT active_admin_comments_pkey PRIMARY KEY (id);
 
 
 --
@@ -1369,8 +1355,6 @@ CREATE UNIQUE INDEX unique_schema_migrations ON schema_migrations USING btree (v
 -- PostgreSQL database dump complete
 --
 
-INSERT INTO schema_migrations (version) VALUES ('0');
-
 INSERT INTO schema_migrations (version) VALUES ('20120816210514');
 
 INSERT INTO schema_migrations (version) VALUES ('20120816211030');
@@ -1386,10 +1370,6 @@ INSERT INTO schema_migrations (version) VALUES ('20120816223513');
 INSERT INTO schema_migrations (version) VALUES ('20120817002811');
 
 INSERT INTO schema_migrations (version) VALUES ('20120817101906');
-
-INSERT INTO schema_migrations (version) VALUES ('20120817170226');
-
-INSERT INTO schema_migrations (version) VALUES ('20120817172210');
 
 INSERT INTO schema_migrations (version) VALUES ('20120817182733');
 
@@ -1436,8 +1416,6 @@ INSERT INTO schema_migrations (version) VALUES ('20120825102754');
 INSERT INTO schema_migrations (version) VALUES ('20120825173458');
 
 INSERT INTO schema_migrations (version) VALUES ('20120825175348');
-
-INSERT INTO schema_migrations (version) VALUES ('20120826141512');
 
 INSERT INTO schema_migrations (version) VALUES ('20120828192658');
 

@@ -1,7 +1,7 @@
 {
   "Cucumber Features": {
     "coverage": {
-      "/Users/tobias/dev/rails_projects/intlman/app/controllers/application_controller.rb": [
+      "/Users/tobias/Documents/dev/intlman/app/controllers/application_controller.rb": [
         1,
         1,
         null,
@@ -15,23 +15,23 @@
         null,
         null,
         1,
-        269,
-        269,
-        269,
-        269,
-        269,
-        269,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
         null,
         2,
         null,
         null,
         null,
         1,
-        269,
-        269,
+        256,
+        256,
         0,
         null,
-        269,
+        256,
         null,
         null,
         null,
@@ -86,32 +86,32 @@
         null,
         null
       ],
-      "/Users/tobias/dev/rails_projects/intlman/app/helpers/application_helper.rb": [
+      "/Users/tobias/Documents/dev/intlman/app/helpers/application_helper.rb": [
         1,
         null,
         null,
         1,
-        30,
-        30,
-        30,
-        30,
+        18,
+        18,
+        18,
+        18,
         null,
         null,
         null,
         1,
-        76,
+        61,
         null,
         null,
-        76,
-        24,
+        61,
+        9,
         null,
         52,
         null,
         null,
         null,
         1,
-        39,
-        39,
+        27,
+        27,
         null,
         null,
         1,
@@ -133,32 +133,32 @@
         null,
         null,
         1,
-        16,
-        16,
-        16,
-        26,
-        16,
-        null,
+        8,
+        8,
+        8,
         10,
+        8,
+        null,
+        2,
         null,
         null,
-        16,
+        8,
         null,
         null
       ],
-      "/Users/tobias/dev/rails_projects/intlman/app/helpers/corporate_articles_helper.rb": [
+      "/Users/tobias/Documents/dev/intlman/app/helpers/corporate_articles_helper.rb": [
         1,
         null
       ],
-      "/Users/tobias/dev/rails_projects/intlman/app/helpers/feeds_helper.rb": [
+      "/Users/tobias/Documents/dev/intlman/app/helpers/feeds_helper.rb": [
         1,
         null
       ],
-      "/Users/tobias/dev/rails_projects/intlman/app/helpers/pages_helper.rb": [
+      "/Users/tobias/Documents/dev/intlman/app/helpers/pages_helper.rb": [
         1,
         null
       ],
-      "/Users/tobias/dev/rails_projects/intlman/app/helpers/posts_helper.rb": [
+      "/Users/tobias/Documents/dev/intlman/app/helpers/posts_helper.rb": [
         1,
         null,
         1,
@@ -281,28 +281,28 @@
         null,
         null
       ],
-      "/Users/tobias/dev/rails_projects/intlman/app/helpers/radio_tracks_helper.rb": [
+      "/Users/tobias/Documents/dev/intlman/app/helpers/radio_tracks_helper.rb": [
         1,
         null
       ],
-      "/Users/tobias/dev/rails_projects/intlman/app/helpers/searches_helper.rb": [
+      "/Users/tobias/Documents/dev/intlman/app/helpers/searches_helper.rb": [
         1,
         null
       ],
-      "/Users/tobias/dev/rails_projects/intlman/app/helpers/services_helper.rb": [
+      "/Users/tobias/Documents/dev/intlman/app/helpers/services_helper.rb": [
         1,
         null
       ],
-      "/Users/tobias/dev/rails_projects/intlman/app/helpers/stories_helper.rb": [
+      "/Users/tobias/Documents/dev/intlman/app/helpers/stories_helper.rb": [
         1,
         null,
         null
       ],
-      "/Users/tobias/dev/rails_projects/intlman/app/helpers/videos_helper.rb": [
+      "/Users/tobias/Documents/dev/intlman/app/helpers/videos_helper.rb": [
         1,
         null
       ],
-      "/Users/tobias/dev/rails_projects/intlman/app/admin/articles.rb": [
+      "/Users/tobias/Documents/dev/intlman/app/admin/articles.rb": [
         1,
         1,
         1,
@@ -527,7 +527,7 @@
         null,
         null
       ],
-      "/Users/tobias/dev/rails_projects/intlman/app/models/article.rb": [
+      "/Users/tobias/Documents/dev/intlman/app/models/article.rb": [
         1,
         1,
         1,
@@ -580,8 +580,8 @@
         1,
         null,
         1,
-        14,
-        14,
+        1,
+        1,
         null,
         null,
         null,
@@ -606,7 +606,7 @@
         null,
         null
       ],
-      "/Users/tobias/dev/rails_projects/intlman/app/library/model_base_methods.rb": [
+      "/Users/tobias/Documents/dev/intlman/app/library/model_base_methods.rb": [
         1,
         null,
         1,
@@ -660,7 +660,7 @@
         null,
         null
       ],
-      "/Users/tobias/dev/rails_projects/intlman/app/library/model_base_validations.rb": [
+      "/Users/tobias/Documents/dev/intlman/app/library/model_base_validations.rb": [
         1,
         1,
         4,
@@ -674,7 +674,7 @@
         null,
         null
       ],
-      "/Users/tobias/dev/rails_projects/intlman/app/library/model_base_definitions.rb": [
+      "/Users/tobias/Documents/dev/intlman/app/library/model_base_definitions.rb": [
         1,
         1,
         3,
@@ -684,7 +684,7 @@
         null,
         null
       ],
-      "/Users/tobias/dev/rails_projects/intlman/app/library/teaser_image_validatable.rb": [
+      "/Users/tobias/Documents/dev/intlman/app/library/teaser_image_validatable.rb": [
         1,
         1,
         null,
@@ -694,7 +694,7 @@
         null,
         null
       ],
-      "/Users/tobias/dev/rails_projects/intlman/app/admin/categories.rb": [
+      "/Users/tobias/Documents/dev/intlman/app/admin/categories.rb": [
         1,
         1,
         1,
@@ -796,7 +796,7 @@
         null,
         null
       ],
-      "/Users/tobias/dev/rails_projects/intlman/app/models/category.rb": [
+      "/Users/tobias/Documents/dev/intlman/app/models/category.rb": [
         1,
         1,
         1,
@@ -818,7 +818,7 @@
         null,
         null
       ],
-      "/Users/tobias/dev/rails_projects/intlman/app/admin/custom.rb": [
+      "/Users/tobias/Documents/dev/intlman/app/admin/custom.rb": [
         null,
         null,
         null,
@@ -828,7 +828,7 @@
         null,
         null
       ],
-      "/Users/tobias/dev/rails_projects/intlman/app/admin/dashboards.rb": [
+      "/Users/tobias/Documents/dev/intlman/app/admin/dashboards.rb": [
         1,
         null,
         null,
@@ -919,7 +919,7 @@
         null,
         null
       ],
-      "/Users/tobias/dev/rails_projects/intlman/app/admin/pages.rb": [
+      "/Users/tobias/Documents/dev/intlman/app/admin/pages.rb": [
         1,
         1,
         1,
@@ -1014,7 +1014,7 @@
         null,
         null
       ],
-      "/Users/tobias/dev/rails_projects/intlman/app/models/page.rb": [
+      "/Users/tobias/Documents/dev/intlman/app/models/page.rb": [
         1,
         1,
         null,
@@ -1027,7 +1027,7 @@
         null,
         null
       ],
-      "/Users/tobias/dev/rails_projects/intlman/app/admin/posts.rb": [
+      "/Users/tobias/Documents/dev/intlman/app/admin/posts.rb": [
         1,
         1,
         1,
@@ -1217,7 +1217,7 @@
         null,
         null
       ],
-      "/Users/tobias/dev/rails_projects/intlman/app/models/post.rb": [
+      "/Users/tobias/Documents/dev/intlman/app/models/post.rb": [
         1,
         1,
         1,
@@ -1265,7 +1265,7 @@
         null,
         null
       ],
-      "/Users/tobias/dev/rails_projects/intlman/app/admin/radio_tracks.rb": [
+      "/Users/tobias/Documents/dev/intlman/app/admin/radio_tracks.rb": [
         1,
         1,
         1,
@@ -1439,7 +1439,7 @@
         null,
         null
       ],
-      "/Users/tobias/dev/rails_projects/intlman/app/models/radio_track.rb": [
+      "/Users/tobias/Documents/dev/intlman/app/models/radio_track.rb": [
         1,
         1,
         1,
@@ -1474,7 +1474,7 @@
         null,
         null
       ],
-      "/Users/tobias/dev/rails_projects/intlman/app/admin/status_messages.rb": [
+      "/Users/tobias/Documents/dev/intlman/app/admin/status_messages.rb": [
         1,
         1,
         1,
@@ -1576,7 +1576,7 @@
         null,
         null
       ],
-      "/Users/tobias/dev/rails_projects/intlman/app/models/status_message.rb": [
+      "/Users/tobias/Documents/dev/intlman/app/models/status_message.rb": [
         1,
         1,
         1,
@@ -1591,8 +1591,8 @@
         1,
         null,
         null,
-        76,
-        76,
+        61,
+        61,
         null,
         null,
         5,
@@ -1699,7 +1699,7 @@
         null,
         null
       ],
-      "/Users/tobias/dev/rails_projects/intlman/app/admin/videos.rb": [
+      "/Users/tobias/Documents/dev/intlman/app/admin/videos.rb": [
         1,
         1,
         3,
@@ -1921,7 +1921,7 @@
         null,
         null
       ],
-      "/Users/tobias/dev/rails_projects/intlman/app/models/video.rb": [
+      "/Users/tobias/Documents/dev/intlman/app/models/video.rb": [
         1,
         1,
         1,
@@ -1966,7 +1966,7 @@
         null,
         null
       ],
-      "/Users/tobias/dev/rails_projects/intlman/app/models/admin_user.rb": [
+      "/Users/tobias/Documents/dev/intlman/app/models/admin_user.rb": [
         1,
         null,
         null,
@@ -1979,7 +1979,7 @@
         null,
         null
       ],
-      "/Users/tobias/dev/rails_projects/intlman/app/controllers/corporate_articles_controller.rb": [
+      "/Users/tobias/Documents/dev/intlman/app/controllers/corporate_articles_controller.rb": [
         1,
         null,
         1,
@@ -2007,7 +2007,7 @@
         null,
         null
       ],
-      "/Users/tobias/dev/rails_projects/intlman/app/controllers/feeds_controller.rb": [
+      "/Users/tobias/Documents/dev/intlman/app/controllers/feeds_controller.rb": [
         1,
         null,
         1,
@@ -2044,7 +2044,7 @@
         null,
         null
       ],
-      "/Users/tobias/dev/rails_projects/intlman/app/controllers/pages_controller.rb": [
+      "/Users/tobias/Documents/dev/intlman/app/controllers/pages_controller.rb": [
         1,
         null,
         1,
@@ -2126,7 +2126,7 @@
         null,
         null
       ],
-      "/Users/tobias/dev/rails_projects/intlman/app/controllers/posts_controller.rb": [
+      "/Users/tobias/Documents/dev/intlman/app/controllers/posts_controller.rb": [
         1,
         null,
         1,
@@ -2161,7 +2161,7 @@
         null,
         null
       ],
-      "/Users/tobias/dev/rails_projects/intlman/app/controllers/radio_tracks_controller.rb": [
+      "/Users/tobias/Documents/dev/intlman/app/controllers/radio_tracks_controller.rb": [
         1,
         null,
         1,
@@ -2190,22 +2190,22 @@
         null,
         null
       ],
-      "/Users/tobias/dev/rails_projects/intlman/app/controllers/searches_controller.rb": [
+      "/Users/tobias/Documents/dev/intlman/app/controllers/searches_controller.rb": [
         1,
         null,
         1,
         null,
         1,
-        15,
+        2,
         null,
         1,
         null,
-        14,
-        14,
+        1,
+        1,
         null,
         0,
         null,
-        14,
+        0,
         null,
         null,
         1,
@@ -2215,7 +2215,7 @@
         null,
         null
       ],
-      "/Users/tobias/dev/rails_projects/intlman/app/controllers/services_controller.rb": [
+      "/Users/tobias/Documents/dev/intlman/app/controllers/services_controller.rb": [
         1,
         null,
         1,
@@ -2232,25 +2232,25 @@
         null,
         2,
         2,
-        2,
-        2,
+        1,
+        1,
         null,
-        2,
-        2,
+        1,
+        1,
         null,
         null,
         1,
         null,
         1,
-        2,
-        2,
+        1,
+        1,
         null,
         0,
         null,
         null,
         null
       ],
-      "/Users/tobias/dev/rails_projects/intlman/app/controllers/stories_controller.rb": [
+      "/Users/tobias/Documents/dev/intlman/app/controllers/stories_controller.rb": [
         1,
         null,
         1,
@@ -2339,7 +2339,7 @@
         null,
         null
       ],
-      "/Users/tobias/dev/rails_projects/intlman/app/controllers/videos_controller.rb": [
+      "/Users/tobias/Documents/dev/intlman/app/controllers/videos_controller.rb": [
         1,
         null,
         1,
@@ -2374,7 +2374,7 @@
         null,
         null
       ],
-      "/Users/tobias/dev/rails_projects/intlman/app/library/image_attachable.rb": [
+      "/Users/tobias/Documents/dev/intlman/app/library/image_attachable.rb": [
         null,
         null,
         null,
@@ -2391,42 +2391,42 @@
         null,
         null
       ],
-      "/Users/tobias/dev/rails_projects/intlman/app/models/article_category.rb": [
+      "/Users/tobias/Documents/dev/intlman/app/models/article_category.rb": [
         1,
         1,
         null
       ],
-      "/Users/tobias/dev/rails_projects/intlman/app/models/post_category.rb": [
+      "/Users/tobias/Documents/dev/intlman/app/models/post_category.rb": [
         1,
         1,
         null
       ],
-      "/Users/tobias/dev/rails_projects/intlman/app/models/radio_track_category.rb": [
+      "/Users/tobias/Documents/dev/intlman/app/models/radio_track_category.rb": [
         1,
         1,
         null
       ],
-      "/Users/tobias/dev/rails_projects/intlman/app/models/settings.rb": [
+      "/Users/tobias/Documents/dev/intlman/app/models/settings.rb": [
         1,
         1,
         1,
         null
       ],
-      "/Users/tobias/dev/rails_projects/intlman/app/models/video_category.rb": [
+      "/Users/tobias/Documents/dev/intlman/app/models/video_category.rb": [
         1,
         1,
         null
       ],
-      "/Users/tobias/dev/rails_projects/intlman/app/presenters/base_presenter.rb": [
+      "/Users/tobias/Documents/dev/intlman/app/presenters/base_presenter.rb": [
         1,
         1,
-        57,
-        57,
+        33,
+        33,
         null,
         null,
         1,
         3,
-        386,
+        218,
         null,
         null,
         null,
@@ -2437,12 +2437,12 @@
         1,
         null,
         1,
-        199,
+        103,
         null,
         null,
         null
       ],
-      "/Users/tobias/dev/rails_projects/intlman/app/presenters/map_presenter.rb": [
+      "/Users/tobias/Documents/dev/intlman/app/presenters/map_presenter.rb": [
         1,
         1,
         1,
@@ -2518,51 +2518,51 @@
         null,
         null
       ],
-      "/Users/tobias/dev/rails_projects/intlman/app/presenters/model_base_presenter.rb": [
+      "/Users/tobias/Documents/dev/intlman/app/presenters/model_base_presenter.rb": [
         1,
         null,
         1,
-        27,
-        27,
+        15,
+        15,
         null,
         null,
         1,
-        27,
-        23,
-        23,
+        15,
+        11,
+        11,
         null,
         null,
         1,
-        27,
-        23,
-        23,
+        15,
+        11,
+        11,
         null,
         null,
         1,
+        17,
+        17,
+        17,
         29,
         29,
-        29,
-        59,
-        59,
         null,
-        29,
+        17,
         null,
         null,
         1,
-        27,
-        21,
+        15,
+        9,
         null,
         null,
         1,
-        180,
-        124,
+        90,
+        58,
         null,
-        56,
+        32,
         null,
         null,
         null
       ],
-      "/Users/tobias/dev/rails_projects/intlman/app/presenters/story_presenter.rb": [
+      "/Users/tobias/Documents/dev/intlman/app/presenters/story_presenter.rb": [
         1,
         1,
         1,
@@ -2571,9 +2571,9 @@
         1,
         null,
         1,
-        29,
-        29,
-        27,
+        17,
+        17,
+        15,
         null,
         null,
         1,
@@ -2585,41 +2585,41 @@
         null,
         null,
         1,
-        29,
-        25,
-        15,
+        17,
+        13,
+        3,
         null,
         10,
         null,
         null,
         null,
         1,
-        29,
-        25,
-        25,
+        17,
+        13,
+        13,
         null,
         null,
         1,
-        29,
-        29,
-        29,
+        17,
+        17,
+        17,
         null,
         null,
         1,
-        27,
-        21,
-        21,
+        15,
+        9,
+        9,
         null,
         null,
         1,
-        27,
+        15,
         0,
         null,
         null,
         1,
-        27,
-        27,
-        27,
+        15,
+        15,
+        15,
         null,
         null,
         1,
@@ -2653,33 +2653,33 @@
         null,
         null
       ],
-      "/Users/tobias/dev/rails_projects/intlman/app/presenters/story_teaser_image_presenter.rb": [
+      "/Users/tobias/Documents/dev/intlman/app/presenters/story_teaser_image_presenter.rb": [
         1,
         1,
         1,
         1,
-        null,
-        1,
-        27,
-        27,
-        null,
-        null,
-        1,
-        1,
-        null,
-        1,
-        0,
-        0,
-        null,
-        0,
-        null,
-        0,
-        null,
         null,
         1,
         15,
-        0,
         15,
+        null,
+        null,
+        1,
+        1,
+        null,
+        1,
+        0,
+        0,
+        null,
+        0,
+        null,
+        0,
+        null,
+        null,
+        1,
+        3,
+        0,
+        3,
         0,
         null,
         null,
@@ -2725,7 +2725,7 @@
         null,
         null
       ],
-      "/Users/tobias/dev/rails_projects/intlman/app/service_objects/facebook_utility.rb": [
+      "/Users/tobias/Documents/dev/intlman/app/service_objects/facebook_utility.rb": [
         1,
         1,
         1,
@@ -2758,60 +2758,60 @@
         2,
         null,
         1,
-        1,
-        54,
-        54,
-        null,
-        54,
-        54,
+        0,
+        0,
         0,
         null,
+        0,
+        0,
+        0,
         null,
-        null,
-        2,
         null,
         null,
         1,
         null,
-        1,
-        55,
-        null,
-        55,
-        null,
-        0,
-        0,
-        null,
-        55,
-        null,
-        null,
         null,
         1,
-        55,
         null,
-        55,
-        55,
-        55,
-        55,
-        null,
-        0,
-        0,
-        0,
-        null,
-        55,
-        null,
-        null,
-        1,
         1,
         1,
         null,
         1,
         null,
         0,
+        0,
+        null,
+        1,
+        null,
+        null,
+        null,
+        1,
+        1,
         null,
         1,
         1,
         1,
         1,
+        null,
+        0,
+        0,
+        0,
+        null,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        0,
+        null,
+        1,
+        0,
+        0,
+        0,
         null,
         null,
         null,
@@ -2900,7 +2900,7 @@
         null,
         null
       ],
-      "/Users/tobias/dev/rails_projects/intlman/app/value_objects/article_path.rb": [
+      "/Users/tobias/Documents/dev/intlman/app/value_objects/article_path.rb": [
         null,
         null,
         null,
@@ -2912,7 +2912,7 @@
         null,
         null
       ],
-      "/Users/tobias/dev/rails_projects/intlman/app/value_objects/article_search_string.rb": [
+      "/Users/tobias/Documents/dev/intlman/app/value_objects/article_search_string.rb": [
         1,
         1,
         null,
@@ -2925,7 +2925,7 @@
         null,
         null
       ],
-      "/Users/tobias/dev/rails_projects/intlman/app/value_objects/search_string.rb": [
+      "/Users/tobias/Documents/dev/intlman/app/value_objects/search_string.rb": [
         1,
         1,
         61,
@@ -2985,7 +2985,7 @@
         null,
         null
       ],
-      "/Users/tobias/dev/rails_projects/intlman/app/value_objects/post_search_string.rb": [
+      "/Users/tobias/Documents/dev/intlman/app/value_objects/post_search_string.rb": [
         1,
         1,
         null,
@@ -2997,7 +2997,7 @@
         null,
         null
       ],
-      "/Users/tobias/dev/rails_projects/intlman/app/value_objects/video_and_radio_track_search_string.rb": [
+      "/Users/tobias/Documents/dev/intlman/app/value_objects/video_and_radio_track_search_string.rb": [
         1,
         1,
         null,
@@ -3008,7 +3008,7 @@
         null,
         null
       ],
-      "/Users/tobias/dev/rails_projects/intlman/app/value_objects/video_size.rb": [
+      "/Users/tobias/Documents/dev/intlman/app/value_objects/video_size.rb": [
         1,
         1,
         1,
@@ -3062,6 +3062,6 @@
         null
       ]
     },
-    "timestamp": 1353446635
+    "timestamp": 1381766577
   }
 }
