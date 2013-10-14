@@ -28,3 +28,4 @@ intlman_development.psql
 intlman_production.psql
 twitter.rb
 .dat
+.dump
