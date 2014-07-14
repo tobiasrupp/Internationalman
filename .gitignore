@@ -23,7 +23,7 @@ doc/
 .idea
 /public/system/articles
 /public/system/posts
-config/aws.yml
+/config/aws.yml
 intlman_development.psql
 intlman_production.psql
 twitter.rb
